@@ -1,4 +1,4 @@
- <nav class="navbar navbar-expand-lg position-sticky top-0 " id="nav">
+ <nav class="navbar navbar-expand-lg bg-danger" id="nav">
      <div class="container-fluid">
          <div class="navbar-brand">
              <img src="{{ asset('assets/imgs/logojw.png')}}" alt="notre logo" width="60" class="d-inline-block align-text-top">

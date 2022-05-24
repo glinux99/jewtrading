@@ -1,5 +1,8 @@
 @extends('layouts.layoutHF')
 @section('title') {{ __("Bienvenu sur Jews Tradding")}} @endsection
+@php
+$parentIndex = true;
+@endphp
 @section('body')
 <div class="bg-danger ">
     <div class="cool" style="background-image: url('/assets/imgs/carIndex.png'),url('/assets/imgs/bgIndex.png'); background-repeat: no-repeat,no-repeat; background-position: center,center;
@@ -8,8 +11,7 @@
         @include('layouts.menuP')
         <div class="container row">
             <div class="col-md-6 ms-md-4">
-                <h1 class="fw-bolder"
-                    style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
+                <h1 class="fw-bolder" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
                     <span class="fw-bold display-1 title" style="font-size: 8vw;">
                         Jews
                     </span>
@@ -49,8 +51,7 @@
                                 {{__("contact")}}
                             </h6>
                             <p class="text-danger h5 fw-bolder">
-                                <a href="mailto:kwiratuwe@yahoo.fr"
-                                    class="nav-link text-danger m-0 p-0">kwiratuwe@yahoo.fr</a>
+                                <a href="mailto:kwiratuwe@yahoo.fr" class="nav-link text-danger m-0 p-0">kwiratuwe@yahoo.fr</a>
                             </p>
                         </li>
                     </ul>
@@ -106,28 +107,29 @@
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item active">
                         <div class="d-flex">
-                            <img src="{{ asset('assets/imgs/car1.jpg')}}" alt="Groupe One" class="card-img-top border">
-                            <img src="{{ asset('assets/imgs/car2.jpg')}}" alt="Groupe One" class="card-img-top border">
-                            <img src="{{ asset('assets/imgs/car3.jpg')}}" alt="Groupe One" class="card-img-top border">
+                            <img src="{{ asset('assets/imgs/gal20.jpg')}}" alt="Groupe One" class="card-img-top border">
+                            <img src="{{ asset('assets/imgs/gal21.jpg')}}" alt="Groupe One" class="card-img-top border">
+                            <img src="{{ asset('assets/imgs/gal17.jpg')}}" alt="Groupe One" class="card-img-top border">
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="d-flex">
-                            <img src="{{ asset('assets/imgs/car4.jpg')}}" alt="Groupe One" class="card-img-top">
-                            <img src="{{ asset('assets/imgs/car5.jpg')}}" alt="Groupe One" class="card-img-top">
-                            <img src="{{ asset('assets/imgs/car6.jpg')}}" alt="Groupe One" class="card-img-top">
-                            {{-- <img src="{{ asset('assets/imgs/car7.jpg')}}" alt="Groupe One" class="card-img-top">
+                            <!-- <img src="{{ asset('assets/imgs/gal23.jpg')}}" alt="Groupe One" class="card-img-top border "> -->
+                            <img src="{{ asset('assets/imgs/gal18.jpg')}}" alt="Groupe One" class="card-img-top border">
+                            <img src="{{ asset('assets/imgs/gal19.jpg')}}" alt="Groupe One" class="card-img-top border">
+                            <!-- <img src="{{ asset('assets/imgs/gal20.jpg')}}" alt="Groupe One" class="card-img-top border">
+                            <img src="{{ asset('assets/imgs/gal21.jpg')}}" alt="Groupe One" class="card-img-top border"> -->
+                            <img src="{{ asset('assets/imgs/gal17.jpg')}}" alt="Groupe One" class="card-img-top border">
+                            {{-- <img src="{{ asset('assets/imgs/gal17.jpg')}}" alt="Groupe One" class="card-img-top">
                             --}}
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#galerieCarousel"
-                    data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#galerieCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#galerieCarousel"
-                    data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#galerieCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
@@ -180,8 +182,7 @@
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
                             <div class="card d-flex justify-content-center pt-md-3">
-                                <img src="{{asset('assets/imgs/pic1.jpg')}}" alt="image one"
-                                    class="d-inline-block rounded-circle mx-auto shadow" height="100" width="100">
+                                <img src="{{asset('assets/imgs/pic1.jpg')}}" alt="image one" class="d-inline-block rounded-circle mx-auto shadow" height="100" width="100">
                                 <div class="card-body text-center col-md-10 mx-auto">
                                     Si vous n’êtes pas un spécialiste dans l’importation des véhicules, le mieux c’est
                                     de
@@ -197,8 +198,7 @@
                         </div>
                         <div class="carousel-item ">
                             <div class="card d-flex justify-content-center pt-md-3 pb-4">
-                                <img src="{{asset('assets/imgs/pic2.jpg')}}" alt="image one"
-                                    class="d-inline-block rounded-circle mx-auto shadow" height="100" width="100">
+                                <img src="{{asset('assets/imgs/pic2.jpg')}}" alt="image one" class="d-inline-block rounded-circle mx-auto shadow" height="100" width="100">
                                 <div class="card-body text-center col-md-10 mx-auto">
                                     J'ai fait confiance à l'expertise de Jews Trading pour me ramener mon véhicule de
                                     rêve et je peux confirmer cette
@@ -212,8 +212,7 @@
                         </div>
                         <div class="carousel-item">
                             <div class="card d-flex justify-content-center pt-md-3">
-                                <img src="{{asset('assets/imgs/pic3.jpg')}}" alt="image one"
-                                    class="d-inline-block rounded-circle mx-auto shadow" height="100" width="100">
+                                <img src="{{asset('assets/imgs/pic3.jpg')}}" alt="image one" class="d-inline-block rounded-circle mx-auto shadow" height="100" width="100">
                                 <div class="card-body text-center col-md-10 mx-auto">
                                     Les meilleurs services d’importation des automobiles viennent de jews trading !
                                     L’expérience montre que proposer une
@@ -228,13 +227,11 @@
                             </div>
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#direPeople"
-                        data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#direPeople" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#direPeople"
-                        data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#direPeople" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
