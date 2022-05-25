@@ -4,7 +4,7 @@
 @include('layouts.menuP')
 <div class="position-relative">
     <div class="position-absolute" style="z-index: 1000; bottom: 50%;">
-        <h1 class="fw-bold text-white mx-5 px-5">{{__("Nos produits")}}</h1>
+        <h1 class="fw-bold text-white mx-5">{{__("Nos produits")}}</h1>
     </div>
     <div class="d-flex align-items-center produitBg">
     </div>
@@ -21,7 +21,7 @@
     'assets/imgs/gal20.jpg','assets/imgs/gal21.jpg','assets/imgs/gal22.jpg'];
     @endphp
     <div class="col-md-10 mx-auto">
-        @for($i = 0; $i < count($galeries)/3; $i++) @php $x=0; @endphp <div class="d-flex justify-content-center">
+        @for($i = 0; $i < count($galeries)/3; $i++) @php $x=0; @endphp <div class="d-md-flex d-lg-flex justify-content-center">
             @while ($x<3) <div class="col-md-4 m-3 card position-relative">
                 <img src="{{asset($galeries[$y])}}" alt="" class="img-fluid h-100" style="filter: contrast(50%)">
                 <div class="card-img-overlay ">

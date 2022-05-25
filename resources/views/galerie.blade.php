@@ -39,7 +39,7 @@
     <div class="col-md-10 mx-auto">
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                @for($i = 0; $i < count($galeries)/3; $i++) @php $x=0; $w=3; if($y>=count($galeries)-3){ $w=count($galeries)-$y; } @endphp <div class="d-flex justify-content-center">
+                @for($i = 0; $i < count($galeries)/3; $i++) @php $x=0; $w=3; if($y>=count($galeries)-3){ $w=count($galeries)-$y; } @endphp <div class="d-md-flex justify-content-center">
                         @while ($x<$w ) <div class="col-md-4 m-3">
                             <img src="{{asset($galeries[$y])}}" alt="" class="img-fluid">
                     </div>
@@ -52,7 +52,7 @@
             @endfor
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-            @for($i = 0, $y=0; $i <= 10; $i++) @php $x=0; $w=3; if($y>=10-3){ $w=10-$y; } @endphp <div class="d-flex justify-content-center">
+            @for($i = 0, $y=0; $i <= 10; $i++) @php $x=0; $w=3; if($y>=10-3){ $w=10-$y; } @endphp <div class="d-md-flex justify-content-center">
                     @while ($x<$w ) <div class="col-md-4 m-3">
                         <img src="{{asset($galeries[$y])}}" alt="" class="img-fluid">
                 </div>
@@ -65,7 +65,7 @@
         @endfor
     </div>
     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-        @for($i = 0, $y=0; $i < 1; $i++) @php $x=0; $w=3; if($y>=10-3){ $w=10-$y; } @endphp <div class="d-flex justify-content-center">
+        @for($i = 0, $y=0; $i < 1; $i++) @php $x=0; $w=3; if($y>=10-3){ $w=10-$y; } @endphp <div class="d-md-flex justify-content-center">
                 @while ($x<1 ) <div class="col-md-4 m-3">
                     <img src="{{asset($galeries[11])}}" alt="" class="img-fluid">
             </div>
