@@ -1,4 +1,4 @@
-<div class="conntainer">
+<div class="conntainer bg-danger">
     <form action="">
         <div class="w-100 d-flex align-item-center" style="height: 100px;">
             <div class="col-4 bg-danger d-flex justify-content-center align-items-center">
@@ -7,10 +7,10 @@
                     notifications
                 </p>
             </div>
-            <div class="col-4 px-4 bg-danger d-flex justify-content-center align-items-center">
+            <div class="col-4 px-4 bg-danger d-flex justify-content-center align-items-center leftMenuC">
                 <input type="text" name="" id="" class="form-control" placeholder="Votre Email adresse">
             </div>
-            <div class="col-4 bg-dark d-flex justify-content-start align-items-center ps-5">
+            <div class="col-4 bg-dark d-flex justify-content-start align-items-center ps-5 rightMenuC">
                 <button class="btn text-white btn-jew ms-5"><span>Abonnez-vous</span><span class="bi-chevron-right"></span></button>
             </div>
         </div>
