@@ -52,3 +52,10 @@ a,
   filter: contrast(50%);
   filter: brightness(50%);
 }
+
+.rightMenuC {
+  transform: skew(30deg);
+  border-left: 2px solid red;
+
+  background-color: #282a3c;
+}
