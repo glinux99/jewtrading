@@ -1,15 +1,54 @@
 a,
 .nav-link {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 .btn-jew {
-    background-color: #282a3c;
+  background-color: #282a3c;
 }
 
-.galerie-image {}
+.nav-link {
+  color: white !important;
 }
 
-);
+.nav-link:hover {
+  background: white !important;
+  color: black !important;
+}
+
+.serviceBg {
+  height: 50vh;
+  background: url('/assets/imgs/servicesbg.jpg');
+  background-position: center;
+  background-size: cover;
+  filter: contrast(50%);
+  filter: brightness(50%);
+}
+
+.produitBg {
+  height: 50vh;
+  background: url('/assets/imgs/produitbg.jpg');
+  background-position: center;
+  background-size: cover;
+  filter: contrast(50%);
+  filter: brightness(50%);
+}
+
+.aproposBg {
+  height: 50vh;
+  background: url('/assets/imgs/aproposbg.jpg');
+  background-position: center;
+  background-size: cover;
+  filter: contrast(50%);
+  filter: brightness(50%);
+}
+
+.contactBg {
+  height: 50vh;
+  background: url('/assets/imgs/contactbg.jpg');
+  background-position: center;
+  background-size: cover;
+  filter: contrast(50%);
+  filter: brightness(50%);
 }

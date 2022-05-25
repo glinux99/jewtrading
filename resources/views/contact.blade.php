@@ -2,8 +2,12 @@
 @section('title') {{ __("Notre galerie avec Jew Trading")}} @endsection
 @section('body')
 @include('layouts.menuP')
-<div class="container d-flex align-items-center bg-dark z-index-2n" style="height: 40vh">
-    <h1 class="fw-bold text-white">{{__("Contactez-nous")}}</h1>
+<div class="position-relative">
+    <div class="position-absolute" style="z-index: 1000; bottom: 50%;">
+        <h1 class="fw-bold text-white mx-5 px-5">{{__("Contactez-nous")}}</h1>
+    </div>
+    <div class="d-flex align-items-center contactBg">
+    </div>
 </div>
 <div class="container">
     <div class="row my-md-5">
@@ -37,7 +41,7 @@
                 <div class="d-flex justify-content-center"><button class="btn btn-danger">Soumettre</button></div>
             </form>
         </div>
-        <div class="col-md-4 card">
+        <div class="col-md-4 card p-4">
             <h4 class="fw-bolder">{{__("Contact rapide")}}</h4>
             <p>
                 {{__("Si vous avez des questions, utilisez simplement nos coordonnées suivantes.")}}

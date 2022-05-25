@@ -2,8 +2,12 @@
 @section('title') {{ __("Nos services avec Jew Trading")}} @endsection
 @section('body')
 @include('layouts.menuP')
-<div class="container d-flex align-items-center bg-dark" style="height: 40vh">
-    <h1 class="fw-bold text-white">{{__("Nous fournissons les meilleurs services")}}</h1>
+<div class="position-relative">
+    <div class="position-absolute" style="z-index: 1000; bottom: 50%;">
+        <h1 class="fw-bold text-white mx-5 px-5" >{{__("Nous fournissons les meilleurs services")}}</h1>
+    </div>
+    <div class="d-flex align-items-center serviceBg">
+    </div>
 </div>
 <div class="corp mt-md-5 pt-md-5" style="background: rgb(245, 246, 246);">
     <div class="services">
