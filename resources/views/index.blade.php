@@ -138,11 +138,11 @@ $parentIndex = true;
         {{-- Nous sommes les meilleurs --}}
         <div class="container mx-auto mb-md-4">
             <div class="row pt-md-5">
-                <div class="col-6">
+                <div class="col-md-6">
                     <img src="{{asset('assets/imgs/img2.jpg')}}" alt="" srcset="" class="d-inline-block w-100">
                 </div>
-                <div class="col-6">
-                    <h2>
+                <div class="col-md-6">
+                    <h2 class="h2">
                         {{__("Nous sommes les meilleurs")}}
                     </h2>
                     <p class="text-muted mb-md-4">
