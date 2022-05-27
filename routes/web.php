@@ -31,3 +31,7 @@ Route::get('/produits', function () {
 Route::get('/service', function () {
     return view('service');
 });
+Route::get('/detail', function () {
+    return view('detailProduit');
+});
+
