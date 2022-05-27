@@ -86,8 +86,8 @@
                                         {{ __("Phone") }}
                                     </h6>
                                     <p class="text-muted small">
-                                        <a href="tel:+243814536299">+243 814 536 299</a>
-                                        <a href="https://wa.me/+243997721070">+243 997 721 070</a>
+                                        <a href="tel:+243814536299" class="text-muted">+243 814 536 299</a>
+                                        <a href="https://wa.me/+243997721070" class="text-muted">+243 997 721 070</a>
                                     </p>
                                 </div>
                             </li>
@@ -98,7 +98,7 @@
                                         {{ __("Email") }}
                                     </h6>
                                     <p class="text-muted small">
-                                        <a href="mailto:kwiratuwe@gmail.com">kwiratuwe@gmail.com</a>
+                                        <a href="mailto:kwiratuwe@gmail.com" class="text-muted">kwiratuwe@gmail.com</a>
                                     </p>
                                 </div>
                             </li>

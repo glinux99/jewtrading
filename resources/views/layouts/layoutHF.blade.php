@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    @yield('body')
+    @yield('body' ?? 'NOT FOUND')
     @include('layouts.footer')
     @if ($parentIndex ?? '')
     <script>
