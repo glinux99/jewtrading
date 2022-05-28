@@ -8,5 +8,23 @@
     </div>
     <div class="d-flex align-items-center produitBg">
     </div>
+    <div class="container-fluid ">
+        <div class="col-md-10 mx-auto">
+            <div class="row">
+                <div class="col-md-4">
+                    <div id="produitDetails" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active">
+                                <img src="{{asset('assets/imgs/gal16.jpg')}}" alt="produit slide" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
