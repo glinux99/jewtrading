@@ -20,8 +20,8 @@
             </div>
         </div>
     </form>
-    <div style="background: #191f23;" class="text-light pt-4">
-        <div class="container-fluid">
+    <div style="background: #191f23;" class="text-light">
+        <div class="container-fluid pt-4">
             <div class="col-md-10 mx-auto py-md-4">
                 <div class="row w-100">
                     <div class="col-md-4 card" style="background: none; border: none">
