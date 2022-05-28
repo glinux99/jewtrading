@@ -1,5 +1,5 @@
 @extends('layouts.layoutHF')
-@section('title') {{ __("Bienvenu sur Jews Tradding")}} @endsection
+@section('title') {{ __("Jews Trading | Acceuil ")}} @endsection
 @php
 $parentIndex = true;
 @endphp
@@ -11,18 +11,12 @@ $parentIndex = true;
         @include('layouts.menuP')
         <div class="container row">
             <div class="col-md-6 ms-md-4">
-                <h1 class="fw-bolder" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">
-                    <span class="fw-bold display-1 title" style="font-size: 8vw;">
+                <h1 class="fw-bolder jewsIndex">
+                    <span class="fw-bold display-1 title">
                         Jews
                     </span>
                 </h1>
-                <h2 class="fw-bold" style="font-size: 6vw;
-	font-family: Roboto;
-	 -webkit-background-clip: text;
-	background-clip: text;
-	-webkit-text-fill-color: transparent;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	-webkit-text-stroke: 2px #ee3131;">
+                <h2 class="fw-bold tradingIndex">
                     Trading
                 </h2>
                 <div class="">
@@ -60,41 +54,7 @@ $parentIndex = true;
         </div>
     </div>
     <div class="corp " style="background: rgb(245, 246, 246);">
-        <div class="services">
-            <h2 class="text-center fw-bolder py-md-5">
-                Nous fournissons les meilleurs services
-            </h2>
-            @php
-            $services = array(
-            array('title'=>'Importation des vehicules',
-            'corps'=>"Nous important des vehicules de toutes marques et de vos reves"),
-            array('title'=>"Ventes de pieces de rechanges en ligne",
-            'corps'=>"L'entreprise Jews Trading facilite le client de faire l'achat en ligne de toutes pièces, huile
-            moteur, huile de boite de
-            toutes marques des véhicules tous d'origine japonaise."),
-            array('title'=>"Location véhicule",
-            'corps'=>"Nous prenons en locations des véhicules des bonne qualités et en bon état au public."),
-            array('title'=>"Echange de vehicule",
-            'corps'=>"Nous échangeons des véhicules à la demande de nos clients et selon des modalité bien respecter.
-            "),
-            );
-            @endphp
-            <div class="row w-100 d-flex justify-content-center">
-                @foreach ($services as $service )
-                <div class="col-md-4 m-1 border-bottom border-danger border-5 bg-white shadow">
-                    <div class="card-header h5 text-center fw-bold bg-white">
-                        {{ $service['title']}}
-                    </div>
-                    <div class="card-body">
-                        <p class=" mb-3">
-                            {{ $service['corps']}}
-                        </p>
-                        <button class="btn btn-danger d-block mx-auto">Lire plus</button>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
+        @include('layouts.servicesLayer')
         <div class="galerie bg-white mt-md-5 pt-md-5">
             <h2 class="text-center fw-bolder py-md-3 display-6">
                 Notre Galerie Photo
@@ -175,7 +135,7 @@ $parentIndex = true;
         </div>
         <div class="bg-danger py-md-5 ">
             <h2 class="display-5 text-center text-white">
-                {{__("Ce que disent People")}}
+                {{__("Ce que disent le peuple")}}
             </h2>
             <div class="d-flex justify-content-center col-md-8 mx-auto">
                 <div id="direPeople" class="carousel slide" data-bs-ride="carousel">
