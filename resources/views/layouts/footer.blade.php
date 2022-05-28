@@ -38,11 +38,6 @@
                         allocation des
                         véhicules au public.") }}
                             </p>
-                            <p>
-                                <span class="bi-facebook mx-1"></span>
-                                <span class="bi-twitter mx-1"></span>
-                                <span class="bi-linkedin mx-1"></span>
-                            </p>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -107,9 +102,29 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-10 mx-auto d-flex justify-content-center">
+                <p>
+                    <span class="bi-facebook mx-1"></span>
+                    <span class="bi-twitter mx-1"></span>
+                    <span class="bi-linkedin mx-1"></span>
+                </p>
+                {{--  <div class="select d-inline ms-3">
+                             <div class="input-group mb-3 d-inline">
+                                 <select id="langue" name="langue" class="form-control form-select d-inline-block text-muted p-0 m-0" style="min-width: max-content; background: none; height: max-content;" aria-label="" >
+                                     <option value="fr" >🇫🇷 fr</option>
+                                     <option value="en">🇬🇧 en</option>
+                                 </select>
+                             </div>
+                </div>  --}}
+            </div>
             <div class=" col-md-10 mx-auto border-top small bg">
-                <footer class="py-3 container">
-                    <p class="text-center text-muted m-0">copyritht&copy;2022 <a href="http://jewtrading.com">jewtrading</a> | all rigths reserved | Power by <span>subnet</span></p>
+                <footer class="py-3 container d-flex justify-content-center">
+                    <p class="text-center text-muted m-0 d-inline">
+                        copyritht&copy;2022
+                        <a href="http://jewtrading.com">jewtrading</a>
+                         | all rigths reserved | Power by
+                         <span>subnet</span>
+                    </p>
                 </footer>
             </div>
         </div>
