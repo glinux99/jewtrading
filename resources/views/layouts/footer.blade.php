@@ -27,16 +27,10 @@
                     <div class="col-md-4 card" style="background: none; border: none">
                         <img src="{{asset('assets/imgs/logojw.png')}}" alt="" class="card-img-top w-50">
                         <div class="card-body mx-0 px-0">
-                            <p>
-                                {{ __("Jews Trading Nous sommes JEWS TRADING l'entreprise d'importation des vehicules oueuvrant à l'Est
-                        de
-                        la
-                        République
-                        Démocratique du Congo dans la province du Nord-Kivu dans la ville de Goma, dans le domaine
-                        d'import
-                        et
-                        allocation des
-                        véhicules au public.") }}
+                            <p class="text-justify">
+                                {{ __("Nous sommes JEWS TRADING, l'entreprise d'importation des vehicules oueuvrant à l'Est
+                                        de la République Démocratique du Congo dans la province du Nord-Kivu dans la ville de Goma, dans le domaine
+                                        d'import et allocation des véhicules au public.") }}
                             </p>
                         </div>
                     </div>

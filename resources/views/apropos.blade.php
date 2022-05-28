@@ -15,7 +15,7 @@
             <div class="col-md-6">
                 <h3 class="text-uppercase fw-bolder">Bienvenu chez <span class="text-danger">Jews Trading</span></h3>
                 <h6 class="mb-3">{{__("Apropos")}}</h6>
-                <p class="text-muted">
+                <p class="text-muted text-justify">
                     {{__("Nous sommes JEWS TRADING l'entreprise d'importation des vehicules oueuvrant à l'Est de la République Démocratique du Congo dans la province du Nord-Kivu dans la ville de Goma, dans le domaine d'import et allocation des véhicules au public.")}}
                 </p>
             </div>
@@ -31,7 +31,7 @@
             </div>
             <div class="col-md-6">
                 <h3 class="fw-bolder">Pourquoi choisir jews traiding?</h3>
-                <p class="text-muted">
+                <p class="text-muted text-justify">
                     {{__("L'automobile est un moyen de transport privé parmi les plus répandus. Sa capacité est généralement de deux à cinq personnes,mais peut varier de une à neuf places. L'usage limite l'emploi du terme automobile aux véhicules possédant quatre roues, ou plus rarement trois ou six roues,de dimensions inférieures à celle des autobus et des camions, mais englobe parfois les camionnettes.Bien qu'étant des « véhicules automobiles. » nous somme jews trading, l'entreprise d'importation de vos véhicules de rêve avec comme mission Faciliter l'intermédiaire entre les acheteurs de véhicules et les entreprises de fabrication Aider les acheteurs de passer commande au site officiel d'achat des véhicules de leurs choix Faciliter l'importation des véhicules de la maison de fabrication jusqu'à la destination du client en toute sécurité Allocation des véhicules au public pour tel ou tel autre évènement. Bref Jews Trading a pour mission d'importer les véhicules à ses clients en leurs garantissant la sécurité.. Nos services sont (ont): ")}}
                 </p>
                 <p>

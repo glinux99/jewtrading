@@ -10,9 +10,9 @@
              <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse menuToggle navbar-collapse d-md-flex justify-content-end">
-             <ul class="nav nav-pills text-uppercase px-1">
+             <ul class="nav nav-pills text-uppercase ">
                  <li class="nav-item h6">
-                     <a href="/" class="nav-link ">
+                     <a href="/" class="nav-link">
                          <span class="liste">{{ __("home")}}</span>
                      </a>
                  </li>
