@@ -42,7 +42,7 @@
                         </li>
                         <li>
                             <a href="" class="nav-link">
-                                {{__("Employes")}} <span class="bi-chevron-left float-end"></span>
+                                <span class="person-badge"></span>{{__("Employes")}} <span class="bi-chevron-left float-end"></span>
                             </a>
                         </li>
                         <li>
