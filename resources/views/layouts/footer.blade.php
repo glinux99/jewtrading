@@ -102,14 +102,14 @@
                     <span class="bi-twitter mx-1"></span>
                     <span class="bi-linkedin mx-1"></span>
                 </p>
-                {{--  <div class="select d-inline ms-3">
+                <div class="select d-inline ms-3">
                              <div class="input-group mb-3 d-inline">
                                  <select id="langue" name="langue" class="form-control form-select d-inline-block text-muted p-0 m-0" style="min-width: max-content; background: none; height: max-content;" aria-label="" >
                                      <option value="fr" >🇫🇷 fr</option>
                                      <option value="en">🇬🇧 en</option>
                                  </select>
                              </div>
-                </div>  --}}
+                </div>
             </div>
             <div class=" col-md-10 mx-auto border-top small bg">
                 <footer class="py-3 container d-flex justify-content-center">

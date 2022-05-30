@@ -102,3 +102,24 @@ a,
   clip-path: polygon(0 0, 100% 0%, 100% 100%, 10% 100%);
   background-color: #282a3c;
 }
+
+.adminBody {
+  background-image: url('/assets/imgs/bgAdmin.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.menuAdmin {
+  background-color: #0c050438;
+}
+
+.menuLeft-Items>li>a.nav-link {
+  color: rgba(255, 255, 255, 0.781) !important;
+}
+
+.menuLeft-Items>li>a.nav-link:hover {
+  background: #ffffff52 !important;
+  color: white !important;
+  border-left: 4px solid white;
+  border-radius: 2px 0px 0px 2px;
+}
