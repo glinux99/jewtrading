@@ -32,7 +32,7 @@
                     </td>
                     <td>
                         <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#modifModal">Modifier<span class="ms-1 bi-trash float-end"></span></button>
-                        <button type="button" class="btn btn-danger mx-1">Supprimer<span class="ms-1 bi-pencil-square float-end"></span>
+                        <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#suppModal">Supprimer<span class="ms-1 bi-pencil-square float-end"></span>
                         </button>
                     </td>
                 </tr>
@@ -210,5 +210,162 @@
         </div>
     </div>
 </div>
-
+<!-- Modal pour la suppression -->
+<div class="modal fade" id="suppModal" tabindex="-1" aria-labelledby="suppModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg  text-white">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="suppModalLabel">Modifier un vehicule</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card bg-card">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="{{asset('assets/imgs/carIndex.png')}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-6 my-2">
+                            <div class="row m-2">
+                                <div class="col-4">
+                                    <label for="" class="form-label">
+                                        {{__("Prix")}}
+                                    </label>
+                                </div>
+                                <div class="col-8">
+                                    5.000usd
+                                </div>
+                            </div>
+                            <div class="row mx-2">
+                                <div class="col-4">
+                                    <label for="" class="form-label">
+                                        {{__("Marque")}}
+                                    </label>
+                                </div>
+                                <div class="col-8">
+                                    Mercedes
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-4">
+                                    <label for="" class="form-label">
+                                        {{__("Modele")}}
+                                    </label>
+                                </div>
+                                <div class="col-8">
+                                    Coupe
+                                </div>
+                            </div>
+                            <div class="row m-2">
+                                <div class="col-4">
+                                    <label for="" class="form-label">
+                                        {{__("Couleur")}}
+                                    </label>
+                                </div>
+                                <div class="col-8">
+                                    RED
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-md-5">
+                        <div class="row my-1">
+                            <div class="col-7 row">
+                                <div class="col-4">
+                                    <label for="" class="form-label">
+                                        {{__("Emplacement")}}
+                                    </label>
+                                </div>
+                                <div class="col-8">
+                                    KOREA
+                                </div>
+                            </div>
+                            <div class="col-5 row">
+                                <div class="col-4">
+                                    <label for="" class="form-label">
+                                        {{__("Kilometrage")}}
+                                    </label>
+                                </div>
+                                <div class="col-8 pe-auto">
+                                    1200
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col-7 row">
+                                <div class="col-4">
+                                    <label for="" class="form-label">
+                                        {{__("Annee Fab")}}
+                                    </label>
+                                </div>
+                                <div class="col-8">
+                                    10992
+                                </div>
+                            </div>
+                            <div class="row col-5">
+                                <div class="col-4">
+                                    <label for="" class="form-label">
+                                        {{__("Moteur")}}
+                                    </label>
+                                </div>
+                                <div class="col-8">
+                                    12cc
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="row col-7">
+                                <div class="col-4">
+                                    <label for="" class="form-label">
+                                        {{__("Transmission")}}
+                                    </label>
+                                </div>
+                                <div class="col-8">
+                                    Manuelle
+                                </div>
+                            </div>
+                            <div class="row col-5">
+                                <div class="col-4">
+                                    <label for="" class="form-label">
+                                        {{__("Carburateur")}}
+                                    </label>
+                                </div>
+                                <div class="col-8">
+                                    Diesel
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="row col-7">
+                                <div class="col-4">
+                                    <label for="" class="form-label">
+                                        {{__("Num Chassis")}}
+                                    </label>
+                                </div>
+                                <div class="col-8 d-flex">
+                                    <spna class="me-auto">
+                                        1223434531
+                                    </spna>
+                                </div>
+                            </div>
+                            <div class="row col-5">
+                                <div class="col-4">
+                                    <label for="" class="form-label">
+                                        {{__("Declaration")}}
+                                    </label>
+                                </div>
+                                <div class="col-8">
+                                    N/N
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
+                <button type="button" class="btn btn-danger">{{__("Supprimer")}}</button>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
