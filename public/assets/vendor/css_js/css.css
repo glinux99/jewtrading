@@ -111,6 +111,12 @@ a,
 
 .menuAdmin {
   background-color: #0c050438;
+  color: white;
+}
+
+.search-menu-admin {
+  background: #ffffff2f !important;
+  border: none
 }
 
 .menuLeft-Items>li>a.nav-link {
@@ -118,8 +124,18 @@ a,
 }
 
 .menuLeft-Items>li>a.nav-link:hover {
-  background: #ffffff52 !important;
+  background-color: transparent !important;
+}
+
+.menuLeft-Items>li.hoverClass:hover {
+  background: #ffffff2f !important;
   color: white !important;
   border-left: 4px solid white;
   border-radius: 2px 0px 0px 2px;
+}
+
+.child-hover-class>a.nav-link:hover {
+  background: #ffffff2f !important;
+  color: white !important;
+  border-bottom: 4px solid white;
 }

@@ -14,51 +14,83 @@
 <body class="adminBody">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 p-0 m-0 vh-100 menuAdmin">
-                <nav class="navbar navbar-expand-lg border-bottom border-secondary border-1 menuAdmin ">
-                    <div class="container-fluid mb-1 ">
-                        <div class="navbar-brand">
+            <div class="col-md-2 col-lg-2 col-2 p-0 m-0 vh-100 menuAdmin">
+                <nav class="navbar navbar-expand-lg border-bottom border-secondary border-1 menuAdmin">
+                    <div class="container-fluid px-1">
+                        <div class="navbar-brand ">
                             <img src="{{ asset('assets/imgs/logojw.png')}}" alt="notre logo" width="60" class="d-inline-block align-text-top">
-                            {{__("JEWS Admin")}}
+                            <span class="d-none d-md-inline d-lg-inline">
+                                {{__("JEWS Admin")}}
+                            </span>
                         </div>
                     </div>
                 </nav>
                 <div class="text-muted">
                     <ul class="list-unstyled menuLeft-Items">
-                        <li>
-                            <a href="" class="nav-link">
-                                <span class="bi-house-door"></span>{{__("Acceuil")}} <span class="bi-chevron-left float-end"></span>
-                            </a>
+                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
+                            <div class="p-3">
+                                <span class="bi-house-door me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Acceuil")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                            </div>
                         </li>
-                        <li>
-                            <a href="" class="nav-link">
-                                <span class="bi-cart4"></span> {{__("Produits")}} <span class="bi-chevron-left float-end"></span>
-                            </a>
+                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass " type="button" data-bs-toggle="collapse" data-bs-target="#collapseProduits" aria-expanded="false" aria-controls="collapseProduits">
+                            <div class="p-3 ">
+                                <span class="bi-cart4 me-md-2"></span> <span class="d-none d-md-inline d-lg-inline">{{__("Produits")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                            </div>
                         </li>
-                        <li>
-                            <a href="" class="nav-link">
-                                <span class="bi-globe"></span> {{__("Services")}} <span class="bi-chevron-left float-end"></span>
-                            </a>
+                        <li class="mx-4">
+                            <div class="collapse" id="collapseProduits">
+                                <ul class="list-unstyled pe-md-1 pe-1 ps-2">
+                                    <li class="child-hover-class my-2">
+                                        <a href="" class="nav-link m-0 p-1">
+                                            <span class="bi-caret-right-fill"></span>
+                                            <span class="ms-2">Ajouter</span>
+                                            <span class="bi-cart-plus-fill float-end"></span>
+                                        </a>
+                                    </li>
+                                    <li class="child-hover-class my-2">
+                                        <a href="" class="nav-link m-0 p-1">
+                                            <span class="bi-caret-right-fill"></span>
+                                            <span class="ms-2">{{__("Modifier ")}}</span>
+                                            <span class="bi-pencil-square float-end"></span>
+                                        </a>
+                                    </li>
+                                    <li class="child-hover-class my-2">
+                                        <a href="" class="nav-link m-0 p-1">
+                                            <span class="bi-caret-right-fill"></span>
+                                            <span class="ms-2">
+                                                {{__("Supprimer")}}
+                                            </span>
+                                            <span class="bi-trash float-end"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
-                        <li>
-                            <a href="" class="nav-link">
-                                <span class="person-badge"></span>{{__("Employes")}} <span class="bi-chevron-left float-end"></span>
-                            </a>
+                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
+                            <div class="p-3">
+                                <span class="bi-globe me-md-2"></span> <span class="d-none d-md-inline d-lg-inline">{{__("Services")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                            </div>
                         </li>
-                        <li>
-                            <a href="" class="nav-link">
-                                {{__("Galerie")}} <span class="bi-chevron-left float-end"></span>
-                            </a>
+
+                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
+                            <div class="p-3">
+                                <span class="bi-person-badge me-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Employes")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                            </div>
                         </li>
-                        <li>
-                            <a href="" class="nav-link">
-                                {{__("Parametre")}}
-                            </a>
+                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
+                            <div class="p-3">
+                                <span class="bi-card-image me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Galerie")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                            </div>
+                        </li>
+                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
+                            <div class="p-3">
+                                <span class="bi-share me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Parametre")}}</span>
+                            </div>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-10 p-0 m-0">
+            <div class="col-md-10 col-lg-10 col-10 p-0 m-0">
                 <div>
                     <nav class="navbar navbar-expand-lg menuAdmin">
                         <div class="container-fluid">
@@ -69,19 +101,19 @@
                                 <div class="navbar-nav mx-auto me-5">
                                     <li class="nav-item">
                                         <form action="" method="post" class="input-group">
-                                            <input type="text" class="form-control">
-                                            <button class="btn btn-success">{{ __("Recherche")}}</button>
+                                            <input type="text" class="form-control search-menu-admin">
+                                            <button class="btn menuAdmin">{{ __("Recherche")}}</button>
                                         </form>
                                     </li>
                                 </div>
-                                <div class="ms-auto d-flex dropdown">
+                                <div class="ms-auto d-flex">
                                     <img src="{{asset('assets/imgs/equipe1.jpg')}}" alt="image profile" class="rounded-circle" style="width: 50px; height: 50px">
                                 </div>
                             </div>
                         </div>
                     </nav>
                 </div>
-                <div class="">
+                <div class="position-relative">
                     <div class="container-fluid">
                         @yield('body' ?? 'NOT FOUND')
                     </div>
@@ -89,6 +121,23 @@
             </div>
         </div>
     </div>
+    <script src="{{asset('assets/vendor/dist/js/bootstrap.bundle.min.js')}}">
+    </script>
+    <script src="{{asset('assets/vendor/dist/js/jquery.min.js')}}">
+    </script>
+    <script>
+        // $('document').ready(function() {
+        //     $('li').click(function() {
+        //         if ($(this).find('span.bi-chevron-left')) {
+        //             $(this).find('span.bi-chevron-left').removeClass('bi-chevron-left');
+        //             alert('right')
+        //         } else {
+        //             $(this).find('span.bi-chevron-right').removeClass('bi-chevron-left');
+        //             alert('left')
+        //         }
+        //     });
+        // });
+    </script>
 </body>
 
 </html>
