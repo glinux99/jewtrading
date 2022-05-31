@@ -52,16 +52,8 @@
                                     <li class="child-hover-class my-2">
                                         <a href="/alterProduit" class="nav-link m-0 p-1">
                                             <span class="bi-caret-right-fill"></span>
-                                            <span class="ms-2">{{__("Modifier ")}}</span>
+                                            <span class="ms-2">{{__("Modifier")}}</span>
                                             <span class="bi-pencil-square float-end"></span>
-                                        </a>
-                                    </li>
-                                    <li class="child-hover-class my-2">
-                                        <a href="" class="nav-link m-0 p-1">
-                                            <span class="bi-caret-right-fill"></span>
-                                            <span class="ms-2">
-                                                {{__("Supprimer")}}
-                                            </span>
                                             <span class="bi-trash float-end"></span>
                                         </a>
                                     </li>
@@ -124,17 +116,10 @@
             </div>
         </div>
     </div>
-    <script src="{{asset('assets/vendor/dist/dataTable/dataTables.bootstrap5.min.js')}}"></script>
-    <script src="{{asset('assets/vendor/dist/dataTable/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/dist/js/jquery.min.js')}}"></script>
+    <script src="{{asset('/assets/vendor/dist/DataTables/datatables.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/dist/DataTables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css')}}"></script>
     <script src="{{asset('assets/vendor/dist/js/bootstrap.bundle.min.js')}}">
-    </script>
-    <script src="{{asset('assets/vendor/dist/js/jquery.min.js')}}">
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable();
-        });
     </script>
 </body>
 
