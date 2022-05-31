@@ -50,7 +50,7 @@
                                         </a>
                                     </li>
                                     <li class="child-hover-class my-2">
-                                        <a href="" class="nav-link m-0 p-1">
+                                        <a href="/alterProduit" class="nav-link m-0 p-1">
                                             <span class="bi-caret-right-fill"></span>
                                             <span class="ms-2">{{__("Modifier ")}}</span>
                                             <span class="bi-pencil-square float-end"></span>
@@ -124,22 +124,17 @@
             </div>
         </div>
     </div>
+    <script src="{{asset('assets/vendor/dist/dataTable/dataTables.bootstrap5.min.js')}}"></script>
+    <script src="{{asset('assets/vendor/dist/dataTable/jquery.dataTables.min.js')}}"></script>
     <script src="{{asset('assets/vendor/dist/js/bootstrap.bundle.min.js')}}">
     </script>
     <script src="{{asset('assets/vendor/dist/js/jquery.min.js')}}">
     </script>
+
     <script>
-        // $('document').ready(function() {
-        //     $('li').click(function() {
-        //         if ($(this).find('span.bi-chevron-left')) {
-        //             $(this).find('span.bi-chevron-left').removeClass('bi-chevron-left');
-        //             alert('right')
-        //         } else {
-        //             $(this).find('span.bi-chevron-right').removeClass('bi-chevron-left');
-        //             alert('left')
-        //         }
-        //     });
-        // });
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
     </script>
 </body>
 

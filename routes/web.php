@@ -40,3 +40,6 @@ Route::get('/admin', function () {
 Route::get('/addProduit', function () {
     return view('admin.add', ['#addProduit']);
 });
+Route::get('/alterProduit', function () {
+    return view('admin.alter', ['#addProduit']);
+});
