@@ -28,9 +28,11 @@
                 <div class="text-muted">
                     <ul class="list-unstyled menuLeft-Items">
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
-                            <div class="p-3">
-                                <span class="bi-house-door me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Acceuil")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
-                            </div>
+                            <a href="/admin" class="nav-link m-0 p-0">
+                                <div class="p-3">
+                                    <span class="bi-house-door me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Acceuil")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                                </div>
+                            </a>
                         </li>
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass " type="button" data-bs-toggle="collapse" data-bs-target="#collapseProduits" aria-expanded="false" aria-controls="collapseProduits">
                             <div class="p-3 ">
@@ -41,7 +43,7 @@
                             <div class="collapse" id="collapseProduits">
                                 <ul class="list-unstyled pe-md-1 pe-1 ps-2">
                                     <li class="child-hover-class my-2">
-                                        <a href="" class="nav-link m-0 p-1">
+                                        <a href="/addProduit" class="nav-link m-0 p-1">
                                             <span class="bi-caret-right-fill"></span>
                                             <span class="ms-2">Ajouter</span>
                                             <span class="bi-cart-plus-fill float-end"></span>
