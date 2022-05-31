@@ -99,8 +99,8 @@
                             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".coll">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <div class="collapse navbar-collapse coll">
-                                <div class="navbar-nav mx-auto me-5">
+                            <div class="collapse navbar-collapse coll d-flex justify-content-center">
+                                <div class="navbar-nav mx-auto">
                                     <li class="nav-item">
                                         <form action="" method="post" class="input-group">
                                             <input type="text" class="form-control search-menu-admin">
@@ -108,9 +108,10 @@
                                         </form>
                                     </li>
                                 </div>
-                                <div class="ms-auto d-flex">
-                                    <img src="{{asset('assets/imgs/equipe1.jpg')}}" alt="image profile" class="rounded-circle" style="width: 50px; height: 50px">
-                                </div>
+                            </div>
+
+                            <div class="ms-auto d-flex">
+                                <img src="{{asset('assets/imgs/equipe1.jpg')}}" alt="image profile" class="rounded-circle" style="width: 50px; height: 50px">
                             </div>
                         </div>
                     </nav>

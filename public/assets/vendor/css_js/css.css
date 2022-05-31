@@ -139,3 +139,20 @@ a,
   color: white !important;
   border-bottom: 4px solid white;
 }
+
+.bg-select {
+  background-color: #ffffff2f !important;
+  border: none;
+}
+
+.buttonAdd {
+  background-color: #0c05047c;
+  color: white;
+  width: 10rem;
+}
+
+.buttonAddPic {
+  background-color: #a5655cb4;
+  color: white;
+  width: 10rem;
+}
