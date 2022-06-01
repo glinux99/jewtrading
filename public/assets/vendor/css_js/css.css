@@ -161,3 +161,7 @@ a,
 .modal-content {
   background: url('/assets/imgs/bgAdmin.png') !important;
 }
+
+.bg-card-none {
+  background: transparent;
+}

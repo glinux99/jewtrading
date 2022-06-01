@@ -408,3 +408,170 @@
         </div>
     </div>
 </div>
+<!-- ADD EMploye -->
+<div class="modal fade" id="employeAddModal" tabindex="-1" aria-labelledby="employeAddModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg  text-white">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="employeAddModalLabel">{{__("Ajouter un employe")}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-10 mx-auto">
+                    <div class="row my-1">
+                        <div class="col-4">
+                            <label for="titre" class="form-label">
+                                {{__("Noms")}}
+                            </label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control bg-select" name="nomEmploye">
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-4">
+                            <label for="titre" class="form-label">
+                                {{__("Fonctions")}}
+                            </label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control bg-select" name="fonctionEmploye">
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-4">
+                            <label for="titre" class="form-label">
+                                {{__("E-mail")}}
+                            </label>
+                        </div>
+                        <div class="col-8">
+                            <input type="email" class="form-control bg-select" name="emailEmploye">
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-4">
+                            <label for="titre" class="form-label">
+                                {{__("Numero Tel")}}
+                            </label>
+                        </div>
+                        <div class="col-8">
+                            <input type="number" class="form-control bg-select" name="numEmploye">
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-4">
+                            <label for="titre" class="form-label">
+                                {{__("Adresse")}}
+                            </label>
+                        </div>
+                        <div class="col-8">
+                            <div class="mb-3">
+                                <textarea class="form-control bg-select" name="" id="" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-4">
+                            <label for="titre" class="form-label">
+                                {{__("Photo")}}
+                            </label>
+                        </div>
+                        <div class="col-8">
+                            <input type="file" name="photoEmploye" id="" class="form-control bg-select">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
+                <button type="button" class="btn buttonAdd">{{__("Enregistrer")}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Alter Employe -->
+<div class="modal fade" id="employeAlterModal" tabindex="-1" aria-labelledby="employeAlterModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl  text-white">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="employeAlterModalLabel">{{__("Modifier un employe")}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6 mx-auto">
+                        <div class="row my-1">
+                            <div class="col-4">
+                                <label for="titre" class="form-label">
+                                    {{__("Noms")}}
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-control bg-select" name="nomEmploye">
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col-4">
+                                <label for="titre" class="form-label">
+                                    {{__("Fonctions")}}
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-control bg-select" name="fonctionEmploye">
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col-4">
+                                <label for="titre" class="form-label">
+                                    {{__("E-mail")}}
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <input type="email" class="form-control bg-select" name="emailEmploye">
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col-4">
+                                <label for="titre" class="form-label">
+                                    {{__("Numero Tel")}}
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <input type="number" class="form-control bg-select" name="numEmploye">
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col-4">
+                                <label for="titre" class="form-label">
+                                    {{__("Adresse")}}
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <div class="mb-3">
+                                    <textarea class="form-control bg-select" name="" id="" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row my-1">
+                            <div class="col-4">
+                                <label for="titre" class="form-label">
+                                    {{__("Photo")}}
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <input type="file" name="photoEmploye" id="" class="form-control bg-select">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 card bg-card-none p-0">
+                        <img src="{{asset('assets/imgs/equipe6.jpg')}}" alt="photo agent" class="rounded d-inline-block img-responsive" style="height: 20rem;background-position:top">
+                    </div>
+                </div>
+            </div>
+            <div class=" modal-footer">
+                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
+                <button type="button" class="btn buttonAdd">{{__("Enregistrer")}}</button>
+            </div>
+        </div>
+    </div>
+</div>

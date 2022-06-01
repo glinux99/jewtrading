@@ -86,9 +86,30 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
+                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEmploye" aria-expanded="false" aria-controls="collapseEmploye">
                             <div class="p-3">
                                 <span class="bi-person-badge me-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Employes")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                            </div>
+                        </li>
+                        <li class="mx-4">
+                            <div class="collapse" id="collapseEmploye">
+                                <ul class="list-unstyled pe-md-1 pe-1 ps-2">
+                                    <li class="child-hover-class my-2">
+                                        <a href="#" class="nav-link m-0 p-1" role="button" data-bs-toggle="modal" data-bs-target="#employeAddModal">
+                                            <span class="bi-caret-right-fill"></span>
+                                            <span class="ms-2">Ajouter</span>
+                                            <span class="bi-cart-plus-fill float-end"></span>
+                                        </a>
+                                    </li>
+                                    <li class="child-hover-class my-2">
+                                        <a href="#" class="nav-link m-0 p-1" role="button" data-bs-toggle="modal" data-bs-target="#employeAlterModal">
+                                            <span class="bi-caret-right-fill"></span>
+                                            <span class="ms-2">{{__("Modifier")}}</span>
+                                            <span class="bi-pencil-square float-end"></span>
+                                            <span class="bi-trash float-end"></span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </li>
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">

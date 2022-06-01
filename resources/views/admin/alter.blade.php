@@ -44,7 +44,7 @@
 @endif
 @if ($service ?? '')
 <div class="container">
-    <h2 class="text-center text-white fw-bolder">{{__("Modifier un produit")}}</h2>
+    <h2 class="text-center text-white fw-bolder">{{__("Modifier un service")}}</h2>
     <div class="container mt-4">
         <table id="dataTable" class="table table-striped table-hover ">
             <thead>
