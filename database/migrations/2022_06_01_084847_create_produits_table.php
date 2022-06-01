@@ -15,9 +15,9 @@ class CreateProduitsTable extends Migration
     {
         Schema::create('produits', function (Blueprint $table) {
             $table->id();
-            $table->foreign('id_ag')->references('agents')->on('id')->onDelete('cascade')->change();
-            $table->foreign('id_com')->references('commandes')->on('id')->onDelete('cascade')->change();
-            $table->foreign('id_four')->references('fournisseurs')->on('id')->onDelete('cascade')->change();
+            $table->unsignedBigInteger('agent_id')->foreign('agent_id')->references('id')->on('agents')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('commande_id')->foreign('commande_id')->references('id')->on('commandes')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('fournisseur_id')->foreign('fournisseur_id')->references('id')->on('fournisseurs')->onUpdate('cascade')->onDelete('cascade');
             $table->double('prix', 20, 3);
             $table->string('couleur', 10);
             $table->string('declaration');

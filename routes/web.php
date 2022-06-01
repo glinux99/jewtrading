@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JewsTradingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,3 +59,6 @@ Route::get('/login', function () {
 Route::get('/test', function () {
     return view('test', ['#addProduit']);
 });
+
+// Liens propres
+Route::post('/connect', [JewsTradingController::class, 'connection']);
