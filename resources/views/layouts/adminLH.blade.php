@@ -120,9 +120,11 @@
                             </a>
                         </li>
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
-                            <div class="p-3">
-                                <span class="bi-share me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Parametre")}}</span>
-                            </div>
+                            <a href="/parametre" class="nav-link m-0 p-0">
+                                <div class="p-3">
+                                    <span class="bi-share me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Parametre")}}</span>
+                                </div>
+                            </a>
                         </li>
                     </ul>
                 </div>
