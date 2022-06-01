@@ -6,7 +6,7 @@
 <div class="">
     <h4 class="text-center text-white ">{{__("Modifier le parametre")}}</h4>
     <div class="col-md-10 menuAdmin mx-auto px-md-5 px-2 py-4 mb-1">
-        <h5 class="pb-3 border-bottom border-1 border-secondary">{{__("Information Generale")}}</h5>
+        <h5 class="pb-3 border-bottom border-1 border-secondary"><span class="bi-info-square me-2"></span>{{__("Information Generale")}}</h5>
         <div class="row">
             <div class="col-md-6">
                 <label for="nom" class="form-label">{{__("Login username")}}</label>
@@ -29,7 +29,7 @@
         </div>
     </div>
     <div class="col-md-10 menuAdmin mx-auto px-md-5 px-2 pb-4 ">
-        <h5 class=" py-3 border-bottom border-1 border-secondary">{{__("Information Supplementaire")}}</h5>
+        <h5 class=" py-3 border-bottom border-1 border-secondary"><span class="bi-info-circle me-2"></span>{{__("Information Supplementaire")}}</h5>
         <div class="row">
             <div class="col-md-12">
                 <label for="nom" class="form-label">{{__("Langue par defaut")}}</label>

@@ -52,6 +52,9 @@ Route::get('/galerie-alter', function () {
 Route::get('/parametre', function () {
     return view('admin.parametre');
 });
+Route::get('/login', function () {
+    return view('admin.login');
+});
 Route::get('/test', function () {
     return view('test', ['#addProduit']);
 });

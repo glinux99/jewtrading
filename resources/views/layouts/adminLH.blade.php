@@ -131,7 +131,7 @@
             </div>
             <div class="col-md-10 col-lg-10 col-10 p-0 m-0">
                 <div>
-                    <nav class="navbar navbar-expand-lg menuAdmin">
+                    <nav class="navbar navbar-expand-lg menuAdmin pe-5">
                         <div class="container-fluid">
                             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".coll">
                                 <span class="navbar-toggler-icon"></span>
@@ -146,10 +146,37 @@
                                     </li>
                                 </div>
                             </div>
-
-                            <div class="ms-auto d-flex">
-                                <img src="{{asset('assets/imgs/equipe1.jpg')}}" alt="image profile" class="rounded-circle" style="width: 50px; height: 50px">
+                            <div class="d-flex justify-content-end">
+                                <div class="btn-group dropstart">
+                                    <img src="{{asset('assets/imgs/logojw.png')}}" data-bs-toggle="dropdown" aria-expanded="false" alt="image profile" class="rounded-circle" style="width: 50px; height: 50px">
+                                    <ul class="dropdown-menu bg-card-none bg-select">
+                                        <li>
+                                            <a href="/parametre" class="nav-link">
+                                                <span class="bi-gear-fill me-1"></span>{{__("Parametre")}}
+                                            </a>
+                                        </li>
+                                        <li class="border-top"></li>
+                                        <li>
+                                            <a href="/logout" class="nav-link">
+                                                <span class="bi-power me-1"></span>{{__("Deconnection")}}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
+
+                            <!-- <div class="">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="{{asset('assets/imgs/logojw.png')}}" alt="image profile" class="rounded-circle" style="width: 50px; height: 50px">
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    </ul>
+                                </div>
+                            </div> -->
                         </div>
                     </nav>
                 </div>
