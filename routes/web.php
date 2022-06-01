@@ -41,7 +41,10 @@ Route::get('/addProduit', function () {
     return view('admin.add', ['#addProduit']);
 });
 Route::get('/alterProduit', function () {
-    return view('admin.alter', ['#addProduit']);
+    return view('admin.alter', ['produit' => true]);
+});
+Route::get('/alterService', function () {
+    return view('admin.alter', ['service' => true]);
 });
 Route::get('/test', function () {
     return view('test', ['#addProduit']);
