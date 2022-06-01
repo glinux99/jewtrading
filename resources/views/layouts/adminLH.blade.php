@@ -170,7 +170,7 @@
 
         function ajouter() {
             $('.input-add').append('<input type = "file"\
-            class = "form-control my-1" name ="file' + numFile + '"/>');
+            class = "form-control my-1 bg-select" name ="file' + numFile + '"/>');
             numFile++;
         }
     </script>
