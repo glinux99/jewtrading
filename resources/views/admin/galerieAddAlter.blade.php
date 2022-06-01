@@ -6,7 +6,7 @@
 <div class="container">
     <h2 class="text-center text-white fw-bolder">{{__("Galerie Photo")}}</h2>
     <div class="mt-4 mx-1">
-        <div class="input-add my-2 text-white">
+        <div class="my-2 text-white">
             <button class="btn buttonAdd" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGalerie" aria-expanded="false" aria-controls="collapseGalerie">Ajouter image</button>
             <div class="collapse col-md-6 my-2 card p-2 bg-card-none" id="collapseGalerie">
                 <div class="row">
@@ -24,14 +24,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        {{__("Image")}}
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-md-3">
+                            {{__("Image")}}
+                        </div>
+                        <div class="col-md-9 input-add">
+                            <div class="d-flex">
+                                <input type="file" name="file1" id="" class="form-control bg-select" required>
+                                <span class="ms-2 bi-plus-circle-fill bi--xl" onclick="ajouter()"></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-9 d-flex ">
-                        <input type="file" name="file1" id="" class="form-control bg-select">
-                        <span class="ms-2 bi-plus-circle-fill bi--xl"></span>
-                    </div>
+                </form>
+                <div class="d-flex justify-content-center my-3">
+                    <button class="btn buttonAdd">Enregistrer <span class="bi-card-image"></span></button>
                 </div>
             </div>
         </div>
