@@ -11,7 +11,7 @@
     <title>@yield('title' ?? 'Acceuil')</title>
 </head>
 
-<body>
+<body class="adminBody">
     @yield('body' ?? 'NOT FOUND')
     @include('layouts.footer')
     @if ($parentIndex ?? '')
