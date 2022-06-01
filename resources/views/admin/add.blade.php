@@ -1611,13 +1611,4 @@
         </div>
     </form>
 </div>
-<script>
-    let numFile = 0;
-
-    function ajouter() {
-        $('.input-add').append('<input type = "file"\
-            class = "form-control my-1" name ="file' + numFile + '"/>');
-        numFile++;
-    }
-</script>
 @endsection

@@ -107,6 +107,7 @@ a,
   background-image: url('/assets/imgs/bgAdmin.png');
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .menuAdmin {
@@ -160,6 +161,7 @@ a,
 .bg-card,
 .modal-content {
   background: url('/assets/imgs/bgAdmin.png') !important;
+  background-attachment: fixed;
 }
 
 .bg-card-none {

@@ -113,9 +113,11 @@
                             </div>
                         </li>
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
-                            <div class="p-3">
-                                <span class="bi-card-image me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Galerie")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
-                            </div>
+                            <a href="/galerie-alter" class="nav-link m-0 p-0">
+                                <div class="p-3">
+                                    <span class="bi-card-image me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Galerie")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                                </div>
+                            </a>
                         </li>
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
                             <div class="p-3">
@@ -162,6 +164,15 @@
     <script src="{{asset('/assets/vendor/dist/DataTables/datatables.min.js')}}"></script>
     <script src="{{asset('assets/vendor/dist/DataTables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css')}}"></script>
     <script src="{{asset('assets/vendor/dist/js/bootstrap.bundle.min.js')}}">
+    </script>
+    <script>
+        let numFile = 0;
+
+        function ajouter() {
+            $('.input-add').append('<input type = "file"\
+            class = "form-control my-1" name ="file' + numFile + '"/>');
+            numFile++;
+        }
     </script>
 </body>
 

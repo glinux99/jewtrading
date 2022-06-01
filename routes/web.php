@@ -46,6 +46,9 @@ Route::get('/alterProduit', function () {
 Route::get('/alterService', function () {
     return view('admin.alter', ['service' => true]);
 });
+Route::get('/galerie-alter', function () {
+    return view('admin.galerieAddAlter');
+});
 Route::get('/test', function () {
     return view('test', ['#addProduit']);
 });
