@@ -15,6 +15,14 @@ class CreateFournisseursTable extends Migration
     {
         Schema::create('fournisseurs', function (Blueprint $table) {
             $table->id();
+            $table->foreign('id_prod')->references('produits')->on('id')->onDelete('cascade')->change();
+            $table->string('marque', 60)->nullable()->change();;
+            $table->string('kilometrage', 60);
+            $table->date('annee_fab');
+            $table->string('moteur', 30);
+            $table->string('transmission', 30);
+            $table->string('carburateur', 30);
+            $table->string('model', 30);
             $table->timestamps();
         });
     }
