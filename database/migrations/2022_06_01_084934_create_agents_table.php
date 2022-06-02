@@ -21,6 +21,7 @@ class CreateAgentsTable extends Migration
             $table->string('email_agent');
             $table->text('adresse_agent');
             $table->string('fonction', 40);
+            $table->string('image');
             $table->timestamps();
         });
     }

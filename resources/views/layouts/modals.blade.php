@@ -411,82 +411,84 @@
 <!-- ADD EMploye -->
 <div class="modal fade" id="employeAddModal" tabindex="-1" aria-labelledby="employeAddModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg  text-white">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="employeAddModalLabel">{{__("Ajouter un employe")}}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="col-md-10 mx-auto">
-                    <div class="row my-1">
-                        <div class="col-4">
-                            <label for="titre" class="form-label">
-                                {{__("Noms")}}
-                            </label>
+        <form action="/ajoute_agent" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="employeAddModalLabel">{{__("Ajouter un employe")}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-10 mx-auto">
+                        <div class="row my-1">
+                            <div class="col-4">
+                                <label for="titre" class="form-label">
+                                    {{__("Noms")}}
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-control bg-select" name="nom_agent">
+                            </div>
                         </div>
-                        <div class="col-8">
-                            <input type="text" class="form-control bg-select" name="nomEmploye">
+                        <div class="row my-1">
+                            <div class="col-4">
+                                <label for="titre" class="form-label">
+                                    {{__("Fonctions")}}
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-control bg-select" name="fonction">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row my-1">
-                        <div class="col-4">
-                            <label for="titre" class="form-label">
-                                {{__("Fonctions")}}
-                            </label>
+                        <div class="row my-1">
+                            <div class="col-4">
+                                <label for="titre" class="form-label">
+                                    {{__("E-mail")}}
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <input type="email" class="form-control bg-select" name="email_agent">
+                            </div>
                         </div>
-                        <div class="col-8">
-                            <input type="text" class="form-control bg-select" name="fonctionEmploye">
+                        <div class="row my-1">
+                            <div class="col-4">
+                                <label for="titre" class="form-label">
+                                    {{__("Numero Tel")}}
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <input type="number" class="form-control bg-select" name="num_agent">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row my-1">
-                        <div class="col-4">
-                            <label for="titre" class="form-label">
-                                {{__("E-mail")}}
-                            </label>
+                        <div class="row my-1">
+                            <div class="col-4">
+                                <label for="titre" class="form-label">
+                                    {{__("Adresse")}}
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <div class="mb-3">
+                                    <textarea class="form-control bg-select" name="adresse_agent" id="" rows="3"></textarea>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-8">
-                            <input type="email" class="form-control bg-select" name="emailEmploye">
-                        </div>
-                    </div>
-                    <div class="row my-1">
-                        <div class="col-4">
-                            <label for="titre" class="form-label">
-                                {{__("Numero Tel")}}
-                            </label>
-                        </div>
-                        <div class="col-8">
-                            <input type="number" class="form-control bg-select" name="numEmploye">
-                        </div>
-                    </div>
-                    <div class="row my-1">
-                        <div class="col-4">
-                            <label for="titre" class="form-label">
-                                {{__("Adresse")}}
-                            </label>
-                        </div>
-                        <div class="col-8">
-                            <div class="mb-3">
-                                <textarea class="form-control bg-select" name="" id="" rows="3"></textarea>
+                        <div class="row my-1">
+                            <div class="col-4">
+                                <label for="titre" class="form-label">
+                                    {{__("Photo")}}
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <input type="file" name="photo" id="" class="form-control bg-select">
                             </div>
                         </div>
                     </div>
-                    <div class="row my-1">
-                        <div class="col-4">
-                            <label for="titre" class="form-label">
-                                {{__("Photo")}}
-                            </label>
-                        </div>
-                        <div class="col-8">
-                            <input type="file" name="photoEmploye" id="" class="form-control bg-select">
-                        </div>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
+                    <button type="submit" class="btn buttonAdd">{{__("Enregistrer")}}</button>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
-                <button type="button" class="btn buttonAdd">{{__("Enregistrer")}}</button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 <!-- Alter Employe -->

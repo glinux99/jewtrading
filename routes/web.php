@@ -36,9 +36,6 @@ Route::get('/service', function () {
 Route::get('/detail', function () {
     return view('detailsProduits');
 });
-Route::get('/admin', function () {
-    return view('admin');
-})->name('admin');
 Route::get('/addProduit', function () {
     return view('admin.add', ['#addProduit']);
 });
@@ -61,6 +58,8 @@ Route::get('/test', function () {
     return view('test', ['#addProduit']);
 });
 
-// Liens propres
-Route::post('//ajouterProduit', [JewsTradingController::class, 'create']);
+// Liens
+Route::post('/ajoute_agent', [JewsTradingController::class, 'ajouteAgent'])->name('agent');
+Route::get('/admin', [JewsTradingController::class, 'admin'])->name('admin');
+Route::post('/ajouterProduit', [JewsTradingController::class, 'create']);
 Route::post('/connect', [LoginController::class, 'connect']);

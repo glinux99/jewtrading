@@ -47,8 +47,7 @@ class JewsTradingController extends Controller
         $produit->file = request('file1');
         $produit->admin_id = Auth::user()->id;
         $produit->save();
-        $countProd = Produit::all()->count();
-        return view('admin', compact('countProd'));
+        return redirect('admin');
         /*
                 $name = $request->file('image')->getClientOriginalName();
         $path = $request->file('image')->store('public/uploads');
@@ -58,7 +57,40 @@ class JewsTradingController extends Controller
         $save->save();
         */
     }
+    public function admin()
+    {
+        $countProd = Produit::all()->count();
+        return view('admin', compact('countProd'));
+    }
+    public function ajouteAgent(Request $request)
+    {
+        $validate = Validator($request->all(), [
 
+            'nom_agent' => 'required|string',
+            'prenom_agent'
+            => 'required|string',
+            'num_agent'
+            => 'required|string',
+            'email_agent'
+            => 'required|string',
+            'adresse_agent'
+            => 'required|string',
+            'fonction'
+            => 'required|string'
+        ]);
+        if ($validate->fails()) {
+            return redirect()->back();
+        }
+        $produit = new Produit;
+        $inputs = ['marque', 'kilometrage', 'annee_fab', 'moteur', 'transmission', 'carburateur', 'emplacement', 'model', 'prix', 'couleur', 'declaration'];
+        foreach ($inputs as $input) {
+            $produit->$input = request($input);
+        }
+        $produit->file = request('file1');
+        $produit->admin_id = Auth::user()->id;
+        $produit->save();
+        return redirect('admin');
+    }
     /**
      * Store a newly created resource in storage.
      *
