@@ -22,7 +22,7 @@
                     <span class="bi-person bi--6xl"></span>
                 </p>
                 <div class="mx-2">
-                    <input type="text" class="form-control my-2 bg-select" placeholder="Username" name="username">
+                    <input type="text" class="form-control my-2 bg-select" placeholder="Username" name="email">
                     <input type="password" class="form-control bg-select" placeholder="******************" name="psswd">
                 </div>
                 <div class="d-flex justify-content-center mt-3">
