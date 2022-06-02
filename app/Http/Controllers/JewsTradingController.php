@@ -52,7 +52,7 @@ class JewsTradingController extends Controller
         $save->path = $path;
         $save->save();
         */
-        echo $request->file('file1')->getClientOriginalName();
+        dd(Request('file')[2]);
     }
 
     /**
