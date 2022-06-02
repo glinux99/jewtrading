@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agent;
+use App\Models\Service;
+use App\Models\Galerie;
+use App\Models\User;
+use App\Models\Commande;
 use Illuminate\Http\Request;
 use App\Models\Produit;
 use Illuminate\Support\Facades\Auth;
@@ -59,36 +64,42 @@ class JewsTradingController extends Controller
     }
     public function admin()
     {
+        $countServ = Service::all()->count();
+        $countAgent = Agent::all()->count();
+        $countPhoto = Galerie::all()->count();
         $countProd = Produit::all()->count();
-        return view('admin', compact('countProd'));
+        $countUser = User::all()->count();
+        return view('admin', compact([
+            'countProd', 'countAgent', 'countServ',
+            'countPhoto', 'countUser'
+        ]));
     }
     public function ajouteAgent(Request $request)
     {
         $validate = Validator($request->all(), [
 
             'nom_agent' => 'required|string',
-            'prenom_agent'
-            => 'required|string',
-            'num_agent'
-            => 'required|string',
-            'email_agent'
-            => 'required|string',
-            'adresse_agent'
-            => 'required|string',
-            'fonction'
-            => 'required|string'
+            // 'prenom_agent'
+            // => 'required|string',
+            // 'num_agent'
+            // => 'required|string',
+            // 'email_agent'
+            // => 'required|string',
+            // 'adresse_agent'
+            // => 'required|string',
+            // 'fonction'
+            // => 'required|string'
         ]);
         if ($validate->fails()) {
             return redirect()->back();
         }
-        $produit = new Produit;
-        $inputs = ['marque', 'kilometrage', 'annee_fab', 'moteur', 'transmission', 'carburateur', 'emplacement', 'model', 'prix', 'couleur', 'declaration'];
+        $agent = new Agent;
+        $inputs = ['nom_agent', 'num_agent', 'email_agent', 'adresse_agent', 'fonction'];
         foreach ($inputs as $input) {
-            $produit->$input = request($input);
+            $agent->$input = request($input);
         }
-        $produit->file = request('file1');
-        $produit->admin_id = Auth::user()->id;
-        $produit->save();
+        $agent->image = '';
+        $agent->save();
         return redirect('admin');
     }
     /**

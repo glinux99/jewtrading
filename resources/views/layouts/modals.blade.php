@@ -412,6 +412,7 @@
 <div class="modal fade" id="employeAddModal" tabindex="-1" aria-labelledby="employeAddModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg  text-white">
         <form action="/ajoute_agent" method="post">
+            @csrf
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="employeAddModalLabel">{{__("Ajouter un employe")}}</h5>
