@@ -10,21 +10,21 @@
         <div class="row">
             <div class="col-md-6">
                 <label for="nom" class="form-label">{{__("Login username")}}</label>
-                <input type="text" class="form-control bg-select">
+                <input type="text" class="form-control bg-select" value="{{ Auth::User()->name }}">
             </div>
             <div class="col-md-6">
                 <label for="nom" class="form-label">{{__("Login password")}}</label>
-                <input type="text" class="form-control bg-select">
+                <input type="text" class="form-control bg-select" placeholder="*******************">
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
                 <label for="nom" class="form-label">{{__("E-mail")}}</label>
-                <input type="email" class="form-control bg-select">
+                <input type="email" class="form-control bg-select" value="{{ Auth::User()->email }}">
             </div>
             <div class="col-md-6">
                 <label for="nom" class="form-label">{{__("Numero Tel")}}</label>
-                <input type="text" class="form-control bg-select">
+                <input type="text" class="form-control bg-select" value="{{ Auth::User()->number }}">
             </div>
         </div>
     </div>
