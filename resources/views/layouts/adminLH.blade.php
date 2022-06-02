@@ -195,7 +195,7 @@
     <script src="{{asset('assets/vendor/dist/js/bootstrap.bundle.min.js')}}">
     </script>
     <script>
-        let numFile = 0;
+        let numFile = 2;
 
         function ajouter() {
             $('.input-add').append('<input type = "file"\

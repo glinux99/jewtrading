@@ -15,12 +15,19 @@ class CreateProduitsTable extends Migration
     {
         Schema::create('produits', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('agent_id')->foreign('agent_id')->references('id')->on('agents')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('commande_id')->foreign('commande_id')->references('id')->on('commandes')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('fournisseur_id')->foreign('fournisseur_id')->references('id')->on('fournisseurs')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('admin_id')->foreign('admin_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('marque', 60);
+            $table->string('kilometrage', 60)->nullable('000000');
+            $table->date('annee_fab')->nullable();
+            $table->string('moteur', 30);
+            $table->string('transmission', 30);
+            $table->string('carburateur', 30);
+            $table->string('emplacement')->nullable("Japon");
+            $table->string('model', 30);
             $table->double('prix', 20, 3);
-            $table->string('couleur', 10);
-            $table->string('declaration');
+            $table->string('couleur', 10)->nullable();
+            $table->string('declaration')->nullable('N/D');
+            $table->string('file');
             $table->timestamps();
         });
     }

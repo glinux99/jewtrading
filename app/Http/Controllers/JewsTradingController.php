@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produit;
+use Illuminate\Support\Facades\Validator;
 
 class JewsTradingController extends Controller
 {
@@ -21,9 +23,36 @@ class JewsTradingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validate = Validator($request->all(), [
+
+            'marque' => 'required|string',
+            // 'model' => 'required',
+            // 'moteur' => 'required',
+            // 'transmission' => 'required',
+            // 'carburant' => 'required',
+            // 'prix' => 'required',
+            // 'file1' => 'required'
+        ]);
+        if ($validate->fails()) {
+            return redirect('/addProduit');
+        }
+        $produit = new Produit;
+        $inputs = ['marque', 'kilometrage', 'annee_fab', 'moteur', 'transmission', 'carburateur', 'emplacement', 'model', 'prix', 'couleur', 'declaration'];
+        // foreach ($inputs as $input) {
+        //     $produit->$input = request($input);
+        // }
+
+        /*
+                $name = $request->file('image')->getClientOriginalName();
+        $path = $request->file('image')->store('public/uploads');
+        $save = new Image;
+        $save->name = $name;
+        $save->path = $path;
+        $save->save();
+        */
+        echo $request->file('file1')->getClientOriginalName();
     }
 
     /**
@@ -69,10 +98,6 @@ class JewsTradingController extends Controller
     public function update(Request $request, $id)
     {
         //
-    }
-    public function connection()
-    {
-        return view('admin');
     }
     /**
      * Remove the specified resource from storage.

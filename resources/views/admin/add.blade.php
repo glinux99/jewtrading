@@ -5,7 +5,8 @@
 @section('body')
 <div class="container">
     <h2 class="text-center text-white fw-bolder">{{__("Ajout d'un produit")}}</h2>
-    <form action="" method="post">
+    <form action="/ajouterProduit" method="post">
+        @csrf
         <div class="col-md-10 col-lg-10 mx-auto add menuAdmin p-md-4 p-4">
             <p class="h4 border-bottom border-1 border-secondary py-2">
                 {{__("Information sur le produit")}}
@@ -1515,7 +1516,7 @@
                 <div class="col-md-4">
                     <div class=" mb-3">
                         <label for="emplacementvehicule" class="form-label">{{__("Emplacement")}}</label>
-                        <input type="text" class="form-control bg-select" placeholder="{{__('Entrez l\'emplacement du vehicule')}}">
+                        <input type="text" class="form-control bg-select" placeholder="{{__('Entrez l\'emplacement du vehicule')}}" name="emplacement">
                     </div>
                 </div>
             </div>
@@ -1535,7 +1536,7 @@
                 <div class="col-md-4">
                     <div class=" mb-3">
                         <label for="moteur" class="form-label">Cylindre Moteur</label>
-                        <input type="text" class="form-control bg-select" placeholder="{{__('Entrez le type de cylindre')}}">
+                        <input type="text" class="form-control bg-select" placeholder="{{__('Entrez le type de cylindre')}}" name="moteur" required>
                     </div>
                 </div>
             </div>
@@ -1543,7 +1544,7 @@
                 <div class="col-md-4">
                     <div class="mb-3 ">
                         <label for="typeTransmission" class="form-label">Transmission</label>
-                        <select class="form-control bg-select" name="typeTransmission" id="">
+                        <select class="form-control bg-select" name="transmission" id="">
                             <option>Manuelle</option>
                             <option>Automatique</option>
                         </select>
@@ -1552,7 +1553,7 @@
                 <div class="col-md-4">
                     <div class="mb-3 ">
                         <label for="typeCarburateur" class="form-label">{{__("Carburateur")}}</label>
-                        <select class="form-control bg-select" name="typeCarburateur" id="">
+                        <select class="form-control bg-select" name="carburateur" id="" required>
                             <option value="OTHER">{{__("Autres")}}</option>
                             <option value="DIES">{{__("Diesel")}}</option>
                             <option value="ELEC">{{__("Électrique")}}</option>
@@ -1598,7 +1599,7 @@
                 <div class="row">
                     <h6>{{__("Ajouter une pu plusieurs images")}}</h6>
                     <div class="col-md-6 input-add">
-                        <input type="file" class="my-1 form-control" id="file1" required />
+                        <input type="file" class="my-1 form-control" name="file1" id="file" required />
                     </div>
                     <div class="col-md-6">
                         <button type="button" class="btn buttonAddPic" onclick="ajouter()">{{__("ajouter")}} <span class="bi-images"></span><span class="bi-plus"></span></button>

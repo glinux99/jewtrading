@@ -62,4 +62,5 @@ Route::get('/test', function () {
 });
 
 // Liens propres
+Route::post('//ajouterProduit', [JewsTradingController::class, 'create']);
 Route::post('/connect', [LoginController::class, 'connect']);
