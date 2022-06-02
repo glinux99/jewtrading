@@ -37,7 +37,7 @@ class JewsTradingController extends Controller
             // 'file1' => 'required'
         ]);
         if ($validate->fails()) {
-            return redirect('/addProduit');
+            return redirect()->back();
         }
         $produit = new Produit;
         $inputs = ['marque', 'kilometrage', 'annee_fab', 'moteur', 'transmission', 'carburateur', 'emplacement', 'model', 'prix', 'couleur', 'declaration'];
@@ -48,8 +48,7 @@ class JewsTradingController extends Controller
         $produit->admin_id = Auth::user()->id;
         $produit->save();
         $countProd = Produit::all()->count();
-        return redirect('/admin')->with('countProd');
-
+        return view('admin', compact('countProd'));
         /*
                 $name = $request->file('image')->getClientOriginalName();
         $path = $request->file('image')->store('public/uploads');

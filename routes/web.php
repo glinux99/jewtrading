@@ -38,7 +38,7 @@ Route::get('/detail', function () {
 });
 Route::get('/admin', function () {
     return view('admin');
-});
+})->name('admin');
 Route::get('/addProduit', function () {
     return view('admin.add', ['#addProduit']);
 });
