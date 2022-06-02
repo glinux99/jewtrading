@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,9 +23,22 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $validate = Validator($request->all(), [
+            'titreService' => 'required',
+            'descriptionService' => 'required'
+        ]);
+        if ($validate->fails()) {
+            return redirect()->back();
+        }
+        $service = new Service;
+        $service->titreService = request('titreService');
+        $service->descriptionService = request('descriptionService');
+        $service->admin_id =
+            Auth::user()->id;
+        $service->save();
+        return redirect('admin');
     }
 
     /**
@@ -71,13 +85,7 @@ class LoginController extends Controller
     {
         //
     }
-    public function connect(Request $request)
-    {
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->psswd]) || Auth::attempt(['name' => $request->email, 'password' => $request->psswd])) {
-            return redirect('admin');
-        } else
-            echo 'error';
-    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -86,5 +94,6 @@ class LoginController extends Controller
      */
     public function destroy($id)
     {
+        //
     }
 }

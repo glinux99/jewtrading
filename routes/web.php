@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\JewsTradingController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,4 +63,5 @@ Route::get('/test', function () {
 Route::post('/ajoute_agent', [JewsTradingController::class, 'ajouteAgent'])->name('agent');
 Route::get('/admin', [JewsTradingController::class, 'admin'])->name('admin');
 Route::post('/ajouterProduit', [JewsTradingController::class, 'create']);
+Route::post('/ajoute_service', [ServiceController::class, 'create']);
 Route::post('/connect', [LoginController::class, 'connect']);

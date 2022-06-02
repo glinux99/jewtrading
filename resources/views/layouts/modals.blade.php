@@ -329,42 +329,45 @@
 <!-- Ajouter un service -->
 <div class="modal fade" id="serviceAddModal" tabindex="-1" aria-labelledby="serviceAddModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg  text-white">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="serviceAddModalLabel">Ajouter un service</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="col-md-12 mx-auto">
-                    <div class="row">
-                        <div class="col-2">
-                            <label for="titre" class="form-label">
-                                {{__("Titre")}}
-                            </label>
+        <form action="/ajoute_service" method="post">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="serviceAddModalLabel">Ajouter un service</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12 mx-auto">
+                        <div class="row">
+                            <div class="col-2">
+                                <label for="titre" class="form-label">
+                                    {{__("Titre")}}
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-control bg-select" name="titreService">
+                            </div>
                         </div>
-                        <div class="col-8">
-                            <input type="text" class="form-control bg-select" name="titreService">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2 my-1">
-                            <label for="titre" class="form-label">
-                                {{__("Description")}}
-                            </label>
-                        </div>
-                        <div class="col-8 my-1">
-                            <div class="form-group">
-                                <textarea id="my-textarea" class="form-control bg-select" name="descriptionService" rows="3"></textarea>
+                        <div class="row">
+                            <div class="col-2 my-1">
+                                <label for="titre" class="form-label">
+                                    {{__("Description")}}
+                                </label>
+                            </div>
+                            <div class="col-8 my-1">
+                                <div class="form-group">
+                                    <textarea id="my-textarea" class="form-control bg-select" name="descriptionService" rows="3"></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
+                    <button type="submit" class="btn buttonAdd">{{__("Enregistrer")}}</button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
-                <button type="button" class="btn buttonAdd">{{__("Enregistrer")}}</button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 <!-- Modifier un produit -->
