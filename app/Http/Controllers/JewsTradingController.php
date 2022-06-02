@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Produit;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class JewsTradingController extends Controller
@@ -40,9 +41,14 @@ class JewsTradingController extends Controller
         }
         $produit = new Produit;
         $inputs = ['marque', 'kilometrage', 'annee_fab', 'moteur', 'transmission', 'carburateur', 'emplacement', 'model', 'prix', 'couleur', 'declaration'];
-        // foreach ($inputs as $input) {
-        //     $produit->$input = request($input);
-        // }
+        foreach ($inputs as $input) {
+            $produit->$input = request($input);
+        }
+        $produit->file = request('file1');
+        $produit->admin_id = Auth::user()->id;
+        $produit->save();
+        $countProd = Produit::all()->count();
+        return redirect('/admin')->with('countProd');
 
         /*
                 $name = $request->file('image')->getClientOriginalName();
@@ -52,7 +58,6 @@ class JewsTradingController extends Controller
         $save->path = $path;
         $save->save();
         */
-        dd(Request('file')[2]);
     }
 
     /**
