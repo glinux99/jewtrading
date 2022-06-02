@@ -9,22 +9,23 @@
         <div class="my-2 text-white">
             <button class="btn buttonAdd" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGalerie" aria-expanded="false" aria-controls="collapseGalerie">Ajouter image</button>
             <div class="collapse col-md-6 my-2 card p-2 bg-card-none" id="collapseGalerie">
-                <div class="row">
-                    <div class="col-md-3">
-                        {{__("Categorie")}}
-                    </div>
-                    <div class="col-md-9">
-                        <div class="mb-3">
-                            <select class="form-control bg-select" name="" id="">
-                                <option>Client</option>
-                                <option>Produit</option>
-                                <option>Equipe</option>
-                                <option value="">Partenaire</option>
-                            </select>
+                <form action="/galerie_photo" method="post">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-3">
+                            {{__("Categorie")}}
+                        </div>
+                        <div class="col-md-9">
+                            <div class="mb-3">
+                                <select class="form-control bg-select" name="categories" id="">
+                                    <option value="client">Client</option>
+                                    <option class="produit">Produit</option>
+                                    <option class="equipe">Equipe</option>
+                                    <option value="partenaire">Partenaire</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <form action="" method="post">
                     <div class="row">
                         <div class="col-md-3">
                             {{__("Image")}}
@@ -36,10 +37,10 @@
                             </div>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center my-3">
+                        <button class="btn buttonAdd" type="submit">Enregistrer <span class="bi-card-image"></span></button>
+                    </div>
                 </form>
-                <div class="d-flex justify-content-center my-3">
-                    <button class="btn buttonAdd">Enregistrer <span class="bi-card-image"></span></button>
-                </div>
             </div>
         </div>
         @php

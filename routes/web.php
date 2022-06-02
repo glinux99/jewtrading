@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GalerieController;
 use App\Http\Controllers\JewsTradingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ServiceController;
@@ -59,9 +60,11 @@ Route::get('/test', function () {
     return view('test', ['#addProduit']);
 });
 
-// Liens
+// Liens.
+Route::post('/galerie_photo', [GalerieController::class, 'create']);
 Route::post('/ajoute_agent', [JewsTradingController::class, 'ajouteAgent'])->name('agent');
 Route::get('/admin', [JewsTradingController::class, 'admin'])->name('admin');
 Route::post('/ajouterProduit', [JewsTradingController::class, 'create']);
 Route::post('/ajoute_service', [ServiceController::class, 'create']);
 Route::post('/connect', [LoginController::class, 'connect']);
+Route::get('/logout', [LoginController::class, 'destroy']);
