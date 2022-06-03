@@ -46,25 +46,22 @@
 <div class="container">
     <h2 class="text-center text-white fw-bolder">{{__("Modifier un service")}}</h2>
     <div class="container mt-4">
-        <table id="dataTable" class="table table-striped table-hover ">
+        <table id="dataTable" class="table table-striped table-hover table-sm  table-responsive">
             <thead>
                 <tr>
-                    <th>Nom du service</th>
-                    <th>Titre</th>
-                    <th>Description</th>
-                    <th>Action</th>
+                    <th class="col-3">Titre</th>
+                    <th class="col-6">Description</th>
+                    <th class="col-6">Action</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($services as $serv)
                 <tr>
                     <td>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, voluptates.
+                        {{ $serv->titreService }}
                     </td>
                     <td>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora cupiditate magnam nisi voluptas consequuntur?
-                    </td>
-                    <td>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione sit libero laborum non, ipsa mollitia perspiciatis eos inventore distinctio incidunt?
+                        {{ $serv->descriptionService}}
                     </td>
                     <td class="">
                         <button type="button" class="btn btn-primary my-1 mx-auto" role="button" data-bs-toggle="modal" data-bs-target="#serviceAlterModal">Modifier<span class="ms-1 bi-pencil-square float-end"></span></button>
@@ -72,6 +69,7 @@
                         </button>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

@@ -4,6 +4,7 @@ use App\Http\Controllers\GalerieController;
 use App\Http\Controllers\JewsTradingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ServiceController;
+use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,7 +46,9 @@ Route::get('/alterProduit', function () {
     return view('admin.alter', ['produit' => true]);
 });
 Route::get('/alterService', function () {
-    return view('admin.alter', ['service' => true]);
+    $services = Service::all();
+    $service = true;
+    return view('admin.alter', compact('service', 'services'));
 });
 Route::get('/galerie-alter', function () {
     return view('admin.galerieAddAlter');
@@ -67,4 +70,5 @@ Route::get('/admin', [JewsTradingController::class, 'admin'])->name('admin');
 Route::post('/ajouterProduit', [JewsTradingController::class, 'create']);
 Route::post('/ajoute_service', [ServiceController::class, 'create']);
 Route::post('/connect', [LoginController::class, 'connect']);
+Route::post('/params_update', [LoginController::class, 'update']);
 Route::get('/logout', [LoginController::class, 'destroy']);

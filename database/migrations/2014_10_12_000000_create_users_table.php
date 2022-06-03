@@ -18,12 +18,12 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('number')->nullable('000000');
-            $table->string('lang');
-            $table->string('contact');
-            $table->string('adresse');
-            $table->string('emailEntreprise');
-            $table->text('description');
-            $table->text('apropos');
+            $table->string('lang')->nullable('fr');
+            $table->string('contact')->nullable('0000');
+            $table->string('adresse')->nullable('Goma');
+            $table->string('emailEntreprise')->nullable('jewstrading@gmail.com');
+            $table->text('description')->nullable('Jews Trading ...');
+            $table->text('apropos')->nullable('A propos de Jews Trading ...');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

@@ -12,21 +12,21 @@
             <div class="row">
                 <div class="col-md-6">
                     <label for="nom" class="form-label">{{__("Login username")}}</label>
-                    <input type="text" class="form-control bg-select" value="{{ Auth::User()->name }}">
+                    <input type="text" class="form-control bg-select" value="{{ Auth::User()->name }}" name="name">
                 </div>
                 <div class="col-md-6">
                     <label for="nom" class="form-label">{{__("Login password")}}</label>
-                    <input type="text" class="form-control bg-select" placeholder="*******************">
+                    <input type="text" class="form-control bg-select" placeholder="*******************" name="psswd">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <label for="nom" class="form-label">{{__("E-mail")}}</label>
-                    <input type="email" class="form-control bg-select" value="{{ Auth::User()->email }}">
+                    <input type="email" class="form-control bg-select" value="{{ Auth::User()->email }}" name="email">
                 </div>
                 <div class="col-md-6">
                     <label for="nom" class="form-label">{{__("Numero Tel")}}</label>
-                    <input type="text" class="form-control bg-select" value="{{ Auth::User()->number }}">
+                    <input type="text" class="form-control bg-select" value="{{ Auth::User()->number }}" name="number">
                 </div>
             </div>
         </div>
@@ -40,8 +40,20 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
+                    <label for="nom" class="form-label">{{__("Numero de contact")}}</label>
+                    <input type="text" class="form-control bg-select" name="contact" value="{{ Auth::User()->contact }}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <label for="nom" class="form-label">{{__("Adresse")}}</label>
                     <input type="text" class="form-control bg-select" name="adresse" value="{{ Auth::User()->adresse }}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="nom" class="form-label">{{__("E-mail de l'entreprise")}}</label>
+                    <input type="email" class="form-control bg-select" name="emailEntreprise" value="{{ Auth::User()->emailEntreprise }}">
                 </div>
             </div>
             <div class="row">
@@ -49,7 +61,7 @@
                     <label for="nom" class="form-label">{{__("Mission")}}</label>
                     <div class="mb-3">
                         <textarea class="form-control bg-select" name="mission" id="" rows="3">
-                        {{ Auth::User()->mission }}
+                        {{ Auth::User()->description }}
                         </textarea>
                     </div>
                 </div>
