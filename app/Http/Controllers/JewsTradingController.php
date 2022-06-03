@@ -76,31 +76,7 @@ class JewsTradingController extends Controller
     }
     public function ajouteAgent(Request $request)
     {
-        $validate = Validator($request->all(), [
-
-            'nom_agent' => 'required|string',
-            // 'prenom_agent'
-            // => 'required|string',
-            // 'num_agent'
-            // => 'required|string',
-            // 'email_agent'
-            // => 'required|string',
-            // 'adresse_agent'
-            // => 'required|string',
-            // 'fonction'
-            // => 'required|string'
-        ]);
-        if ($validate->fails()) {
-            return redirect()->back();
-        }
-        $agent = new Agent;
-        $inputs = ['nom_agent', 'num_agent', 'email_agent', 'adresse_agent', 'fonction'];
-        foreach ($inputs as $input) {
-            $agent->$input = request($input);
-        }
-        $agent->image = '';
-        $agent->save();
-        return redirect('admin');
+        
     }
     /**
      * Store a newly created resource in storage.

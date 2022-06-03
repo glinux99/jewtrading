@@ -105,6 +105,7 @@ class AgentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Agent::findOrfail($id)->delete();
+        return redirect()->back();
     }
 }

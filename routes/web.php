@@ -69,6 +69,8 @@ Route::get('/test', function () {
 Route::post('/galerie_photo', [GalerieController::class, 'create']);
 Route::post('/ajoute_agent', [AgentController::class, 'create'])->name('agent');
 Route::get('/add-agent', [AgentController::class, 'index']);
+Route::post('/update-agent', [AgentController::class, 'update']);
+Route::get('/delete-agent/{id}', [AgentController::class, 'destroy']);
 Route::get('/admin', [JewsTradingController::class, 'admin'])->name('admin');
 Route::post('/ajouterProduit', [JewsTradingController::class, 'create']);
 Route::post('/ajoute_service', [ServiceController::class, 'create']);
