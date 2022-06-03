@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-use App\Models\Service;
+use App\Models\Agent;
 use Illuminate\Http\Request;
 
-class ServiceController extends Controller
+class AgentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,15 +25,29 @@ class ServiceController extends Controller
     public function create(Request $request)
     {
         $validate = Validator($request->all(), [
-            'titreService' => 'required',
-            'descriptionService' => 'required'
+
+            'nom_agent' => 'required|string',
+            // 'prenom_agent'
+            // => 'required|string',
+            // 'num_agent'
+            // => 'required|string',
+            // 'email_agent'
+            // => 'required|string',
+            // 'adresse_agent'
+            // => 'required|string',
+            // 'fonction'
+            // => 'required|string'
         ]);
-        $service = new Service;
-        $service->titreService = request('titreService');
-        $service->descriptionService = request('descriptionService');
-        $service->admin_id =
-            Auth::user()->id;
-        $service->save();
+        if ($validate->fails()) {
+            return redirect()->back();
+        }
+        $agent = new Agent;
+        $inputs = ['nom_agent', 'num_agent', 'email_agent', 'adresse_agent', 'fonction'];
+        foreach ($inputs as $input) {
+            $agent->$input = request($input);
+        }
+        $agent->image = '';
+        $agent->save();
         return redirect('admin');
     }
 
@@ -68,6 +81,7 @@ class ServiceController extends Controller
      */
     public function edit($id)
     {
+        //
     }
 
     /**
@@ -77,30 +91,11 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $validate = Validator($request->all(), [
-            'titreService' => 'required|string',
-            'descriptionService' => 'required|string'
-        ]);
-        if ($validate->fails()) {
-            return redirect()->back();
-        }
-        $service = Service::find(request('id'));
-        $service->titreService = request('titreService');
-        $service->descriptionService = request('descriptionService');
-        $service->save();
-        return redirect('/alterService');
+        //
     }
 
-    public function activeModal($id)
-    {
-        $services = Service::all();
-        $serviceCurrent = Service::findOrfail($id);
-        $service = true;
-        session()->flash('serviceAff', true);
-        return view('admin.alter', ['service' => true, 'services' => $services, 'serviceCurrent' => $serviceCurrent]);
-    }
     /**
      * Remove the specified resource from storage.
      *
@@ -109,7 +104,6 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
-        Service::find($id)->delete();
-        return back();
+        //
     }
 }

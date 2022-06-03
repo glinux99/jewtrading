@@ -3,6 +3,8 @@
 use App\Http\Controllers\GalerieController;
 use App\Http\Controllers\JewsTradingController;
 use App\Http\Controllers\LoginController;
+
+use App\Http\Controllers\AgentController;
 use App\Http\Controllers\ServiceController;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
@@ -65,10 +67,13 @@ Route::get('/test', function () {
 
 // Liens.
 Route::post('/galerie_photo', [GalerieController::class, 'create']);
-Route::post('/ajoute_agent', [JewsTradingController::class, 'ajouteAgent'])->name('agent');
+Route::post('/ajoute_agent', [AgentController::class, 'create'])->name('agent');
 Route::get('/admin', [JewsTradingController::class, 'admin'])->name('admin');
 Route::post('/ajouterProduit', [JewsTradingController::class, 'create']);
 Route::post('/ajoute_service', [ServiceController::class, 'create']);
+Route::get('/modifier/service/{id}', [ServiceController::class, 'activeModal']);
+Route::post('/update-service', [ServiceController::class, 'update']);
+Route::get('/supprimer_service/{id}', [ServiceController::class, 'destroy']);
 Route::post('/connect', [LoginController::class, 'connect']);
 Route::post('/params_update', [LoginController::class, 'update']);
 Route::get('/logout', [LoginController::class, 'destroy']);

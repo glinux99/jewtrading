@@ -63,10 +63,10 @@
                     <td>
                         {{ $serv->descriptionService}}
                     </td>
-                    <td class="">
-                        <button type="button" class="btn btn-primary my-1 mx-auto" role="button" data-bs-toggle="modal" data-bs-target="#serviceAlterModal">Modifier<span class="ms-1 bi-pencil-square float-end"></span></button>
-                        <button type="button" class="btn btn-danger mx-auto my-1" data-bs-toggle="modal" data-bs-target="#suppModal">Supprimer<span class="ms-1 bi-trash float-end"></span>
-                        </button>
+                    <td class="modalButton">
+                        <a href="/modifier/service/{{ $serv->id}}" class="btn btn-primary my-1 mx-auto">Modifier<span class="ms-1 bi-pencil-square float-end"></span></a>
+                        <a href="/supprimer_service/{{ $serv->id}}" class="btn btn-danger mx-auto my-1">Supprimer<span class=" ms-1 bi-trash float-end"></span>
+                        </a>
                     </td>
                 </tr>
                 @endforeach

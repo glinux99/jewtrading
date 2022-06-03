@@ -203,6 +203,13 @@
             numFile++;
         }
     </script>
+    @if(session('serviceAff') ?? 0)
+    <script>
+        $(window).ready(function() {
+            $('#modalAff').click();
+        });
+    </script>
+    @endif
 </body>
 
 </html>

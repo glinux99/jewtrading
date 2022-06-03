@@ -1,23 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> -->
+<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+<link rel="stylesheet" href="{{asset('assets/vendor/dist/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('assets/vendor/css_js/css.css')}}">
+<link rel="stylesheet" href="{{asset('assets/vendor/icons/font/bootstrap-icons.css')}}">
+<script src="{{asset('assets/vendor/dist/js/jquery.min.js')}}"></script>
+<script src="{{asset('/assets/vendor/dist/DataTables/datatables.min.js')}}"></script>
+<script src="{{asset('assets/vendor/dist/DataTables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css')}}"></script>
+<script src="{{asset('assets/vendor/dist/js/bootstrap.bundle.min.js')}}">
+</script>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bootstrap 5 Simple Datatable Example</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <!-- bootstrap5 dataTables css cdn -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css" />
-</head>
+<div class="container">
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
-<body>
-    <input type="color" name="color" id="color">
-    <!-- bootstrap5 dataTables js cdn -->
-    <script>
-        let color = document.getElementById('color');
-        console.log(color.value);
-    </script>
-</body>
+    <!-- Modal -->
+    <div class="show" id="myModal" role="dialog">
+        <div class="modal-dialog">
 
-</html>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
