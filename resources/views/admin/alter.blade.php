@@ -32,8 +32,8 @@
                         5000
                     </td>
                     <td>
-                        <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#modifModal">Modifier<span class="ms-1 bi-trash float-end"></span></button>
-                        <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#suppModal">Supprimer<span class="ms-1 bi-pencil-square float-end"></span>
+                        <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#modifModal"><span class="ms-1 bi-trash float-end"></span></button>
+                        <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#suppModal"><span class="ms-1 bi-pencil-square float-end"></span>
                         </button>
                     </td>
                 </tr>
@@ -64,8 +64,53 @@
                         {{ $serv->descriptionService}}
                     </td>
                     <td class="modalButton">
-                        <a href="/modifier/service/{{ $serv->id}}" class="btn btn-primary my-1 mx-auto">Modifier<span class="ms-1 bi-pencil-square float-end"></span></a>
-                        <a href="/supprimer_service/{{ $serv->id}}" class="btn btn-danger mx-auto my-1">Supprimer<span class=" ms-1 bi-trash float-end"></span>
+                        <a href="/modifier/service/{{ $serv->id}}" class="btn btn-primary my-1 mx-auto"><span class="ms-1 bi-pencil-square float-end"></span></a>
+                        <a href="/supprimer_service/{{ $serv->id}}" class="btn btn-danger mx-auto my-1"><span class=" ms-1 bi-trash float-end"></span>
+                        </a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+@endif
+@if ($agents ?? '')
+<div class="container">
+    <h2 class="text-center text-white fw-bolder">{{__("Modifier un service")}}</h2>
+    <div class="container mt-4">
+        <table id="dataTable" class="table table-striped table-hover table-sm  table-responsive">
+            <thead>
+                <tr class="text-center">
+                    <th>{{__("Noms")}}</th>
+                    <th>{{__("Numero")}}</th>
+                    <th>{{__("Fonctions")}}</th>
+                    <th>{{__("E-mail")}}</th>
+                    <th>{{__("Numero")}}</th>
+                    <th>{{__("Adresse")}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($agents as $agent)
+                <tr>
+                    <td>
+                        {{ $agent->nom_agent }}
+                    </td>
+                    <td>
+                        {{ $agent->num_agent}}
+                    </td>
+                    <td>
+                        {{ $agent->email_agent}}
+                    </td>
+                    <td>
+                        {{ $agent->adresse_agent}}
+                    </td>
+                    <td>
+                        {{$agent->fonction}}
+                    </td>
+                    <td class="modalButton">
+                        <a href="/modifier/service/{{ $agent->id}}" class="btn btn-primary my-1 mx-auto"><span class="ms-1 bi-pencil-square float-end"></span></a>
+                        <a href="/supprimer_service/{{ $agent->id}}" class="btn btn-danger mx-auto my-1"><span class=" ms-1 bi-trash float-end"></span>
                         </a>
                     </td>
                 </tr>

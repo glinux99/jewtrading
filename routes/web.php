@@ -68,6 +68,7 @@ Route::get('/test', function () {
 // Liens.
 Route::post('/galerie_photo', [GalerieController::class, 'create']);
 Route::post('/ajoute_agent', [AgentController::class, 'create'])->name('agent');
+Route::get('/add-agent', [AgentController::class, 'index']);
 Route::get('/admin', [JewsTradingController::class, 'admin'])->name('admin');
 Route::post('/ajouterProduit', [JewsTradingController::class, 'create']);
 Route::post('/ajoute_service', [ServiceController::class, 'create']);

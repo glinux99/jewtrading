@@ -102,7 +102,7 @@
                                         </a>
                                     </li>
                                     <li class="child-hover-class my-2">
-                                        <a href="#" class="nav-link m-0 p-1" role="button" data-bs-toggle="modal" data-bs-target="#employeAlterModal">
+                                        <a href="/add-agent" class="nav-link m-0 p-1">
                                             <span class="bi-caret-right-fill"></span>
                                             <span class="ms-2">{{__("Modifier")}}</span>
                                             <span class="bi-pencil-square float-end"></span>
