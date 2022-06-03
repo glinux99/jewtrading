@@ -109,7 +109,7 @@
                         {{$agent->fonction}}
                     </td>
                     <td class="modalButton">
-                        <button type="button" class="btn btn-primary my-1 mx-auto" data-bs-toggle="modal" data-bs-target="#employeAlterModal"><span class="ms-1 bi-pencil-square float-end"></span></button>
+                        <a href="/modal-update-agent/{{ $agent->id}}" class="btn btn-primary my-1 mx-auto"><span class="ms-1 bi-pencil-square float-end"></span></a>
                         <a href="/delete-agent/{{ $agent->id}}" class="btn btn-danger mx-auto my-1"><span class=" ms-1 bi-trash float-end"></span>
                         </a>
                     </td>

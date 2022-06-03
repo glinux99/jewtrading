@@ -523,7 +523,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" class="form-control bg-select" name="nomEmploye">
+                                    <input type="text" class="form-control bg-select" name="nomEmploye" value="{{ $agentChange->nom_agent}}">
                                 </div>
                             </div>
                             <div class="row my-1">
@@ -532,8 +532,8 @@
                                         {{__("Fonctions")}}
                                     </label>
                                 </div>
-                                <div class="col-8">
-                                    <input type="text" class="form-control bg-select" name="fonctionEmploye">
+                                <div class=" col-8">
+                                    <input type="text" class="form-control bg-select" name="fonctionEmploye" value="{{ $agentChange->fonction}}">
                                 </div>
                             </div>
                             <div class="row my-1">
@@ -543,7 +543,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="email" class="form-control bg-select" name="emailEmploye">
+                                    <input type="email" class="form-control bg-select" name="emailEmploye" value="{{ $agentChange->num_agent}}">
                                 </div>
                             </div>
                             <div class="row my-1">
@@ -553,7 +553,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="number" class="form-control bg-select" name="numEmploye">
+                                    <input type="number" class="form-control bg-select" name="numEmploye" value="{{ $agentChange->num_agent}}">
                                 </div>
                             </div>
                             <div class="row my-1">
@@ -564,7 +564,9 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="mb-3">
-                                        <textarea class="form-control bg-select" name="" id="" rows="3"></textarea>
+                                        <textarea class="form-control bg-select" name="" id="adresseEmploye" rows="3">
+                                            value="{{ $agentChange->adresse_agent}}"
+                                        </textarea>
                                     </div>
                                 </div>
                             </div>
@@ -575,7 +577,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="file" name="photoEmploye" id="" class="form-control bg-select">
+                                    <input type="file" name="photoEmploye" id="" class="form-control bg-select" value="value=" {{ $agentChange->image}}"">
                                 </div>
                             </div>
                         </div>

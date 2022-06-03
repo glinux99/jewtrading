@@ -71,7 +71,8 @@ class AgentController extends Controller
      */
     public function show($id)
     {
-        //
+        $agent = Agent::findOrfail($id);
+        return view('admin.alter', ['agentChange' => $agent]);
     }
 
     /**
