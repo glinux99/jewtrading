@@ -198,9 +198,21 @@
         let numFile = 2;
 
         function ajouter() {
-            $('.input-add').append('<input type = "file"\
-            class = "form-control my-1 bg-select" name ="file' + numFile + '"/>');
+            $('.input-add').append('<div class="d-flex">\
+            <input type = "file"\
+            class = "form-control my-1 bg-select" name ="file' + numFile + '"/>\
+            <span class="ms-2 bi-trash-fill bi--xl text-danger" onclick="deleteP(this)"></span>\
+            </div>');
+            $('#count').val(numFile);
             numFile++;
+        }
+
+        function deleteP(el) {
+            $(el).parent('div').remove();
+            numFile = $('#count').val();
+            let val = $('#count').val();
+            $('#count').val(val - 1);
+            console.log();
         }
     </script>
     @if(session('serviceAff') ?? 0)

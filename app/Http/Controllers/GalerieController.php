@@ -24,17 +24,18 @@ class GalerieController extends Controller
      */
     public function create(Request $request)
     {
-        $validate = Validator($request->all(), [
-            'categories' => 'required'
-        ]);
-        if ($validate->fails()) {
-            return redirect()->back();
-        }
-        $galerie = new Galerie;
-        $galerie->categories = request('categories');
-        $galerie->image = request('file1');
-        $galerie->save();
-        return redirect('admin');
+        // $validate = Validator($request->all(), [
+        //     'categories' => 'required'
+        // ]);
+        // if ($validate->fails()) {
+        //     return redirect()->back();
+        // }
+        // $galerie = new Galerie;
+        // $galerie->categories = request('categories');
+        // $galerie->image = request('file1');
+        // $galerie->save();
+        // return redirect('admin');
+        echo request('count');
     }
 
     /**

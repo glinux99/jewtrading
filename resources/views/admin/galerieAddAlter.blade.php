@@ -9,7 +9,7 @@
         <div class="my-2 text-white">
             <button class="btn buttonAdd" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGalerie" aria-expanded="false" aria-controls="collapseGalerie">Ajouter image</button>
             <div class="collapse col-md-6 my-2 card p-2 bg-card-none" id="collapseGalerie">
-                <form action="/galerie_photo" method="post">
+                <form action="/galerie-photo" method="post" id="dataform">
                     @csrf
                     <div class="row">
                         <div class="col-md-3">
@@ -35,6 +35,7 @@
                                 <input type="file" name="file1" id="" class="form-control bg-select" required>
                                 <span class="ms-2 bi-plus-circle-fill bi--xl" onclick="ajouter()"></span>
                             </div>
+                            <input type="number" name="count" id="count">
                         </div>
                     </div>
                     <div class="d-flex justify-content-center my-3">

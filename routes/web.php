@@ -81,3 +81,4 @@ Route::get('/supprimer_service/{id}', [ServiceController::class, 'destroy']);
 Route::post('/connect', [LoginController::class, 'connect']);
 Route::post('/params_update', [LoginController::class, 'update']);
 Route::get('/logout', [LoginController::class, 'destroy']);
+Route::post('/galerie-photo', [GalerieController::class, 'create']);
