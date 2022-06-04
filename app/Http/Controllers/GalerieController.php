@@ -26,25 +26,28 @@ class GalerieController extends Controller
      */
     public function create(Request $request)
     {
-        // $validate = Validator($request->all(), [
-        //     'categories' => 'required'
-        // ]);
-        // if ($validate->fails()) {
-        //     return redirect()->back();
-        // }
-        // $galerie = new Galerie;
-        // $galerie->categories = request('categories');
-        // $galerie->image = request('file1');
-        // $galerie->save();
-        // return redirect('admin');
-        $file =
-            $random = Str::random(5);;
-        $ext = $request->file1->getClientOriginalExtension();
-        $fileName = $file . '.' . $ext;
-        Storage::disk('local')->put('images' . '/' . $fileName, $request->file);
-        die();
-        echo request('count');
-        dd($request->file('file1'));
+        $validate = Validator($request->all(), [
+            'categories' => 'required'
+        ]);
+        if ($validate->fails()) {
+            return redirect()->back();
+        }
+        $galerie = new Galerie;
+        $galerie->categories = request('categories');
+        if (!request('count')) $count = 1;
+        else $count = request('count');
+        $tab = array();
+        for ($i = 0; $i < $count; $i++) {
+            $file = Str::random(5);
+            $ext = $request->file1->getClientOriginalExtension();
+            $fileName = $file . '.' . $ext;
+            Storage::disk('public')->put('images' . '/' . $fileName, $request->file);
+            array_push($tab, $fileName);
+        }
+        $files = implode(',', $tab);
+        $galerie->image = $files;
+        $galerie->save();
+        return redirect('admin');
     }
 
     /**
