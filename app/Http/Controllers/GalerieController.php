@@ -36,6 +36,7 @@ class GalerieController extends Controller
         // $galerie->save();
         // return redirect('admin');
         echo request('count');
+        dd(request('file1'));
     }
 
     /**

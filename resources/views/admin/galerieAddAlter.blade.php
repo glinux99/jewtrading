@@ -35,7 +35,7 @@
                                 <input type="file" name="file1" id="" class="form-control bg-select" required>
                                 <span class="ms-2 bi-plus-circle-fill bi--xl" onclick="ajouter()"></span>
                             </div>
-                            <input type="number" name="count" id="count">
+                            <input type="number" name="count" id="count" hidden>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center my-3">
