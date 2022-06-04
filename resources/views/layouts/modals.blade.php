@@ -504,9 +504,10 @@
 <!-- Alter Employe -->
 <button type="button" id="modalAff" role="button" data-bs-toggle="modal" data-bs-target="#serviceAlterModal" hidden></button>
 <button type="button" id="agentAffModal" role="button" data-bs-toggle="modal" data-bs-target="#employeAlterModal" hidden></button>
+@if ($agentChange ?? 0)
 <div class="modal fade" id="employeAlterModal" tabindex="-1" aria-labelledby="employeAlterModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl  text-white">
-        <form action="/update-agent" method="post">
+        <form action="/update-agent/{{ $agentChange->id}}" method="post">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -523,7 +524,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" class="form-control bg-select" name="nomEmploye" value="{{ $agentChange->nom_agent}}">
+                                    <input type="text" class="form-control bg-select" name="nom_agent" value="{{ $agentChange->nom_agent}}">
                                 </div>
                             </div>
                             <div class="row my-1">
@@ -533,7 +534,7 @@
                                     </label>
                                 </div>
                                 <div class=" col-8">
-                                    <input type="text" class="form-control bg-select" name="fonctionEmploye" value="{{ $agentChange->fonction}}">
+                                    <input type="text" class="form-control bg-select" name="fonction" value="{{ $agentChange->fonction}}">
                                 </div>
                             </div>
                             <div class="row my-1">
@@ -543,7 +544,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="email" class="form-control bg-select" name="emailEmploye" value="{{ $agentChange->num_agent}}">
+                                    <input type="email" class="form-control bg-select" name="email_agent" value="{{ $agentChange->email_agent}}">
                                 </div>
                             </div>
                             <div class="row my-1">
@@ -553,7 +554,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="number" class="form-control bg-select" name="numEmploye" value="{{ $agentChange->num_agent}}">
+                                    <input type="number" class="form-control bg-select" name="num_agent" value="{{ $agentChange->num_agent}}">
                                 </div>
                             </div>
                             <div class="row my-1">
@@ -564,7 +565,7 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="mb-3">
-                                        <textarea class="form-control bg-select" name="" id="adresseEmploye" rows="3">
+                                        <textarea class="form-control bg-select" name="adresse_agent" id="" rows="3">
                                         {{ $agentChange->adresse_agent}}
                                         </textarea>
                                     </div>
@@ -577,11 +578,10 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="file" name="photoEmploye" id="" class="form-control bg-select" value="value=" {{ $agentChange->image}}"">
+                                    <input type="file" name="image" id="" class="form-control bg-select" value="value=" {{ $agentChange->image}}"">
                                 </div>
                             </div>
                         </div>
-                        <input type="text" name="id" value="{{ $agentChange->id}}" hidden>
                         <div class="col-md-6 card bg-card-none p-0">
                             <img src="{{asset('assets/imgs/equipe6.jpg')}}" alt="photo agent" class="rounded d-inline-block img-responsive" style="height: 20rem;background-position:top">
                         </div>
@@ -595,3 +595,4 @@
         </form>
     </div>
 </div>
+@endif

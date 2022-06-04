@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Agent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class AgentController extends Controller
 {
@@ -43,15 +44,19 @@ class AgentController extends Controller
             return redirect()->back();
         }
         $agent = new Agent;
+        AgentController::saveAgent($agent, $request);
+        return redirect('admin');
+    }
+    // Fonction pour enregistrer les agents, un code fluid
+    private function saveAgent($agent, $request)
+    {
         $inputs = ['nom_agent', 'num_agent', 'email_agent', 'adresse_agent', 'fonction'];
         foreach ($inputs as $input) {
-            $agent->$input = request($input);
+            $agent->$input = $request->$input;
         }
         $agent->image = '';
         $agent->save();
-        return redirect('admin');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -97,7 +102,9 @@ class AgentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $agent = Agent::findOrfail($id);
+        AgentController::saveAgent($agent, $request);
+        return redirect('admin');
     }
 
     /**
@@ -109,6 +116,6 @@ class AgentController extends Controller
     public function destroy($id)
     {
         Agent::findOrfail($id)->delete();
-        return redirect()->back();
+        return redirect('admin');
     }
 }
