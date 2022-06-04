@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Galerie;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -36,7 +37,11 @@ class GalerieController extends Controller
         // $galerie->image = request('file1');
         // $galerie->save();
         // return redirect('admin');
-        Storage::disk('local')->put('images', $request->file('file1'));
+        $file =
+            $random = Str::random(5);;
+        $ext = $request->file1->getClientOriginalExtension();
+        $fileName = $file . '.' . $ext;
+        Storage::disk('local')->put('images' . '/' . $fileName, $request->file);
         die();
         echo request('count');
         dd($request->file('file1'));
