@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Galerie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GalerieController extends Controller
 {
@@ -35,8 +36,10 @@ class GalerieController extends Controller
         // $galerie->image = request('file1');
         // $galerie->save();
         // return redirect('admin');
+        Storage::disk('local')->put('images', $request->file('file1'));
+        die();
         echo request('count');
-        dd(request('file1'));
+        dd($request->file('file1'));
     }
 
     /**
