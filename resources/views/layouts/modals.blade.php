@@ -502,8 +502,8 @@
     </div>
 </div>
 <!-- Alter Employe -->
-<button type="button" data-bs-toggle="modal" data-bs-target="#employeAlterModal"></button>
 <button type="button" id="modalAff" role="button" data-bs-toggle="modal" data-bs-target="#serviceAlterModal" hidden></button>
+<button type="button" id="agentAffModal" role="button" data-bs-toggle="modal" data-bs-target="#employeAlterModal" hidden></button>
 <div class="modal fade" id="employeAlterModal" tabindex="-1" aria-labelledby="employeAlterModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl  text-white">
         <form action="/update-agent" method="post">
@@ -565,7 +565,7 @@
                                 <div class="col-8">
                                     <div class="mb-3">
                                         <textarea class="form-control bg-select" name="" id="adresseEmploye" rows="3">
-                                            value="{{ $agentChange->adresse_agent}}"
+                                        {{ $agentChange->adresse_agent}}
                                         </textarea>
                                     </div>
                                 </div>
@@ -581,6 +581,7 @@
                                 </div>
                             </div>
                         </div>
+                        <input type="text" name="id" value="{{ $agentChange->id}}" hidden>
                         <div class="col-md-6 card bg-card-none p-0">
                             <img src="{{asset('assets/imgs/equipe6.jpg')}}" alt="photo agent" class="rounded d-inline-block img-responsive" style="height: 20rem;background-position:top">
                         </div>

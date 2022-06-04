@@ -210,6 +210,13 @@
         });
     </script>
     @endif
+    @if(session('agentAff') ?? 0)
+    <script>
+        $(window).ready(function() {
+            $('#agentAffModal').click();
+        });
+    </script>
+    @endif
 </body>
 
 </html>

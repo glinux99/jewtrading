@@ -15,7 +15,7 @@ class AgentController extends Controller
     public function index()
     {
         $agents = Agent::all();
-        return view('admin.alter', compact('agents'));
+        return view('admin.alter', ['agents' => $agents]);
     }
 
     /**
@@ -72,7 +72,9 @@ class AgentController extends Controller
     public function show($id)
     {
         $agent = Agent::findOrfail($id);
-        return view('admin.alter', ['agentChange' => $agent]);
+        $agents = Agent::all();
+        session()->flash('agentAff', true);
+        return view('admin.alter', ['agents' => $agents, 'agentChange' => $agent]);
     }
 
     /**

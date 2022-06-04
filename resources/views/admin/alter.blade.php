@@ -77,7 +77,7 @@
 @endif
 @if ($agents ?? '')
 <div class="container">
-    <h2 class="text-center text-white fw-bolder">{{__("Modifier un service")}}</h2>
+    <h2 class="text-center text-white fw-bolder">{{__("Modifier un agent")}}</h2>
     <div class="container mt-4">
         <table id="dataTable" class="table table-striped table-hover table-sm  table-responsive">
             <thead>
