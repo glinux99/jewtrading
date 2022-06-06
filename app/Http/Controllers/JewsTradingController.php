@@ -144,7 +144,25 @@ class JewsTradingController extends Controller
     public function update(Request $request, $id)
     {
         $produit = Produit::findOrfail($id);
-        $produit->update($request->all());
+        $validate = Validator($request->all(), [
+
+            'marque' => 'required|string',
+            // 'model' => 'required',
+            // 'moteur' => 'required',
+            // 'transmission' => 'required',
+            // 'carburant' => 'required',
+            // 'prix' => 'required',
+            // 'file1' => 'required'
+        ]);
+        if ($validate->fails()) {
+            return redirect()->back();
+        }
+        $inputs = ['marque', 'kilometrage', 'annee_fab', 'moteur', 'transmission', 'carburateur', 'emplacement', 'model', 'prix', 'couleur', 'declaration'];
+        foreach ($inputs as $input) {
+            $produit->$input = request($input);
+        }
+        $produit->admin_id = Auth::User()->id;
+        $produit->file = $produit->file;
         $produit->save();
     }
     /**

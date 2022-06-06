@@ -79,7 +79,7 @@
                                         </label>
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" name="modele" class="form-control bg-select" value="{{$produit->model}}">
+                                        <input type="text" name="model" class="form-control bg-select" value="{{$produit->model}}">
                                     </div>
                                 </div>
                                 <div class="row m-2">
@@ -146,9 +146,9 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <select class="form-control bg-select" name="typeTransmission" id="" value="{{$produit->transmission}}">
-                                        <option>Manuelle</option>
-                                        <option>Automatique</option>
+                                    <select class="form-control bg-select" name="transmission" id="" value="{{$produit->transmission}}">
+                                        <option value="Manuelle">Manuelle</option>
+                                        <option value="Automatique">Automatique</option>
                                     </select>
                                 </div>
                             </div>
@@ -159,7 +159,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <select class="form-control bg-select" name="typeCarburateur" id="" value="{{$produit->carburateur}}">
+                                    <select class="form-control bg-select" name="carburateur" id="" value="{{$produit->carburateur}}">
                                         <option value="OTHER">{{__("Autres")}}</option>
                                         <option value="DIES">{{__("Diesel")}}</option>
                                         <option value="ELEC">{{__("Électrique")}}</option>
