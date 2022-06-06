@@ -49,14 +49,13 @@
         $x=0;
         @endphp
         <div class="">
-            @while ($y<count($galeries)+2) <div class="card-group p-0 m-0">
+            @while (count($galeries)>2 && $y<count($galeries)+2) <div class="card-group p-0 m-0">
                 @while ($x<=$y) <div class="card p-0 m-1">
                     @php
                     $img = '/storage/images/'.$galeries[$x];
                     @endphp
-                    <img src="{{asset($img)}}" alt="" class="img-responsive">
+                    <img src="{{asset($img)}}" alt="image de la galerie" class="img-responsive">
         </div>
-        {{$galeries[$x]}}
         @php
         $x++;
         @endphp

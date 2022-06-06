@@ -26,12 +26,14 @@ class GalerieController extends Controller
             array_push($tab, $gal);
         }
         $y = 0;
-        $galeriePic = array();
-        for ($x = 0; $x < 6; $x++) {
-            for ($z = 0; $z < count($tab[$x]); $z++) {
-                array_push($galeriePic, $tab[$x][$z]);
+        if (Galerie::all()->count()) {
+            $galeriePic = array();
+            for ($x = 0; $x < count($tab); $x++) {
+                for ($z = 0; $z < count($tab[$x]); $z++) {
+                    array_push($galeriePic, $tab[$x][$z]);
+                }
             }
-        }
+        } else $galeriePic = 0;
         return view('admin.galerieAddAlter', ['galeries' => $galeriePic]);
     }
 
