@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Galerie;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class GalerieController extends Controller
@@ -16,7 +17,22 @@ class GalerieController extends Controller
      */
     public function index()
     {
-        //
+        $tab = array();
+        $galeries = Galerie::all();
+        $galery = '';
+        $i = 0;
+        foreach ($galeries as $galerie) {
+            $gal = explode(',', $galerie->image);
+            array_push($tab, $gal);
+        }
+        $y = 0;
+        $galeriePic = array();
+        for ($x = 0; $x < 6; $x++) {
+            for ($z = 0; $z < count($tab[$x]); $z++) {
+                array_push($galeriePic, $tab[$x][$z]);
+            }
+        }
+        return view('admin.galerieAddAlter', ['galeries' => $galeriePic]);
     }
 
     /**
@@ -29,6 +45,7 @@ class GalerieController extends Controller
         $validate = Validator($request->all(), [
             'categories' => 'required'
         ]);
+        //'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         if ($validate->fails()) {
             return redirect()->back();
         }
@@ -41,7 +58,13 @@ class GalerieController extends Controller
             $file = Str::random(5);
             $ext = $request->file1->getClientOriginalExtension();
             $fileName = $file . '.' . $ext;
-            Storage::disk('public')->put('images' . '/' . $fileName, $request->file);
+            $path = $request->file('file1')->storeAs(
+                'images',
+                $fileName,
+                'public'
+            );
+            // Storage::putFileAs('photos', new File($request->file1), $fileName);
+            //Storage::disk('public')->putFile('', $request->file1, $fileName);
             array_push($tab, $fileName);
         }
         $files = implode(',', $tab);

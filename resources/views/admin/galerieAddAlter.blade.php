@@ -47,16 +47,16 @@
         @php
         $y=0;
         $x=0;
-        $galeries = ['assets/imgs/gal1.jpg','assets/imgs/gal2.jpg','assets/imgs/gal3.jpg','assets/imgs/gal4.jpg','assets/imgs/gal5.jpg','assets/imgs/gal6.jpg','assets/imgs/gal7.jpg',
-        'assets/imgs/gal8.jpg','assets/imgs/gal9.jpg','assets/imgs/gal10.jpg','assets/imgs/gal11.jpg','assets/imgs/gal12.jpg','assets/imgs/gal13.jpg',
-        'assets/imgs/gal14.jpg','assets/imgs/gal15.jpg','assets/imgs/gal16.jpg','assets/imgs/gal17.jpg','assets/imgs/gal18.jpg','assets/imgs/gal19.jpg',
-        'assets/imgs/gal20.jpg','assets/imgs/gal21.jpg','assets/imgs/gal22.jpg'];
         @endphp
         <div class="">
             @while ($y<count($galeries)+2) <div class="card-group p-0 m-0">
                 @while ($x<=$y) <div class="card p-0 m-1">
-                    <img src="{{asset($galeries[$x])}}" alt="" class="img-responsive">
+                    @php
+                    $img = '/storage/images/'.$galeries[$x];
+                    @endphp
+                    <img src="{{asset($img)}}" alt="" class="img-responsive">
         </div>
+        {{$galeries[$x]}}
         @php
         $x++;
         @endphp

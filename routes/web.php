@@ -52,9 +52,7 @@ Route::get('/alterService', function () {
     $service = true;
     return view('admin.alter', compact('service', 'services'));
 });
-Route::get('/galerie-alter', function () {
-    return view('admin.galerieAddAlter');
-});
+Route::get('/galerie-alter', [GalerieController::class, 'index']);
 Route::get('/parametre', function () {
     return view('admin.parametre');
 });
@@ -67,6 +65,7 @@ Route::get('/test', function () {
 
 // Liens.
 Route::post('/galerie_photo', [GalerieController::class, 'create']);
+Route::get('/aff', [GalerieController::class, 'index']);
 Route::post('/ajoute_agent', [AgentController::class, 'create'])->name('agent');
 Route::get('/add-agent', [AgentController::class, 'index']);
 Route::get('modal-update-agent/{id}', [AgentController::class, 'show']);

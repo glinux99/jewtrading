@@ -62,24 +62,30 @@ class JewsTradingController extends Controller
         $save->save();
         */
     }
+    private function countPhoto()
+    {
+        $tab = array();
+        $galeries = Galerie::all();
+        $galery = '';
+        $i = 0;
+        foreach ($galeries as $galerie) {
+            $gal = explode(',', $galerie->image);
+            array_push($tab, $gal);
+        }
+        return array_sum(array_map('count', $tab));
+    }
     public function admin()
     {
         $countServ = Service::all()->count();
         $countAgent = Agent::all()->count();
         $count = Galerie::all()->count();
-        $tab = array();
-        $galeries = Galerie::all();
-        $galery = '';
-        foreach ($galeries as $galerie) {
-            array_push($tab, explode(',', $galerie->image));
-        }
-        dd($tab);
+        $countPhoto = JewsTradingController::countPhoto();
         $countProd = Produit::all()->count();
         $countUser = User::all()->count();
-        //     return view('admin', compact([
-        //         'countProd', 'countAgent', 'countServ',
-        //         'countPhoto', 'countUser'
-        //     ]));
+        return view('admin', compact([
+            'countProd', 'countAgent', 'countServ',
+            'countPhoto', 'countUser'
+        ]));
     }
     public function ajouteAgent(Request $request)
     {
