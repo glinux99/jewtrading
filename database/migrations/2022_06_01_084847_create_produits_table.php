@@ -26,6 +26,7 @@ class CreateProduitsTable extends Migration
             $table->string('model', 30);
             $table->double('prix', 20, 3);
             $table->string('couleur', 10)->nullable();
+            $table->string('numchassis')->nullable('N/N');
             $table->string('declaration')->nullable('N/D');
             $table->string('file');
             $table->timestamps();

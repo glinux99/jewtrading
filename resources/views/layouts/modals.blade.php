@@ -4,9 +4,10 @@
 <button type="button" id="agentAffModal" role="button" data-bs-toggle="modal" data-bs-target="#employeAlterModal" hidden></button>
 <button type="button" id="modalAff" role="button" data-bs-toggle="modal" data-bs-target="#serviceAlterModal" hidden></button>
 <button type="button" id="agentAffModal" role="button" data-bs-toggle="modal" data-bs-target="#employeAlterModal" hidden></button>
+@if ($produit ?? 0)
 <div class="modal fade" id="produitAlterModal" tabindex="-1" aria-labelledby="produitAlterModal" aria-hidden="true">
     <div class="modal-dialog modal-lg  text-white">
-        <form action="" method="post">
+        <form action="/update-vehicule/{{$produit->id}}" method="post">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -17,7 +18,38 @@
                     <div class="card bg-card">
                         <div class="row">
                             <div class="col-6">
-                                <img src="{{asset('assets/imgs/carIndex.png')}}" alt="" class="img-fluid">
+                                <div id="vehiculeCarousel" class="carousel slide" data-bs-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li data-bs-target="#vehiculeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
+                                        <li data-bs-target="#vehiculeCarousel" data-bs-slide-to="1" aria-label="Second slide"></li>
+                                        <li data-bs-target="#vehiculeCarousel" data-bs-slide-to="2" aria-label="Third slide"></li>
+                                    </ol>
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="carousel-item active">
+                                            <img src="{{asset('assets/imgs/carIndex.png')}}" class="w-100 d-block" alt="First slide">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="{{asset('assets/imgs/carIndex.png')}}" class="w-100 d-block" alt="Second slide">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="{{asset('assets/imgs/carIndex.png')}}" class="w-100 d-block" alt="Third slide">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#vehiculeCarousel" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#vehiculeCarousel" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
                             </div>
                             <div class="col-6 my-2">
                                 <div class="row m-2">
@@ -169,12 +201,13 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
-                    <button type="button" class="btn buttonAdd">{{__("Enregistrer")}}</button>
+                    <button type="submit" class="btn buttonAdd">{{__("Enregistrer")}}</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+@endif
 <!-- Modal pour la suppression -->
 <div class="modal fade" id="suppModal" tabindex="-1" aria-labelledby="suppModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg  text-white">

@@ -143,7 +143,9 @@ class JewsTradingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $produit = Produit::findOrfail($id);
+        $produit->update($request->all());
+        $produit->save();
     }
     /**
      * Remove the specified resource from storage.
