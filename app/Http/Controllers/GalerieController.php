@@ -134,7 +134,8 @@ class GalerieController extends Controller
             $gal = Galerie::find($galerie->id);
             $gal->image = str_replace($id, " ", $galerie->image);
             $gal->save();
-            if (strlen($gal->image) < 4) echo '111';
+            echo $galerie->id;
+            if (strlen($gal->image) < 4) echo ' long=>' . strlen($gal->image) . 'x';
         }
     }
 }
