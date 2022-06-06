@@ -19,8 +19,6 @@ class GalerieController extends Controller
     {
         $tab = array();
         $galeries = Galerie::all();
-        $galery = '';
-        $i = 0;
         foreach ($galeries as $galerie) {
             $gal = explode(' ', $galerie->image);
             array_push($tab, $gal);
@@ -132,10 +130,15 @@ class GalerieController extends Controller
         $galeries = Galerie::all();
         foreach ($galeries as $galerie) {
             $gal = Galerie::find($galerie->id);
-            $gal->image = str_replace($id, " ", $galerie->image);
+            $tab = explode(' ', $galerie->image);
+            // $a1 = array("a", "b", "c");
+            $bb = array_splice($tab, array_search($id, $tab), 1);
+            // dd($a1);
             $gal->save();
-            echo $galerie->id;
-            if (strlen($gal->image) < 4) echo ' long=>' . strlen($gal->image) . 'x';
+            $gal = Galerie::find($galerie->id);
+            if (strlen($gal->image) < 4) $gal->delete();
+            //return redirect('/admin');
         }
+        dd($bb);
     }
 }
