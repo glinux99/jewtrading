@@ -69,7 +69,7 @@ class JewsTradingController extends Controller
         $galery = '';
         $i = 0;
         foreach ($galeries as $galerie) {
-            $gal = explode(',', $galerie->image);
+            $gal = explode(' ', $galerie->image);
             array_push($tab, $gal);
         }
         return array_sum(array_map('count', $tab));

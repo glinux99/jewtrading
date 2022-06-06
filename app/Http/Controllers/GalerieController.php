@@ -22,7 +22,7 @@ class GalerieController extends Controller
         $galery = '';
         $i = 0;
         foreach ($galeries as $galerie) {
-            $gal = explode(',', $galerie->image);
+            $gal = explode(' ', $galerie->image);
             array_push($tab, $gal);
         }
         $y = 0;
@@ -69,7 +69,7 @@ class GalerieController extends Controller
             //Storage::disk('public')->putFile('', $request->file1, $fileName);
             array_push($tab, $fileName);
         }
-        $files = implode(',', $tab);
+        $files = implode(' ', $tab);
         $galerie->image = $files;
         $galerie->save();
         return redirect('admin');
@@ -128,6 +128,13 @@ class GalerieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tab = array();
+        $galeries = Galerie::all();
+        foreach ($galeries as $galerie) {
+            $gal = Galerie::find($galerie->id);
+            $gal->image = str_replace($id, " ", $galerie->image);
+            $gal->save();
+            if (strlen($gal->image) < 4) echo '111';
+        }
     }
 }

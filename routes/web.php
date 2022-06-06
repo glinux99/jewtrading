@@ -66,6 +66,7 @@ Route::get('/test', function () {
 // Liens.
 Route::post('/galerie_photo', [GalerieController::class, 'create']);
 Route::get('/aff', [GalerieController::class, 'index']);
+Route::get('/delete/{id}', [GalerieController::class, 'destroy']);
 Route::post('/ajoute_agent', [AgentController::class, 'create'])->name('agent');
 Route::get('/add-agent', [AgentController::class, 'index']);
 Route::get('modal-update-agent/{id}', [AgentController::class, 'show']);

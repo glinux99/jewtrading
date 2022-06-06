@@ -48,14 +48,16 @@
         $y=0;
         $x=0;
         @endphp
-        <div class="">
-            @while ($y<count($galeries)) <div class="card-group p-0 m-0">
-                <div class="card p-0 m-1">
-                    @php
-                    $img = '/storage/images/'.$galeries[$y];
-                    @endphp
-                    <img src="{{asset($img)}}" alt="image de la galerie" class="img-responsive">
-                </div>
+        <div class="row">
+            @while ($y<count($galeries)) <div class="p-0 m-0 col-md-4">
+                <a href="/delete/{{$galeries[$y]}}">
+                    <div class="card p-0 m-1">
+                        @php
+                        $img = '/storage/images/'.$galeries[$y];
+                        @endphp
+                        <img src="{{asset($img)}}" alt="image de la galerie" class="img-responsive">
+                    </div>
+                </a>
         </div>
         @php
         $y++;
