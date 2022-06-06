@@ -49,7 +49,7 @@
         $x=0;
         @endphp
         <div class="">
-            @while (count($galeries)>2 && $y<count($galeries)+2) <div class="card-group p-0 m-0">
+            @while (count((array)$galeries)>2 && $y<count($galeries)) <div class="card-group p-0 m-0">
                 @while ($x<=$y) <div class="card p-0 m-1">
                     @php
                     $img = '/storage/images/'.$galeries[$x];
