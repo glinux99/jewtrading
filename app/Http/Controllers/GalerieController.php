@@ -33,7 +33,7 @@ class GalerieController extends Controller
                     array_push($galeriePic, $tab[$x][$z]);
                 }
             }
-        } else $galeriePic = 0;
+        } else $galeriePic = array();
         return view('admin.galerieAddAlter', ['galeries' => $galeriePic]);
     }
 
