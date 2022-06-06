@@ -18,6 +18,7 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach ($produits as $produit)
                 <tr>
                     <td>
                         Mercedes
@@ -32,11 +33,12 @@
                         5000
                     </td>
                     <td>
-                        <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#modifModal"><span class="ms-1 bi-trash float-end"></span></button>
+                        <a href="/modifier-produit/{{$produit->id}}" class="btn btn-primary mx-1"> <span class="ms-1 bi-trash float-end"></span></a>
                         <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#suppModal"><span class="ms-1 bi-pencil-square float-end"></span>
                         </button>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

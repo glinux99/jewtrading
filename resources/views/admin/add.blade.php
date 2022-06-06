@@ -5,7 +5,7 @@
 @section('body')
 <div class="container">
     <h2 class="text-center text-white fw-bolder">{{__("Ajout d'un produit")}}</h2>
-    <form action="/ajouterProduit" method="post">
+    <form action="/ajouterProduit" method="post" enctype="multipart/form-data">
         @csrf
         <div class="col-md-10 col-lg-10 mx-auto add menuAdmin p-md-4 p-4">
             <p class="h4 border-bottom border-1 border-secondary py-2">
@@ -1595,6 +1595,7 @@
                     </div>
                 </div>
             </div>
+            <input type="number" name="count" id="count" hidden>
             <div class="row  border-top border-bottom boder-1 border-secondary py-3">
                 <div class="row">
                     <h6>{{__("Ajouter une pu plusieurs images")}}</h6>

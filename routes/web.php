@@ -44,9 +44,6 @@ Route::get('/detail', function () {
 Route::get('/addProduit', function () {
     return view('admin.add', ['#addProduit']);
 });
-Route::get('/alterProduit', function () {
-    return view('admin.alter', ['produit' => true]);
-});
 Route::get('/alterService', function () {
     $services = Service::all();
     $service = true;
@@ -72,6 +69,8 @@ Route::get('/add-agent', [AgentController::class, 'index']);
 Route::get('modal-update-agent/{id}', [AgentController::class, 'show']);
 Route::post('/update-agent/{id}', [AgentController::class, 'update']);
 Route::get('/delete-agent/{id}', [AgentController::class, 'destroy']);
+Route::get('/alterProduit', [JewsTradingController::class, 'store']);
+Route::get('/modifier-produit/{id}', [JewsTradingController::class, 'activeModal']);
 Route::get('/admin', [JewsTradingController::class, 'admin'])->name('admin');
 Route::post('/ajouterProduit', [JewsTradingController::class, 'create']);
 Route::post('/ajoute_service', [ServiceController::class, 'create']);

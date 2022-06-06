@@ -229,6 +229,13 @@
         });
     </script>
     @endif
+    @if(session('produitAff') ?? 0)
+    <script>
+        $(window).ready(function() {
+            $('#produitModife').click();
+        });
+    </script>
+    @endif
 </body>
 
 </html>

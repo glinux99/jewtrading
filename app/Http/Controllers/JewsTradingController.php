@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Agent;
-use App\Models\Service;
-use App\Models\Galerie;
 use App\Models\User;
-use App\Models\Commande;
-use Illuminate\Http\Request;
+use App\Models\Agent;
+use App\Models\Galerie;
 use App\Models\Produit;
+use App\Models\Service;
+use App\Models\Commande;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -21,7 +22,7 @@ class JewsTradingController extends Controller
      */
     public function index()
     {
-        //
+        $produit = Produit::all();
     }
 
     /**
@@ -49,18 +50,25 @@ class JewsTradingController extends Controller
         foreach ($inputs as $input) {
             $produit->$input = request($input);
         }
-        $produit->file = request('file1');
+        if (!request('count')) $count = 1;
+        else $count = request('count');
+        $tab = array();
+        for ($i = 0; $i < $count; $i++) {
+            $file = Str::random(5);
+            $ext = $request->file1->getClientOriginalExtension();
+            $fileName = $file . '.' . $ext;
+            $path = $request->file('file1')->storeAs(
+                'images',
+                $fileName,
+                'public'
+            );
+            array_push($tab, $fileName);
+        }
+        $files = implode(' ', $tab);
+        $produit->file = $files;
         $produit->admin_id = Auth::user()->id;
         $produit->save();
         return redirect('admin');
-        /*
-                $name = $request->file('image')->getClientOriginalName();
-        $path = $request->file('image')->store('public/uploads');
-        $save = new Image;
-        $save->name = $name;
-        $save->path = $path;
-        $save->save();
-        */
     }
     private function countPhoto()
     {
@@ -86,9 +94,6 @@ class JewsTradingController extends Controller
         ]));
         // echo $countPhoto;
     }
-    public function ajouteAgent(Request $request)
-    {
-    }
     /**
      * Store a newly created resource in storage.
      *
@@ -97,9 +102,16 @@ class JewsTradingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $produits = Produit::all();
+        return view('admin.alter', ['produit' => true, 'produits' => $produits]);
     }
-
+    public function activeModal($id)
+    {
+        $produits = Produit::all();
+        $produitCurrent = Produit::findOrfail($id);
+        session()->flash('produitAff', true);
+        return view('admin.alter', ['produit' => true, 'produits' => $produits, 'produitCurrent' => $produitCurrent]);
+    }
     /**
      * Display the specified resource.
      *
@@ -108,7 +120,7 @@ class JewsTradingController extends Controller
      */
     public function show($id)
     {
-        //
+        $produit = Produit::find($id);
     }
 
     /**
