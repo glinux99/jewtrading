@@ -129,16 +129,16 @@ class GalerieController extends Controller
         $tab = array();
         $galeries = Galerie::all();
         foreach ($galeries as $galerie) {
+            // Suppressions une a une d'une photo selectionner par l'admin
             $gal = Galerie::find($galerie->id);
             $tab = explode(' ', $galerie->image);
-            // $a1 = array("a", "b", "c");
-            $bb = array_splice($tab, array_search($id, $tab), 1);
-            // dd($a1);
+            array_splice($tab, array_search($id, $tab), 1);
+            $gal->image = implode(' ', $tab);
             $gal->save();
             $gal = Galerie::find($galerie->id);
+            Storage::disk('public')->delete('images/' . $id);
             if (strlen($gal->image) < 4) $gal->delete();
-            //return redirect('/admin');
+            return redirect('/admin');
         }
-        dd($bb);
     }
 }
