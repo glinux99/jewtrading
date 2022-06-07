@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agent;
 use App\Models\Galerie;
+use App\Models\Produit;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -47,11 +49,16 @@ class HomeController extends Controller
     }
     public function galerie()
     {
-        $JewsTrgaleries = Galerie::all();
-        $galeriePic = HomeController::photo($JewsTrgaleries);
-        return view('galerie', ['galeries' => $galeriePic]);
-    }
-    /**
+        $showAll = Galerie::all();
+        $showEquipe = Galerie::where('categorie', 'equipe');
+        $showAgent = Agent::all();
+        $showClient = Galerie::where('categorie', 'client');
+        $showProduits = Galerie::where('categorie', 'produit');
+        $showProduit = Produit::all();
+        $showAuther = Galerie::where('categorie', 'autres');
+        $galerieShowAll = HomeController::photo($JewsTrgaleries);
+        return view('galerie', ['galerieShowAll' => $galerieShowAll,'equipe'=>$showEquipe. 'showClient','produits'=?$autres]]);}
+    /**3
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
