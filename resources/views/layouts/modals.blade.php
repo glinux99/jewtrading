@@ -636,7 +636,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="file" name="image" id="" class="form-control bg-select" value="value=" {{ $agentChange->image}}"">
+                                    <input type="file" name="file1" id="" class="form-control bg-select" value="value=" {{ $agentChange->image}}"">
                                 </div>
                             </div>
                         </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Agent;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
 
 class AgentController extends Controller
@@ -55,6 +56,7 @@ class AgentController extends Controller
         foreach ($inputs as $input) {
             $agent->$input = $request->$input;
         }
+        Storage::disk('public')->delete('images/agents' . $agent->image);
         $file = Str::random(5);
         $ext = $request->file1->getClientOriginalExtension();
         $fileName = $file . '.' . $ext;
