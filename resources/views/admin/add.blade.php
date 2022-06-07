@@ -1530,7 +1530,7 @@
                 <div class="col-md-4">
                     <div class=" mb-3">
                         <label for="anneeFabrication" class="form-label">Annee de Fab:</label>
-                        <input type="date" name="anneeFabrication" class="form-control bg-select" id="">
+                        <input type="date" name="annee_fab" class="form-control bg-select" id="">
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -1545,8 +1545,8 @@
                     <div class="mb-3 ">
                         <label for="typeTransmission" class="form-label">Transmission</label>
                         <select class="form-control bg-select" name="transmission" id="">
-                            <option>Manuelle</option>
-                            <option>Automatique</option>
+                            <option value="Manuelle">Manuelle</option>
+                            <option value="Automatique">Automatique</option>
                         </select>
                     </div>
                 </div>

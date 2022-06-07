@@ -10,7 +10,7 @@
         <table id="dataTable" class="table table-striped table-hover ">
             <thead>
                 <tr>
-                    <th>Nom produit</th>
+                    <th>Model</th>
                     <th>Marque</th>
                     <th>Couleur</th>
                     <th>Prix</th>
@@ -21,21 +21,19 @@
                 @foreach ($produits as $produit)
                 <tr>
                     <td>
-                        Mercedes
+                        {{$produit->model}}
                     </td>
                     <td>
-                        Mercedes
+                        {{$produit->marque}}
                     </td>
                     <td>
-                        Rouge
+                        <input type="color" name="" id="" value="{{$produit->couleur}}" disabled>
                     </td>
                     <td>
-                        5000
+                        {{$produit->prix}}
                     </td>
                     <td>
-                        <a href="/modifier-produit/{{$produit->id}}" class="btn btn-primary mx-1"> <span class="ms-1 bi-trash float-end"></span></a>
-                        <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#suppModal"><span class="ms-1 bi-pencil-square float-end"></span>
-                        </button>
+                        <a href="/modifier-produit/{{$produit->id}}" class="btn btn-primary mx-1"> <span class="ms-1 bi-pencil-square float-end"></span><span class="ms-1 bi-trash float-end text-danger"></a>
                     </td>
                 </tr>
                 @endforeach

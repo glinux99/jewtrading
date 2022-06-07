@@ -26,17 +26,11 @@
                                     </ol>
                                     <div class="carousel-inner" role="listbox">
                                         <div class="carousel-item active">
-                                            <img src="{{asset('assets/imgs/carIndex.png')}}" class="w-100 d-block" alt="First slide">
-                                            <div class="carousel-caption d-none d-md-block">
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="{{asset('assets/imgs/carIndex.png')}}" class="w-100 d-block" alt="Second slide">
-                                            <div class="carousel-caption d-none d-md-block">
-                                            </div>
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="{{asset('assets/imgs/carIndex.png')}}" class="w-100 d-block" alt="Third slide">
+                                            @php
+                                            $img = '/storage/images/'.$produit->file1;
+                                            $filesInput =['file2','file3', 'file4'];
+                                            @endphp
+                                            <img src="{{asset($img)}}" class="w-100 d-block" alt="First slide">
                                             <div class="carousel-caption d-none d-md-block">
                                             </div>
                                         </div>
@@ -51,6 +45,12 @@
                                     </button>
                                 </div>
                             </div>
+
+                            @foreach ($filesInput as $fileInput)
+                            @if(strlen($produit->$fileInput)>4)
+                            {{'ok'}}
+                            @endif
+                            @endforeach
                             <div class="col-6 my-2">
                                 <div class="row m-2">
                                     <div class="col-4">
@@ -200,8 +200,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
                     <button type="submit" class="btn buttonAdd">{{__("Enregistrer")}}</button>
+                    <a href="/supprimer-produit/{{$produit->id}}" class="btn btn-danger">{{__("Supprimer")}}</a>
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
                 </div>
             </div>
         </form>
@@ -209,7 +210,7 @@
 </div>
 @endif
 <!-- Modal pour la suppression -->
-<div class="modal fade" id="suppModal" tabindex="-1" aria-labelledby="suppModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="suppModal" tabindex="-1" aria-labelledby="suppModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg  text-white">
         <div class="modal-content">
             <div class="modal-header">
@@ -365,7 +366,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Ajouter un service -->
 <div class="modal fade" id="serviceAddModal" tabindex="-1" aria-labelledby="serviceAddModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg  text-white">

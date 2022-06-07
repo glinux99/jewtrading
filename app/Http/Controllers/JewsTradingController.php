@@ -50,22 +50,21 @@ class JewsTradingController extends Controller
         foreach ($inputs as $input) {
             $produit->$input = request($input);
         }
-        if (!request('count')) $count = 1;
-        else $count = request('count');
-        $tab = array();
-        for ($i = 0; $i < $count; $i++) {
-            $file = Str::random(5);
-            $ext = $request->file1->getClientOriginalExtension();
-            $fileName = $file . '.' . $ext;
-            $path = $request->file('file1')->storeAs(
-                'images',
-                $fileName,
-                'public'
-            );
-            array_push($tab, $fileName);
+        $filesInput = ['file1', 'file2', 'file3', 'file4'];
+        foreach ($filesInput as $fileInput) {
+            if (request($fileInput) != '') {
+                $file = Str::random(5);
+                $ext = request($fileInput)->getClientOriginalExtension();
+                $fileName = $file . '.' . $ext;
+                $path = $request->file('file1')->storeAs(
+                    'images',
+                    $fileName,
+                    'public'
+                );
+                $produit->$fileInput = $fileName;
+            } else
+                $produit->$fileInput = '';
         }
-        $files = implode(' ', $tab);
-        $produit->file = $files;
         $produit->admin_id = Auth::user()->id;
         $produit->save();
         return redirect('admin');
@@ -162,7 +161,7 @@ class JewsTradingController extends Controller
             $produit->$input = request($input);
         }
         $produit->admin_id = Auth::User()->id;
-        $produit->file = $produit->file;
+        // $produit->file1 = $produit->file;
         $produit->save();
     }
     /**
@@ -173,6 +172,7 @@ class JewsTradingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Produit::findOrfail($id)->delete();
+        return redirect('/admin');
     }
 }

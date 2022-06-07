@@ -70,6 +70,7 @@ Route::get('modal-update-agent/{id}', [AgentController::class, 'show']);
 Route::post('/update-agent/{id}', [AgentController::class, 'update']);
 Route::get('/delete-agent/{id}', [AgentController::class, 'destroy']);
 Route::get('/alterProduit', [JewsTradingController::class, 'store']);
+Route::get('/supprimer-produit/{id}', [JewsTradingController::class, 'destroy']);
 Route::post('/update-vehicule/{id}', [JewsTradingController::class, 'update']);
 Route::get('/modifier-produit/{id}', [JewsTradingController::class, 'activeModal']);
 Route::get('/admin', [JewsTradingController::class, 'admin'])->name('admin');

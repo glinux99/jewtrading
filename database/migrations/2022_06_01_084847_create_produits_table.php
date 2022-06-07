@@ -28,7 +28,10 @@ class CreateProduitsTable extends Migration
             $table->string('couleur', 10)->nullable();
             $table->string('numchassis')->nullable('N/N');
             $table->string('declaration')->nullable('N/D');
-            $table->string('file');
+            $table->string('file1');
+            $table->string('file2')->nullable();
+            $table->string('file3')->nullable();
+            $table->string('file4')->nullable();
             $table->timestamps();
         });
     }
