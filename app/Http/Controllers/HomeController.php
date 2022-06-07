@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class HomeController extends Controller
     public function index()
     {
         $details = User::find(1);
-        return view('index', ['jewtrading' => $details]);
+        $services = Service::all();
+        return view('index', ['jewtrading' => $details, 'services' => $services]);
     }
 
     /**

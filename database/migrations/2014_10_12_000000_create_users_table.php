@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->text('apropos')->nullable('A propos de Jews Trading ...');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('partenaires');
             $table->rememberToken();
             $table->timestamps();
         });

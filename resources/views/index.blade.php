@@ -27,7 +27,7 @@ $parentIndex = true;
                                 {{__("top paterners")}}
                             </h6>
                             <p class="text-danger h5 fw-bolder">
-                                {{__("Be Forward, SBT")}}
+                                {{$jewtrading->partenaires}}
                             </p>
                         </li>
                         <li class="mt-4">
@@ -36,7 +36,7 @@ $parentIndex = true;
                                 {{__("Bureau")}}
                             </h6>
                             <p class="text-danger h5 fw-bolder">
-                                {{__("Goma Office")}}
+                                {{ $jewtrading->adresse}}
                             </p>
                         </li>
                         <li class="mt-4">
@@ -45,7 +45,7 @@ $parentIndex = true;
                                 {{__("contact")}}
                             </h6>
                             <p class="text-danger h5 fw-bolder">
-                                <a href="mailto:kwiratuwe@yahoo.fr" class="nav-link text-danger m-0 p-0">kwiratuwe@yahoo.fr</a>
+                                <a href="mailto:{{ $jewtrading->emailEntreprise }}" class="text-danger m-0 p-0">{{ $jewtrading->emailEntreprise }}</a>
                             </p>
                         </li>
                     </ul>

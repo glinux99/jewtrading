@@ -58,6 +58,12 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
+                    <label for="nom" class="form-label">{{__("Partenaires")}}</label>
+                    <input type="text" class="form-control bg-select" name="partenaires" value="{{ Auth::User()->partenaires}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <label for="nom" class="form-label">{{__("Mission")}}</label>
                     <div class="mb-3">
                         <textarea class="form-control bg-select" name="mission" id="" rows="3">
