@@ -3,7 +3,7 @@
 @php
 $parentIndex = true;
 $picIndex = 0;
-$gal=0;
+$i=0;
 @endphp
 @section('body')
 <div class="bg-danger ">
@@ -68,15 +68,13 @@ $gal=0;
         </div>
         <div id="galerieProduits" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <img src="holder.js/900x500/auto/#777:#555/text:First slide" alt="First slide">
+                @foreach ($galeries as $galerie) @php $active='' ; if($i==0){ $active='active' ; } @endphp <div class="carousel-item  {{ $active}}">
+                    <img src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="{{ $i}}">
                 </div>
-                <div class="carousel-item">
-                    <img src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img src="holder.js/900x500/auto/#666:#444/text:Third slide" alt="Third slide">
-                </div>
+                @php
+                $i++;
+                @endphp
+                @endforeach
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#galerieProduits" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -87,14 +85,6 @@ $gal=0;
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#galerieCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#galerieCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
 </div>
 </div>
