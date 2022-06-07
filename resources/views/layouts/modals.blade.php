@@ -21,19 +21,44 @@
                                 <div id="vehiculeCarousel" class="carousel slide" data-bs-ride="carousel">
                                     <ol class="carousel-indicators">
                                         <li data-bs-target="#vehiculeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
-                                        <li data-bs-target="#vehiculeCarousel" data-bs-slide-to="1" aria-label="Second slide"></li>
-                                        <li data-bs-target="#vehiculeCarousel" data-bs-slide-to="2" aria-label="Third slide"></li>
+                                        @for ($x=1; $x<4; $x++) @if($produitCurrent->file.$x)
+                                            <li data-bs-target="#vehiculeCarousel" data-bs-slide-to="{{$x}}" aria-label="Second slide"></li>
+                                            @endif
+                                            @endfor
                                     </ol>
                                     <div class="carousel-inner" role="listbox">
                                         <div class="carousel-item active">
                                             @php
-                                            $img = '/storage/images/'.$produit->file1;
-                                            $filesInput =['file2','file3', 'file4'];
+                                            $img1 = '/storage/images/produits'.$produitCurrent->file1;
+                                            $img2 = '/storage/images/produits'.$produitCurrent->file2;
+                                            $img3 = '/storage/images/produits'.$produitCurrent->file3;
+                                            $img4 = '/storage/images/produits'.$produitCurrent->file4;
                                             @endphp
-                                            <img src="{{asset($img)}}" class="w-100 d-block" alt="First slide">
+                                            <img src="{{asset($img1)}}" class="w-100 d-block" alt="First slide">
                                             <div class="carousel-caption d-none d-md-block">
                                             </div>
                                         </div>
+                                        @if ($produitCurrent->file2)
+                                        <div class="carousel-item">
+                                            <img src="{{asset($img2)}}" class="w-100 d-block" alt="Second slide">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        @endif
+                                        @if ($produitCurrent->file3)
+                                        <div class="carousel-item">
+                                            <img src="{{asset($img3)}}" class="w-100 d-block" alt="Second slide">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        @endif
+                                        @if ($produitCurrent->file4)
+                                        <div class="carousel-item">
+                                            <img src="{{asset($img4)}}" class="w-100 d-block" alt="Second slide">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        @endif
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-bs-target="#vehiculeCarousel" data-bs-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -45,12 +70,6 @@
                                     </button>
                                 </div>
                             </div>
-
-                            @foreach ($filesInput as $fileInput)
-                            @if(strlen($produit->$fileInput)>4)
-                            {{'ok'}}
-                            @endif
-                            @endforeach
                             <div class="col-6 my-2">
                                 <div class="row m-2">
                                     <div class="col-4">
@@ -59,7 +78,7 @@
                                         </label>
                                     </div>
                                     <div class="col-8">
-                                        <input type="number" name="prix" class="form-control bg-select" value="{{$produit->prix}}">
+                                        <input type="number" name="prix" class="form-control bg-select" value="{{$produitCurrent->prix}}">
                                     </div>
                                 </div>
                                 <div class="row mx-2">
@@ -69,7 +88,7 @@
                                         </label>
                                     </div>
                                     <div class=" col-8">
-                                        <input type="text" name="marque" class="form-control bg-select" value="{{$produit->marque}}">
+                                        <input type="text" name="marque" class="form-control bg-select" value="{{$produitCurrent->marque}}">
                                     </div>
                                 </div>
                                 <div class="row m-2">
@@ -79,7 +98,7 @@
                                         </label>
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" name="model" class="form-control bg-select" value="{{$produit->model}}">
+                                        <input type="text" name="model" class="form-control bg-select" value="{{$produitCurrent->model}}">
                                     </div>
                                 </div>
                                 <div class="row m-2">
@@ -89,7 +108,7 @@
                                         </label>
                                     </div>
                                     <div class="col-8">
-                                        <input type="color" name="couleur" class="form-control bg-select" value="{{$produit->couleur}}">
+                                        <input type="color" name="couleur" class="form-control bg-select" value="{{$produitCurrent->couleur}}">
                                     </div>
                                 </div>
                             </div>
@@ -102,7 +121,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" name="emplencement" class="form-control bg-select" value="{{$produit->emplacement}}">
+                                    <input type="text" name="emplencement" class="form-control bg-select" value="{{$produitCurrent->emplacement}}">
                                 </div>
                             </div>
                             <div class="col-6 row">
@@ -112,7 +131,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="number" name="kilometrage" class="form-control bg-select" value="{{$produit->kilometrage}}">
+                                    <input type="number" name="kilometrage" class="form-control bg-select" value="{{$produitCurrent->kilometrage}}">
                                 </div>
                             </div>
                         </div>
@@ -124,7 +143,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="date" name="anneeFab" class="form-control bg-select" value="{{$produit->annee_fab}}">
+                                    <input type="date" name="anneeFab" class="form-control bg-select" value="{{$produitCurrent->annee_fab}}">
                                 </div>
                             </div>
                             <div class="row col-6">
@@ -134,7 +153,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" name="moteur" class="form-control bg-select" value="{{$produit->moteur}}">
+                                    <input type="text" name="moteur" class="form-control bg-select" value="{{$produitCurrent->moteur}}">
                                 </div>
                             </div>
                         </div>
@@ -146,7 +165,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <select class="form-control bg-select" name="transmission" id="" value="{{$produit->transmission}}">
+                                    <select class="form-control bg-select" name="transmission" id="" value="{{$produitCurrent->transmission}}">
                                         <option value="Manuelle">Manuelle</option>
                                         <option value="Automatique">Automatique</option>
                                     </select>
@@ -159,7 +178,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <select class="form-control bg-select" name="carburateur" id="" value="{{$produit->carburateur}}">
+                                    <select class="form-control bg-select" name="carburateur" id="" value="{{$produitCurrent->carburateur}}">
                                         <option value="OTHER">{{__("Autres")}}</option>
                                         <option value="DIES">{{__("Diesel")}}</option>
                                         <option value="ELEC">{{__("Électrique")}}</option>
@@ -193,7 +212,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" name="declaration" class="form-control bg-select" value="{{$produit->declaration}}">
+                                    <input type="text" name="declaration" class="form-control bg-select" value="{{$produitCurrent->declaration}}">
                                 </div>
                             </div>
                         </div>
@@ -461,7 +480,7 @@
 <!-- ADD EMploye -->
 <div class="modal fade" id="employeAddModal" tabindex="-1" aria-labelledby="employeAddModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg  text-white">
-        <form action="/ajoute_agent" method="post">
+        <form action="/ajoute_agent" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -529,7 +548,7 @@
                                 </label>
                             </div>
                             <div class="col-8">
-                                <input type="file" name="photo" id="" class="form-control bg-select">
+                                <input type="file" name="file1" id="" class="form-control bg-select">
                             </div>
                         </div>
                     </div>
@@ -546,7 +565,7 @@
 @if ($agentChange ?? 0)
 <div class="modal fade" id="employeAlterModal" tabindex="-1" aria-labelledby="employeAlterModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl  text-white">
-        <form action="/update-agent/{{ $agentChange->id}}" method="post">
+        <form action="/update-agent/{{ $agentChange->id}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -622,7 +641,10 @@
                             </div>
                         </div>
                         <div class="col-md-6 card bg-card-none p-0">
-                            <img src="{{asset('assets/imgs/equipe6.jpg')}}" alt="photo agent" class="rounded d-inline-block img-responsive" style="height: 20rem;background-position:top">
+                            @php
+                            $img = '/storage/images/agents/'.$agentChange->image;
+                            @endphp
+                            <img src="{{asset($img)}}" alt="photo agent" class="rounded d-inline-block img-responsive" style="height: 20rem;background-position:top">
                         </div>
                     </div>
                 </div>

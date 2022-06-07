@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agent;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -54,7 +55,15 @@ class AgentController extends Controller
         foreach ($inputs as $input) {
             $agent->$input = $request->$input;
         }
-        $agent->image = '';
+        $file = Str::random(5);
+        $ext = $request->file1->getClientOriginalExtension();
+        $fileName = $file . '.' . $ext;
+        $request->file('file1')->storeAs(
+            'images/agents',
+            $fileName,
+            'public'
+        );
+        $agent->image = $fileName;
         $agent->save();
     }
     /**

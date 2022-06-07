@@ -56,8 +56,8 @@ class JewsTradingController extends Controller
                 $file = Str::random(5);
                 $ext = request($fileInput)->getClientOriginalExtension();
                 $fileName = $file . '.' . $ext;
-                $path = $request->file('file1')->storeAs(
-                    'images',
+                $path = $request->file($fileInput)->storeAs(
+                    'images/produits',
                     $fileName,
                     'public'
                 );
