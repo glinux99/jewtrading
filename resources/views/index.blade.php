@@ -2,6 +2,8 @@
 @section('title') {{ __("Jews Trading | Acceuil ")}} @endsection
 @php
 $parentIndex = true;
+$picIndex = 0;
+$gal=0;
 @endphp
 @section('body')
 <div class="bg-danger ">
@@ -53,152 +55,152 @@ $parentIndex = true;
             </div>
         </div>
     </div>
-    <div class="corp " style="background: rgb(245, 246, 246);">
-        @include('layouts.servicesLayer')
-        <div class="galerie bg-white mt-md-5 pt-md-5">
-            <h2 class="text-center fw-bolder py-md-3 display-6">
-                Notre Galerie Photo
-            </h2>
-            <div class="text-muted col-md-6 mx-auto text-center mb-md-3">
-                Autour d'une galerie photographique en ligne, vous avez une vue générale de Jews trading votre plus
-                grand partenaire dans le domaine d'automobile.
-            </div>
-            <div id="galerieCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-item active">
-                        <div class="d-flex">
-                            <img src="{{ asset('assets/imgs/gal20.jpg')}}" alt="Groupe One" class="card-img-top border">
-                            <img src="{{ asset('assets/imgs/gal21.jpg')}}" alt="Groupe One" class="card-img-top border">
-                            <img src="{{ asset('assets/imgs/gal17.jpg')}}" alt="Groupe One" class="card-img-top border">
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="d-flex">
-                            <!-- <img src="{{ asset('assets/imgs/gal23.jpg')}}" alt="Groupe One" class="card-img-top border "> -->
-                            <img src="{{ asset('assets/imgs/gal18.jpg')}}" alt="Groupe One" class="card-img-top border">
-                            <img src="{{ asset('assets/imgs/gal19.jpg')}}" alt="Groupe One" class="card-img-top border">
-                            <!-- <img src="{{ asset('assets/imgs/gal20.jpg')}}" alt="Groupe One" class="card-img-top border">
-                            <img src="{{ asset('assets/imgs/gal21.jpg')}}" alt="Groupe One" class="card-img-top border"> -->
-                            <img src="{{ asset('assets/imgs/gal17.jpg')}}" alt="Groupe One" class="card-img-top border">
-                            {{-- <img src="{{ asset('assets/imgs/gal17.jpg')}}" alt="Groupe One" class="card-img-top">
-                            --}}
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#galerieCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#galerieCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+</div>
+<div class="corp " style="background: rgb(245, 246, 246);">
+    @include('layouts.servicesLayer')
+    <div class="galerie bg-white mt-md-5 pt-md-5">
+        <h2 class="text-center fw-bolder py-md-3 display-6">
+            {{__("Notre Galerie Photo")}}
+        </h2>
+        <div class="text-muted col-md-6 mx-auto text-center mb-md-3">
+            {{__("Autour d'une galerie photographique en ligne, vous avez une vue générale de Jews trading votre plus
+                grand partenaire dans le domaine d'automobile.")}}
         </div>
-        {{-- Nous sommes les meilleurs --}}
-        <div class="container mx-auto mb-md-4">
-            <div class="row pt-md-5">
-                <div class="col-md-6">
-                    <img src="{{asset('assets/imgs/img2.jpg')}}" alt="" srcset="" class="d-inline-block w-100">
+        <div id="galerieProduits" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <img src="holder.js/900x500/auto/#777:#555/text:First slide" alt="First slide">
                 </div>
-                <div class="col-md-6">
-                    <h2 class="h2">
-                        {{__("Nous sommes les meilleurs")}}
-                    </h2>
-                    <p class="text-muted mb-md-4">
-                        {{__("Nos services sont (ont) : ")}}
-                    </p>
-                    <ul class="list-unstyled">
-                        <li class="border-bottom border-2 p-2">
-                            <span class="bi-check-circle-fill bi--xl"></span><span class="ps-md-3 h5">{{__("Rapide et
-                                facile")}}</span>
-                        </li>
-                        <li class="border-bottom border-2 p-2">
-                            <span class="bi-check-circle-fill bi--xl"></span><span class="ps-md-3 h5">{{__("Une
-                                inspection Transparente")}}</span>
-                        </li>
-                        <li class="border-bottom border-2 p-2">
-                            <span class="bi-check-circle-fill bi--xl"></span><span class="ps-md-3 h5">{{__("Offert
-                                immédiatement")}}</span>
-                        </li>
-                        <li class="border-bottom border-2 p-2">
-                            <span class="bi-check-circle-fill bi--xl"></span><span class="ps-md-3 h5">{{__("Formalités
-                                administratives sans tracas")}}</span>
-                        </li>
-                        <li class="border-bottom border-2 p-2">
-                            <span class="bi-check-circle-fill bi--xl"></span><span class="ps-md-3 h5">{{__("Transactions
-                                de paiement sécurisées")}}</span>
-                        </li>
-                    </ul>
+                <div class="carousel-item">
+                    <img src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img src="holder.js/900x500/auto/#666:#444/text:Third slide" alt="Third slide">
                 </div>
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#galerieProduits" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#galerieProduits" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <div class="bg-danger py-md-5 ">
-            <h2 class="display-5 text-center text-white">
-                {{__("Ce que disent le peuple")}}
-            </h2>
-            <div class="d-flex justify-content-center col-md-8 mx-auto">
-                <div id="direPeople" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active">
-                            <div class="card d-flex justify-content-center pt-md-3">
-                                <img src="{{asset('assets/imgs/pic1.jpg')}}" alt="image one" class="d-inline-block rounded-circle mx-auto shadow" height="100" width="100">
-                                <div class="card-body text-center col-md-10 mx-auto">
-                                    Si vous n’êtes pas un spécialiste dans l’importation des véhicules, le mieux c’est
-                                    de
-                                    vous renseigner chez jews Trading
-                                    car ils ont les moyens de passer et traiter avec des agences fiables et spécialisées
-                                    pour vous satisfaire.
-                                    <p class="my-3">
-                                        <strong class="fw-bolder">Kalema Daniel Jonathan</strong><br>
-                                        <i class="text-danger">Goma, Nord-Kivu</i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item ">
-                            <div class="card d-flex justify-content-center pt-md-3 pb-4">
-                                <img src="{{asset('assets/imgs/pic2.jpg')}}" alt="image one" class="d-inline-block rounded-circle mx-auto shadow" height="100" width="100">
-                                <div class="card-body text-center col-md-10 mx-auto">
-                                    J'ai fait confiance à l'expertise de Jews Trading pour me ramener mon véhicule de
-                                    rêve et je peux confirmer cette
-                                    expertise car j'ai été bien servis, ils sont meilleurs.
-                                    <p class="my-3">
-                                        <strong class="fw-bolder">Ir Tonny Kayayalo</strong><br>
-                                        <i class="text-danger">Goma, Congo Technologie</i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="card d-flex justify-content-center pt-md-3">
-                                <img src="{{asset('assets/imgs/pic3.jpg')}}" alt="image one" class="d-inline-block rounded-circle mx-auto shadow" height="100" width="100">
-                                <div class="card-body text-center col-md-10 mx-auto">
-                                    Les meilleurs services d’importation des automobiles viennent de jews trading !
-                                    L’expérience montre que proposer une
-                                    action de qualité dans le temps s’apprécie car peu de personnes ont cette expertise
-                                    en RDC. Il faut donc mieux proposer
-                                    vos services chez jews trading.
-                                    <p class="my-3">
-                                        <strong class="fw-bolder">Gracieux Sikuly</strong><br>
-                                        <i class="text-danger">Goma, Nord-Kivu</i>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#direPeople" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#direPeople" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        @include('layouts.beforword')
+        <button class="carousel-control-prev" type="button" data-bs-target="#galerieCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#galerieCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
+</div>
+</div>
+<div class="container mx-auto mb-md-4">
+    <div class="row pt-md-5">
+        <div class="col-md-6">
+            <img src="{{asset('assets/imgs/img2.jpg')}}" alt="" srcset="" class="d-inline-block w-100">
+        </div>
+        <div class="col-md-6">
+            <h2 class="h2">
+                {{__("Nous sommes les meilleurs")}}
+            </h2>
+            <p class="text-muted mb-md-4">
+                {{__("Nos services sont (ont) : ")}}
+            </p>
+            <ul class="list-unstyled">
+                <li class="border-bottom border-2 p-2">
+                    <span class="bi-check-circle-fill bi--xl"></span><span class="ps-md-3 h5">{{__("Rapide et
+                                facile")}}</span>
+                </li>
+                <li class="border-bottom border-2 p-2">
+                    <span class="bi-check-circle-fill bi--xl"></span><span class="ps-md-3 h5">{{__("Une
+                                inspection Transparente")}}</span>
+                </li>
+                <li class="border-bottom border-2 p-2">
+                    <span class="bi-check-circle-fill bi--xl"></span><span class="ps-md-3 h5">{{__("Offert
+                                immédiatement")}}</span>
+                </li>
+                <li class="border-bottom border-2 p-2">
+                    <span class="bi-check-circle-fill bi--xl"></span><span class="ps-md-3 h5">{{__("Formalités
+                                administratives sans tracas")}}</span>
+                </li>
+                <li class="border-bottom border-2 p-2">
+                    <span class="bi-check-circle-fill bi--xl"></span><span class="ps-md-3 h5">{{__("Transactions
+                                de paiement sécurisées")}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="bg-danger py-md-5 ">
+    <h2 class="display-5 text-center text-white">
+        {{__("Ce que disent le peuple")}}
+    </h2>
+    <div class="d-flex justify-content-center col-md-8 mx-auto">
+        <div id="direPeople" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <div class="card d-flex justify-content-center pt-md-3">
+                        <img src="{{asset('assets/imgs/pic1.jpg')}}" alt="image one" class="d-inline-block rounded-circle mx-auto shadow" height="100" width="100">
+                        <div class="card-body text-center col-md-10 mx-auto">
+                            Si vous n’êtes pas un spécialiste dans l’importation des véhicules, le mieux c’est
+                            de
+                            vous renseigner chez jews Trading
+                            car ils ont les moyens de passer et traiter avec des agences fiables et spécialisées
+                            pour vous satisfaire.
+                            <p class="my-3">
+                                <strong class="fw-bolder">Kalema Daniel Jonathan</strong><br>
+                                <i class="text-danger">Goma, Nord-Kivu</i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class="card d-flex justify-content-center pt-md-3 pb-4">
+                        <img src="{{asset('assets/imgs/pic2.jpg')}}" alt="image one" class="d-inline-block rounded-circle mx-auto shadow" height="100" width="100">
+                        <div class="card-body text-center col-md-10 mx-auto">
+                            J'ai fait confiance à l'expertise de Jews Trading pour me ramener mon véhicule de
+                            rêve et je peux confirmer cette
+                            expertise car j'ai été bien servis, ils sont meilleurs.
+                            <p class="my-3">
+                                <strong class="fw-bolder">Ir Tonny Kayayalo</strong><br>
+                                <i class="text-danger">Goma, Congo Technologie</i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card d-flex justify-content-center pt-md-3">
+                        <img src="{{asset('assets/imgs/pic3.jpg')}}" alt="image one" class="d-inline-block rounded-circle mx-auto shadow" height="100" width="100">
+                        <div class="card-body text-center col-md-10 mx-auto">
+                            Les meilleurs services d’importation des automobiles viennent de jews trading !
+                            L’expérience montre que proposer une
+                            action de qualité dans le temps s’apprécie car peu de personnes ont cette expertise
+                            en RDC. Il faut donc mieux proposer
+                            vos services chez jews trading.
+                            <p class="my-3">
+                                <strong class="fw-bolder">Gracieux Sikuly</strong><br>
+                                <i class="text-danger">Goma, Nord-Kivu</i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#direPeople" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#direPeople" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+@include('layouts.beforword')
+</div>
 </div>
 @endsection

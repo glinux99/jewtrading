@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Galerie;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,9 +16,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $details = User::find(1);
-        $services = Service::all();
-        return view('index', ['jewtrading' => $details, 'services' => $services]);
+        $JewsTrdetails = User::find(1);
+        $JewsTrservices = Service::all();
+        $JewsTrgaleries = Galerie::all();
+        $Jewstab = array();
+        foreach ($JewsTrgaleries as $galerie) {
+            $gal = explode(' ', $galerie->image);
+            array_push($Jewstab, $gal);
+        }
+        $galeriePic = array();
+        for ($x = 0; $x < count($Jewstab); $x++) {
+            for ($z = 0; $z < count($Jewstab[$x]); $z++) {
+                array_push($galeriePic, $Jewstab[$x][$z]);
+            }
+        }
+        return view('index', ['jewtrading' => $JewsTrdetails, 'services' => $JewsTrservices, 'galeries' => $galeriePic]);
     }
 
     /**

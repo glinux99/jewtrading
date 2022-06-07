@@ -59,7 +59,7 @@ class GalerieController extends Controller
             $ext = $request->file1->getClientOriginalExtension();
             $fileName = $file . '.' . $ext;
             $path = $request->file('file1')->storeAs(
-                'images',
+                'images/galeries',
                 $fileName,
                 'public'
             );
@@ -136,7 +136,7 @@ class GalerieController extends Controller
             $gal->image = implode(' ', $tab);
             $gal->save();
             $gal = Galerie::find($galerie->id);
-            Storage::disk('public')->delete('images/' . $id);
+            Storage::disk('public')->delete('images/galeries' . $id);
             if (strlen($gal->image) < 4) $gal->delete();
             return redirect('/admin');
         }

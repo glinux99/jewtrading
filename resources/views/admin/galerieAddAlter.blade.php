@@ -53,7 +53,7 @@
                 <a href="/delete/{{$galeries[$y]}}">
                     <div class="card p-0 m-1">
                         @php
-                        $img = '/storage/images/'.$galeries[$y];
+                        $img = '/storage/images/galeries/'.$galeries[$y];
                         @endphp
                         <img src="{{asset($img)}}" alt="image de la galerie" class="img-responsive">
                     </div>
