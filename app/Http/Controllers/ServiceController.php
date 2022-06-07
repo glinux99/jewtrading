@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
+use App\Models\Galerie;
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
@@ -101,6 +102,7 @@ class ServiceController extends Controller
         session()->flash('serviceAff', true);
         return view('admin.alter', ['service' => true, 'services' => $services, 'serviceCurrent' => $serviceCurrent]);
     }
+
     /**
      * Remove the specified resource from storage.
      *

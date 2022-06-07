@@ -20,6 +20,12 @@ class HomeController extends Controller
         $JewsTrservices = Service::all();
         $JewsTrgaleries = Galerie::all();
         $Jewstab = array();
+        $galeriePic = HomeController::photo($JewsTrservices);
+        return view('index', ['jewtrading' => $JewsTrdetails, 'services' => $JewsTrservices, 'galeries' => $galeriePic]);
+    }
+    public function photo($JewsTrgaleries)
+    {
+        $Jewstab = array();
         foreach ($JewsTrgaleries as $galerie) {
             $gal = explode(' ', $galerie->image);
             array_push($Jewstab, $gal);
@@ -30,9 +36,21 @@ class HomeController extends Controller
                 array_push($galeriePic, $Jewstab[$x][$z]);
             }
         }
-        return view('index', ['jewtrading' => $JewsTrdetails, 'services' => $JewsTrservices, 'galeries' => $galeriePic]);
+        return $galeriePic;
     }
-
+    public function service()
+    {
+        $JewsTrgaleries = Galerie::all();
+        $galeriePic = HomeController::photo($JewsTrgaleries);
+        $JewsTrservices = Service::all();
+        return view('service', ['services' => $JewsTrservices, 'galeries' => $galeriePic]);
+    }
+    public function galerie()
+    {
+        $JewsTrgaleries = Galerie::all();
+        $galeriePic = HomeController::photo($JewsTrgaleries);
+        return view('galerie', ['galeries' => $galeriePic]);
+    }
     /**
      * Show the form for creating a new resource.
      *

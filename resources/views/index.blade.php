@@ -3,7 +3,10 @@
 @php
 $parentIndex = true;
 $picIndex = 0;
+$x=0;
 $i=0;
+$z=5;
+$gal=0;
 @endphp
 @section('body')
 <div class="bg-danger ">
@@ -68,24 +71,38 @@ $i=0;
         </div>
         <div id="galerieProduits" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner" role="listbox">
-                @foreach ($galeries as $galerie) @php $active='' ; if($i==0){ $active='active' ; } @endphp <div class="carousel-item  {{ $active}}">
-                    <img src="holder.js/900x500/auto/#666:#444/text:Second slide" alt="{{ $i}}">
-                </div>
-                @php
-                $i++;
-                @endphp
-                @endforeach
+                @while ($gal<count($galeries)) @php $active='' ; if($gal==0){ $active='active' ; } @endphp <div class="carousel-item {{$active}}">
+                    <div class="row">
+                        @for ($x=0; $x<$z-1;$x++) @php if($gal>count($galeries)-4){
+                            $z= 1+count($galeries)%4;
+                            $gal = count($galeries);
+                            }
+                            $img ='/storage/images/galeries/'.$galeries[$i];
+                            @endphp
+                            <div class="col-md-3">
+                                <img src="{{asset($img)}}" alt="{{$galeries[$i]}}" class="d-block w-100">
+                            </div>
+                            @php
+                            $i++;
+                            @endphp
+                            @endfor
+                    </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#galerieProduits" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#galerieProduits" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            @php
+            $gal = $gal+4;
+            @endphp
+            @endwhile
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#galerieProduits" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#galerieProduits" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
+</div>
 </div>
 </div>
 <div class="container mx-auto mb-md-4">

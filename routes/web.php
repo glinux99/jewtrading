@@ -28,15 +28,11 @@ Route::get('/apropos', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-Route::get('/galerie', function () {
-    return view('galerie');
-});
+Route::get('/galerie', [HomeController::class, 'galerie']);
 Route::get('/produits', function () {
     return view('produit');
 });
-Route::get('/service', function () {
-    return view('service');
-});
+Route::get('/service', [HomeController::class, 'service']);
 Route::get('/detail', function () {
     return view('detailsProduits');
 });
