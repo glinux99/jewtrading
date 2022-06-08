@@ -89,14 +89,14 @@
                             </button>
                             <ul class="nav mx-auto">
                                 <li class="nav-item">
-                                    <a href="/galerie-alter" class="nav-link m-0 p-0">
+                                    <a href="/galerie-alter" class="">
                                         <div class="px-3">
                                             <span class="bi-envelope me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Messages")}}</span>
                                         </div>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/galerie-alter" class="nav-link m-0 p-0">
+                                    <a href="/galerie-alter" class="">
                                         <div class="px-3">
                                             <span class="bi-truck me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Commandes")}}</span>
                                         </div>
