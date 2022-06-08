@@ -50,17 +50,25 @@ class HomeController extends Controller
     public function galerie()
     {
         $showAll = Galerie::all();
-        $showEquipes = HomeController::photo(Galerie::where('categorie', 'equipe'));
-        array_push($showEquipes, HomeController::photo(Agent::all()));
-        dd($showEquipes);
-        // $showClient = Galerie::where('categorie', 'client');
-        // $showProduits = Galerie::where('categorie', 'produit');
-        // $showProduit = Produit::all();
-        // $showOthers = Galerie::where('categorie', 'autres');
+        $showEquipes = HomeController::photo(Galerie::where('categories', 'Equipe')->get());
+        foreach (HomeController::photo(Agent::all()) as $agents) {
+            array_push($showEquipes, $agents);
+        }
+        $showClients = HomeController::photo(Galerie::where('categories', 'client')->get());
+        $showProduits = HomeController::photo(Galerie::where('categories', 'Produit')->get());
+        foreach (Produit::all() as $agents) {
+            // array_push($showProduits, );
+            if ($agents->file1 != '') array_push($showProduits, $agents->file1);
+            if ($agents->file2 != '') array_push($showProduits, $agents->file2);
+            if ($agents->file3 != '') array_push($showProduits, $agents->file3);
+            if ($agents->file4 != '') array_push($showProduits, $agents->file4);
+        }
+        $showOthers = HomeController::photo(Galerie::where('categories', 'autres')->get());
+        dd($showOthers);
         // $galerieShowAll = HomeController::photo($JewsTrgaleries);
         // return view('galerie', ['galerieShowAll' => $galerieShowAll,
-        // 'equipe'=>$showEquipes,
-        //  'showClient'=>$showClients,
+        // 'equipes'=>$showEquipes,
+        //  'showClients'=>$showClients,
         //  'produits'=>$showProduits,
         //  'autres'=>$showOthers]]);
     }

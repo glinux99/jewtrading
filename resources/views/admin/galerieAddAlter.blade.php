@@ -22,6 +22,7 @@
                                     <option class="produit">Produit</option>
                                     <option class="equipe">Equipe</option>
                                     <option value="partenaire">Partenaire</option>
+                                    <option value="autres">Autres</option>
                                 </select>
                             </div>
                         </div>
