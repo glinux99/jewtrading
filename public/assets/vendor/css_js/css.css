@@ -103,11 +103,8 @@ a,
   background-color: #282a3c;
 }
 
-.adminBody {
-  background-image: url('/assets/imgs/bgAdmin.png');
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+.bg-danger {
+  background: linear-gradient(90deg, rgba(255, 0, 0, 0.116), rgba(0, 0, 0, 0.192));
 }
 
 .menuAdmin {
@@ -158,12 +155,20 @@ a,
   width: 10rem;
 }
 
-.bg-card,
-.modal-content {
-  background: url('/assets/imgs/bgAdmin.png') !important;
-  background-attachment: fixed;
-}
-
 .bg-card-none {
   background: transparent;
+}
+
+.nav-tabs .nav-item .nav-link {
+  background-color: none;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+  color: #0c050498;
+  background: none;
+}
+
+.dashbord>div {
+  min-height: 30vh;
+  border-left: 5px solid red;
 }

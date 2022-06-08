@@ -7,7 +7,7 @@
     <h2 class="text-center text-white fw-bolder">{{__("Ajout d'un produit")}}</h2>
     <form action="/ajouterProduit" method="post" enctype="multipart/form-data">
         @csrf
-        <div class="col-md-10 col-lg-10 mx-auto add menuAdmin p-md-4 p-4">
+        <div class="col-md-10 col-lg-10 mx-auto add card shadow p-md-4 p-4">
             <p class="h4 border-bottom border-1 border-secondary py-2">
                 {{__("Information sur le produit")}}
             </p>
@@ -15,7 +15,7 @@
                 <div class="col-md-4">
                     <div class="mb-3 ">
                         <label for="marque " class="form-label">Marque</label>
-                        <select class="form-select bg-select" name="marque" id="">
+                        <select class="form-select " name="marque" id="">
                             <option value="abarth">Abarth</option>
                             <option value="aiways">Aiways</option>
                             <option value="alfa-romeo">Alfa Romeo</option>
@@ -92,7 +92,7 @@
                 <div class="col-md-4">
                     <div class=" mb-3">
                         <label for="model" class="form-label">Model</label>
-                        <select class="form-select bg-select" name="model" id="">
+                        <select class="form-select " name="model" id="">
 
                             <option value="">Selectionner</option>
                             <option value="1 SERIES (450)">1 SERIES (450)</option>
@@ -1516,7 +1516,7 @@
                 <div class="col-md-4">
                     <div class=" mb-3">
                         <label for="emplacement" class="form-label">{{__("Emplacement")}}</label>
-                        <input type="text" class="form-control bg-select" placeholder="{{__('Entrez l\'emplacement du vehicule')}}" name="emplacement">
+                        <input type="text" class="form-control " placeholder="{{__('Entrez l\'emplacement du vehicule')}}" name="emplacement">
                     </div>
                 </div>
             </div>
@@ -1524,19 +1524,19 @@
                 <div class="col-md-4">
                     <div class=" mb-3">
                         <label for="kilometrage" class="form-labbel">{{__("Kilometrage")}}</label>
-                        <input type="number" name="kilometrage" id="" class="form-control bg-select">
+                        <input type="number" name="kilometrage" id="" class="form-control ">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class=" mb-3">
                         <label for="anneeFabrication" class="form-label">Annee de Fab:</label>
-                        <input type="date" name="annee_fab" class="form-control bg-select" id="">
+                        <input type="date" name="annee_fab" class="form-control " id="">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class=" mb-3">
                         <label for="moteur" class="form-label">Cylindre Moteur</label>
-                        <input type="text" class="form-control bg-select" placeholder="{{__('Entrez le type de cylindre')}}" name="moteur" required>
+                        <input type="text" class="form-control " placeholder="{{__('Entrez le type de cylindre')}}" name="moteur" required>
                     </div>
                 </div>
             </div>
@@ -1544,7 +1544,7 @@
                 <div class="col-md-4">
                     <div class="mb-3 ">
                         <label for="transmission" class="form-label">Transmission</label>
-                        <select class="form-control bg-select" name="transmission" id="">
+                        <select class="form-control " name="transmission" id="">
                             <option value="Manuelle">Manuelle</option>
                             <option value="Automatique">Automatique</option>
                         </select>
@@ -1553,7 +1553,7 @@
                 <div class="col-md-4">
                     <div class="mb-3 ">
                         <label for="carburateur" class="form-label">{{__("Carburateur")}}</label>
-                        <select class="form-control bg-select" name="carburateur" id="" required>
+                        <select class="form-control " name="carburateur" id="" required>
                             <option value="OTHER">{{__("Autres")}}</option>
                             <option value="DIES">{{__("Diesel")}}</option>
                             <option value="ELEC">{{__("Électrique")}}</option>
@@ -1571,7 +1571,7 @@
                 <div class="col-md-4">
                     <div class=" mb-3">
                         <label for="numChassis" class="form-label">{{__("Num Chassis")}}</label>
-                        <input type="number" name="numChassis" id="" class="form-control bg-select">
+                        <input type="number" name="numChassis" id="" class="form-control ">
                     </div>
                 </div>
             </div>
@@ -1579,19 +1579,19 @@
                 <div class="col-md-4">
                     <div class=" mb-3">
                         <label for="couleur" class="form-label">{{__("Prix")}}</label>
-                        <input type="number" name="prix" id="" class="form-control bg-select">
+                        <input type="number" name="prix" id="" class="form-control ">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class=" mb-3">
                         <label for="couleur" class="form-label">{{__("Couleur")}}</label>
-                        <input type="color" name="couleur" class="form-control bg-select" id="">
+                        <input type="color" name="couleur" class="form-control " id="">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class=" mb-3">
                         <label for="declaration" class="form-label">{{__("Declaration")}}</label>
-                        <input type="text" class="form-control bg-select" name="declaration">
+                        <input type="text" class="form-control " name="declaration">
                     </div>
                 </div>
             </div>
@@ -1608,7 +1608,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center my-3">
-                <button class="btn buttonAdd">Ajouter</button>
+                <button class="btn bg-danger text-white col-md-2">Ajouter</button>
             </div>
         </div>
     </form>

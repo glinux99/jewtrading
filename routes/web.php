@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ServiceController;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
@@ -21,11 +22,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/modal-delete-message/{id}', [MessageController::class, 'destroy']);
+Route::get('/modal-read-message/{id}', [MessageController::class, 'readMessageModal']);
+Route::post('/send-message', [MessageController::class, 'contact']);
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/apropos', [HomeController::class, 'apropos']);
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/galerie', [HomeController::class, 'galerie']);
 Route::get('/produits', [HomeController::class, 'produit']);
 Route::get('/service', [HomeController::class, 'service']);

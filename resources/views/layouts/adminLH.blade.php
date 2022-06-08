@@ -11,21 +11,21 @@
     <title>@yield('title' ?? 'Administration | Jews Trading')</title>
 </head>
 
-<body class="adminBody">
+<body class="">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 col-lg-2 col-2 p-0 m-0 vh-100 menuAdmin">
-                <nav class="navbar navbar-expand-lg border-bottom border-secondary border-1 menuAdmin">
-                    <div class="container-fluid px-1">
-                        <div class="navbar-brand ">
-                            <img src="{{ asset('assets/imgs/logojw.png')}}" alt="notre logo" width="60" class="d-inline-block align-text-top">
-                            <span class="d-none d-md-inline d-lg-inline">
+            <div class="col-md-2 col-lg-2 col-2 p-0 m-0 vh-100 bg-danger shadow position-sticky top-0">
+                <nav class="navbar navbar-expand-lg border-bottom border-secondary border-1 bg-danger p-0 m-1">
+                    <div class="container-fluid px-3">
+                        <div class="navbar-brand d-flex align-items-center">
+                            <img src="{{ asset('assets/imgs/logojw.png')}}" alt="notre logo" width="35" height="35" class="d-inline-block align-text-top rounded-circle">
+                            <span class="d-none d-md-inline d-lg-inline text-white px-2">
                                 {{__("JEWS Admin")}}
                             </span>
                         </div>
                     </div>
                 </nav>
-                <div class="text-muted">
+                <div class="text-white">
                     <ul class="list-unstyled menuLeft-Items">
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
                             <a href="/admin" class="nav-link m-0 p-0">
@@ -131,34 +131,24 @@
             </div>
             <div class="col-md-10 col-lg-10 col-10 p-0 m-0">
                 <div>
-                    <nav class="navbar navbar-expand-lg menuAdmin pe-5">
-                        <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg bg-danger ">
+                        <div class="container-fluid d-flex justify-content-end">
                             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".coll">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <div class="collapse navbar-collapse coll d-flex justify-content-center">
-                                <div class="navbar-nav mx-auto">
-                                    <li class="nav-item">
-                                        <form action="" method="post" class="input-group">
-                                            <input type="text" class="form-control search-menu-admin">
-                                            <button class="btn menuAdmin">{{ __("Recherche")}}</button>
-                                        </form>
-                                    </li>
-                                </div>
-                            </div>
                             <div class="d-flex justify-content-end">
                                 <div class="btn-group dropstart">
-                                    <img src="{{asset('assets/imgs/logojw.png')}}" data-bs-toggle="dropdown" aria-expanded="false" alt="image profile" class="rounded-circle" style="width: 50px; height: 50px">
-                                    <ul class="dropdown-menu bg-card-none bg-select">
+                                    <img src="{{asset('assets/imgs/logojw.png')}}" data-bs-toggle="dropdown" aria-expanded="false" alt="image profile" class="rounded-circle" style="width: 35px; height: 35px">
+                                    <ul class="dropdown-menu shadow-lg">
                                         <li>
                                             <a href="/parametre" class="nav-link">
-                                                <span class="bi-gear-fill me-1"></span>{{__("Parametre")}}
+                                                <span class=" bi-gear-fill me-1 text-danger"></span><span class="text-danger">{{__("Parametre")}}</span>
                                             </a>
                                         </li>
                                         <li class="border-top"></li>
                                         <li>
                                             <a href="/logout" class="nav-link">
-                                                <span class="bi-power me-1"></span>{{__("Deconnection")}}
+                                                <span class="bi-power me-1 text-danger"></span><span class="text-danger">{{__("Deconnection")}}</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -200,7 +190,7 @@
         function ajouter() {
             $('.input-add').append('<div class="d-flex">\
             <input type = "file"\
-            class = "form-control my-1 bg-select" name ="file' + numFile + '"/>\
+            class = "form-control my-1 " name ="file' + numFile + '"/>\
             <span class="ms-2 bi-trash-fill bi--xl text-danger" onclick="deleteP(this)"></span>\
             </div>');
             $('#count').val(numFile);

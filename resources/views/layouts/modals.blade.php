@@ -6,16 +6,16 @@
 <button type="button" id="agentAffModal" role="button" data-bs-toggle="modal" data-bs-target="#employeAlterModal" hidden></button>
 @if ($produit ?? 0)
 <div class="modal fade" id="produitAlterModal" tabindex="-1" aria-labelledby="produitAlterModal" aria-hidden="true">
-    <div class="modal-dialog modal-lg  text-white">
+    <div class="modal-dialog modal-lg  ">
         <form action="/update-vehicule/{{$produit->id}}" method="post">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modifModalLabel">Modifier un vehicule</h5>
+                    <h5 class="modal-title" id="modifModzalLabel">Modifier un vehicule</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="card bg-card">
+                    <div class="card">
                         <div class="row">
                             <div class="col-6">
                                 <div id="vehiculeCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -78,7 +78,7 @@
                                         </label>
                                     </div>
                                     <div class="col-8">
-                                        <input type="number" name="prix" class="form-control bg-select" value="{{$produitCurrent->prix}}">
+                                        <input type="number" name="prix" class="form-control " value="{{$produitCurrent->prix}}">
                                     </div>
                                 </div>
                                 <div class="row mx-2">
@@ -88,7 +88,7 @@
                                         </label>
                                     </div>
                                     <div class=" col-8">
-                                        <input type="text" name="marque" class="form-control bg-select" value="{{$produitCurrent->marque}}">
+                                        <input type="text" name="marque" class="form-control " value="{{$produitCurrent->marque}}">
                                     </div>
                                 </div>
                                 <div class="row m-2">
@@ -98,7 +98,7 @@
                                         </label>
                                     </div>
                                     <div class="col-8">
-                                        <input type="text" name="model" class="form-control bg-select" value="{{$produitCurrent->model}}">
+                                        <input type="text" name="model" class="form-control " value="{{$produitCurrent->model}}">
                                     </div>
                                 </div>
                                 <div class="row m-2">
@@ -108,7 +108,7 @@
                                         </label>
                                     </div>
                                     <div class="col-8">
-                                        <input type="color" name="couleur" class="form-control bg-select" value="{{$produitCurrent->couleur}}">
+                                        <input type="color" name="couleur" class="form-control " value="{{$produitCurrent->couleur}}">
                                     </div>
                                 </div>
                             </div>
@@ -121,7 +121,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" name="emplencement" class="form-control bg-select" value="{{$produitCurrent->emplacement}}">
+                                    <input type="text" name="emplencement" class="form-control " value="{{$produitCurrent->emplacement}}">
                                 </div>
                             </div>
                             <div class="col-6 row">
@@ -131,7 +131,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="number" name="kilometrage" class="form-control bg-select" value="{{$produitCurrent->kilometrage}}">
+                                    <input type="number" name="kilometrage" class="form-control " value="{{$produitCurrent->kilometrage}}">
                                 </div>
                             </div>
                         </div>
@@ -143,7 +143,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="date" name="anneeFab" class="form-control bg-select" value="{{$produitCurrent->annee_fab}}">
+                                    <input type="date" name="anneeFab" class="form-control " value="{{$produitCurrent->annee_fab}}">
                                 </div>
                             </div>
                             <div class="row col-6">
@@ -153,7 +153,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" name="moteur" class="form-control bg-select" value="{{$produitCurrent->moteur}}">
+                                    <input type="text" name="moteur" class="form-control " value="{{$produitCurrent->moteur}}">
                                 </div>
                             </div>
                         </div>
@@ -165,7 +165,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <select class="form-control bg-select" name="transmission" id="" value="{{$produitCurrent->transmission}}">
+                                    <select class="form-control " name="transmission" id="" value="{{$produitCurrent->transmission}}">
                                         <option value="Manuelle">Manuelle</option>
                                         <option value="Automatique">Automatique</option>
                                     </select>
@@ -178,7 +178,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <select class="form-control bg-select" name="carburateur" id="" value="{{$produitCurrent->carburateur}}">
+                                    <select class="form-control " name="carburateur" id="" value="{{$produitCurrent->carburateur}}">
                                         <option value="OTHER">{{__("Autres")}}</option>
                                         <option value="DIES">{{__("Diesel")}}</option>
                                         <option value="ELEC">{{__("Électrique")}}</option>
@@ -202,7 +202,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="number" name="numChassis" class="form-control bg-select">
+                                    <input type="number" name="numChassis" class="form-control ">
                                 </div>
                             </div>
                             <div class="row col-6">
@@ -212,14 +212,14 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" name="declaration" class="form-control bg-select" value="{{$produitCurrent->declaration}}">
+                                    <input type="text" name="declaration" class="form-control " value="{{$produitCurrent->declaration}}">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn buttonAdd">{{__("Enregistrer")}}</button>
+                    <button type="submit" class="btn btn-danger">{{__("Enregistrer")}}</button>
                     <a href="/supprimer-produit/{{$produit->id}}" class="btn btn-danger">{{__("Supprimer")}}</a>
                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
                 </div>
@@ -230,14 +230,14 @@
 @endif
 <!-- Modal pour la suppression -->
 <!-- <div class="modal fade" id="suppModal" tabindex="-1" aria-labelledby="suppModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg  text-white">
+    <div class="modal-dialog modal-lg  ">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="suppModalLabel">Modifier un vehicule</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="card bg-card">
+                <div class="card ">
                     <div class="row">
                         <div class="col-6">
                             <img src="{{asset('assets/imgs/carIndex.png')}}" alt="" class="img-fluid">
@@ -388,7 +388,7 @@
 </div> -->
 <!-- Ajouter un service -->
 <div class="modal fade" id="serviceAddModal" tabindex="-1" aria-labelledby="serviceAddModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg  text-white">
+    <div class="modal-dialog modal-lg  ">
         <form action="/ajoute_service" method="post">
             @csrf
             <div class="modal-content">
@@ -405,7 +405,7 @@
                                 </label>
                             </div>
                             <div class="col-8">
-                                <input type="text" class="form-control bg-select" name="titreService" id="titre">
+                                <input type="text" class="form-control " name="titreService" id="titre">
                             </div>
                         </div>
                         <div class="row">
@@ -416,7 +416,7 @@
                             </div>
                             <div class="col-8 my-1">
                                 <div class="form-group">
-                                    <textarea class="form-control bg-select" name="descriptionService" rows="3" id="description"></textarea>
+                                    <textarea class="form-control " name="descriptionService" rows="3" id="description"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -424,7 +424,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
-                    <button type="submit" class="btn buttonAdd">{{__("Enregistrer")}}</button>
+                    <button type="submit" class="btn btn-danger">{{__("Enregistrer")}}</button>
                 </div>
             </div>
         </form>
@@ -432,7 +432,7 @@
 </div>
 <!-- Modifier un produit -->
 <div class="modal fade" id="serviceAlterModal" tabindex="-1" aria-labelledby="serviceAlterModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg  text-white">
+    <div class="modal-dialog modal-lg  ">
         <form action="/update-service" method="post">
             @csrf
             <div class="modal-content">
@@ -449,7 +449,7 @@
                                 </label>
                             </div>
                             <div class="col-8">
-                                <input type="text" class="form-control bg-select" name="titreService" value="{{ $serviceCurrent->titreService ?? 'rien'}}">
+                                <input type="text" class="form-control " name="titreService" value="{{ $serviceCurrent->titreService ?? 'rien'}}">
                             </div>
                         </div>
                         <div class="row">
@@ -460,7 +460,7 @@
                             </div>
                             <div class="col-8 my-1">
                                 <div class="form-group">
-                                    <textarea id="my-textarea" class="form-control bg-select" name="descriptionService" rows="3">
+                                    <textarea id="my-textarea" class="form-control " name="descriptionService" rows="3">
                                     {{ $serviceCurrent->descriptionService ?? 'rien'}}
                                     </textarea>
                                 </div>
@@ -471,7 +471,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
-                    <button type="submit" class="btn buttonAdd">{{__("Enregistrer")}}</button>
+                    <button type="submit" class="btn btn-danger">{{__("Enregistrer")}}</button>
                 </div>
             </div>
         </form>
@@ -479,7 +479,7 @@
 </div>
 <!-- ADD EMploye -->
 <div class="modal fade" id="employeAddModal" tabindex="-1" aria-labelledby="employeAddModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg  text-white">
+    <div class="modal-dialog modal-lg">
         <form action="/ajoute_agent" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
@@ -496,7 +496,7 @@
                                 </label>
                             </div>
                             <div class="col-8">
-                                <input type="text" class="form-control bg-select" name="nom_agent">
+                                <input type="text" class="form-control " name="nom_agent">
                             </div>
                         </div>
                         <div class="row my-1">
@@ -506,7 +506,7 @@
                                 </label>
                             </div>
                             <div class="col-8">
-                                <input type="text" class="form-control bg-select" name="fonction">
+                                <input type="text" class="form-control " name="fonction">
                             </div>
                         </div>
                         <div class="row my-1">
@@ -516,7 +516,7 @@
                                 </label>
                             </div>
                             <div class="col-8">
-                                <input type="email" class="form-control bg-select" name="email_agent">
+                                <input type="email" class="form-control " name="email_agent">
                             </div>
                         </div>
                         <div class="row my-1">
@@ -526,7 +526,7 @@
                                 </label>
                             </div>
                             <div class="col-8">
-                                <input type="number" class="form-control bg-select" name="num_agent">
+                                <input type="number" class="form-control " name="num_agent">
                             </div>
                         </div>
                         <div class="row my-1">
@@ -537,7 +537,7 @@
                             </div>
                             <div class="col-8">
                                 <div class="mb-3">
-                                    <textarea class="form-control bg-select" name="adresse_agent" id="" rows="3"></textarea>
+                                    <textarea class="form-control " name="adresse_agent" id="" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -548,14 +548,14 @@
                                 </label>
                             </div>
                             <div class="col-8">
-                                <input type="file" name="file1" id="" class="form-control bg-select">
+                                <input type="file" name="file1" id="" class="form-control ">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
-                    <button type="submit" class="btn buttonAdd">{{__("Enregistrer")}}</button>
+                    <button type="submit" class="btn btn-danger">{{__("Enregistrer")}}</button>
                 </div>
             </div>
         </form>
@@ -564,7 +564,7 @@
 <!-- Alter Employe -->
 @if ($agentChange ?? 0)
 <div class="modal fade" id="employeAlterModal" tabindex="-1" aria-labelledby="employeAlterModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl  text-white">
+    <div class="modal-dialog modal-xl  ">
         <form action="/update-agent/{{ $agentChange->id}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
@@ -582,7 +582,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" class="form-control bg-select" name="nom_agent" value="{{ $agentChange->nom_agent}}">
+                                    <input type="text" class="form-control " name="nom_agent" value="{{ $agentChange->nom_agent}}">
                                 </div>
                             </div>
                             <div class="row my-1">
@@ -592,7 +592,7 @@
                                     </label>
                                 </div>
                                 <div class=" col-8">
-                                    <input type="text" class="form-control bg-select" name="fonction" value="{{ $agentChange->fonction}}">
+                                    <input type="text" class="form-control " name="fonction" value="{{ $agentChange->fonction}}">
                                 </div>
                             </div>
                             <div class="row my-1">
@@ -602,7 +602,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="email" class="form-control bg-select" name="email_agent" value="{{ $agentChange->email_agent}}">
+                                    <input type="email" class="form-control " name="email_agent" value="{{ $agentChange->email_agent}}">
                                 </div>
                             </div>
                             <div class="row my-1">
@@ -612,7 +612,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="number" class="form-control bg-select" name="num_agent" value="{{ $agentChange->num_agent}}">
+                                    <input type="number" class="form-control " name="num_agent" value="{{ $agentChange->num_agent}}">
                                 </div>
                             </div>
                             <div class="row my-1">
@@ -623,7 +623,7 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="mb-3">
-                                        <textarea class="form-control bg-select" name="adresse_agent" id="" rows="3">
+                                        <textarea class="form-control " name="adresse_agent" id="" rows="3">
                                         {{ $agentChange->adresse_agent}}
                                         </textarea>
                                     </div>
@@ -636,11 +636,11 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="file" name="file1" id="" class="form-control bg-select" value="value=" {{ $agentChange->image}}"">
+                                    <input type="file" name="file1" id="" class="form-control " value="value=" {{ $agentChange->image}}"">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 card bg-card-none p-0">
+                        <div class="col-md-6 card -none p-0">
                             @php
                             $img = '/storage/images/agents/'.$agentChange->image;
                             @endphp
@@ -650,7 +650,7 @@
                 </div>
                 <div class=" modal-footer">
                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
-                    <button type="submit" class="btn buttonAdd">{{__("Enregistrer")}}</button>
+                    <button type="submit" class="btn btn-danger">{{__("Enregistrer")}}</button>
                 </div>
             </div>
         </form>

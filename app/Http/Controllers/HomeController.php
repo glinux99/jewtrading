@@ -110,6 +110,11 @@ class HomeController extends Controller
         }
         return view('apropos', ['apropos' => $apropos, 'missions' => $missions, 'agents' => $agents]);
     }
+    public function contact()
+    {
+        $phone = explode('/', User::find(1)->contact);
+        return view('contact', ['adresse' => User::find(1)->adresse, 'phones' => $phone, 'email' => User::find(1)->emailEntreprise]);
+    }
     /**
      * Store a newly created resource in storage.
      *

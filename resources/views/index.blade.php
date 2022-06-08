@@ -24,7 +24,7 @@ $gal=0;
                 <h2 class="fw-bold tradingIndex">
                     Trading
                 </h2>
-                <div class="">
+                <div class="col-5">
                     <ul class="list-unstyled">
                         <li class="mt-2">
                             <h6 class="text-uppercase fw-bold">

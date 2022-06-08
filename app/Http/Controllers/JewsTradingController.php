@@ -8,6 +8,7 @@ use App\Models\Galerie;
 use App\Models\Produit;
 use App\Models\Service;
 use App\Models\Commande;
+use App\Models\Email;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -87,9 +88,10 @@ class JewsTradingController extends Controller
         $countPhoto = JewsTradingController::countPhoto();
         $countProd = Produit::all()->count();
         $countUser = User::all()->count();
+        $message_R = Email::all();
         return view('admin', compact([
             'countProd', 'countAgent', 'countServ',
-            'countPhoto', 'countUser'
+            'countPhoto', 'countUser', 'message_R'
         ]));
         // echo $countPhoto;
     }
@@ -102,14 +104,14 @@ class JewsTradingController extends Controller
     public function store(Request $request)
     {
         $produits = Produit::all();
-        return view('admin.alter', ['produit' => true, 'produits' => $produits]);
+        return view('admin.alter', ['prod' => true, 'produits' => $produits]);
     }
     public function activeModal($id)
     {
         $produits = Produit::all();
         $produitCurrent = Produit::findOrfail($id);
         session()->flash('produitAff', true);
-        return view('admin.alter', ['produit' => true, 'produits' => $produits, 'produitCurrent' => $produitCurrent]);
+        return view('admin.alter', ['prod' => true, 'produits' => $produits, 'produitCurrent' => $produitCurrent]);
     }
     /**
      * Display the specified resource.
