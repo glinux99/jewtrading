@@ -82,23 +82,23 @@
             </div>
             <div class="col-md-10 col-lg-10 col-10 p-0 m-0">
                 <div>
-                    <nav class="navbar navbar-expand-lg bg-danger ">
-                        <div class="container-fluid d-flex justify-content-end">
+                    <nav class="navbar navbar-expand-lg bg-danger p-0">
+                        <div class="container-fluid">
                             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".coll">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <ul class="nav ">
+                            <ul class="list-unstyled d-flex">
                                 <li class="nav-item">
                                     <a href="/galerie-alter" class="nav-link m-0 p-0">
-                                        <div class="p-3">
-                                            <span class="bi-envelope me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Messages")}}</span>
+                                        <div class="d-flex">
+                                            <span class="bi-envelope me-md-2"></span><span class="">{{__("Messages")}}</span>
                                         </div>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="/galerie-alter" class="nav-link m-0 p-0">
-                                        <div class="p-3">
-                                            <span class="bi-truck me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Commandes")}}</span>
+                                        <div class="d-flex">
+                                            <span class="bi-truck me-md-2"></span><span>{{__("Commandes")}}</span>
                                         </div>
                                     </a>
                                 </li>
