@@ -85,9 +85,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function produit()
     {
-        //
+        $produits = array();
+        foreach (Produit::all() as $prod) {
+            $path = '/storage/images/produits/';
+            if ($prod->file1 != '') $file = $path . $prod->file1;
+            else if ($prod->file2 != '') $file = $path . $prod->file2;
+            else if ($prod->file3 != '') $file = $path . $prod->file3;
+            else if ($prod->file4 != '') $file = $path . $prod->file4;
+            array_push($produits, [$prod->marque, $prod->prix, $prod->id, $file]);
+        }
+        return view('produit', ['produits' => $produits]);
     }
 
     /**

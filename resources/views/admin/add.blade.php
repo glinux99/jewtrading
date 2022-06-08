@@ -1,6 +1,6 @@
 @extends('layouts.adminLH')
 @section('title')
-{{ __("Administration  | Jews Trading")}}
+{{ __("Admnistration  | Jews Trading")}}
 @endsection
 @section('body')
 <div class="container">
@@ -1515,7 +1515,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class=" mb-3">
-                        <label for="emplacementvehicule" class="form-label">{{__("Emplacement")}}</label>
+                        <label for="emplacement" class="form-label">{{__("Emplacement")}}</label>
                         <input type="text" class="form-control bg-select" placeholder="{{__('Entrez l\'emplacement du vehicule')}}" name="emplacement">
                     </div>
                 </div>
@@ -1543,7 +1543,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="mb-3 ">
-                        <label for="typeTransmission" class="form-label">Transmission</label>
+                        <label for="transmission" class="form-label">Transmission</label>
                         <select class="form-control bg-select" name="transmission" id="">
                             <option value="Manuelle">Manuelle</option>
                             <option value="Automatique">Automatique</option>
@@ -1552,7 +1552,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="mb-3 ">
-                        <label for="typeCarburateur" class="form-label">{{__("Carburateur")}}</label>
+                        <label for="carburateur" class="form-label">{{__("Carburateur")}}</label>
                         <select class="form-control bg-select" name="carburateur" id="" required>
                             <option value="OTHER">{{__("Autres")}}</option>
                             <option value="DIES">{{__("Diesel")}}</option>

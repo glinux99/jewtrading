@@ -21,25 +21,21 @@
     'assets/imgs/gal20.jpg','assets/imgs/gal21.jpg','assets/imgs/gal22.jpg'];
     @endphp
     <div class="col-md-10 mx-auto">
-        @for($i = 0; $i < count($galeries)/3; $i++) @php $x=0; @endphp <div class="d-md-flex d-lg-flex justify-content-center">
-            @while ($x<3) <div class="col-md-4 m-3 card position-relative">
-                <img src="{{asset($galeries[$y])}}" alt="" class="img-fluid h-100" style="filter: contrast(50%)">
-                <div class="card-img-overlay ">
-                    <h4 class="card-title fw-bolder">Marque de la voiture</h4>
-                    <h4 class="card-title fw-bolder">Price 0000 usd</h4>
+        <div class="row">
+            @foreach ($produits as $produit )
+            <div class="col-md-4 my-2 position-relative">
+                <img src="{{asset($produit[3])}}" alt="" class="img-fluid h-100" style="filter: contrast(50%)">
+                <div class="card-img-overlay mx-4">
+                    <h4 class="card-title fw-bolder">{{ $produit[0]}}</h4>
+                    <h4 class="card-title fw-bolder">{{ $produit[1]}}</h4>
                     <div class="position-absolute bottom-0 pb-2">
-                        <button class="btn btn-danger">Voir details</button>
+                        <a href="/detail-produit/{{ $produit[2]}}" class="btn btn-danger">Voir details</a>
                     </div>
                 </div>
+            </div>
+            @endforeach
+        </div>
     </div>
-    @php
-    $x++;
-    $y++;
-    @endphp
-    @endwhile
-</div>
-@endfor
-</div>
 </div>
 </div>
 @endsection

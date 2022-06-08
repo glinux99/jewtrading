@@ -29,9 +29,7 @@ Route::get('/contact', function () {
     return view('contact');
 });
 Route::get('/galerie', [HomeController::class, 'galerie']);
-Route::get('/produits', function () {
-    return view('produit');
-});
+Route::get('/produits', [HomeController::class, 'produit']);
 Route::get('/service', [HomeController::class, 'service']);
 Route::get('/detail', function () {
     return view('detailsProduits');
