@@ -83,11 +83,11 @@
             <div class="col-md-10 col-lg-10 col-10 p-0 m-0">
                 <div>
                     <nav class="navbar navbar-expand-lg bg-danger ">
-                        <div class="container-fluid d-flex justify-content-end">
+                        <div class="container-fluid">
                             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".coll">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <ul class="nav ">
+                            <ul class="nav mx-auto">
                                 <li class="nav-item">
                                     <a href="/galerie-alter" class="nav-link m-0 p-0">
                                         <div class="px-3">
