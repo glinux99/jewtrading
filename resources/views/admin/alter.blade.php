@@ -3,9 +3,13 @@
 {{ __("Administration  | Jews Trading")}}
 @endsection
 @section('body')
-@if($produit ?? '')
-<div class="container">
-    <h2 class="text-center text-white fw-bolder">{{__("Modifier un produit")}}</h2>
+@if($affprod ?? '')
+<div class="container card my-4 py-4 shadow">
+    <h5 class="text-dark fw-bolder  border-bottom border-2 py-2">{{__("Modifier un produit")}}</h5>
+    <div>
+        <a href="/ajouter/produit" class="btn btn-danger">Ajouter un produit</a>
+    </div>
+    @if (count($produits))
     <div class="container mt-4">
         <table id="dataTable" class="table table-striped table-hover ">
             <thead>
@@ -33,13 +37,14 @@
                         {{$produit->prix}}
                     </td>
                     <td>
-                        <a href="/modifier-produit/{{$produit->id}}" class="btn btn-primary mx-1"> <span class="ms-1 bi-pencil-square float-end"></span><span class="ms-1 bi-trash float-end text-danger"></a>
+                        <a href="/modifier/produit/{{$produit->id}}" class="btn btn-primary mx-1"> <span class="ms-1 bi-pencil-square float-end"></span><span class="ms-1 bi-trash float-end text-danger"></a>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+    @endif
 </div>
 @endif
 @if ($service ?? '')

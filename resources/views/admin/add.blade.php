@@ -3,13 +3,12 @@
 {{ __("Admnistration  | Jews Trading")}}
 @endsection
 @section('body')
-<div class="container">
-    <h2 class="text-center text-white fw-bolder">{{__("Ajout d'un produit")}}</h2>
+<div class="py-4">
     <form action="/ajouterProduit" method="post" enctype="multipart/form-data">
         @csrf
-        <div class="col-md-10 col-lg-10 mx-auto add card shadow p-md-4 p-4">
+        <div class="col-md-11 col-lg-11 mx-auto add card shadow p-md-4 p-4">
             <p class="h4 border-bottom border-1 border-secondary py-2">
-                {{__("Information sur le produit")}}
+                <span class="bi-info-circle me-1"></span>{{__("Information sur le produit")}}
             </p>
             <div class="row">
                 <div class="col-md-4">
@@ -1603,7 +1602,7 @@
                         <input type="file" class="my-1 form-control" name="file1" id="file" required />
                     </div>
                     <div class="col-md-6">
-                        <button type="button" class="btn buttonAddPic" onclick="ajouter()">{{__("ajouter")}} <span class="bi-images"></span><span class="bi-plus"></span></button>
+                        <button type="button" class="btn bg-danger" onclick="ajouter()">{{__("ajouter")}} <span class="bi-images"></span><span class="bi-plus"></span></button>
                     </div>
                 </div>
             </div>

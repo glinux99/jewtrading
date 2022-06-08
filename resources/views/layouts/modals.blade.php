@@ -4,18 +4,19 @@
 <button type="button" id="agentAffModal" role="button" data-bs-toggle="modal" data-bs-target="#employeAlterModal" hidden></button>
 <button type="button" id="modalAff" role="button" data-bs-toggle="modal" data-bs-target="#serviceAlterModal" hidden></button>
 <button type="button" id="agentAffModal" role="button" data-bs-toggle="modal" data-bs-target="#employeAlterModal" hidden></button>
-@if ($produit ?? 0)
+@if ($prod ?? 0)
 <div class="modal fade" id="produitAlterModal" tabindex="-1" aria-labelledby="produitAlterModal" aria-hidden="true">
     <div class="modal-dialog modal-lg  ">
-        <form action="/update-vehicule/{{$produit->id}}" method="post">
+        <form action="/update/
+        vehicule/{{$produitCurrent->id}}" method="post">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modifModzalLabel">Modifier un vehicule</h5>
+                    <h5 class="modal-title" id="modifModzalLabel">Modifier un produit</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="card">
+                    <div class="card shadow px-3">
                         <div class="row">
                             <div class="col-6">
                                 <div id="vehiculeCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -29,10 +30,10 @@
                                     <div class="carousel-inner" role="listbox">
                                         <div class="carousel-item active">
                                             @php
-                                            $img1 = '/storage/images/produits'.$produitCurrent->file1;
-                                            $img2 = '/storage/images/produits'.$produitCurrent->file2;
-                                            $img3 = '/storage/images/produits'.$produitCurrent->file3;
-                                            $img4 = '/storage/images/produits'.$produitCurrent->file4;
+                                            $img1 = '/storage/images/produits/'.$produitCurrent->file1;
+                                            $img2 = '/storage/images/produits/'.$produitCurrent->file2;
+                                            $img3 = '/storage/images/produits/'.$produitCurrent->file3;
+                                            $img4 = '/storage/images/produits/'.$produitCurrent->file4;
                                             @endphp
                                             <img src="{{asset($img1)}}" class="w-100 d-block" alt="First slide">
                                             <div class="carousel-caption d-none d-md-block">
@@ -143,7 +144,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="date" name="anneeFab" class="form-control " value="{{$produitCurrent->annee_fab}}">
+                                    <input type="date" name="annee_fab" class="form-control " value="{{$produitCurrent->annee_fab}}">
                                 </div>
                             </div>
                             <div class="row col-6">
@@ -220,7 +221,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-danger">{{__("Enregistrer")}}</button>
-                    <a href="/supprimer-produit/{{$produit->id}}" class="btn btn-danger">{{__("Supprimer")}}</a>
+                    <a href="/supprimer-produit/{{$produitCurrent->id}}" class="btn btn-danger">{{__("Supprimer")}}</a>
                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
                 </div>
             </div>

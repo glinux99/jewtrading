@@ -23,7 +23,8 @@ class JewsTradingController extends Controller
      */
     public function index()
     {
-        $produit = Produit::all();
+        $produits = Produit::all();
+        return view('admin.alter', ['affprod' => true, 'produits' => $produits]);
     }
 
     /**
@@ -103,15 +104,7 @@ class JewsTradingController extends Controller
      */
     public function store(Request $request)
     {
-        $produits = Produit::all();
-        return view('admin.alter', ['prod' => true, 'produits' => $produits]);
-    }
-    public function activeModal($id)
-    {
-        $produits = Produit::all();
-        $produitCurrent = Produit::findOrfail($id);
-        session()->flash('produitAff', true);
-        return view('admin.alter', ['prod' => true, 'produits' => $produits, 'produitCurrent' => $produitCurrent]);
+        return view('admin.add');
     }
     /**
      * Display the specified resource.
@@ -132,7 +125,10 @@ class JewsTradingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produits = Produit::all();
+        $produitCurrent = Produit::findOrfail($id);
+        session()->flash('produitAff', true);
+        return view('admin.alter', ['prod' => true, 'affprod' => true, 'produits' => $produits, 'produitCurrent' => $produitCurrent]);
     }
 
     /**
@@ -165,6 +161,7 @@ class JewsTradingController extends Controller
         $produit->admin_id = Auth::User()->id;
         // $produit->file1 = $produit->file;
         $produit->save();
+        return JewsTradingController::index();
     }
     /**
      * Remove the specified resource from storage.

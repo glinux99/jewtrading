@@ -3,12 +3,13 @@
 {{ __("Administration  | Jews Trading")}}
 @endsection
 @section('body')
-<div class="container">
-    <h2 class="text-center text-white fw-bolder">{{__("Galerie Photo")}}</h2>
-    <div class="mt-4 mx-1">
-        <div class="my-2 text-white">
+<div class="container card my-4 py-4 shadow">
+    <h5 class="text-dark fw-bolder  border-bottom border-2 py-2">{{__("Galerie Photo")}}</h5>
+    <div class=" mx-1">
+        <div class="my-2">
             <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGalerie" aria-expanded="false" aria-controls="collapseGalerie">Ajouter image</button>
-            <div class="collapse col-md-6 my-2 card p-2 text-dark" id="collapseGalerie">
+            <p><small>*{{__("Doublez cliquer pour supprimer sur l'image pour la supprimer")}}</small></p>
+            <div class="collapse col-md-6 my-2 card p-2 " id="collapseGalerie">
                 <form action="/galerie-photo" method="post" id="dataform" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
@@ -51,7 +52,7 @@
         @endphp
         <div class="row">
             @while ($y<count($galeries)) <div class="p-0 m-0 col-md-4">
-                <a href="/delete/{{$galeries[$y]}}">
+                <a href="/delete/{{$galeries[$y]}}" title="{{ __("Doublez cliquer pour supprimer")}}" onclick="return false" ondblclick="location=this.href">
                     <div class="card p-0 m-1">
                         @php
                         $img = '/storage/images/galeries/'.$galeries[$y];

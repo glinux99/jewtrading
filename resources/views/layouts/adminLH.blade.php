@@ -42,9 +42,11 @@
                             </a>
                         </li>
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass ">
-                            <div class="p-3 ">
-                                <span class="bi-cart4 me-md-2"></span> <span class="d-none d-md-inline d-lg-inline">{{__("Produits")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
-                            </div>
+                            <a href="/afficher/produit" class="nav-link m-0 p-0">
+                                <div class="p-3 ">
+                                    <span class="bi-cart4 me-md-2"></span> <span class="d-none d-md-inline d-lg-inline">{{__("Produits")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                                </div>
+                            </a>
                         </li>
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass" type="button" data-bs-toggle="collapse" data-bs-target="#collapseServices" aria-expanded="false" aria-controls="collapseServices">
                             <div class="p-3">
