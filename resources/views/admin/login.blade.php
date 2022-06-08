@@ -15,18 +15,18 @@
     @include('layouts.menuP')
     <form action="/connect" method="post">
         @csrf
-        <div class="col-md-5 menuAdmin px-4 mx-auto my-md-5 py-md-5">
-            <div class="my-3 p-3 menuAdmin">
+        <div class="col-md-5 card shadow px-4 mx-auto my-md-3 py-md-5">
+            <div class="my-2 p-3 card shadow">
                 <h3 class="text-center">{{__("Connection")}}</h3>
                 <p class="text-center">
                     <span class="bi-person bi--6xl"></span>
                 </p>
                 <div class="mx-2">
-                    <input type="text" class="form-control my-2 bg-select" placeholder="Username" name="email">
-                    <input type="password" class="form-control bg-select" placeholder="******************" name="psswd">
+                    <input type="text" class="form-control my-2 " placeholder="Username" name="email">
+                    <input type="password" class="form-control " placeholder="******************" name="psswd">
                 </div>
                 <div class="d-flex justify-content-center mt-3">
-                    <button class="btn buttonAdd">{{__("connection")}}</button>
+                    <button class="btn btn-danger">{{__("connection")}}</button>
                 </div>
             </div>
         </div>

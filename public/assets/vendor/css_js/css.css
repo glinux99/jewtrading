@@ -107,6 +107,8 @@ a,
   background: linear-gradient(90deg, rgba(255, 0, 0, 0.116), rgba(0, 0, 0, 0.192));
 }
 
+
+
 .menuAdmin {
   background-color: #0c050438;
   color: white;
@@ -149,10 +151,16 @@ a,
   width: 10rem;
 }
 
-.buttonAddPic {
-  background-color: #a5655cb4;
-  color: white;
-  width: 10rem;
+a:hover {
+  color: white !important;
+}
+
+.oginBg-One {
+  background: rgba(255, 69, 69, 0.945);
+}
+
+.oginBg-two {
+  background: black;
 }
 
 .bg-card-none {

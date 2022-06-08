@@ -25,91 +25,13 @@
                         </div>
                     </div>
                 </nav>
-                <div class="text-white">
+                <div class="text-white ms-md-3">
                     <ul class="list-unstyled menuLeft-Items">
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
-                            <a href="/admin" class="nav-link m-0 p-0">
-                                <div class="p-3">
+                            <div class="p-3">
+                                <a href="/admin" class="m-0 p-0">
                                     <span class="bi-house-door me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Acceuil")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass " type="button" data-bs-toggle="collapse" data-bs-target="#collapseProduits" aria-expanded="false" aria-controls="collapseProduits">
-                            <div class="p-3 ">
-                                <span class="bi-cart4 me-md-2"></span> <span class="d-none d-md-inline d-lg-inline">{{__("Produits")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
-                            </div>
-                        </li>
-                        <li class="mx-4">
-                            <div class="collapse" id="collapseProduits">
-                                <ul class="list-unstyled pe-md-1 pe-1 ps-2">
-                                    <li class="child-hover-class my-2">
-                                        <a href="/addProduit" class="nav-link m-0 p-1">
-                                            <span class="bi-caret-right-fill"></span>
-                                            <span class="ms-2">Ajouter</span>
-                                            <span class="bi-cart-plus-fill float-end"></span>
-                                        </a>
-                                    </li>
-                                    <li class="child-hover-class my-2">
-                                        <a href="/alterProduit" class="nav-link m-0 p-1">
-                                            <span class="bi-caret-right-fill"></span>
-                                            <span class="ms-2">{{__("Modifier")}}</span>
-                                            <span class="bi-pencil-square float-end"></span>
-                                            <span class="bi-trash float-end"></span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass" type="button" data-bs-toggle="collapse" data-bs-target="#collapseServices" aria-expanded="false" aria-controls="collapseServices">
-                            <div class="p-3">
-                                <span class="bi-globe me-md-2"></span> <span class="d-none d-md-inline d-lg-inline">{{__("Services")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
-                            </div>
-                        </li>
-                        <li class="mx-4">
-                            <div class="collapse" id="collapseServices">
-                                <ul class="list-unstyled pe-md-1 pe-1 ps-2">
-                                    <li class="child-hover-class my-2">
-                                        <a href="#" class="nav-link m-0 p-1" role="button" data-bs-toggle="modal" data-bs-target="#serviceAddModal">
-                                            <span class="bi-caret-right-fill"></span>
-                                            <span class="ms-2">Ajouter</span>
-                                            <span class="bi-cart-plus-fill float-end"></span>
-                                        </a>
-                                    </li>
-                                    <li class="child-hover-class my-2">
-                                        <a href="/alterService" class="nav-link m-0 p-1">
-                                            <span class="bi-caret-right-fill"></span>
-                                            <span class="ms-2">{{__("Modifier")}}</span>
-                                            <span class="bi-pencil-square float-end"></span>
-                                            <span class="bi-trash float-end"></span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEmploye" aria-expanded="false" aria-controls="collapseEmploye">
-                            <div class="p-3">
-                                <span class="bi-person-badge me-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Employes")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
-                            </div>
-                        </li>
-                        <li class="mx-4">
-                            <div class="collapse" id="collapseEmploye">
-                                <ul class="list-unstyled pe-md-1 pe-1 ps-2">
-                                    <li class="child-hover-class my-2">
-                                        <a href="#" class="nav-link m-0 p-1" role="button" data-bs-toggle="modal" data-bs-target="#employeAddModal">
-                                            <span class="bi-caret-right-fill"></span>
-                                            <span class="ms-2">Ajouter</span>
-                                            <span class="bi-cart-plus-fill float-end"></span>
-                                        </a>
-                                    </li>
-                                    <li class="child-hover-class my-2">
-                                        <a href="/add-agent" class="nav-link m-0 p-1">
-                                            <span class="bi-caret-right-fill"></span>
-                                            <span class="ms-2">{{__("Modifier")}}</span>
-                                            <span class="bi-pencil-square float-end"></span>
-                                            <span class="bi-trash float-end"></span>
-                                        </a>
-                                    </li>
-                                </ul>
+                                </a>
                             </div>
                         </li>
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
@@ -119,10 +41,39 @@
                                 </div>
                             </a>
                         </li>
+                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass ">
+                            <div class="p-3 ">
+                                <span class="bi-cart4 me-md-2"></span> <span class="d-none d-md-inline d-lg-inline">{{__("Produits")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                            </div>
+                        </li>
+                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass" type="button" data-bs-toggle="collapse" data-bs-target="#collapseServices" aria-expanded="false" aria-controls="collapseServices">
+                            <div class="p-3">
+                                <span class="bi-globe me-md-2"></span> <span class="d-none d-md-inline d-lg-inline">{{__("Services")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                            </div>
+                        </li>
+                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEmploye" aria-expanded="false" aria-controls="collapseEmploye">
+                            <div class="p-3">
+                                <span class="bi-person-badge"></span><span class="d-none d-md-inline d-lg-inline">{{__("Employes")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                            </div>
+                        </li>
+                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
+                            <a href="/galerie-alter" class="nav-link m-0 p-0">
+                                <div class="p-3">
+                                    <span class="bi-envelope"></span><span class="d-none d-md-inline d-lg-inline">{{__("Messages")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
+                            <a href="/galerie-alter" class="nav-link m-0 p-0">
+                                <div class="p-3">
+                                    <span class="bi-truck"></span><span class="d-none d-md-inline d-lg-inline">{{__("Commandes")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                                </div>
+                            </a>
+                        </li>
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
                             <a href="/parametre" class="nav-link m-0 p-0">
                                 <div class="p-3">
-                                    <span class="bi-share me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Parametre")}}</span>
+                                    <span class="bi-share"></span><span class="d-none d-md-inline d-lg-inline">{{__("Parametre")}}</span>
                                 </div>
                             </a>
                         </li>
@@ -136,6 +87,22 @@
                             <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".coll">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
+                            <ul class="nav ">
+                                <li class="nav-item">
+                                    <a href="/galerie-alter" class="nav-link m-0 p-0">
+                                        <div class="p-3">
+                                            <span class="bi-envelope me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Messages")}}</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/galerie-alter" class="nav-link m-0 p-0">
+                                        <div class="p-3">
+                                            <span class="bi-truck me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Commandes")}}</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
                             <div class="d-flex justify-content-end">
                                 <div class="btn-group dropstart">
                                     <img src="{{asset('assets/imgs/logojw.png')}}" data-bs-toggle="dropdown" aria-expanded="false" alt="image profile" class="rounded-circle" style="width: 35px; height: 35px">
@@ -148,7 +115,7 @@
                                         <li class="border-top"></li>
                                         <li>
                                             <a href="/logout" class="nav-link">
-                                                <span class="bi-power me-1 text-danger"></span><span class="text-danger">{{__("Deconnection")}}</span>
+                                                <span class="bi-power me-1 text-danger "></span><span class="text-danger">{{__("Deconnection")}}</span>
                                             </a>
                                         </li>
                                     </ul>
