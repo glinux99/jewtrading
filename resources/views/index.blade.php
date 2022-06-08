@@ -77,10 +77,9 @@ $gal=0;
                             $z= 1+count($galeries)%4;
                             $gal = count($galeries);
                             }
-                            $img ='/storage/images/galeries/'.$galeries[$i];
                             @endphp
                             <div class="col-md-3">
-                                <img src="{{asset($img)}}" alt="{{$galeries[$i]}}" class="d-block w-100">
+                                <img src="{{asset($galeries[$i])}}" alt="{{$galeries[$i]}}" class="d-block w-100">
                             </div>
                             @php
                             $i++;

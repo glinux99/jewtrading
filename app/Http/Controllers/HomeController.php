@@ -23,7 +23,7 @@ class HomeController extends Controller
         $JewsTrgaleries = Galerie::all();
         $Jewstab = array();
         $path = '/storage/images/galeries/';
-        $galeriePic = HomeController::photo($JewsTrservices, $path);
+        $galeriePic = HomeController::photo($JewsTrgaleries, $path);
         return view('index', ['jewtrading' => $JewsTrdetails, 'services' => $JewsTrservices, 'galeries' => $galeriePic]);
     }
     public function photo($JewsTrgaleries, $path)
@@ -98,7 +98,18 @@ class HomeController extends Controller
         }
         return view('produit', ['produits' => $produits]);
     }
+    public function apropos()
+    {
+        $apropos = User::find(1)->apropos;
+        $missions = User::find(1)->description;
+        $agents = array();
+        foreach (Agent::all() as $agent) {
+            $path = '/storage/images/agents/';
 
+            array_push($agents, [$agent->nom_agent, $agent->fonction, $path . $agent->image]);
+        }
+        return view('apropos', ['apropos' => $apropos, 'missions' => $missions, 'agents' => $agents]);
+    }
     /**
      * Store a newly created resource in storage.
      *

@@ -22,9 +22,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/apropos', function () {
-    return view('apropos');
-});
+Route::get('/apropos', [HomeController::class, 'apropos']);
 Route::get('/contact', function () {
     return view('contact');
 });
