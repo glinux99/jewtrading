@@ -29,74 +29,46 @@
             </li>
         </ul>
     </div>
-    @php
-    $y=0;
-    $galeries = ['assets/imgs/gal1.jpg','assets/imgs/gal2.jpg','assets/imgs/gal3.jpg','assets/imgs/gal4.jpg','assets/imgs/gal5.jpg','assets/imgs/gal6.jpg','assets/imgs/gal7.jpg',
-    'assets/imgs/gal8.jpg','assets/imgs/gal9.jpg','assets/imgs/gal10.jpg','assets/imgs/gal11.jpg','assets/imgs/gal12.jpg','assets/imgs/gal13.jpg',
-    'assets/imgs/gal14.jpg','assets/imgs/gal15.jpg','assets/imgs/gal16.jpg','assets/imgs/gal17.jpg','assets/imgs/gal18.jpg','assets/imgs/gal19.jpg',
-    'assets/imgs/gal20.jpg','assets/imgs/gal21.jpg','assets/imgs/gal22.jpg'];
-    @endphp
     <div class="col-md-10 mx-auto">
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                @for ($x=0; $x<count($galerieShowAll);$x++) <div class="row">
-                    <div class="col-md-4">
+                <div class="row">
+                    @for ($x=0; $x<count($galerieShowAll);$x++) <div class="col-md-4">
                         <img src="{{asset($galerieShowAll[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="d-block w-100">
-                    </div>
+                </div>
+                @endfor
+            </div>
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <div class="row">
+                @for ($x=0; $x<count($equipes);$x++) <div class="col-md-4">
+                    <img src="{{asset($equipes[$x])}}" alt="{{asset($equipes[$x])}}" class="d-block w-100">
             </div>
             @endfor
         </div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-            @for($i = 0, $y=0; $i <= 10; $i++) @php $x=0; $w=3; if($y>=10-3){ $w=10-$y; } @endphp <div class="d-md-flex justify-content-center">
-                    @while ($x<$w ) <div class="col-md-4 m-3">
-                        <img src="{{asset($galeries[$y])}}" alt="" class="img-fluid">
-                </div>
-                @php
-                $x++;
-                $y++;
-                @endphp
-                @endwhile
+    </div>
+    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <div class="row">
+            @for ($x=0; $x<count($showClients);$x++) <div class="col-md-4">
+                <img src="{{asset($showClients[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="d-block w-100">
         </div>
         @endfor
     </div>
-    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-        @for($i = 0, $y=0; $i < 1; $i++) @php $x=0; $w=3; if($y>=10-3){ $w=10-$y; } @endphp <div class="d-md-flex justify-content-center">
-                @while ($x<1 ) <div class="col-md-4 m-3">
-                    <img src="{{asset($galeries[11])}}" alt="" class="img-fluid">
-            </div>
-            @php
-            $x++;
-            $y++;
-            @endphp
-            @endwhile
+</div>
+<div class="tab-pane fade" id="pills-produit" role="tabpanel" aria-labelledby="pills-produit-tab">
+    <div class="row">
+        @for ($x=0; $x<count($produits);$x++) <div class="col-md-4">
+            <img src="{{asset($produits[$x])}}" alt="{{asset($produits[$x])}}" class="d-block w-100">
     </div>
     @endfor
 </div>
-<div class="tab-pane fade" id="pills-produit" role="tabpanel" aria-labelledby="pills-produit-tab">
-    @for($i = 16, $y=16; $i < count($galeries); $i++) @php $x=0; $w=3; if($y>=count($galeries)-3){ $w=count($galeries)-$y; } @endphp <div class="d-flex justify-content-center">
-            @while ($x<$w ) <div class="col-md-4 m-3">
-                <img src="{{asset($galeries[$y])}}" alt="" class="img-fluid">
-        </div>
-        @php
-        $x++;
-        $y++;
-        @endphp
-        @endwhile
-</div>
-@endfor
 </div>
 <div class="tab-pane fade" id="pills-other" role="tabpanel" aria-labelledby="pills-other-tab">
-    @for($i = 0, $y=10; $i < 5; $i++) @php $x=0; $w=3; if($y>=15-3){ $w=15-$y; } @endphp <div class="d-flex justify-content-center">
-            @while ($x<$w ) <div class="col-md-4 m-3">
-                <img src="{{asset($galeries[$y])}}" alt="" class="img-fluid">
-        </div>
-        @php
-        $x++;
-        $y++;
-        @endphp
-        @endwhile
-</div>
-@endfor
+    <div class="row">
+        @for ($x=0; $x<count($autres);$x++) <div class="col-md-4">
+            <img src="{{asset($autres[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="d-block w-100">
+    </div>
+    @endfor
 </div>
 </div>
 </div>

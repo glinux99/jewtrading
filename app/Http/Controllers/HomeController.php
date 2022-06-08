@@ -51,19 +51,19 @@ class HomeController extends Controller
     }
     public function galerie()
     {
-        $path = '/storage/images/agents/';
+        $path = '/storage/images/galeries/';
         $showEquipes = HomeController::photo(Galerie::where('categories', 'Equipe')->get(), $path);
-        $path = '/storage/images/agents';
+        $path = '/storage/images/agents/';
         foreach (HomeController::photo(Agent::all(), $path) as $agents) {
-            array_push($showEquipes, 'storage/images/agents/' . $agents);
+            array_push($showEquipes, $agents);
         }
         $path = '/storage/images/galeries/';
         $showClients = HomeController::photo(Galerie::where('categories', 'client')->get(), $path);
-        $path = '/storage/images/produits';
+        $path = '/storage/images/galeries/';
         $showProduits = HomeController::photo(Galerie::where('categories', 'Produit')->get(), $path);
         foreach (Produit::all() as $agents) {
             // array_push($showProduits, );
-            $path = 'storage/images/produits/';
+            $path = '/storage/images/produits/';
             if ($agents->file1 != '') array_push($showProduits, $path . $agents->file1);
             if ($agents->file2 != '') array_push($showProduits, $path . $agents->file2);
             if ($agents->file3 != '') array_push($showProduits, $path . $agents->file3);
