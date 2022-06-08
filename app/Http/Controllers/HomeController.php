@@ -50,14 +50,20 @@ class HomeController extends Controller
     public function galerie()
     {
         $showAll = Galerie::all();
-        $showEquipe = Galerie::where('categorie', 'equipe');
-        $showAgent = Agent::all();
-        $showClient = Galerie::where('categorie', 'client');
-        $showProduits = Galerie::where('categorie', 'produit');
-        $showProduit = Produit::all();
-        $showAuther = Galerie::where('categorie', 'autres');
-        $galerieShowAll = HomeController::photo($JewsTrgaleries);
-        return view('galerie', ['galerieShowAll' => $galerieShowAll,'equipe'=>$showEquipe. 'showClient','produits'=?$autres]]);}
+        $showEquipes = HomeController::photo(Galerie::where('categorie', 'equipe'));
+        array_push($showEquipes, HomeController::photo(Agent::all()));
+        dd($showEquipes);
+        // $showClient = Galerie::where('categorie', 'client');
+        // $showProduits = Galerie::where('categorie', 'produit');
+        // $showProduit = Produit::all();
+        // $showOthers = Galerie::where('categorie', 'autres');
+        // $galerieShowAll = HomeController::photo($JewsTrgaleries);
+        // return view('galerie', ['galerieShowAll' => $galerieShowAll,
+        // 'equipe'=>$showEquipes,
+        //  'showClient'=>$showClients,
+        //  'produits'=>$showProduits,
+        //  'autres'=>$showOthers]]);
+    }
     /**3
      * Show the form for creating a new resource.
      *
