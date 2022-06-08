@@ -22,10 +22,11 @@ class HomeController extends Controller
         $JewsTrservices = Service::all();
         $JewsTrgaleries = Galerie::all();
         $Jewstab = array();
-        $galeriePic = HomeController::photo($JewsTrservices);
+        $path = '/storage/images/galeries/';
+        $galeriePic = HomeController::photo($JewsTrservices, $path);
         return view('index', ['jewtrading' => $JewsTrdetails, 'services' => $JewsTrservices, 'galeries' => $galeriePic]);
     }
-    public function photo($JewsTrgaleries)
+    public function photo($JewsTrgaleries, $path)
     {
         $Jewstab = array();
         foreach ($JewsTrgaleries as $galerie) {
@@ -35,7 +36,7 @@ class HomeController extends Controller
         $galeriePic = array();
         for ($x = 0; $x < count($Jewstab); $x++) {
             for ($z = 0; $z < count($Jewstab[$x]); $z++) {
-                array_push($galeriePic, $Jewstab[$x][$z]);
+                array_push($galeriePic, $path . $Jewstab[$x][$z]);
             }
         }
         return $galeriePic;
@@ -43,34 +44,41 @@ class HomeController extends Controller
     public function service()
     {
         $JewsTrgaleries = Galerie::all();
-        $galeriePic = HomeController::photo($JewsTrgaleries);
+        $path = '/storage/images/galeries/';
+        $galeriePic = HomeController::photo($JewsTrgaleries, $path);
         $JewsTrservices = Service::all();
         return view('service', ['services' => $JewsTrservices, 'galeries' => $galeriePic]);
     }
     public function galerie()
     {
-        $showAll = Galerie::all();
-        $showEquipes = HomeController::photo(Galerie::where('categories', 'Equipe')->get());
-        foreach (HomeController::photo(Agent::all()) as $agents) {
-            array_push($showEquipes, $agents);
+        $path = '/storage/images/agents/';
+        $showEquipes = HomeController::photo(Galerie::where('categories', 'Equipe')->get(), $path);
+        $path = '/storage/images/agents';
+        foreach (HomeController::photo(Agent::all(), $path) as $agents) {
+            array_push($showEquipes, 'storage/images/agents/' . $agents);
         }
-        $showClients = HomeController::photo(Galerie::where('categories', 'client')->get());
-        $showProduits = HomeController::photo(Galerie::where('categories', 'Produit')->get());
+        $path = '/storage/images/galeries/';
+        $showClients = HomeController::photo(Galerie::where('categories', 'client')->get(), $path);
+        $path = '/storage/images/produits';
+        $showProduits = HomeController::photo(Galerie::where('categories', 'Produit')->get(), $path);
         foreach (Produit::all() as $agents) {
             // array_push($showProduits, );
-            if ($agents->file1 != '') array_push($showProduits, $agents->file1);
-            if ($agents->file2 != '') array_push($showProduits, $agents->file2);
-            if ($agents->file3 != '') array_push($showProduits, $agents->file3);
-            if ($agents->file4 != '') array_push($showProduits, $agents->file4);
+            $path = 'storage/images/produits/';
+            if ($agents->file1 != '') array_push($showProduits, $path . $agents->file1);
+            if ($agents->file2 != '') array_push($showProduits, $path . $agents->file2);
+            if ($agents->file3 != '') array_push($showProduits, $path . $agents->file3);
+            if ($agents->file4 != '') array_push($showProduits, $path . $agents->file4);
         }
-        $showOthers = HomeController::photo(Galerie::where('categories', 'autres')->get());
-        dd($showOthers);
-        // $galerieShowAll = HomeController::photo($JewsTrgaleries);
-        // return view('galerie', ['galerieShowAll' => $galerieShowAll,
-        // 'equipes'=>$showEquipes,
-        //  'showClients'=>$showClients,
-        //  'produits'=>$showProduits,
-        //  'autres'=>$showOthers]]);
+        $path = '/storage/images/galeries/';
+        $showOthers = HomeController::photo(Galerie::where('categories', 'autres')->get(), $path);
+        $galerieShowAll = HomeController::photo(Galerie::all(), $path);
+        return view('galerie', [
+            'galerieShowAll' => $galerieShowAll,
+            'equipes' => $showEquipes,
+            'showClients' => $showClients,
+            'produits' => $showProduits,
+            'autres' => $showOthers
+        ]);
     }
     /**3
      * Show the form for creating a new resource.

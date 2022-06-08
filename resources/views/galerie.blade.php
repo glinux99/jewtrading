@@ -39,15 +39,10 @@
     <div class="col-md-10 mx-auto">
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                @for($i = 0; $i < count($galeries)/3; $i++) @php $x=0; $w=3; if($y>=count($galeries)-3){ $w=count($galeries)-$y; } @endphp <div class="d-md-flex justify-content-center">
-                        @while ($x<$w ) <div class="col-md-4 m-3">
-                            <img src="{{asset($galeries[$y])}}" alt="" class="img-fluid">
+                @for ($x=0; $x<count($galerieShowAll);$x++) <div class="row">
+                    <div class="col-md-4">
+                        <img src="{{asset($galerieShowAll[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="d-block w-100">
                     </div>
-                    @php
-                    $x++;
-                    $y++;
-                    @endphp
-                    @endwhile
             </div>
             @endfor
         </div>
