@@ -16,7 +16,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::all();
+        return view('admin.alter', ['affserv' => true, 'services' => $services]);
     }
 
     /**
@@ -36,7 +37,7 @@ class ServiceController extends Controller
         $service->admin_id =
             Auth::user()->id;
         $service->save();
-        return redirect('admin');
+        return ServiceController::index();
     }
 
     /**
@@ -45,9 +46,10 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $services = Service::all();
+        return view('admin.alter', ['affserv' => true, 'services' => $services]);
     }
 
     /**
@@ -58,7 +60,11 @@ class ServiceController extends Controller
      */
     public function show($id)
     {
-        //
+        $services = Service::all();
+        $serviceCurrent = Service::findOrfail($id);
+        $service = true;
+        session()->flash('serviceAff', true);
+        return view('admin.alter', ['service' => true, 'affserv' => true, 'services' => $services, 'serviceCurrent' => $serviceCurrent]);
     }
 
     /**
@@ -91,16 +97,7 @@ class ServiceController extends Controller
         $service->titreService = request('titreService');
         $service->descriptionService = request('descriptionService');
         $service->save();
-        return redirect('/alterService');
-    }
-
-    public function activeModal($id)
-    {
-        $services = Service::all();
-        $serviceCurrent = Service::findOrfail($id);
-        $service = true;
-        session()->flash('serviceAff', true);
-        return view('admin.alter', ['service' => true, 'services' => $services, 'serviceCurrent' => $serviceCurrent]);
+        return ServiceController::index();
     }
 
     /**
@@ -112,6 +109,6 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         Service::find($id)->delete();
-        return back();
+        return ServiceController::index();
     }
 }

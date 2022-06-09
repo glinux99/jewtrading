@@ -37,7 +37,7 @@
                 </div>
                 <div class="mb-2">
                     <label for="" class="form-label"></label>
-                    <textarea class="form-control" name="messages" id="" rows="3"></textarea>
+                    <textarea class="form-control" name="messages" id=""></textarea>
                 </div>
                 <div class="d-flex justify-content-center"><button class="btn btn-danger">Soumettre</button></div>
             </form>

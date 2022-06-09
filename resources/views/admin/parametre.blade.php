@@ -66,7 +66,7 @@
                 <div class="col-md-12">
                     <label for="nom" class="form-label">{{__("Mission")}}</label>
                     <div class="mb-3">
-                        <textarea class="form-control " name="mission" id="" rows="3">
+                        <textarea class="form-control " name="mission" id="">
                         {{ Auth::User()->description }}
                         </textarea>
                     </div>
@@ -76,7 +76,7 @@
                 <div class="col-md-12">
                     <label for="nom" class="form-label">{{__("A propos")}}</label>
                     <div class="mb-3">
-                        <textarea class="form-control " name="apropos" id="" rows="3">
+                        <textarea class="form-control " name="apropos" id="">
                         {{ Auth::User()->apropos }}
                         </textarea>
                     </div>

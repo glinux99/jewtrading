@@ -22,28 +22,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/modal-delete-message/{id}', [MessageController::class, 'destroy']);
-Route::get('/modal-read-message/{id}', [MessageController::class, 'readMessageModal']);
-Route::post('/send-message', [MessageController::class, 'contact']);
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/apropos', [HomeController::class, 'apropos']);
-Route::get('/contact', [HomeController::class, 'contact']);
-Route::get('/galerie', [HomeController::class, 'galerie']);
-Route::get('/produits', [HomeController::class, 'produit']);
-Route::get('/service', [HomeController::class, 'service']);
 Route::get('/detail', function () {
     return view('detailsProduits');
 });
 Route::get('/addProduit', function () {
     return view('admin.add', ['#addProduit']);
 });
-Route::get('/alterService', function () {
-    $services = Service::all();
-    $service = true;
-    return view('admin.alter', compact('service', 'services'));
-});
-Route::get('/galerie-alter', [GalerieController::class, 'index']);
 Route::get('/parametre', function () {
     return view('admin.parametre');
 });
@@ -55,26 +39,38 @@ Route::get('/test', function () {
 });
 
 // Liens.
-Route::post('/galerie_photo', [GalerieController::class, 'create']);
-Route::get('/aff', [GalerieController::class, 'index']);
-Route::get('/delete/{id}', [GalerieController::class, 'destroy']);
-Route::post('/ajoute_agent', [AgentController::class, 'create'])->name('agent');
-Route::get('/add-agent', [AgentController::class, 'index']);
-Route::get('modal-update-agent/{id}', [AgentController::class, 'show']);
-Route::post('/update-agent/{id}', [AgentController::class, 'update']);
-Route::get('/delete-agent/{id}', [AgentController::class, 'destroy']);
-Route::get('/ajouter/produit', [JewsTradingController::class, 'store']);
-Route::get('/afficher/produit', [JewsTradingController::class, 'index']);
-Route::get('/supprimer-produit/{id}', [JewsTradingController::class, 'destroy']);
-Route::post('/update/vehicule/{id}', [JewsTradingController::class, 'update']);
-Route::get('/modifier/produit/{id}', [JewsTradingController::class, 'edit']);
-Route::get('/admin', [JewsTradingController::class, 'admin'])->name('admin');
-Route::post('/ajouterProduit', [JewsTradingController::class, 'create']);
-Route::post('/ajoute_service', [ServiceController::class, 'create']);
-Route::get('/modifier/service/{id}', [ServiceController::class, 'activeModal']);
-Route::post('/update-service', [ServiceController::class, 'update']);
-Route::get('/supprimer_service/{id}', [ServiceController::class, 'destroy']);
+
+
+Route::get('/modal-delete-message/{id}', [MessageController::class, 'destroy']);
+Route::get('/modal-read-message/{id}', [MessageController::class, 'readMessageModal']);
+Route::post('/send-message', [MessageController::class, 'contact']);
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/apropos', [HomeController::class, 'apropos']);
+Route::get('/contact', [HomeController::class, 'contact']);
+Route::get('/galerie', [HomeController::class, 'galerie']);
+Route::get('/produits', [HomeController::class, 'produit']);
+Route::get('/service', [HomeController::class, 'service']);
 Route::post('/connect', [LoginController::class, 'connect']);
 Route::post('/params_update', [LoginController::class, 'update']);
 Route::get('/logout', [LoginController::class, 'destroy']);
-Route::post('/galerie-photo', [GalerieController::class, 'create']);
+Route::get('/galerie/alter', [GalerieController::class, 'index']);
+Route::post('/galerie/photo', [GalerieController::class, 'create']);
+Route::get('/aff', [GalerieController::class, 'index']);
+Route::get('/delete/{id}', [GalerieController::class, 'destroy']);
+Route::get('/ajouter/agent', [AgentController::class, 'index']);
+Route::get('modal-update-agent/{id}', [AgentController::class, 'show']);
+Route::post('/update-agent/{id}', [AgentController::class, 'update']);
+Route::post('/ajoute/agent', [AgentController::class, 'create'])->name('agent');
+Route::get('/delete-agent/{id}', [AgentController::class, 'destroy']);
+Route::get('/afficher/service', [ServiceController::class, 'index']);
+Route::post('/ajouter/service', [ServiceController::class, 'create']);
+Route::post('/update/service', [ServiceController::class, 'update']);
+Route::get('/modifier/service/{id}', [ServiceController::class, 'show']);
+Route::get('/supprimer/service/{id}', [ServiceController::class, 'destroy']);
+Route::get('/afficher/produit', [JewsTradingController::class, 'index']);
+Route::post('/ajouterProduit', [JewsTradingController::class, 'create']);
+Route::get('/modifier/produit/{id}', [JewsTradingController::class, 'edit']);
+Route::get('/ajouter/produit', [JewsTradingController::class, 'store']);
+Route::post('/update/vehicule/{id}', [JewsTradingController::class, 'update']);
+Route::get('/supprimer-produit/{id}', [JewsTradingController::class, 'destroy']);
+Route::get('/admin', [JewsTradingController::class, 'admin'])->name('admin');

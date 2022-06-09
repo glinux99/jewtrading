@@ -47,9 +47,13 @@
     @endif
 </div>
 @endif
-@if ($service ?? '')
-<div class="container">
-    <h2 class="text-center text-white fw-bolder">{{__("Modifier un service")}}</h2>
+@if ($affserv ?? '')
+<div class="container card my-4 py-4 shadow">
+    <h5 class="text-dark fw-bolder  border-bottom border-2 py-2">{{__("Modifier un service")}}</h5>
+    <div>
+        <a href="#" class="btn btn-danger" role="button" data-bs-toggle="modal" data-bs-target="#serviceAddModal">Ajouter un service</a>
+    </div>
+    @if (count($services))
     <div class="container mt-4">
         <table id="dataTable" class="table table-striped table-hover table-sm  table-responsive">
             <thead>
@@ -70,7 +74,7 @@
                     </td>
                     <td class="modalButton">
                         <a href="/modifier/service/{{ $serv->id}}" class="btn btn-primary my-1 mx-auto"><span class="ms-1 bi-pencil-square float-end"></span></a>
-                        <a href="/supprimer_service/{{ $serv->id}}" class="btn btn-danger mx-auto my-1"><span class=" ms-1 bi-trash float-end"></span>
+                        <a href="/supprimer/service/{{ $serv->id}}" class="btn btn-danger mx-auto my-1"><span class=" ms-1 bi-trash float-end"></span>
                         </a>
                     </td>
                 </tr>
@@ -78,11 +82,16 @@
             </tbody>
         </table>
     </div>
+    @endif
 </div>
 @endif
 @if ($agents ?? '')
-<div class="container">
-    <h2 class="text-center text-white fw-bolder">{{__("Modifier un agent")}}</h2>
+<div class="container card my-4 py-4 shadow">
+    <h5 class="text-dark fw-bolder  border-bottom border-2 py-2">{{__("Modifier un agent")}}</h5>
+    <div>
+        <a href="#" class="btn btn-danger" role="button" data-bs-toggle="modal" data-bs-target="#employeAddModal">Ajouter un agent</a>
+    </div>
+    @if (count($agents))
     <div class="container mt-4">
         <table id="dataTable" class="table table-striped table-hover table-sm  table-responsive">
             <thead>
@@ -123,6 +132,7 @@
             </tbody>
         </table>
     </div>
+    @endif
 </div>
 @endif
 @endsection

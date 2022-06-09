@@ -390,7 +390,7 @@
 <!-- Ajouter un service -->
 <div class="modal fade" id="serviceAddModal" tabindex="-1" aria-labelledby="serviceAddModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg  ">
-        <form action="/ajoute_service" method="post">
+        <form action="/ajouter/service" method="post">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -417,7 +417,7 @@
                             </div>
                             <div class="col-8 my-1">
                                 <div class="form-group">
-                                    <textarea class="form-control " name="descriptionService" rows="3" id="description"></textarea>
+                                    <textarea class="form-control " name="descriptionService" id="description"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -434,7 +434,7 @@
 <!-- Modifier un produit -->
 <div class="modal fade" id="serviceAlterModal" tabindex="-1" aria-labelledby="serviceAlterModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg  ">
-        <form action="/update-service" method="post">
+        <form action="/update/service" method="post">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -461,7 +461,7 @@
                             </div>
                             <div class="col-8 my-1">
                                 <div class="form-group">
-                                    <textarea id="my-textarea" class="form-control " name="descriptionService" rows="3">
+                                    <textarea id="my-textarea" class="form-control " name="descriptionService">
                                     {{ $serviceCurrent->descriptionService ?? 'rien'}}
                                     </textarea>
                                 </div>
@@ -481,7 +481,7 @@
 <!-- ADD EMploye -->
 <div class="modal fade" id="employeAddModal" tabindex="-1" aria-labelledby="employeAddModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <form action="/ajoute_agent" method="post" enctype="multipart/form-data">
+        <form action="/ajoute/agent" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -538,7 +538,7 @@
                             </div>
                             <div class="col-8">
                                 <div class="mb-3">
-                                    <textarea class="form-control " name="adresse_agent" id="" rows="3"></textarea>
+                                    <textarea class="form-control " name="adresse_agent" id=""></textarea>
                                 </div>
                             </div>
                         </div>
@@ -624,7 +624,7 @@
                                 </div>
                                 <div class="col-8">
                                     <div class="mb-3">
-                                        <textarea class="form-control " name="adresse_agent" id="" rows="3">
+                                        <textarea class="form-control " name="adresse_agent" id="">
                                         {{ $agentChange->adresse_agent}}
                                         </textarea>
                                     </div>

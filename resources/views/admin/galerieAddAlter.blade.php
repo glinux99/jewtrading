@@ -10,7 +10,7 @@
             <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGalerie" aria-expanded="false" aria-controls="collapseGalerie">Ajouter image</button>
             <p><small>*{{__("Doublez cliquer pour supprimer sur l'image pour la supprimer")}}</small></p>
             <div class="collapse col-md-6 my-2 card p-2 " id="collapseGalerie">
-                <form action="/galerie-photo" method="post" id="dataform" enctype="multipart/form-data">
+                <form action="/galerie/photo" method="post" id="dataform" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-3">
