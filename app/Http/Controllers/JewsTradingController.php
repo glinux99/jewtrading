@@ -11,6 +11,7 @@ use App\Models\Commande;
 use App\Models\Email;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -114,7 +115,12 @@ class JewsTradingController extends Controller
      */
     public function show($id)
     {
-        $produit = Produit::find($id);
+        $currentProduit = Produit::find($id);
+        if ($currentProduit == null) {
+            return redirect('/');
+        }
+        // echo $currentProduit->file1;
+        return view('detailsProduits', ['produit' => $currentProduit]);
     }
 
     /**

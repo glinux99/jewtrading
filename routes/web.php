@@ -67,6 +67,7 @@ Route::get('/modifier/service/{id}', [ServiceController::class, 'show']);
 Route::get('/supprimer/service/{id}', [ServiceController::class, 'destroy']);
 Route::get('/afficher/produit', [JewsTradingController::class, 'index']);
 Route::post('/ajouterProduit', [JewsTradingController::class, 'create']);
+Route::get('/detail/produit/{id}', [JewsTradingController::class, 'show']);
 Route::get('/modifier/produit/{id}', [JewsTradingController::class, 'edit']);
 Route::get('/ajouter/produit', [JewsTradingController::class, 'store']);
 Route::post('/update/vehicule/{id}', [JewsTradingController::class, 'update']);

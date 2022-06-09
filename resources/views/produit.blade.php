@@ -29,7 +29,7 @@
                     <h4 class="card-title fw-bolder">{{ $produit[0]}}</h4>
                     <h4 class="card-title fw-bolder">{{ $produit[1]}}</h4>
                     <div class="position-absolute bottom-0 pb-2">
-                        <a href="/detail-produit/{{ $produit[2]}}" class="btn btn-danger">Voir details</a>
+                        <a href="/detail/produit/{{ $produit[2]}}" class="btn btn-danger">Voir details</a>
                     </div>
                 </div>
             </div>

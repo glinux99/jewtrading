@@ -3,29 +3,123 @@
 @section('body')
 @include('layouts.menuP')
 <div class="position-relative">
-    <div class="position-absolute" style="z-index: 1000; bottom: 50%;">
+    <div class="position-absolute" style="z-index: 1000; bottom: 80%;">
         <h1 class="fw-bold text-white mx-5">{{__("Details du produits")}}</h1>
     </div>
     <div class="d-flex align-items-center produitBg">
     </div>
-    <div class="container-fluid ">
+    <div class="container-fluid my-4 ">
         <div class="col-md-10 mx-auto">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-7">
                     <div id="produitDetails" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner" role="listbox">
+                            @php
+                            $img1 = '/storage/images/produits/'.$produit->file1;
+                            $img2 = '/storage/images/produits/'.$produit->file2;
+                            $img3 = '/storage/images/produits/'.$produit->file3;
+                            $img4 = '/storage/images/produits/'.$produit->file4;
+                            @endphp
                             <div class="carousel-item active">
-                                <img src="{{asset('assets/imgs/gal16.jpg')}}" alt="produit slide" class="img-fluid">
+                                <img src="{{asset($img1)}}" alt="images produit slide" class="img-fluid shadow">
                             </div>
+                            @if (strlen($img2)>4)
+                            <div class="carousel-item">
+                                <img src="{{asset($img2)}}" alt="images produit slide" class="img-fluid shadow">
+                            </div>
+                            @endif
+                            @if (strlen($img3)>4)
+                            <div class="carousel-item">
+                                <img src="{{asset($img3)}}" alt="images produit slide" class="img-fluid shadow">
+                            </div>
+                            @endif
+                            @if (strlen($img4)>4)
+                            <div class="carousel-item">
+                                <img src="{{asset($img4)}}" alt="images produit slide" class="img-fluid shadow">
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <ul class="lsit-unstyled">
-                        <li>
+                <div class="col-md-5 card shadow ">
+                    <div class="p-3">
+                        {{__("Confort")}}
+                        <div class="row">
+                            <div class="col-md-6 d-flex justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <h2>{{$produit->marque}}</h2>
+                                    </li>
+                                    <li>
+                                        <h2>{{$produit->model}}</h2>
+                                    </li>
+                                    <li>
+                                        <h4>{{$produit->prix}} $</h4>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6 d-flex justify-content-end">
+                                <div>
+                                    <a href="/commande" class="btn btn-danger">Commander</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-top border-2 border-danger">
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{__("Caractéristiques")}}
+                            </div>
+                            <div class="col-md-6 d-flex justify-content-end">
+                                {{__("Emplacement")}} : {{$produit->emplacement}}
+                            </div>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>{{__("Kilometrage")}}</th>
+                                    <th>{{__("Annee")}}</th>
+                                    <th>{{__("Moteur")}}</th>
+                                    <th>{{__("Trans.")}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{$produit->kilometrage}}</td>
+                                    <td>{{$produit->annee_fab}}</td>
+                                    <td>{{$produit->moteur}}</td>
+                                    <td>{{$produit->transmission}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                        </li>
-                    </ul>
+                        <table class="table table-bordered table-reflow">
+                            <tr>
+                                <th>{{__("Marque")}}</th>
+                                <td>{{$produit->kilometrage}}</td>
+                            </tr>
+                            <tr>
+                                <th>{{__("Model")}}</th>
+                                <td>{{$produit->kilometrage}}</td>
+                            </tr>
+                            <tr>
+                                <th>{{__("Carburant")}}</th>
+                                <td>{{$produit->kilometrage}}</td>
+                            </tr>
+                            <tr>
+                                <th>{{__("Couleur")}}</th>
+                                <td>{{$produit->kilometrage}}</td>
+                            </tr>
+                            <tr>
+                                <th>{{__("Num Chassi")}}</th>
+                                <td>{{$produit->kilometrage}}</td>
+                            </tr>
+                            <tr>
+                                <th>{{__("Declaration")}}</th>
+                                <td>{{$produit->kilometrage}}</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
