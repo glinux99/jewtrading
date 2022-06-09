@@ -58,28 +58,21 @@
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEmploye" aria-expanded="false" aria-controls="collapseEmploye">
                             <a href="/ajouter/agent" class="nav-link m-0 p-0">
                                 <div class="p-3">
-                                    <span class="bi-person-badge"></span><span class="d-none d-md-inline d-lg-inline">{{__("Employes")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                                    <span class="bi-person-badge me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Employes")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
                                 </div>
                             </a>
                         </li>
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
                             <a href="/galerie-alter" class="nav-link m-0 p-0">
                                 <div class="p-3">
-                                    <span class="bi-envelope"></span><span class="d-none d-md-inline d-lg-inline">{{__("Messages")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
-                            <a href="/galerie-alter" class="nav-link m-0 p-0">
-                                <div class="p-3">
-                                    <span class="bi-truck"></span><span class="d-none d-md-inline d-lg-inline">{{__("Commandes")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                                    <span class="bi-send-plus-fill me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Newlatter")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
                                 </div>
                             </a>
                         </li>
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
                             <a href="/parametre" class="nav-link m-0 p-0">
                                 <div class="p-3">
-                                    <span class="bi-share"></span><span class="d-none d-md-inline d-lg-inline">{{__("Parametre")}}</span>
+                                    <span class="bi-share me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Parametre")}}</span>
                                 </div>
                             </a>
                         </li>
@@ -95,7 +88,7 @@
                             </button>
                             <ul class="nav mx-auto">
                                 <li class="nav-item">
-                                    <a href="/galerie-alter" class="">
+                                    <a href="/messages" class="">
                                         <div class="px-3">
                                             <span class="bi-envelope me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Messages")}}</span>
                                         </div>

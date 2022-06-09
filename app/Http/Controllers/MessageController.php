@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
+    public function index()
+    {
+        $clients = Email::all();
+        $discussionCli = Email::latest('created_at')->get();
+        return view('admin.messages', ['clients' => $clients, 'discussionCli' => $discussionCli]);
+    }
     public function contact(Request $request)
     {
         $message = new Email;
@@ -16,11 +22,6 @@ class MessageController extends Controller
         }
         $message->save();
         return \redirect('/');
-    }
-    public function readMessageModal($id)
-    {
-
-        return redirect('/admin');
     }
     public function destroy($id)
     {

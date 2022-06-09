@@ -40,9 +40,7 @@ Route::get('/test', function () {
 
 // Liens.
 
-
-Route::get('/modal-delete-message/{id}', [MessageController::class, 'destroy']);
-Route::get('/modal-read-message/{id}', [MessageController::class, 'readMessageModal']);
+Route::get('/messages', [MessageController::class, 'index']);
 Route::post('/send-message', [MessageController::class, 'contact']);
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/apropos', [HomeController::class, 'apropos']);

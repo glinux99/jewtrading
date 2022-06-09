@@ -103,6 +103,20 @@ a,
   background-color: #282a3c;
 }
 
+.nav-lien {
+  color: black;
+}
+
+.chatCli {
+  max-height: 8vh;
+  text-overflow: ellipsis;
+  overflow: hidden
+}
+
+a.nav-lien:hover {
+  color: black !important;
+}
+
 .bg-danger {
   background: linear-gradient(90deg, rgba(255, 0, 0, 0.116), rgba(0, 0, 0, 0.192));
 }
