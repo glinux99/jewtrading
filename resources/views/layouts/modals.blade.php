@@ -12,7 +12,7 @@
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modifModzalLabel">Modifier un produit</h5>
+                    <h5 class="modal-title" id="modifModzalLabel">Modifier <span class="text-uppercase">{{$produitCurrent->marque}}/{{$produitCurrent->model}}</span></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -658,3 +658,36 @@
     </div>
 </div>
 @endif
+<!-- Modal envoyer newslatter -->
+<div class="modal fade" id="newslatter" tabindex="-1" aria-labelledby="newslatterLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <form action="/sendnewslatter" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newslatterLabel">{{__("Envoyer un message a tous les abonnes")}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-2">
+                        <label for="" class="form-label">Object</label>
+                        <input type="text" class="form-control" name="object" id="" aria-describedby="helpId" placeholder="">
+                        <small id="helpId" class="form-text text-muted">Nouveau vehicule Be-forward/Goma</small>
+                    </div>
+                    <div class="mb-2">
+                        <label for="" class="form-label">Message</label>
+                        <textarea class="form-control" name="message" id="" rows="3"></textarea>
+                    </div>
+                    <div class="mb-2">
+                        <label for="" class="form-label">Piece Jointe</label>
+                        <input type="file" class="form-control" name="file" id="" placeholder="" aria-describedby="fileHelpId">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">{{__("Envoyer")}}</button>
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Annuler")}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -28,11 +28,11 @@
                 <div class="text-white ms-md-3">
                     <ul class="list-unstyled menuLeft-Items">
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
-                            <div class="p-3">
-                                <a href="/admin" class="m-0 p-0">
+                            <a href="/admin" class="m-0 p-0">
+                                <div class="p-3">
                                     <span class="bi-house-door me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Acceuil")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                         </li>
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
                             <a href="/galerie/alter" class="nav-link m-0 p-0">
@@ -63,7 +63,7 @@
                             </a>
                         </li>
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
-                            <a href="/galerie-alter" class="nav-link m-0 p-0">
+                            <a href="/newslatter/all" class="nav-link m-0 p-0">
                                 <div class="p-3">
                                     <span class="bi-send-plus-fill me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Newlatter")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
                                 </div>
@@ -88,6 +88,13 @@
                             </button>
                             <ul class="nav mx-auto">
                                 <li class="nav-item">
+                                    <a href="/" class="">
+                                        <div class="px-3">
+                                            <span class="bi-globe me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Site")}}</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
                                     <a href="/messages" class="">
                                         <div class="px-3">
                                             <span class="bi-envelope me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Messages")}}</span>
@@ -95,7 +102,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/galerie-alter" class="">
+                                    <a href="/commandes/all" class="">
                                         <div class="px-3">
                                             <span class="bi-truck me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Commandes")}}</span>
                                         </div>

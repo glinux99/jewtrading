@@ -19,6 +19,7 @@ class CreateClientsTable extends Migration
             $table->string('email_Cli');
             $table->string('num_cli');
             $table->text('adresse_cli');
+            $table->string('newslatter', 1)->default('0');
             $table->timestamps();
         });
     }

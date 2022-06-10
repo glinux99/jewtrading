@@ -65,9 +65,6 @@ class HomeController extends Controller
             // array_push($showProduits, );
             $path = '/storage/images/produits/';
             if ($agents->file1 != '') array_push($showProduits, $path . $agents->file1);
-            if ($agents->file2 != '') array_push($showProduits, $path . $agents->file2);
-            if ($agents->file3 != '') array_push($showProduits, $path . $agents->file3);
-            if ($agents->file4 != '') array_push($showProduits, $path . $agents->file4);
         }
         $path = '/storage/images/galeries/';
         $showOthers = HomeController::photo(Galerie::where('categories', 'autres')->get(), $path);

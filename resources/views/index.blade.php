@@ -28,7 +28,7 @@ $gal=0;
                     <ul class="list-unstyled">
                         <li class="mt-2">
                             <h6 class="text-uppercase fw-bold">
-                                <span class="bi-people-fill"></span>
+                                <span clss="bi-apeople-fill"></span>
                                 {{__("top paterners")}}
                             </h6>
                             <p class="text-danger h5 fw-bolder">

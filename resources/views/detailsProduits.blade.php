@@ -21,37 +21,69 @@
                             $img4 = '/storage/images/produits/'.$produit->file4;
                             @endphp
                             <div class="carousel-item active">
-                                <img src="{{asset($img1)}}" alt="images produit slide" class="img-fluid shadow">
+                                <img src="{{asset($img1)}}" alt="images produit slide" class="img-fluid img-thumbnail">
                             </div>
-                            @if (strlen($img2)>4)
+                            @if (strlen($produit->file2)>4)
                             <div class="carousel-item">
-                                <img src="{{asset($img2)}}" alt="images produit slide" class="img-fluid shadow">
-                            </div>
-                            @endif
-                            @if (strlen($img3)>4)
-                            <div class="carousel-item">
-                                <img src="{{asset($img3)}}" alt="images produit slide" class="img-fluid shadow">
+                                <img src="{{asset($img2)}}" alt="images produit slide" class="img-fluid img-thumbnail shadow">
                             </div>
                             @endif
-                            @if (strlen($img4)>4)
+                            @if (strlen($produit->file3)>4)
                             <div class="carousel-item">
-                                <img src="{{asset($img4)}}" alt="images produit slide" class="img-fluid shadow">
+                                <img src="{{asset($img3)}}" alt="images produit slide" class="img-fluid img-thumbnail shadow">
+                            </div>
+                            @endif
+                            @if (strlen($produit->file4)>4)
+                            <div class="carousel-item">
+                                <img src="{{asset($img4)}}" alt="images produit slide" class="img-fluid img-thumbnail shadow">
                             </div>
                             @endif
                         </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#produitDetails" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#produitDetails" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
+                    <div class="row my-3 border-bottom border-2 pb-4">
+                        <div class="col-3">
+                            <img src="{{asset($img1)}}" alt="images produit slide" class="img-fluid img-thumbnail">
+                        </div>
+                        @if (strlen($produit->file2)>4)
+                        <div class="col-3">
+                            <img src="{{asset($img2)}}" alt="images produit slide" class="img-fluid img-thumbnail shadow">
+                        </div>
+                        @endif
+                        @if (strlen($produit->file3)>4)
+                        <div class="col-3">
+                            <img src="{{asset($img3)}}" alt="images produit slide" class="img-fluid img-thumbnail shadow">
+                        </div>
+                        @endif
+                        @if (strlen($produit->file4)>4)
+                        <div class="col-3">
+                            <img src="{{asset($img4)}}" alt="images produit slide" class="img-fluid img-thumbnail shadow">
+                        </div>
+                        @endif
+                    </div>
+                    <p>
+                        <small>{{__("Pour plus d'informations sur le produit, veuillez nous contacter
+                            ou abonnez-vous a notre newslatter pour recevoir les notifications sur les nouvelles voitures")}}</small>
+                    </p>
                 </div>
                 <div class="col-md-5 card shadow ">
-                    <div class="p-3">
+                    <div class="px-3">
                         {{__("Confort")}}
                         <div class="row">
                             <div class="col-md-6 d-flex justify-content-center">
                                 <ul class="list-unstyled">
                                     <li>
-                                        <h2>{{$produit->marque}}</h2>
+                                        <h3 class="fw-bolder">{{$produit->marque}}</h3>
                                     </li>
                                     <li>
-                                        <h2>{{$produit->model}}</h2>
+                                        <h3 class="fw-bold">{{$produit->model}}</h3>
                                     </li>
                                     <li>
                                         <h4>{{$produit->prix}} $</h4>
@@ -60,7 +92,7 @@
                             </div>
                             <div class="col-md-6 d-flex justify-content-end">
                                 <div>
-                                    <a href="/commande" class="btn btn-danger">Commander</a>
+                                    <a href="/commande/{{$produit->id}}" class="btn btn-danger">Commander</a>
                                 </div>
                             </div>
                         </div>
@@ -70,7 +102,7 @@
                             <div class="col-md-6">
                                 {{__("Caractéristiques")}}
                             </div>
-                            <div class="col-md-6 d-flex justify-content-end">
+                            <div class=" col-md-6 d-flex justify-content-end">
                                 {{__("Emplacement")}} : {{$produit->emplacement}}
                             </div>
                         </div>

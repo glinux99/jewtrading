@@ -5,6 +5,8 @@ use App\Http\Controllers\JewsTradingController;
 use App\Http\Controllers\LoginController;
 
 use App\Http\Controllers\AgentController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ServiceController;
@@ -39,7 +41,14 @@ Route::get('/test', function () {
 });
 
 // Liens.
-
+Route::get('/newslatter/all', [ClientController::class, 'index']);
+Route::post('/newslatter', [ClientController::class, 'create']);
+Route::post('/sendnewslatter', [ClientController::class, 'sendnewslatter']);
+Route::get('/desactivate/newslatter/{id}', [ClientController::class, 'desactivate']);
+Route::get('/delete/newslatter/{id}', [ClientController::class, 'destroy']);
+Route::post('/commandeCli/{id}', [CommandeController::class, 'edit']);
+Route::get('/commande/{id}', [CommandeController::class, 'index']);
+Route::get('/commandes/all', [CommandeController::class, 'commandeview']);
 Route::get('/messages', [MessageController::class, 'index']);
 Route::post('/send-message', [MessageController::class, 'contact']);
 Route::get('/', [HomeController::class, 'index']);

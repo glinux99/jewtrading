@@ -1,5 +1,6 @@
 <div class="bg-danger">
-    <form action="">
+    <form action="/newslatter" method="post">
+        @csrf
         <div class="w-100 d-md-flex align-item-center" style="min-height: 100px;">
             <div class="col-md-4 bg-danger d-md-flex justify-content-center align-items-center">
                 <p class="mx-4 text-uppercase h4 text-white fw-bold"><span class="text-dark d-block">Abonnez-vous</span>pour
@@ -9,10 +10,11 @@
             </div>
             <div class="col-md-4 px-4 bg-danger d-flex justify-content-center align-items-center leftMenuC">
                 <div class="col-md-12">
-                    <input type="text" name="" id="" class="form-control" placeholder="Votre Email adresse">
+                    <input type="text" name="newslatter" id="" class="form-control" placeholder="Votre Email adresse">
+                    <input type="text" name="newslatterAuth" id="" value="1" hidden>
                 </div>
                 <div class="">
-                    <button class="btn text-white btn-jew ms-2 d-md-none d-lg-none my-2"><span>Abonnez-vous</span><span class="bi-chevron-right"></span></button>
+                    <button type="submit" class="btn text-white btn-jew ms-2 d-md-none d-lg-none my-2"><span>Abonnez-vous</span><span class="bi-chevron-right"></span></button>
                 </div>
             </div>
             <div class="col-4 d-none bg-dark d-md-flex d-lg-flex justify-content-start align-items-center ps-5 rightMenuC">

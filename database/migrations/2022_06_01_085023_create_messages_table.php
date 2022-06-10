@@ -18,6 +18,7 @@ class CreateMessagesTable extends Migration
             $table->unsignedBigInteger('client_id')->foreign('client_id')->references('id')->on('clients')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('agent_id')->foreign('agent_id')->references('id')->on('agents')->onUpdate('cascade')->onDelete('cascade');
             $table->text('messages');
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }
