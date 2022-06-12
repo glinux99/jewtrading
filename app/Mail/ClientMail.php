@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class EmailG extends Mailable
+class ClientMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -28,6 +28,6 @@ class EmailG extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->view('admin');
     }
 }

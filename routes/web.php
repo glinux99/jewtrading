@@ -1,17 +1,18 @@
 <?php
 
-use App\Http\Controllers\GalerieController;
-use App\Http\Controllers\JewsTradingController;
-use App\Http\Controllers\LoginController;
+use App\Models\Service;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\AgentController;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AgentController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\GalerieController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ServiceController;
-use App\Models\Service;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\JewsTradingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,3 +86,17 @@ Route::get('/ajouter/produit', [JewsTradingController::class, 'store']);
 Route::post('/update/vehicule/{id}', [JewsTradingController::class, 'update']);
 Route::get('/supprimer-produit/{id}', [JewsTradingController::class, 'destroy']);
 Route::get('/admin', [JewsTradingController::class, 'admin'])->name('admin');
+
+
+
+Route::get('send-mail', function () {
+
+    $contenu = [
+        'title' => 'Mail depuis Letecode.com',
+        'body' => 'Ce mail est pour tester l\'envoi de mail depuis laravel'
+    ];
+
+    Mail::to('nurubanque@gmail.com')->send(new \App\Mail\ClientMail($contenu));
+
+    dd("Email envoyé avec succès.");
+});
