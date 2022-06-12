@@ -7,6 +7,11 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Pagination\Paginator;
+
+use Illuminate\Support\Collection;
+
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class GalerieController extends Controller
 {
@@ -31,10 +36,21 @@ class GalerieController extends Controller
                     array_push($galeriePic, $tab[$x][$z]);
                 }
             }
+            $galeriePic = $this->paginate($galeriePic);
         } else $galeriePic = array();
         return view('admin.galerieAddAlter', ['galeries' => $galeriePic]);
     }
 
+    public function paginate($items, $perPage = 2, $page = null, $options = [])
+
+    {
+
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+    }
     /**
      * Show the form for creating a new resource.
      *

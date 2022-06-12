@@ -57,7 +57,7 @@
                         @php
                         $img = '/storage/images/galeries/'.$galeries[$y];
                         @endphp
-                        <img src="{{asset($img)}}" alt="image de la galerie" class="img-responsive">
+                        <img src="{{asset($img)}}" alt="image de la galerie" class="img-fluid">
                     </div>
                 </a>
         </div>
@@ -66,6 +66,7 @@
         @endphp
         @endwhile
     </div>
+    {{ $galeries->links()}}
 </div>
 </div>
 @endsection
