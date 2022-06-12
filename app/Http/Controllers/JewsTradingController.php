@@ -91,9 +91,15 @@ class JewsTradingController extends Controller
         $countProd = Produit::all()->count();
         $countUser = User::all()->count();
         $message_R = Email::all();
+        $count_V = (Commande::where('confirme', 1)->count());
+        $count_A = (Commande::where('confirme', 2)->count());
+        $count_T = Commande::orderBy('created_at', 'DESC')
+            ->select('id')->first();
+        $count_D = (intval($count_T) - $count_V - $count_A);
         return view('admin', compact([
             'countProd', 'countAgent', 'countServ',
-            'countPhoto', 'countUser', 'message_R'
+            'countPhoto', 'countUser', 'message_R', 'count_A',
+            'count_V', 'count_T', 'count_D'
         ]));
         // echo $countPhoto;
     }

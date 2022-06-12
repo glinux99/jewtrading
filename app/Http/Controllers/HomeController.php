@@ -23,8 +23,17 @@ class HomeController extends Controller
         $JewsTrgaleries = Galerie::all();
         $Jewstab = array();
         $path = '/storage/images/galeries/';
-        $galeriePic = HomeController::photo($JewsTrgaleries, $path);
-        return view('index', ['jewtrading' => $JewsTrdetails, 'services' => $JewsTrservices, 'galeries' => $galeriePic]);
+        $showProduits = array();
+        $galerieShowAll = HomeController::photo(Galerie::where('categories', 'Produit'), $path);
+        foreach (Produit::all() as $agents) {
+            // array_push($showProduits, );
+            $path = '/storage/images/produits/';
+            if ($agents->file1 != '') array_push($showProduits, $path . $agents->file1);
+        }
+        foreach ($showProduits as $prod) {
+            array_push($galerieShowAll, $prod);
+        }
+        return view('index', ['jewtrading' => $JewsTrdetails, 'services' => $JewsTrservices, 'galeries' => $galerieShowAll]);
     }
     public function photo($JewsTrgaleries, $path)
     {
@@ -69,6 +78,9 @@ class HomeController extends Controller
         $path = '/storage/images/galeries/';
         $showOthers = HomeController::photo(Galerie::where('categories', 'autres')->get(), $path);
         $galerieShowAll = HomeController::photo(Galerie::all(), $path);
+        foreach ($showProduits as $prod) {
+            array_push($galerieShowAll, $prod);
+        }
         return view('galerie', [
             'galerieShowAll' => $galerieShowAll,
             'equipes' => $showEquipes,
@@ -77,6 +89,7 @@ class HomeController extends Controller
             'autres' => $showOthers
         ]);
     }
+
     /**3
      * Show the form for creating a new resource.
      *

@@ -23,9 +23,10 @@ class CommandeController extends Controller
     }
     public function commandeview()
     {
-        $commande = Commande::join('client', 'client->id', '=', 'client_id');
-        dd($commande->get());
-        // return view('admin.commande');
+        $commande = Commande::join('clients', 'clients.id', 'client_id')
+            ->join('produits', 'code_prod', 'produits.id')
+            ->select('commandes.*', 'commandes.id as cmd_id', 'clients.*', 'produits.*')->get();
+        return view('admin.commande', ['commandes' => $commande]);
     }
     /**
      * Show the form for creating a new resource.
@@ -56,9 +57,11 @@ class CommandeController extends Controller
      */
     public function show($id)
     {
-        //
+        $commande = Commande::findOrfail($id);
+        $commande->confirme = "1";
+        $commande->save();
+        return CommandeController::commandeview();
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -77,6 +80,7 @@ class CommandeController extends Controller
         $commande->client_id = Client::where('email_cli', request('email_cli'))->first()->id;
         $commande->quantity = 1;
         $commande->code_prod = $id;
+        $commande->confirme = "0";
         $commande->save();
         $home = new HomeController;
         return $home->produit();
@@ -93,7 +97,13 @@ class CommandeController extends Controller
     {
         //
     }
-
+    public function annuler($id)
+    {
+        $commande = Commande::findOrfail($id);
+        $commande->confirme = "2";
+        $commande->save();
+        return CommandeController::commandeview();
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -102,6 +112,7 @@ class CommandeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Commande::findOrfail($id)->delete();
+        return CommandeController::commandeview();
     }
 }

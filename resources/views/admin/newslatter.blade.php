@@ -13,6 +13,7 @@
         </div>
     </div>
     <div class=" mx-1">
+        @if (count($newslatterCli))
         <div class="my-2">
             <table class="table table-hover table-responsive table-striped table-sm">
                 <thead>
@@ -39,6 +40,7 @@
                 </tbody>
             </table>
         </div>
+        @endif
     </div>
 </div>
 @endsection

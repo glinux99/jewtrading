@@ -18,6 +18,7 @@ class CreateCommandesTable extends Migration
             $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')->references('id')->on('clients')->onUpdate('cascade')->onDelete('cascade');
             $table->bigInteger('quantity');
+            $table->integer('confirme');
             $table->string('code_prod');
             $table->timestamps();
         });
