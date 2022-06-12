@@ -48,14 +48,14 @@
                                 </div>
                             </a>
                         </li>
-                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass" type="button" data-bs-toggle="collapse" data-bs-target="#collapseServices" aria-expanded="false" aria-controls="collapseServices">
+                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass" data-bs-toggle="collapse" data-bs-target="#collapseServices" aria-expanded="false" aria-controls="collapseServices">
                             <a href="/afficher/service" class="nav-link m-0 p-0">
                                 <div class="p-3">
                                     <span class="bi-globe me-md-2"></span> <span class="d-none d-md-inline d-lg-inline">{{__("Services")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
                                 </div>
                             </a>
                         </li>
-                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEmploye" aria-expanded="false" aria-controls="collapseEmploye">
+                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass" data-bs-toggle="collapse" data-bs-target="#collapseEmploye" aria-expanded="false" aria-controls="collapseEmploye">
                             <a href="/ajouter/agent" class="nav-link m-0 p-0">
                                 <div class="p-3">
                                     <span class="bi-person-badge me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Employes")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
