@@ -47,6 +47,7 @@ Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/commande/{id}', [CommandeController::class, 'index']);
 Route::get('/detail/produit/{id}', [JewsTradingController::class, 'show']);
+Route::post('/send-message', [MessageController::class, 'contact']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/newslatter/all', [ClientController::class, 'index']);
@@ -60,7 +61,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/annule/commande/{id}', [CommandeController::class, 'annuler']);
     Route::get('/delete/commande/{id}', [CommandeController::class, 'destroy']);
     Route::get('/messages', [MessageController::class, 'index']);
-    Route::post('/send-message', [MessageController::class, 'contact']);
+
     Route::post('/params_update', [LoginController::class, 'update']);
     Route::post('/confirmeLog', [LoginController::class, 'confirmeLog']);
     Route::get('/parametre', [LoginController::class, 'create'])->middleware(['password.confirm:confirmPass']);

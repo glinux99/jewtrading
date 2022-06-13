@@ -2,14 +2,14 @@
     <form action="/newslatter" method="post">
         @csrf
         <div class="w-100 d-md-flex align-item-center" style="min-height: 100px;">
-            <div class="col-md-4 bg-danger d-md-flex justify-content-center align-items-center">
+            <div class="col-md-4 d-md-flex justify-content-center align-items-center">
                 <p class="mx-4 text-uppercase h4 text-white fw-bold"><span class="text-dark d-block">{{__("Abonnez-vous")}}</span>
 
                     {{__("pour les
                     notifications")}}
                 </p>
             </div>
-            <div class="col-md-4 px-4 bg-danger d-flex justify-content-center align-items-center leftMenuC">
+            <div class="col-md-4 px-4 d-flex justify-content-center align-items-center leftMenuC">
                 <div class="col-md-12">
                     <input type="text" name="newslatter" id="" class="form-control" placeholder="{{__('Votre Email adresse')}}">
                     <input type="text" name="newslatterAuth" id="" value="1" hidden>

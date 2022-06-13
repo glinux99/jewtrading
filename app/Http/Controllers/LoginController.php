@@ -17,6 +17,7 @@ class LoginController extends Controller
 
     public function confirmeLog(Request $request)
     {
+
         if (Auth::attempt(['email' => Auth::User()->email, 'password' => $request->psswd])) {
             return view('admin.parametre');
         } else
@@ -105,10 +106,19 @@ class LoginController extends Controller
     }
     public function login()
     {
+        $apropos = User::find(1)->apropos;
+        $missions = User::find(1)->description;
+        if ((session()->get('lang_code') == 'us')) {
+            $apropos = User::find(1)->aproposUS;
+            $missions = User::find(1)->descriptionUS;
+        }
+        $email = User::find(1)->emailEntreprise;
+        $adresse = User::find(1)->adresse;
+        $phones = explode('/', User::find(1)->contact);
         if (auth()->check()) {
             return redirect('admin');
         }
-        return view('admin.login');
+        return view('admin.login', compact(['apropos', 'missions', 'email', 'adresse', 'phones']));
     }
     public function connect(Request $request)
     {

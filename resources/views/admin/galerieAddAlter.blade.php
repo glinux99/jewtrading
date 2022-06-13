@@ -66,7 +66,9 @@
         @endphp
         @endwhile
     </div>
+    @if ($galeries)
     {{ $galeries->links()}}
+    @endif
 </div>
 </div>
 @endsection
