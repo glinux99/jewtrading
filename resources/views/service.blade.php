@@ -19,9 +19,9 @@ $gal=0;
     @include('layouts.servicesLayer')
     <div class="produit bg-white mt-md-5 pt-md-5">
         <h2 class="text-center fw-bolder py-md-3 display-6">
-            Nos produits
+            {{__("Nos produits")}}
         </h2>
-        <div id="galerieProduits" class="carousel slide" data-bs-ride="carousel">
+        <div id="galerieProduits" class="carousel slide mb-4" data-bs-ride="carousel">
             <div class="carousel-inner" role="listbox">
                 @while ($gal<count($galeries)) @php $active='' ; if($gal==0){ $active='active' ; } @endphp <div class="carousel-item {{$active}}">
                     <div class="row">
@@ -29,10 +29,10 @@ $gal=0;
                             $z= 1+count($galeries)%4;
                             $gal = count($galeries);
                             }
-                            $img ='/storage/images/galeries/'.$galeries[$i];
+                            $img ='/storage/images/produits/'.$galeries[$i];
                             @endphp
                             <div class="col-md-3">
-                                <img src="{{asset($img)}}" alt="{{$galeries[$i]}}" class="d-block w-100">
+                                <img src="{{asset($galeries[$i])}}" alt="{{$galeries[$i]}}" class="d-block w-100">
                             </div>
                             @php
                             $i++;

@@ -33,7 +33,7 @@ class HomeController extends Controller
         $Jewstab = array();
         $path = '/storage/images/galeries/';
         $showProduits = array();
-        $galerieShowAll = HomeController::photo(Galerie::where('categories', 'Produit'), $path);
+        $galerieShowAll = HomeController::photo(Galerie::where('categories', 'Produit')->get(), $path);
         foreach (Produit::all() as $agents) {
             // array_push($showProduits, );
             $path = '/storage/images/produits/';
@@ -83,7 +83,7 @@ class HomeController extends Controller
         $email = User::find(1)->emailEntreprise;
         $adresse = User::find(1)->adresse;
         $phone = explode('/', User::find(1)->contact);
-        $JewsTrgaleries = Galerie::all();
+        $JewsTrgaleries = Galerie::where('categories', 'Produit')->get();
         $path = '/storage/images/galeries/';
         $galeriePic = HomeController::photo($JewsTrgaleries, $path);
         $JewsTrservices = Service::all();
