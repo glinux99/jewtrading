@@ -45,10 +45,15 @@ class GalerieController extends Controller
 
     {
 
+
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
 
         $items = $items instanceof Collection ? $items : Collection::make($items);
 
+        // cette fonction  a ete modifier pour permettre a ce que les liens
+        // Puissent etre accepte! En cas d'utilisation de ce code, je vous recommande de modifier ce code par:
+        //  $this->path = $this->path !== '/$' ? rtrim($this->path, '/$') : $this->path;
+        // Par  $this->path = $this->path !== '/' ? rtrim($this->path, '/') : $this->path;
         return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
     /**
