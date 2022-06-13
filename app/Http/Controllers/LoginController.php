@@ -14,9 +14,17 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function confirmeLog(Request $request)
     {
-        //
+        if (Auth::attempt(['email' => Auth::User()->email, 'password' => $request->psswd])) {
+            return view('admin.parametre');
+        } else
+            return redirect()->back();
+    }
+    public function confirmPass()
+    {
+        return view('admin.confirme');
     }
 
     /**
@@ -26,7 +34,7 @@ class LoginController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.parametre');
     }
 
     /**
@@ -94,6 +102,13 @@ class LoginController extends Controller
         $user->password = $psswd;
         $user->save();
         return redirect('admin');
+    }
+    public function login()
+    {
+        if (auth()->check()) {
+            return redirect('admin');
+        }
+        return view('admin.login');
     }
     public function connect(Request $request)
     {

@@ -18,6 +18,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $apropos = User::find(1)->apropos;
+        $missions = User::find(1)->description;
+        if ((session()->get('lang_code') == 'us')) {
+            $apropos = User::find(1)->aproposUS;
+            $missions = User::find(1)->descriptionUS;
+        }
+        $email = User::find(1)->emailEntreprise;
+        $adresse = User::find(1)->adresse;
+        $phone = explode('/', User::find(1)->contact);
         $JewsTrdetails = User::find(1);
         $JewsTrservices = Service::all();
         $JewsTrgaleries = Galerie::all();
@@ -33,7 +42,7 @@ class HomeController extends Controller
         foreach ($showProduits as $prod) {
             array_push($galerieShowAll, $prod);
         }
-        return view('index', ['jewtrading' => $JewsTrdetails, 'services' => $JewsTrservices, 'galeries' => $galerieShowAll]);
+        return view('index', ['jewtrading' => $JewsTrdetails, 'services' => $JewsTrservices, 'galeries' => $galerieShowAll, 'apropos' => $apropos, 'missions' => $missions, 'adresse' => $adresse, 'phones' => $phone, 'email' => $email]);
     }
     public function photo($JewsTrgaleries, $path)
     {
@@ -50,16 +59,46 @@ class HomeController extends Controller
         }
         return $galeriePic;
     }
+    public function detailProduit()
+    {
+        $apropos = User::find(1)->apropos;
+        $missions = User::find(1)->description;
+        if ((session()->get('lang_code') == 'us')) {
+            $apropos = User::find(1)->aproposUS;
+            $missions = User::find(1)->descriptionUS;
+        }
+        $email = User::find(1)->emailEntreprise;
+        $adresse = User::find(1)->adresse;
+        $phone = explode('/', User::find(1)->contact);
+        return view('detailsProduits', compact(['apropos', 'missions', 'email', 'adresse', 'phones']));
+    }
     public function service()
     {
+        $apropos = User::find(1)->apropos;
+        $missions = User::find(1)->description;
+        if ((session()->get('lang_code') == 'us')) {
+            $apropos = User::find(1)->aproposUS;
+            $missions = User::find(1)->descriptionUS;
+        }
+        $email = User::find(1)->emailEntreprise;
+        $adresse = User::find(1)->adresse;
+        $phone = explode('/', User::find(1)->contact);
         $JewsTrgaleries = Galerie::all();
         $path = '/storage/images/galeries/';
         $galeriePic = HomeController::photo($JewsTrgaleries, $path);
         $JewsTrservices = Service::all();
-        return view('service', ['services' => $JewsTrservices, 'galeries' => $galeriePic]);
+        return view('service', [
+            'apropos' => $apropos,
+            'missions' => $missions,
+            'email' => $email,
+            'adresse' => $adresse,
+            'phones' => $phone,
+            'services' => $JewsTrservices, 'galeries' => $galeriePic
+        ]);
     }
     public function galerie()
     {
+
         $path = '/storage/images/galeries/';
         $showEquipes = HomeController::photo(Galerie::where('categories', 'Equipe')->get(), $path);
         $path = '/storage/images/agents/';
@@ -81,7 +120,21 @@ class HomeController extends Controller
         foreach ($showProduits as $prod) {
             array_push($galerieShowAll, $prod);
         }
+        $apropos = User::find(1)->apropos;
+        $missions = User::find(1)->description;
+        if ((session()->get('lang_code') == 'us')) {
+            $apropos = User::find(1)->aproposUS;
+            $missions = User::find(1)->descriptionUS;
+        }
+        $email = User::find(1)->emailEntreprise;
+        $adresse = User::find(1)->adresse;
+        $phone = explode('/', User::find(1)->contact);
         return view('galerie', [
+            'apropos' => $apropos,
+            'missions' => $missions,
+            'email' => $email,
+            'adresse' => $adresse,
+            'phones' => $phone,
             'galerieShowAll' => $galerieShowAll,
             'equipes' => $showEquipes,
             'showClients' => $showClients,
@@ -97,6 +150,15 @@ class HomeController extends Controller
      */
     public function produit()
     {
+        $apropos = User::find(1)->apropos;
+        $missions = User::find(1)->description;
+        if ((session()->get('lang_code') == 'us')) {
+            $apropos = User::find(1)->aproposUS;
+            $missions = User::find(1)->descriptionUS;
+        }
+        $email = User::find(1)->emailEntreprise;
+        $adresse = User::find(1)->adresse;
+        $phone = explode('/', User::find(1)->contact);
         $produits = array();
         foreach (Produit::all() as $prod) {
             $path = '/storage/images/produits/';
@@ -106,24 +168,46 @@ class HomeController extends Controller
             else if ($prod->file4 != '') $file = $path . $prod->file4;
             array_push($produits, [$prod->marque, $prod->prix, $prod->id, $file]);
         }
-        return view('produit', ['produits' => $produits]);
+        return view('produit', [
+            'apropos' => $apropos,
+            'missions' => $missions,
+            'email' => $email,
+            'adresse' => $adresse,
+            'phones' => $phone,
+            'produits' => $produits
+        ]);
     }
     public function apropos()
     {
         $apropos = User::find(1)->apropos;
         $missions = User::find(1)->description;
+        if ((session()->get('lang_code') == 'us')) {
+            $apropos = User::find(1)->aproposUS;
+            $missions = User::find(1)->descriptionUS;
+        }
+        $email = User::find(1)->emailEntreprise;
+        $adresse = User::find(1)->adresse;
+        $phone = explode('/', User::find(1)->contact);
         $agents = array();
         foreach (Agent::all() as $agent) {
             $path = '/storage/images/agents/';
 
             array_push($agents, [$agent->nom_agent, $agent->fonction, $path . $agent->image]);
         }
-        return view('apropos', ['apropos' => $apropos, 'missions' => $missions, 'agents' => $agents]);
+        return view('apropos', ['email' => $email, 'phones' => $phone, 'adresse' => $adresse, 'apropos' => $apropos, 'missions' => $missions, 'agents' => $agents]);
     }
     public function contact()
     {
+        $apropos = User::find(1)->apropos;
+        $missions = User::find(1)->description;
+        if ((session()->get('lang_code') == 'us')) {
+            $apropos = User::find(1)->aproposUS;
+            $missions = User::find(1)->descriptionUS;
+        }
+        $email = User::find(1)->emailEntreprise;
+        $adresse = User::find(1)->adresse;
         $phone = explode('/', User::find(1)->contact);
-        return view('contact', ['adresse' => User::find(1)->adresse, 'phones' => $phone, 'email' => User::find(1)->emailEntreprise]);
+        return view('contact', ['adresse' => User::find(1)->adresse, 'apropos' => $apropos, 'missions' => $missions, 'phones' => $phone, 'email' => User::find(1)->emailEntreprise]);
     }
     /**
      * Store a newly created resource in storage.

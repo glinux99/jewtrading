@@ -1528,7 +1528,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class=" mb-3">
-                        <label for="anneeFabrication" class="form-label">Annee de Fab:</label>
+                        <label for="anneeFabrication" class="form-label">Année de Fab:</label>
                         <input type="date" name="annee_fab" class="form-control " id="">
                     </div>
                 </div>
@@ -1589,7 +1589,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class=" mb-3">
-                        <label for="declaration" class="form-label">{{__("Declaration")}}</label>
+                        <label for="declaration" class="form-label">{{__("Déclaration")}}</label>
                         <input type="text" class="form-control " name="declaration">
                     </div>
                 </div>
@@ -1597,7 +1597,7 @@
             <input type="number" name="count" id="count" hidden>
             <div class="row  border-top border-bottom boder-1 border-secondary py-3">
                 <div class="row">
-                    <h6>{{__("Ajouter une pu plusieurs images")}}</h6>
+                    <h6>{{__("Ajouter une ou plusieurs images")}}</h6>
                     <div class="col-md-6 input-add">
                         <input type="file" class="my-1 form-control" name="file1" id="file" required />
                     </div>
@@ -1607,7 +1607,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center my-3">
-                <button class="btn bg-danger text-white col-md-2">Ajouter</button>
+                <button class="btn bg-danger text-white col-md-2">{{__("Ajouter")}}</button>
             </div>
         </div>
     </form>

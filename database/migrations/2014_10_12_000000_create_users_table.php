@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('emailEntreprise')->nullable()->default('jewstrading@gmail.com');
             $table->text('description')->nullable()->default('Jews Trading ...');
             $table->text('apropos')->nullable()->default('A propos de Jews Trading ...');
+            $table->text('descriptionUS')->nullable()->default('Jews Trading ...');
+            $table->text('aproposUS')->nullable()->default('A propos de Jews Trading ...');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('partenaires')->nullable()->default('Be Forward, SBT');

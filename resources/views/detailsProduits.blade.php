@@ -92,7 +92,7 @@
                             </div>
                             <div class="col-md-6 d-flex justify-content-end">
                                 <div>
-                                    <a href="/commande/{{$produit->id}}" class="btn btn-danger">Commander</a>
+                                    <a href="/commande/{{$produit->id}}" class="btn btn-danger">{{__('Commander')}}</a>
                                 </div>
                             </div>
                         </div>

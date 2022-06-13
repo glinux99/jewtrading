@@ -194,3 +194,12 @@ a:hover {
   min-height: 30vh;
   border-left: 5px solid red;
 }
+
+.offca>ul>li>.nav-link {
+  color: red !important;
+}
+
+.offca>ul>li>.nav-link:hover {
+  background: red !important;
+  color: white !important;
+}

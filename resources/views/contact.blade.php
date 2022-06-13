@@ -1,5 +1,5 @@
 @extends('layouts.layoutHF')
-@section('title') {{ __("Notre galerie avec Jew Trading")}} @endsection
+@section('title') {{ __("Contactez-nous Jew Trading")}} @endsection
 @section('body')
 @include('layouts.menuP')
 @if ($commande ?? 0)
@@ -21,21 +21,21 @@
                         <div class="mb-2 row">
                             <div class="">
                                 <label for="" class="form-label"></label>
-                                <input type="text" class="form-control " name="nom_cli" id="" aria-describedby="emailHelpId" placeholder="votre nom">
+                                <input type="text" class="form-control " name="nom_cli" id="" aria-describedby="emailHelpId" placeholder="{{__('votre nom')}}">
                             </div>
                             <div class="">
                                 <label for="" class="form-label"></label>
-                                <input type="email" class="form-control" name="email_cli" id="" aria-describedby="emailHelpId" placeholder="Email adresse">
+                                <input type="email" class="form-control" name="email_cli" id="" aria-describedby="emailHelpId" placeholder="{{__('Email adresse')}}">
                             </div>
                         </div>
                         <div class="mb-2 row">
                             <div class="">
                                 <label for="" class="form-label"></label>
-                                <input type="number" class="form-control" name="num_cli" id="" aria-describedby="emailHelpId" placeholder="numero de telephone">
+                                <input type="number" class="form-control" name="num_cli" id="" aria-describedby="emailHelpId" placeholder="{{__('numéro de téléphone')}}">
                             </div>
                             <div class="">
                                 <label for="" class="form-label"></label>
-                                <input type="text" class="form-control" name="adresse_cli" id="" aria-describedby="emailHelpId" placeholder="Adresse">
+                                <input type="text" class="form-control" name="adresse_cli" id="" aria-describedby="emailHelpId" placeholder="{{__('Adresse')}}">
                             </div>
                         </div>
                         <div class="d-flex justify-content-center my-3"><button class="btn btn-danger">Soumettre</button>
@@ -47,7 +47,7 @@
                                 <div class="border-top border-2 border-danger my-3">
                                     {{__("Caractéristiques")}}
                                 </div>
-                                <table class="table tabler-hover">
+                                <table class=" table tabler-hover">
                                     <thead>
                                         <th>
                                             {{__("Model")}}
@@ -160,17 +160,17 @@
                 <div class="mb-2 row">
                     <div class="col-6">
                         <label for="" class="form-label"></label>
-                        <input type="text" class="form-control" name="nom" id="" aria-describedby="emailHelpId" placeholder="votre nom">
+                        <input type="text" class="form-control" name="nom" id="" aria-describedby="emailHelpId" placeholder="{{__('votre nom')}}">
                     </div>
                     <div class="col-6">
                         <label for="" class="form-label"></label>
-                        <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" placeholder="Email adresse">
+                        <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" placeholder="{{__('Email adresse')}}">
                     </div>
                 </div>
                 <div class="mb-2 row">
                     <div class="col-6">
                         <label for="" class="form-label"></label>
-                        <input type="tel" class="form-control" name="numero" id="" aria-describedby="emailHelpId" placeholder="Numero de Tel">
+                        <input type="tel" class="form-control" name="numero" id="" aria-describedby="emailHelpId" placeholder="{{__('Numero de Tel')}}">
                     </div>
                     <div class="col-6">
                         <label for="" class="form-label"></label>
@@ -181,10 +181,10 @@
                     <label for="" class="form-label"></label>
                     <textarea class="form-control" name="messages" id=""></textarea>
                 </div>
-                <div class="d-flex justify-content-center"><button class="btn btn-danger">Soumettre</button></div>
+                <div class="d-flex justify-content-center"><button class="btn btn-danger">{{__("Soumettre")}}</button></div>
             </form>
         </div>
-        <div class="col-md-4 card p-4">
+        <div class=" col-md-4 card p-4">
             <h4 class="fw-bolder">{{__("Contact rapide")}}</h4>
             <p>
                 {{__("Si vous avez des questions, utilisez simplement nos coordonnées suivantes.")}}

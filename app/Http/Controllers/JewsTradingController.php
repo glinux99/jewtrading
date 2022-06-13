@@ -121,12 +121,28 @@ class JewsTradingController extends Controller
      */
     public function show($id)
     {
+        $apropos = User::find(1)->apropos;
+        $missions = User::find(1)->description;
+        if ((session()->get('lang_code') == 'us')) {
+            $apropos = User::find(1)->aproposUS;
+            $missions = User::find(1)->descriptionUS;
+        }
+        $email = User::find(1)->emailEntreprise;
+        $adresse = User::find(1)->adresse;
+        $phone = explode('/', User::find(1)->contact);
         $currentProduit = Produit::find($id);
         if ($currentProduit == null) {
             return redirect('/');
         }
         // echo $currentProduit->file1;
-        return view('detailsProduits', ['produit' => $currentProduit]);
+        return view('detailsProduits', [
+            'apropos' => $apropos,
+            'missions' => $missions,
+            'email' => $email,
+            'adresse' => $adresse,
+            'phones' => $phone,
+            'produit' => $currentProduit
+        ]);
     }
 
     /**

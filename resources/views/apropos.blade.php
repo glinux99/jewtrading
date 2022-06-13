@@ -1,5 +1,5 @@
 @extends('layouts.layoutHF')
-@section('title') {{ __("Notre galerie avec Jew Trading")}} @endsection
+@section('title') {{ __("Q propos de Jew Trading")}} @endsection
 @section('body')
 @include('layouts.menuP')
 <div class="position-relative">
@@ -14,7 +14,7 @@
         <div class="w-100 row">
             <div class="col-md-6">
                 <h3 class="text-uppercase fw-bolder">Bienvenu chez <span class="text-danger">Jews Trading</span></h3>
-                <h6 class="mb-3">{{__("Apropos")}}</h6>
+                <h6 class="mb-3">{{__("A propos")}}</h6>
                 <p class="text-muted text-justify">
                     {{ $apropos}}
                 </p>
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="equipe my-5">
-            <h2 class="fw-bolder text-uppercase">{{__("Notre equipe")}}</h2>
+            <h2 class="fw-bolder text-uppercase">{{__("Notre équipe")}}</h2>
             <div class="row">
                 @foreach ($agents as $agent)
                 <div class="col-md-3 m-2 card position-relative border-0">

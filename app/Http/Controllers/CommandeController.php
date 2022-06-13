@@ -17,9 +17,19 @@ class CommandeController extends Controller
      */
     public function index($id)
     {
+        $apropos = User::find(1)->apropos;
+        $missions = User::find(1)->description;
+        if ((session()->get('lang_code') == 'us')) {
+            $apropos = User::find(1)->aproposUS;
+            $missions = User::find(1)->descriptionUS;
+        }
         $phone = explode('/', User::find(1)->contact);
         $prod = Produit::findOrfail($id);
-        return view('contact', ['adresse' => User::find(1)->adresse, 'phones' => $phone, 'email' => User::find(1)->emailEntreprise, 'commande' => true, 'produitCommande' => $prod]);
+        return view('contact', [
+            'apropos' => $apropos,
+            'missions' => $missions,
+            'adresse' => User::find(1)->adresse, 'phones' => $phone, 'email' => User::find(1)->emailEntreprise, 'commande' => true, 'produitCommande' => $prod
+        ]);
     }
     public function commandeview()
     {

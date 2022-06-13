@@ -34,13 +34,13 @@
             <h5 class=" py-3 border-bottom border-1 border-secondary"><span class="bi-info-circle me-2"></span>{{__("Information Supplementaire")}}</h5>
             <div class="row">
                 <div class="col-md-12">
-                    <label for="nom" class="form-label">{{__("Langue par defaut")}}</label>
+                    <label for="nom" class="form-label">{{__("Langue par défaut")}}</label>
                     <input type="text" class="form-control " name="lang" value="{{ Auth::User()->lang }}">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <label for="nom" class="form-label">{{__("Numero de contact")}}</label>
+                    <label for="nom" class="form-label">{{__("Numéro de contact")}}</label>
                     <input type="text" class="form-control " name="contact" value="{{ Auth::User()->contact }}">
                 </div>
             </div>
@@ -82,8 +82,31 @@
                     </div>
                 </div>
             </div>
+            <div class="border-top border-danger pt-2">
+                <p class="m-0 p-0 text-muted"><small>{{__("Pour la tradiction en englais de la mission et de l'a propos de Jewtrading (Optionnelle)")}}</small></p>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="nom" class="form-label">{{__("Mission")}}</label>
+                        <div class="mb-3">
+                            <textarea class="form-control " name="missionUS" id="">
+                            {{ Auth::User()->description }}
+                            </textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="nom" class="form-label">{{__("A propos")}}</label>
+                        <div class="mb-3">
+                            <textarea class="form-control " name="aproposUS" id="">
+                            {{ Auth::User()->apropos }}
+                            </textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="d-flex justify-content-center">
-                <button class="btn bg-danger text-white">{{__("Mise a jour")}}</button>
+                <button class="btn bg-danger text-white">{{__("Mise à jour")}}</button>
             </div>
         </div>
     </form>

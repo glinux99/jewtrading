@@ -140,7 +140,7 @@
                             <div class="col-6 row">
                                 <div class="col-4">
                                     <label for="" class="form-label">
-                                        {{__("Annee Fab")}}
+                                        {{__("Année Fab")}}
                                     </label>
                                 </div>
                                 <div class="col-8">
@@ -209,7 +209,7 @@
                             <div class="row col-6">
                                 <div class="col-4">
                                     <label for="" class="form-label">
-                                        {{__("Declaration")}}
+                                        {{__("Déclaration")}}
                                     </label>
                                 </div>
                                 <div class="col-8">
@@ -394,7 +394,7 @@
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="serviceAddModalLabel">Ajouter un service</h5>
+                    <h5 class="modal-title" id="serviceAddModalLabel">{{__("Ajouter un service")}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -412,12 +412,37 @@
                         <div class="row">
                             <div class="col-2 my-1">
                                 <label for="titre" class="form-label">
-                                    {{__("Description")}}
+                                    {{__("Déscription")}}
                                 </label>
                             </div>
                             <div class="col-8 my-1">
                                 <div class="form-group">
                                     <textarea class="form-control " name="descriptionService" id="description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mx-auto border-top my-3 pt-3">
+                        <p><small>{{__("Traduction en anglais du service * Optionnelle")}}</small></p>
+                        <div class="row">
+                            <div class="col-2">
+                                <label for="titre" class="form-label">
+                                    {{__("Titre")}}
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-control " name="titreServiceUS" id="titre">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 my-1">
+                                <label for="titre" class="form-label">
+                                    {{__("Déscription")}}
+                                </label>
+                            </div>
+                            <div class="col-8 my-1">
+                                <div class="form-group">
+                                    <textarea class="form-control " name="descriptionServiceUS" id="description"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -467,6 +492,34 @@
                                 </div>
                             </div>
                         </div>
+
+                    </div>
+                    <div class="col-md-12 mx-auto">
+                        <div class="row">
+                            <div class="col-2">
+                                <label for="titre" class="form-label">
+                                    {{__("Titre")}}
+                                </label>
+                            </div>
+                            <div class="col-8">
+                                <input type="text" class="form-control " name="titreServiceUS" value="{{ $serviceCurrent->titreService ?? 'rien'}}">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 my-1">
+                                <label for="titre" class="form-label">
+                                    {{__("Description")}}
+                                </label>
+                            </div>
+                            <div class="col-8 my-1">
+                                <div class="form-group">
+                                    <textarea id="my-textarea" class="form-control " name="descriptionService">
+                                    {{ $serviceCurrent->descriptionServiceUS ?? 'rien'}}
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <input type="text" name="id" value="{{ $serviceCurrent->id ?? 0}}" hidden>
                 </div>
@@ -478,14 +531,14 @@
         </form>
     </div>
 </div>
-<!-- ADD EMploye -->
+<!-- ADD employé -->
 <div class="modal fade" id="employeAddModal" tabindex="-1" aria-labelledby="employeAddModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <form action="/ajoute/agent" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="employeAddModalLabel">{{__("Ajouter un employe")}}</h5>
+                    <h5 class="modal-title" id="employeAddModalLabel">{{__("Ajouter un employé")}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -523,7 +576,7 @@
                         <div class="row my-1">
                             <div class="col-4">
                                 <label for="titre" class="form-label">
-                                    {{__("Numero Tel")}}
+                                    {{__("Numéro Tel")}}
                                 </label>
                             </div>
                             <div class="col-8">
@@ -562,15 +615,15 @@
         </form>
     </div>
 </div>
-<!-- Alter Employe -->
+<!-- Alter employé -->
 @if ($agentChange ?? 0)
-<div class="modal fade" id="employeAlterModal" tabindex="-1" aria-labelledby="employeAlterModalLabel" aria-hidden="true">
+<div class="modal fade" id="employeAlterModal" tabindex="-1" aria-labelledby="employéAlterModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl  ">
         <form action="/update-agent/{{ $agentChange->id}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="employeAlterModalLabel">{{__("Modifier un employe")}}</h5>
+                    <h5 class="modal-title" id="employeAlterModalLabel">{{__("Modifier un employé")}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -609,7 +662,7 @@
                             <div class="row my-1">
                                 <div class="col-4">
                                     <label for="titre" class="form-label">
-                                        {{__("Numero Tel")}}
+                                        {{__("Numéro Tel")}}
                                     </label>
                                 </div>
                                 <div class="col-8">
@@ -665,7 +718,7 @@
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="newslatterLabel">{{__("Envoyer un message a tous les abonnes")}}</h5>
+                    <h5 class="modal-title" id="newslatterLabel">{{__("Envoyer un message à tous les abonnés")}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

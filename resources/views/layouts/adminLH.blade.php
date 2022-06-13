@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
@@ -58,7 +58,7 @@
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass" data-bs-toggle="collapse" data-bs-target="#collapseEmploye" aria-expanded="false" aria-controls="collapseEmploye">
                             <a href="/ajouter/agent" class="nav-link m-0 p-0">
                                 <div class="p-3">
-                                    <span class="bi-person-badge me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Employes")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                                    <span class="bi-person-badge me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Employés")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
                                 </div>
                             </a>
                         </li>
@@ -72,7 +72,7 @@
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
                             <a href="/parametre" class="nav-link m-0 p-0">
                                 <div class="p-3">
-                                    <span class="bi-share me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Parametre")}}</span>
+                                    <span class="bi-share me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Paramètre")}}</span>
                                 </div>
                             </a>
                         </li>
@@ -115,13 +115,13 @@
                                     <ul class="dropdown-menu shadow-lg">
                                         <li>
                                             <a href="/parametre" class="nav-link">
-                                                <span class=" bi-gear-fill me-1 text-danger"></span><span class="text-danger">{{__("Parametre")}}</span>
+                                                <span class=" bi-gear-fill me-1 text-danger"></span><span class="text-danger">{{__("Paramètre")}}</span>
                                             </a>
                                         </li>
                                         <li class="border-top"></li>
                                         <li>
                                             <a href="/logout" class="nav-link">
-                                                <span class="bi-power me-1 text-danger "></span><span class="text-danger">{{__("Deconnection")}}</span>
+                                                <span class="bi-power me-1 text-danger "></span><span class="text-danger">{{__("Déconnection")}}</span>
                                             </a>
                                         </li>
                                     </ul>

@@ -34,6 +34,8 @@ class ServiceController extends Controller
         $service = new Service;
         $service->titreService = request('titreService');
         $service->descriptionService = request('descriptionService');
+        $service->titreServiceUS = request('titreServiceUS');
+        $service->descriptionServiceUS = request('descriptionServiceUS');
         $service->admin_id =
             Auth::user()->id;
         $service->save();
@@ -96,6 +98,8 @@ class ServiceController extends Controller
         $service = Service::find(request('id'));
         $service->titreService = request('titreService');
         $service->descriptionService = request('descriptionService');
+        $service->titreServiceUS = request('titreServiceUS');
+        $service->descriptionServiceUS = request('descriptionServiceUS');
         $service->save();
         return ServiceController::index();
     }

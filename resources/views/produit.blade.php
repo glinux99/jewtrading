@@ -11,7 +11,7 @@
 </div>
 <div class="galerie text-white pt-md-5 galerie-image" style="background: url({{asset('assets/imgs/bg1.jpg')}}">
     <h2 class="text-center fw-bolder py-md-3">
-        Prouits en stocks
+        {{__("Prouits en stocks")}}
     </h2>
     @php
     $y=0;
@@ -29,7 +29,7 @@
                     <h4 class="card-title fw-bolder">{{ $produit[0]}}</h4>
                     <h4 class="card-title fw-bolder">{{ $produit[1]}}</h4>
                     <div class="position-absolute bottom-0 pb-2">
-                        <a href="/detail/produit/{{ $produit[2]}}" class="btn btn-danger">Voir details</a>
+                        <a href="/detail/produit/{{ $produit[2]}}" class="btn btn-danger">{{__("Voir details")}}</a>
                     </div>
                 </div>
             </div>

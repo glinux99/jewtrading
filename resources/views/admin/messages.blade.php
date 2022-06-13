@@ -5,7 +5,7 @@
 @section('body')
 <div class="col-md-11 mx-auto shadow my-3 py-4 row">
     <div class="col-md-8">
-        <h4 class="border-bottom border-2">{{__("Discussions recents")}}</h4>
+        <h4 class="border-bottom border-2">{{__("Discussions recentes")}}</h4>
         @foreach ($discussionCli as $message)
         <div class="border p-2 my-1">
             <div class="row">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-md-6 d-flex justify-content-end">
                     <div>
-                        <button class="btn btn-danger">Repondre par mail</button>
+                        <button class="btn btn-danger" disabled>{{__("Repondre par mail")}}</button>
                     </div>
                 </div>
             </div>

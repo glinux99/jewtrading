@@ -14,7 +14,7 @@
                 @endif</h4><span class="bi-globe me-2 float-end h4"></span>
         </div>
         <div class="border-start border-5 border-danger col-md-3 shadow m-3  py-md-3 rounded">
-            <h5 class="d-inline fw-bold"><span class="me-2">{{ $countAgent ?? '0' }}</span>{{__("Employe")}}@if ($countAgent?? 0){{"s"}}
+            <h5 class="d-inline fw-bold"><span class="me-2">{{ $countAgent ?? '0' }}</span>{{__("Employé")}}@if ($countAgent?? 0){{"s"}}
 
                 @endif</h5><span class="bi-person-badge me-2 float-end h4">
         </div>

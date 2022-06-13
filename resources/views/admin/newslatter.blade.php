@@ -6,10 +6,10 @@
 <div class="container card my-4 py-4 shadow">
     <div class="row border-bottom border-2">
         <div class="col-md-6">
-            <h5 class="text-dark fw-bolder  py-2">{{__("Clients abonnes a notre Newslatter")}}</h5>
+            <h5 class="text-dark fw-bolder  py-2">{{__("Clients abonnes à notre Newslatter")}}</h5>
         </div>
         <div class="col-md-6 d-flex justify-content-end align-items-center">
-            <button class="btn btn-danger" role="button" data-bs-toggle="modal" data-bs-target="#newslatter">Envoyer un message</button>
+            <button class="btn btn-danger" role="button" data-bs-toggle="modal" data-bs-target="#newslatter">{{__("Envoyer un message")}}</button>
         </div>
     </div>
     <div class=" mx-1">

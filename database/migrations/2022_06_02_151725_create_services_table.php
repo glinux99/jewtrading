@@ -17,6 +17,8 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->string('titreService');
             $table->text('descriptionService');
+            $table->string('titreServiceUS');
+            $table->text('descriptionServiceUS');
             $table->unsignedBigInteger('admin_id')->foreign('admin_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

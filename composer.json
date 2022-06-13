@@ -14,6 +14,7 @@
         "spatie/laravel-newsletter": "^4.11"
     },
     "require-dev": {
+        "bestmomo/laravel5-artisan-language": "^0.3.3",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/sail": "^1.0.1",

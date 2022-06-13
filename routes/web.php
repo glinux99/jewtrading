@@ -13,6 +13,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\JewsTradingController;
+use App\Http\Controllers\LocalizController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,69 +26,68 @@ use App\Http\Controllers\JewsTradingController;
 |
 */
 
-Route::get('/detail', function () {
-    return view('detailsProduits');
-});
 Route::get('/addProduit', function () {
     return view('admin.add', ['#addProduit']);
 });
-Route::get('/parametre', function () {
-    return view('admin.parametre');
-});
-Route::get('/login', function () {
-    return view('admin.login');
-});
 Route::get('/test', function () {
-    return view('test', ['#addProduit']);
+    echo session()->get("lang_code");
 });
 
 // Liens.
-Route::get('/newslatter/all', [ClientController::class, 'index']);
-Route::post('/newslatter', [ClientController::class, 'create']);
-Route::post('/sendnewslatter', [ClientController::class, 'sendnewslatter']);
-Route::get('/desactivate/newslatter/{id}', [ClientController::class, 'desactivate']);
-Route::get('/delete/newslatter/{id}', [ClientController::class, 'destroy']);
-Route::post('/commandeCli/{id}', [CommandeController::class, 'edit']);
-Route::get('/commande/{id}', [CommandeController::class, 'index']);
-Route::get('/commandes/all', [CommandeController::class, 'commandeview']);
-Route::get('/accepte/commande/{id}', [CommandeController::class, 'show']);
-Route::get('/annule/commande/{id}', [CommandeController::class, 'annuler']);
-Route::get('/delete/commande/{id}', [CommandeController::class, 'destroy']);
-Route::get('/messages', [MessageController::class, 'index']);
-Route::post('/send-message', [MessageController::class, 'contact']);
-Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/change-language/{id}', [LocalizController::class, 'changeLang']);
 Route::get('/apropos', [HomeController::class, 'apropos']);
 Route::get('/contact', [HomeController::class, 'contact']);
 Route::get('/galerie', [HomeController::class, 'galerie']);
 Route::get('/produits', [HomeController::class, 'produit']);
+Route::get('/detail', [HomeController::class, 'detailProduit']);
 Route::get('/service', [HomeController::class, 'service']);
 Route::post('/connect', [LoginController::class, 'connect']);
-Route::post('/params_update', [LoginController::class, 'update']);
-Route::get('/logout', [LoginController::class, 'destroy']);
-Route::get('/galerie/alter', [GalerieController::class, 'index']);
-Route::post('/galerie/photo', [GalerieController::class, 'create']);
-Route::get('/aff', [GalerieController::class, 'index']);
-Route::get('/delete/{id}', [GalerieController::class, 'destroy']);
-Route::get('/ajouter/agent', [AgentController::class, 'index']);
-Route::get('modal-update-agent/{id}', [AgentController::class, 'show']);
-Route::post('/update-agent/{id}', [AgentController::class, 'update']);
-Route::post('/ajoute/agent', [AgentController::class, 'create'])->name('agent');
-Route::get('/delete-agent/{id}', [AgentController::class, 'destroy']);
-Route::get('/afficher/service', [ServiceController::class, 'index']);
-Route::post('/ajouter/service', [ServiceController::class, 'create']);
-Route::post('/update/service', [ServiceController::class, 'update']);
-Route::get('/modifier/service/{id}', [ServiceController::class, 'show']);
-Route::get('/supprimer/service/{id}', [ServiceController::class, 'destroy']);
-Route::get('/afficher/produit', [JewsTradingController::class, 'index']);
-Route::post('/ajouterProduit', [JewsTradingController::class, 'create']);
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/commande/{id}', [CommandeController::class, 'index']);
 Route::get('/detail/produit/{id}', [JewsTradingController::class, 'show']);
-Route::get('/modifier/produit/{id}', [JewsTradingController::class, 'edit']);
-Route::get('/ajouter/produit', [JewsTradingController::class, 'store']);
-Route::post('/update/vehicule/{id}', [JewsTradingController::class, 'update']);
-Route::get('/supprimer-produit/{id}', [JewsTradingController::class, 'destroy']);
-Route::get('/admin', [JewsTradingController::class, 'admin'])->name('admin');
 
-
+Route::middleware(['auth'])->group(function () {
+    Route::get('/newslatter/all', [ClientController::class, 'index']);
+    Route::post('/newslatter', [ClientController::class, 'create']);
+    Route::post('/sendnewslatter', [ClientController::class, 'sendnewslatter']);
+    Route::get('/desactivate/newslatter/{id}', [ClientController::class, 'desactivate']);
+    Route::get('/delete/newslatter/{id}', [ClientController::class, 'destroy']);
+    Route::post('/commandeCli/{id}', [CommandeController::class, 'edit']);
+    Route::get('/commandes/all', [CommandeController::class, 'commandeview']);
+    Route::get('/accepte/commande/{id}', [CommandeController::class, 'show']);
+    Route::get('/annule/commande/{id}', [CommandeController::class, 'annuler']);
+    Route::get('/delete/commande/{id}', [CommandeController::class, 'destroy']);
+    Route::get('/messages', [MessageController::class, 'index']);
+    Route::post('/send-message', [MessageController::class, 'contact']);
+    Route::post('/params_update', [LoginController::class, 'update']);
+    Route::post('/confirmeLog', [LoginController::class, 'confirmeLog']);
+    Route::get('/parametre', [LoginController::class, 'create'])->middleware(['password.confirm:confirmPass']);
+    Route::get('/parametre', [LoginController::class, 'confirmPass'])->name('confirmPass');
+    Route::get('/logout', [LoginController::class, 'destroy']);
+    Route::get('/galerie/alter', [GalerieController::class, 'index']);
+    Route::post('/galerie/photo', [GalerieController::class, 'create']);
+    Route::get('/aff', [GalerieController::class, 'index']);
+    Route::get('/delete/{id}', [GalerieController::class, 'destroy']);
+    Route::get('/ajouter/agent', [AgentController::class, 'index']);
+    Route::get('modal-update-agent/{id}', [AgentController::class, 'show']);
+    Route::post('/update-agent/{id}', [AgentController::class, 'update']);
+    Route::post('/ajoute/agent', [AgentController::class, 'create'])->name('agent');
+    Route::get('/delete-agent/{id}', [AgentController::class, 'destroy']);
+    Route::get('/afficher/service', [ServiceController::class, 'index']);
+    Route::post('/ajouter/service', [ServiceController::class, 'create']);
+    Route::post('/update/service', [ServiceController::class, 'update']);
+    Route::get('/modifier/service/{id}', [ServiceController::class, 'show']);
+    Route::get('/supprimer/service/{id}', [ServiceController::class, 'destroy']);
+    Route::get('/afficher/produit', [JewsTradingController::class, 'index']);
+    Route::post('/ajouterProduit', [JewsTradingController::class, 'create']);
+    Route::get('/modifier/produit/{id}', [JewsTradingController::class, 'edit']);
+    Route::get('/ajouter/produit', [JewsTradingController::class, 'store']);
+    Route::post('/update/vehicule/{id}', [JewsTradingController::class, 'update']);
+    Route::get('/supprimer-produit/{id}', [JewsTradingController::class, 'destroy']);
+    Route::get('/admin', [JewsTradingController::class, 'admin'])->name('admin');
+});
 
 Route::get('send-mail', function () {
 

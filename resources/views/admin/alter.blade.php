@@ -7,7 +7,7 @@
 <div class="container card my-4 py-4 shadow">
     <h5 class="text-dark fw-bolder  border-bottom border-2 py-2">{{__("Modifier un produit")}}</h5>
     <div>
-        <a href="/ajouter/produit" class="btn btn-danger">Ajouter un produit</a>
+        <a href="/ajouter/produit" class="btn btn-danger">{{__("Ajouter un produit")}}</a>
     </div>
     @if (count($produits))
     <div class="container mt-4">
@@ -51,16 +51,16 @@
 <div class="container card my-4 py-4 shadow">
     <h5 class="text-dark fw-bolder  border-bottom border-2 py-2">{{__("Modifier un service")}}</h5>
     <div>
-        <a href="#" class="btn btn-danger" role="button" data-bs-toggle="modal" data-bs-target="#serviceAddModal">Ajouter un service</a>
+        <a href="#" class="btn btn-danger" role="button" data-bs-toggle="modal" data-bs-target="#serviceAddModal">{{__("Ajouter un service")}}</a>
     </div>
     @if (count($services))
     <div class="container mt-4">
         <table id="dataTable" class="table table-striped table-hover table-sm  table-responsive">
             <thead>
                 <tr>
-                    <th class="col-3">Titre</th>
-                    <th class="col-6">Description</th>
-                    <th class="col-6">Action</th>
+                    <th class="col-3">{{__("Titre")}}</th>
+                    <th class="col-6">{{__("Description")}}</th>
+                    <th class="col-6">{{__("Action")}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -97,7 +97,7 @@
             <thead>
                 <tr class="text-center">
                     <th>{{__("Noms")}}</th>
-                    <th>{{__("Numero")}}</th>
+                    <th>{{__("Numéro")}}</th>
                     <th>{{__("Fonctions")}}</th>
                     <th>{{__("E-mail")}}</th>
                     <th>{{__("Numero")}}</th>
