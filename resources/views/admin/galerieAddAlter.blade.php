@@ -79,11 +79,7 @@
             </div>
             @endforeach
         </div>
-        <div class="d-flex justify-contend-center">
-            @if ($galeries)
-            {{ $galeries->links()}}
-            @endif
-        </div>
+
     </div>
 </div>
 @endsection

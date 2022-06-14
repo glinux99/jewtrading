@@ -36,21 +36,21 @@ class GalerieController extends Controller
                     array_push($galeriePic, $tab[$x][$z]);
                 }
             }
-            $galeriePic = $this->paginate($galeriePic);
+            // $galeriePic = $this->paginate($galeriePic);
         } else $galeriePic = array();
         return view('admin.galerieAddAlter', ['galeries' => $galeriePic]);
     }
 
-    public function paginate($items, $perPage = 2, $page = null, $options = [])
+    // public function paginate($items, $perPage = 2, $page = null, $options = [])
 
-    {
+    // {
 
-        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+    //     $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
 
-        $items = $items instanceof Collection ? $items : Collection::make($items);
+    //     $items = $items instanceof Collection ? $items : Collection::make($items);
 
-        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
-    }
+    //     return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+    // }
     /**
      * Show the form for creating a new resource.
      *
@@ -79,8 +79,6 @@ class GalerieController extends Controller
                 $fileName,
                 'public'
             );
-            // Storage::putFileAs('photos', new File($request->file1), $fileName);
-            //Storage::disk('public')->putFile('', $request->file1, $fileName);
             array_push($tab, $fileName);
         }
         $files = implode(' ', $tab);
@@ -149,12 +147,14 @@ class GalerieController extends Controller
 
             $gal = Galerie::find($galerie->id);
             $tab = explode(' ', $galerie->image);
-            array_splice($tab, array_search($id, $tab), 1);
-            $gal->image = implode(' ', $tab);
-            $gal->save();
-            if (strlen(implode(' ', $tab)) < 1) $gal->delete();
-            Storage::disk('public')->delete('images/galeries/' . $id);
-            return GalerieController::index();
+            if (in_array($id, $tab)) {
+                array_splice($tab, array_search($id, $tab), 1);
+                $gal->image = implode(' ', $tab);
+                $gal->save();
+                if (strlen(implode(' ', $tab)) < 1) $gal->delete();
+                Storage::disk('public')->delete('images/galeries/' . $id);
+                return GalerieController::index();
+            }
         }
         return redirect('/admin');
     }
