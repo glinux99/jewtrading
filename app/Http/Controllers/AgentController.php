@@ -56,16 +56,18 @@ class AgentController extends Controller
         foreach ($inputs as $input) {
             $agent->$input = $request->$input;
         }
-        Storage::disk('public')->delete('images/agents' . $agent->image);
-        $file = Str::random(5);
-        $ext = $request->file1->getClientOriginalExtension();
-        $fileName = $file . '.' . $ext;
-        $request->file('file1')->storeAs(
-            'images/agents',
-            $fileName,
-            'public'
-        );
-        $agent->image = $fileName;
+        if ($request->file1) {
+            Storage::disk('public')->delete('images/agents' . $agent->image);
+            $file = Str::random(5);
+            $ext = $request->file1->getClientOriginalExtension();
+            $fileName = $file . '.' . $ext;
+            $request->file('file1')->storeAs(
+                'images/agents',
+                $fileName,
+                'public'
+            );
+            $agent->image = $fileName;
+        }
         $agent->save();
     }
     /**

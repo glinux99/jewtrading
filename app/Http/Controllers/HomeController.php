@@ -143,6 +143,7 @@ class HomeController extends Controller
         ]);
     }
 
+
     /**3
      * Show the form for creating a new resource.
      *

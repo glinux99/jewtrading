@@ -121,6 +121,9 @@ a.nav-lien:hover {
   background: linear-gradient(90deg, rgba(255, 0, 0, 0.116), rgba(0, 0, 0, 0.192));
 }
 
+button.active {
+  background-color: #dc3545 !important;
+}
 
 
 .menuAdmin {

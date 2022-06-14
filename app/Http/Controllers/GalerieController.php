@@ -36,21 +36,21 @@ class GalerieController extends Controller
                     array_push($galeriePic, $tab[$x][$z]);
                 }
             }
-            // $galeriePic = $this->paginate($galeriePic);
+            $galeriePic = $this->paginate($galeriePic);
         } else $galeriePic = array();
         return view('admin.galerieAddAlter', ['galeries' => $galeriePic]);
     }
 
-    // public function paginate($items, $perPage = 2, $page = null, $options = [])
+    public function paginate($items, $perPage = 9, $page = null, $options = [])
 
-    // {
+    {
 
-    //     $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
 
-    //     $items = $items instanceof Collection ? $items : Collection::make($items);
+        $items = $items instanceof Collection ? $items : Collection::make($items);
 
-    //     return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
-    // }
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+    }
     /**
      * Show the form for creating a new resource.
      *
