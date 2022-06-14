@@ -20,8 +20,10 @@ class LoginController extends Controller
 
         if (Auth::attempt(['email' => Auth::User()->email, 'password' => $request->psswd])) {
             return view('admin.parametre');
-        } else
+        } else {
+            session()->flash('error', 'one_thing_not_running');
             return redirect()->back();
+        }
     }
     public function confirmPass()
     {
@@ -119,6 +121,7 @@ class LoginController extends Controller
         if (auth()->check()) {
             return redirect('admin');
         }
+        session()->flash('error', 'no_autorization');
         return view('admin.login', compact(['apropos', 'missions', 'email', 'adresse', 'phones']));
     }
     public function connect(Request $request)

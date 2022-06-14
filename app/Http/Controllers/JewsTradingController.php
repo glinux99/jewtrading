@@ -74,7 +74,7 @@ class JewsTradingController extends Controller
         session()->flash('error', 'no_error');
         return view('admin');
     }
-    private function countPhoto()
+    public function countPhoto()
     {
         $tab = array();
         $galeries = Galerie::all();

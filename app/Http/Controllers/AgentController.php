@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Agent;
+use App\Models\Email;
+use App\Models\Galerie;
+use App\Models\Produit;
+use App\Models\Service;
+use App\Models\Commande;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -119,7 +125,7 @@ class AgentController extends Controller
     {
         $agent = Agent::findOrfail($id);
         AgentController::saveAgent($agent, $request);
-        return view('admin');
+        return AgentController::admin();
     }
 
     /**
@@ -132,6 +138,28 @@ class AgentController extends Controller
     {
         Agent::findOrfail($id)->delete();
         session()->flash('error', 'no_error');
-        return view('admin');
+        return AgentController::admin();
+    }
+    public function admin()
+    {
+        $countServ = Service::all()->count();
+        $countAgent = Agent::all()->count();
+        $count = Galerie::all()->count();
+        $pic = new JewsTradingController;
+        $countPhoto = $pic->countPhoto();
+        $countProd = Produit::all()->count();
+        $countUser = User::all()->count();
+        $message_R = Email::all();
+        $count_V = (Commande::where('confirme', 1)->count());
+        $count_A = (Commande::where('confirme', 2)->count());
+        $count_T = Commande::orderBy('created_at', 'DESC')
+            ->select('id')->first();
+        session()->flash('error', 'no_error');
+        return view('admin', compact([
+            'countProd', 'countAgent', 'countServ',
+            'countPhoto', 'countUser', 'message_R', 'count_A',
+            'count_V', 'count_T'
+        ]));
+        // echo $countPhoto;
     }
 }

@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Agent;
+use App\Models\Email;
 use App\Models\Galerie;
+use App\Models\Produit;
+use App\Models\Service;
+use App\Models\Commande;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Pagination\Paginator;
-
 use Illuminate\Support\Collection;
-
+use App\Http\Controllers\Controller;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\JewsTradingController;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class GalerieController extends Controller
@@ -155,10 +160,31 @@ class GalerieController extends Controller
                 $gal->save();
                 if (strlen(implode(' ', $tab)) < 1) $gal->delete();
                 Storage::disk('public')->delete('images/galeries/' . $id);
-                session()->flash('error', 'no_error');
-                return view('/admin');
+                return GalerieController::admin();
             }
         }
-        return view('/admin');
+        return redirect('/admin');
+    }
+    public function admin()
+    {
+        $countServ = Service::all()->count();
+        $countAgent = Agent::all()->count();
+        $count = Galerie::all()->count();
+        $pic = new JewsTradingController;
+        $countPhoto = $pic->countPhoto();
+        $countProd = Produit::all()->count();
+        $countUser = User::all()->count();
+        $message_R = Email::all();
+        $count_V = (Commande::where('confirme', 1)->count());
+        $count_A = (Commande::where('confirme', 2)->count());
+        $count_T = Commande::orderBy('created_at', 'DESC')
+            ->select('id')->first();
+        session()->flash('error', 'no_error');
+        return view('admin', compact([
+            'countProd', 'countAgent', 'countServ',
+            'countPhoto', 'countUser', 'message_R', 'count_A',
+            'count_V', 'count_T'
+        ]));
+        // echo $countPhoto;
     }
 }
