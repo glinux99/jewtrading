@@ -51,7 +51,7 @@
         $x=0;
         @endphp
         <div class="row">
-            @while ($y<count($galeries)) <div class="p-0 m-0 col-md-4">
+            <!-- @while ($y<count($galeries)) <div class="p-0 m-0 col-md-4">
                 <a href="/delete/{{$galeries[$y]}}" title="{{ __("Doublez cliquer pour supprimer")}}" onclick="return false" ondblclick="location=this.href">
                     <div class="card p-0 m-1">
                         @php
@@ -59,16 +59,31 @@
                         @endphp
                         <img src="{{asset($img)}}" alt="image de la galerie" class="img-fluid">
                     </div>
+
                 </a>
         </div>
         @php
         $y++;
         @endphp
-        @endwhile
+        @endwhile -->
+            @foreach($galeries as $galerie)
+            <div class="p-0 m-0 col-md-4">
+                <a href="/delete/{{$galerie}}" title="{{ __('Doublez cliquer pour supprimer')}}" onclick="return false" ondblclick="location=this.href">
+                    <div class="card p-0 m-1">
+                        @php
+                        $img = '/storage/images/galeries/'.$galerie;
+                        @endphp
+                        <img src="{{asset($img)}}" alt="image de la galerie" class="img-fluid">
+                    </div>
+                </a>
+            </div>
+            @endforeach
+        </div>
+        <div class="d-flex justify-contend-center">
+            @if ($galeries)
+            {{ $galeries->links()}}
+            @endif
+        </div>
     </div>
-    @if ($galeries)
-    {{ $galeries->links()}}
-    @endif
-</div>
 </div>
 @endsection

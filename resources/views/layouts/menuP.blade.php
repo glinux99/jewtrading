@@ -1,7 +1,7 @@
  <nav class="navbar navbar-expand-lg bg-danger navbar-dark" id="nav">
      <div class="container-fluid">
          <div class="navbar-brand ">
-             <img src="{{ asset('assets/imgs/logojw.png')}}" alt="notre logo" width="60" class="d-inline-block align-text-top">
+             <img src="{{ asset('assets/imgs/logojw.png')}}" alt="notre logo" width="40" height="40" class="d-inline-block align-text-top rounded-circle">
          </div>
          <!-- <div class="d-inline-block bg-white  d-md-none d-lg-none rounded-circle d-flex align-items-center" style="height: 50px; width: 50px">
              <span class="bi-search mx-auto text-dark"></span>

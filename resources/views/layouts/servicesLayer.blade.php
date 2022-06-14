@@ -17,11 +17,11 @@
             <div class="card-header h5 text-center fw-bold bg-white">
                 {{ $service->$titre}}
             </div>
-            <div class="card-body ">
+            <div class="card-body">
                 <p class=" mb-5">
                     {{ $service->$desc}}
                 </p>
-                <button class="btn btn-danger d-block position-absolute bottom-0 mb-3 buttonIndex">Lire plus</button>
+                <a href="/service" class="btn btn-danger d-block position-absolute bottom-0 mb-3 buttonIndex">Lire plus</a>
             </div>
         </div>
         @endforeach
