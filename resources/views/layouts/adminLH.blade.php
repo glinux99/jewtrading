@@ -143,6 +143,9 @@
                         </div>
                     </nav>
                 </div>
+                <div class="position-absolute col-md-10 classError z-index-2">
+                    @include('layouts.error')
+                </div>
                 <div class="position-relative">
                     <div class="container-fluid">
                         @yield('body' ?? 'NOT FOUND')
@@ -156,6 +159,16 @@
     <script src="{{asset('/assets/vendor/dist/DataTables/datatables.min.js')}}"></script>
     <script src="{{asset('assets/vendor/dist/DataTables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css')}}"></script>
     <script src="{{asset('assets/vendor/dist/js/bootstrap.bundle.min.js')}}">
+    </script>
+    <script>
+        $(document).ready(function() {
+            window.setTimeout(function() {
+                $('.alert').fadeTo(10000, 0).slideUp(7000, function() {
+                    $(this).remove();
+                }, 5000);
+                ('classError').remove();
+            });
+        })
     </script>
     <script>
         let numFile = 2;

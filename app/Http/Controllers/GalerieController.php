@@ -38,6 +38,7 @@ class GalerieController extends Controller
             }
             $galeriePic = $this->paginate($galeriePic);
         } else $galeriePic = array();
+        session()->flash('error', 'no_error');
         return view('admin.galerieAddAlter', ['galeries' => $galeriePic]);
     }
 
@@ -59,11 +60,12 @@ class GalerieController extends Controller
     public function create(Request $request)
     {
         $validate = Validator($request->all(), [
-            'categories' => 'required'
+            'categories' => 'required',
         ]);
         //'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         if ($validate->fails()) {
-            return redirect()->back();
+            session()->flash('error', 'one_thing_not_running');
+            return view('admin');
         }
         $galerie = new Galerie;
         $galerie->categories = request('categories');
@@ -84,7 +86,8 @@ class GalerieController extends Controller
         $files = implode(' ', $tab);
         $galerie->image = $files;
         $galerie->save();
-        return redirect('admin');
+        session()->flash('error', 'no_error');
+        return view('admin');
     }
 
     /**
@@ -153,6 +156,7 @@ class GalerieController extends Controller
                 $gal->save();
                 if (strlen(implode(' ', $tab)) < 1) $gal->delete();
                 Storage::disk('public')->delete('images/galeries/' . $id);
+                session()->flash('error', 'no_error');
                 return GalerieController::index();
             }
         }

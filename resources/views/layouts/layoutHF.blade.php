@@ -16,6 +16,15 @@
     @include('layouts.footer')
     @if ($parentIndex ?? '')
     <script>
+        $(document).ready(function() {
+            window.setTimeout(function() {
+                $('.alert').fadeTo(10000, 0).slideUp(7000, function() {
+                    $(this).remove();
+                }, 5000);
+            });
+        })
+    </script>
+    <script>
         var nav = document.getElementById('nav');
         if (window.scrollY == 0) {
             nav.classList.remove('bg-danger');
