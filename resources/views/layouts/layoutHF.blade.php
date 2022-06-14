@@ -12,7 +12,14 @@
 </head>
 
 <body>
-    @yield('body' ?? 'NOT FOUND')
+    <div class="position-absolute col-md-10 classError" style="z-index: 1000">
+        @include('layouts.error')
+    </div>
+    <div class="position-relative">
+        <div class="container-fluid">
+            @yield('body' ?? 'NOT FOUND')
+        </div>
+    </div>
     @include('layouts.footer')
     @if ($parentIndex ?? '')
     <script>

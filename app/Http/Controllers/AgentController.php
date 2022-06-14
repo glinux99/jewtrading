@@ -43,11 +43,12 @@ class AgentController extends Controller
             // => 'required|string'
         ]);
         if ($validate->fails()) {
+            session()->flash('one_thing_not_running');
             return redirect()->back();
         }
         $agent = new Agent;
         AgentController::saveAgent($agent, $request);
-        return redirect('admin');
+        return view('admin');
     }
     // Fonction pour enregistrer les agents, un code fluid
     private function saveAgent($agent, $request)
@@ -118,7 +119,7 @@ class AgentController extends Controller
     {
         $agent = Agent::findOrfail($id);
         AgentController::saveAgent($agent, $request);
-        return redirect('admin');
+        return view('admin');
     }
 
     /**
@@ -131,6 +132,6 @@ class AgentController extends Controller
     {
         Agent::findOrfail($id)->delete();
         session()->flash('error', 'no_error');
-        return redirect('admin');
+        return view('admin');
     }
 }

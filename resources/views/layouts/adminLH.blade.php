@@ -143,7 +143,7 @@
                         </div>
                     </nav>
                 </div>
-                <div class="position-absolute col-md-10 classError z-index-2">
+                <div class="position-absolute col-md-10 classError" style="z-index: 1000">
                     @include('layouts.error')
                 </div>
                 <div class="position-relative">

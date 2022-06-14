@@ -39,6 +39,7 @@ class ServiceController extends Controller
         $service->admin_id =
             Auth::user()->id;
         $service->save();
+        session()->flash('error', 'no_error');
         return ServiceController::index();
     }
 
