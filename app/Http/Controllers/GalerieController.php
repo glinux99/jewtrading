@@ -38,7 +38,6 @@ class GalerieController extends Controller
             }
             $galeriePic = $this->paginate($galeriePic);
         } else $galeriePic = array();
-        session()->flash('error', 'no_error');
         return view('admin.galerieAddAlter', ['galeries' => $galeriePic]);
     }
 
@@ -157,9 +156,9 @@ class GalerieController extends Controller
                 if (strlen(implode(' ', $tab)) < 1) $gal->delete();
                 Storage::disk('public')->delete('images/galeries/' . $id);
                 session()->flash('error', 'no_error');
-                return GalerieController::index();
+                return view('/admin');
             }
         }
-        return redirect('/admin');
+        return view('/admin');
     }
 }
