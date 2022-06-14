@@ -33,6 +33,7 @@ class ClientController extends Controller
             $newslatter->adresse_cli = "-";
             $newslatter->newslatter = "1";
             $newslatter->save();
+            session()->flash('error', 'no_error');
             return redirect('/admin');
         }
     }
@@ -96,11 +97,13 @@ class ClientController extends Controller
         $desabonne = Client::findOrfail($id);
         $desabonne->newslatter = 0;
         $desabonne->save();
+        session()->flash('error', 'no_error');
         return ClientController::index();
     }
     public function destroy($id)
     {
         Client::findOrfail($id)->delete();
+        session()->flash('error', 'no_error');
         return ClientController::index();
     }
 }

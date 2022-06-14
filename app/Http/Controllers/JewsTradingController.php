@@ -46,6 +46,7 @@ class JewsTradingController extends Controller
             // 'file1' => 'required'
         ]);
         if ($validate->fails()) {
+            session()->flash('error', 'one_thing_not_running');
             return redirect()->back();
         }
         $produit = new Produit;
@@ -70,6 +71,7 @@ class JewsTradingController extends Controller
         }
         $produit->admin_id = Auth::user()->id;
         $produit->save();
+        session()->flash('error', 'no_error');
         return redirect('admin');
     }
     private function countPhoto()
@@ -179,6 +181,7 @@ class JewsTradingController extends Controller
             // 'file1' => 'required'
         ]);
         if ($validate->fails()) {
+            session()->flash('error', 'one_thing_not_running');
             return redirect()->back();
         }
         $inputs = ['marque', 'kilometrage', 'annee_fab', 'moteur', 'transmission', 'carburateur', 'emplacement', 'model', 'prix', 'couleur', 'declaration'];
@@ -199,6 +202,7 @@ class JewsTradingController extends Controller
     public function destroy($id)
     {
         Produit::findOrfail($id)->delete();
+        session()->flash('error', 'no_error');
         return redirect('/admin');
     }
 }

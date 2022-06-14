@@ -21,11 +21,13 @@ class MessageController extends Controller
             $message->$in = request($in);
         }
         $message->save();
+        session()->flash('error', 'no_error');
         return \redirect('/');
     }
     public function destroy($id)
     {
         Email::findOrfail($id)->delete();
+        session()->flash('error', 'no_error');
         return redirect('/admin');
     }
 }

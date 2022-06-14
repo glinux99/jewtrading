@@ -93,6 +93,7 @@ class ServiceController extends Controller
             'descriptionService' => 'required|string'
         ]);
         if ($validate->fails()) {
+            session()->flash('error', 'one_thing_not_running');
             return redirect()->back();
         }
         $service = Service::find(request('id'));
@@ -101,6 +102,7 @@ class ServiceController extends Controller
         $service->titreServiceUS = request('titreServiceUS');
         $service->descriptionServiceUS = request('descriptionServiceUS');
         $service->save();
+        session()->flash('error', 'no_error');
         return ServiceController::index();
     }
 
@@ -113,6 +115,7 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         Service::find($id)->delete();
+        session()->flash('error', 'no_error');
         return ServiceController::index();
     }
 }

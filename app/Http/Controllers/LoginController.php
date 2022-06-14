@@ -102,6 +102,7 @@ class LoginController extends Controller
         $user->apropos = request('apropos');
         $user->password = $psswd;
         $user->save();
+        session()->flash('error', 'no_error');
         return redirect('admin');
     }
     public function login()
@@ -124,8 +125,10 @@ class LoginController extends Controller
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->psswd]) || Auth::attempt(['name' => $request->email, 'password' => $request->psswd])) {
             return redirect('admin');
-        } else
+        } else {
+            session()->flash('error', 'no_autorization');
             return redirect()->back();
+        }
     }
     /**
      * Remove the specified resource from storage.

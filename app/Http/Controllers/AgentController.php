@@ -69,6 +69,7 @@ class AgentController extends Controller
             $agent->image = $fileName;
         }
         $agent->save();
+        session()->flash('error', 'no_error');
     }
     /**
      * Store a newly created resource in storage.
@@ -129,6 +130,7 @@ class AgentController extends Controller
     public function destroy($id)
     {
         Agent::findOrfail($id)->delete();
+        session()->flash('error', 'no_error');
         return redirect('admin');
     }
 }

@@ -70,6 +70,7 @@ class CommandeController extends Controller
         $commande = Commande::findOrfail($id);
         $commande->confirme = "1";
         $commande->save();
+        session()->flash('error', 'no_error');
         return CommandeController::commandeview();
     }
     /**
@@ -92,6 +93,7 @@ class CommandeController extends Controller
         $commande->code_prod = $id;
         $commande->confirme = "0";
         $commande->save();
+        session()->flash('error', 'no_error');
         $home = new HomeController;
         return $home->produit();
     }
@@ -112,6 +114,7 @@ class CommandeController extends Controller
         $commande = Commande::findOrfail($id);
         $commande->confirme = "2";
         $commande->save();
+        session()->flash('error', 'no_error');
         return CommandeController::commandeview();
     }
     /**
@@ -123,6 +126,7 @@ class CommandeController extends Controller
     public function destroy($id)
     {
         Commande::findOrfail($id)->delete();
+        session()->flash('error', 'no_error');
         return CommandeController::commandeview();
     }
 }
