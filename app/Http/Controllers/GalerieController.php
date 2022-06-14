@@ -41,19 +41,14 @@ class GalerieController extends Controller
         return view('admin.galerieAddAlter', ['galeries' => $galeriePic]);
     }
 
-    public function paginate($items, $perPage = 9, $page = null, $options = [])
+    public function paginate($items, $perPage = 2, $page = null, $options = [])
 
     {
-
 
         $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
 
         $items = $items instanceof Collection ? $items : Collection::make($items);
-        // dd($items->forPage($page, $perPage));
-        // cette fonction  a ete modifier pour permettre a ce que les liens
-        // Puissent etre accepte! En cas d'utilisation de ce code, je vous recommande de modifier ce code par:
-        //  $this->path = $this->path !== '/$' ? rtrim($this->path, '/$') : $this->path;
-        // Par  $this->path = $this->path !== '/' ? rtrim($this->path, '/') : $this->path;
+
         return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
     /**
@@ -75,11 +70,11 @@ class GalerieController extends Controller
         if (!request('count')) $count = 1;
         else $count = request('count');
         $tab = array();
-        for ($i = 0; $i < $count; $i++) {
+        for ($i = 1; $i <= $count; $i++) {
             $file = Str::random(5);
             $ext = $request->file1->getClientOriginalExtension();
             $fileName = $file . '.' . $ext;
-            $path = $request->file('file1')->storeAs(
+            $path = $request->file('file' . $i)->storeAs(
                 'images/galeries',
                 $fileName,
                 'public'
@@ -148,30 +143,19 @@ class GalerieController extends Controller
     public function destroy($id)
     {
         $tab = array();
-        // $galeries = Galerie::all();
-        // foreach ($galeries as $galerie) {
-        //     // Suppressions une a une d'une photo selectionner par l'admin
-        //     $gal = Galerie::find($galerie->id);
-        //     $tab = explode(' ', $galerie->image);
-        //     array_splice($tab, array_search($id, $tab), 1);
-        //     $gal->image = implode(' ', $tab);
-        //     $gal->save();
-        //     $gal = Galerie::find($galerie->id);
-        //     Storage::disk('public')->delete('images/galeries' . $id);
-        //     if (strlen($gal->image) < 4) $gal->delete();
-        //     return redirect('/admin');
-        // }
         $galeries = Galerie::all();
         foreach ($galeries as $galerie) {
-            $gal = Galerie::findOrfail($galerie->id);
-            $galerie = explode(' ', $galerie->image);
-            // array_slice($galerie, array_search($id, $galerie), 1);
-            array_splice($galerie, array_search($id, $galerie), 1);
-            $gal->image = implode(' ', $galerie);
+            // Suppressions une a une d'une photo selectionner par l'admin
+
+            $gal = Galerie::find($galerie->id);
+            $tab = explode(' ', $galerie->image);
+            array_splice($tab, array_search($id, $tab), 1);
+            $gal->image = implode(' ', $tab);
             $gal->save();
-            if (strlen($gal->image < 4)) $gal->delete();
-            Storage::disk('public')->delete('images/galeries' . $id);
-            return redirect('/admin');
+            if (strlen(implode(' ', $tab)) < 1) $gal->delete();
+            Storage::disk('public')->delete('images/galeries/' . $id);
+            return GalerieController::index();
         }
+        return redirect('/admin');
     }
 }
