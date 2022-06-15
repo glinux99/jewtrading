@@ -31,4 +31,16 @@ class SelectController extends Controller
         }
         return response()->json($data);
     }
+    public function carburateur(Request $request)
+    {
+        $data = [];
+
+        if ($request->has('q')) {
+            $search = $request->q;
+            $data = Select::select("id", "carburateur")
+                ->where('carburateur', 'LIKE', "%$search%")
+                ->get();
+        }
+        return response()->json($data);
+    }
 }

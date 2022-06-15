@@ -71,7 +71,7 @@
                     results: $.map(data, function(item) {
                         return {
                             text: item.marque,
-                            id: item.id
+                            id: item.marque
                         }
                     })
                 };
@@ -91,7 +91,27 @@
                     results: $.map(data, function(item) {
                         return {
                             text: item.model,
-                            id: item.id,
+                            id: item.model,
+                        }
+                    }),
+                };
+            },
+            cache: true
+        }
+    });
+    $('.SelectCarburateur').select2({
+        placeholder: 'type de carburateur',
+        tags: true,
+        ajax: {
+            url: '/selectCarburateur',
+            dataType: 'json',
+            delay: 100,
+            processResults: function(data) {
+                return {
+                    results: $.map(data, function(item) {
+                        return {
+                            text: item.carburateur,
+                            id: item.carburateur,
                         }
                     }),
                 };

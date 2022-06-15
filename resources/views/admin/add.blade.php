@@ -65,19 +65,7 @@
                 <div class="col-md-4">
                     <div class="mb-3 ">
                         <label for="carburateur" class="form-label">{{__("Carburateur")}}</label>
-                        <select class="form-control " name="carburateur" id="" required>
-                            <option value="OTHER">{{__("Autres")}}</option>
-                            <option value="DIES">{{__("Diesel")}}</option>
-                            <option value="ELEC">{{__("Électrique")}}</option>
-                            <option value="GASO">{{__("Essence")}}</option>
-                            <option value="NGAS">{{__("Gaz naturel")}}</option>
-                            <option value="LPG">{{__("GPL")}}</option>
-                            <option value="HYBD">{{__("Hybride Diesel")}}</option>
-                            <option value="HYBDP">{{__("Hybride Diesel Plug-in")}}</option>
-                            <option value="HYBG">{{__("Hybride essence")}}</option>
-                            <option value="HYBGP">{{__("Hybride essence Plug-in")}}</option>
-                            <option value="HYDR">{{__("Hydrogène")}}</option>
-                        </select>
+                        <select class="form-select SelectCarburateur" name="carburateur" id="" required></select>
                     </div>
                 </div>
                 <div class="col-md-4">

@@ -206,3 +206,9 @@ a:hover {
   background: red !important;
   color: white !important;
 }
+
+.select2-selection,
+.colorSelec {
+  height: 34px !important;
+  border-color: #ced4da !important;
+}

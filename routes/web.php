@@ -38,6 +38,7 @@ Route::get('/test', function () {
 // Liens.
 Route::get('/selectMarque', [SelectController::class, 'marque']);
 Route::get('/selectModel', [SelectController::class, 'model']);
+Route::get('/selectCarburateur', [SelectController::class, 'carburateur']);
 Route::get('/change-language/{id}', [LocalizController::class, 'changeLang']);
 Route::get('/apropos', [HomeController::class, 'apropos']);
 Route::get('/contact', [HomeController::class, 'contact']);
