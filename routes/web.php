@@ -5,15 +5,17 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\GalerieController;
+use App\Http\Controllers\LocalizController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\JewsTradingController;
-use App\Http\Controllers\LocalizController;
+use App\Http\Controllers\SelectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,11 +32,12 @@ Route::get('/addProduit', function () {
     return view('admin.add', ['#addProduit']);
 });
 Route::get('/test', function () {
-    echo session()->get("lang_code");
+    return view('test');
 });
 
 // Liens.
-
+Route::get('/selectMarque', [SelectController::class, 'marque']);
+Route::get('/selectModel', [SelectController::class, 'model']);
 Route::get('/change-language/{id}', [LocalizController::class, 'changeLang']);
 Route::get('/apropos', [HomeController::class, 'apropos']);
 Route::get('/contact', [HomeController::class, 'contact']);

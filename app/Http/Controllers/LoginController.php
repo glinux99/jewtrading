@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use Illuminate\Auth\Events\Validated;
+use App\Models\Agent;
+use App\Models\Email;
+use App\Models\Galerie;
+use App\Models\Produit;
+use App\Models\Service;
+use App\Models\Commande;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\JewsTradingController;
 
 class LoginController extends Controller
 {
@@ -22,7 +29,7 @@ class LoginController extends Controller
             return view('admin.parametre');
         } else {
             session()->flash('error', 'one_thing_not_running');
-            return redirect()->back();
+            return view('admin.confirme');
         }
     }
     public function confirmPass()
@@ -38,28 +45,6 @@ class LoginController extends Controller
     public function create()
     {
         return view('admin.parametre');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -87,7 +72,7 @@ class LoginController extends Controller
             'email' => 'required'
         ]);
         if ($request->psswd != '') {
-            $validate = Validator($request->all(), [
+            Validator($request->all(), [
                 'psswd' => 'required|min:6|max:255',
             ]);
             $psswd = bcrypt(request('psswd'));
@@ -105,7 +90,7 @@ class LoginController extends Controller
         $user->password = $psswd;
         $user->save();
         session()->flash('error', 'no_error');
-        return redirect('admin');
+        return LoginController::admin();
     }
     public function login()
     {
@@ -119,7 +104,7 @@ class LoginController extends Controller
         $adresse = User::find(1)->adresse;
         $phones = explode('/', User::find(1)->contact);
         if (auth()->check()) {
-            return redirect('admin');
+            return redirect('/admin');
         }
         session()->flash('error', 'no_autorization');
         return view('admin.login', compact(['apropos', 'missions', 'email', 'adresse', 'phones']));
@@ -127,7 +112,7 @@ class LoginController extends Controller
     public function connect(Request $request)
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->psswd]) || Auth::attempt(['name' => $request->email, 'password' => $request->psswd])) {
-            return redirect('admin');
+            return LoginController::admin();
         } else {
             session()->flash('error', 'no_autorization');
             return redirect()->back();
@@ -143,5 +128,25 @@ class LoginController extends Controller
     {
         Auth::logout();
         return redirect('/');
+    }
+    public function admin()
+    {
+        $countServ = Service::all()->count();
+        $countAgent = Agent::all()->count();
+        $count = Galerie::all()->count();
+        $pic = new JewsTradingController;
+        $countPhoto = $pic->countPhoto();
+        $countProd = Produit::all()->count();
+        $countUser = User::all()->count();
+        $message_R = Email::all();
+        $count_V = (Commande::where('confirme', 1)->count());
+        $count_A = (Commande::where('confirme', 2)->count());
+        $count_T = Commande::orderBy('created_at', 'DESC')
+            ->select('id')->first();
+        return view('admin', compact([
+            'countProd', 'countAgent', 'countServ',
+            'countPhoto', 'countUser', 'message_R', 'count_A',
+            'count_V', 'count_T'
+        ]));
     }
 }

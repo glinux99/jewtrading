@@ -22,7 +22,7 @@
     'assets/imgs/gal20.jpg','assets/imgs/gal21.jpg','assets/imgs/gal22.jpg'];
     @endphp
     <div class="row w-100">
-        <!-- <div class="col-md-2">
+        <div class="col-md-2">
             <div class="card mx-1 text-dark px-1 my-1">
                 <div>
                     <h5>{{__("Choix par Model")}}</h5>
@@ -38,7 +38,7 @@
                     <h5>{{__("Choix par prix")}}</h5>
                 </div>
             </div>
-        </div> -->
+        </div>
         <div class="col-md-10 mx-auto">
             <div class="row">
                 @foreach ($produits as $produit )

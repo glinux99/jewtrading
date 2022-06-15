@@ -70,7 +70,7 @@
                     </div>
                     <p>
                         <small>{{__("Pour plus d'informations sur le produit, veuillez nous contacter
-                            ou abonnez-vous a notre newslatter pour recevoir les notifications sur les nouvelles voitures")}}</small>
+                            ou abonnez-vous à notre newslatter pour recevoir les notifications sur les nouvelles voitures")}}</small>
                     </p>
                 </div>
                 <div class="col-md-5 card shadow ">
@@ -128,27 +128,27 @@
                         <table class="table table-bordered table-reflow">
                             <tr>
                                 <th>{{__("Marque")}}</th>
-                                <td>{{$produit->kilometrage}}</td>
+                                <td>{{$produit->marque}}</td>
                             </tr>
                             <tr>
                                 <th>{{__("Model")}}</th>
-                                <td>{{$produit->kilometrage}}</td>
+                                <td>{{$produit->model}}</td>
                             </tr>
                             <tr>
                                 <th>{{__("Carburant")}}</th>
-                                <td>{{$produit->kilometrage}}</td>
+                                <td>{{$produit->carburateur}}</td>
                             </tr>
                             <tr>
                                 <th>{{__("Couleur")}}</th>
-                                <td>{{$produit->kilometrage}}</td>
+                                <td><input type="color" name="" id="" value="{{$produit->couleur}}" disabled></td>
                             </tr>
                             <tr>
-                                <th>{{__("Num Chassi")}}</th>
-                                <td>{{$produit->kilometrage}}</td>
+                                <th>{{__("Num. Chassis")}}</th>
+                                <td>{{$produit->numchassis}}</td>
                             </tr>
                             <tr>
                                 <th>{{__("Declaration")}}</th>
-                                <td>{{$produit->kilometrage}}</td>
+                                <td>{{$produit->declaration}}</td>
                             </tr>
                         </table>
                     </div>

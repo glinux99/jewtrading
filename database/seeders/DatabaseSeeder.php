@@ -15,8 +15,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             LoginSeeder::class,
-            MarqueModel::class,
+            SelectTableSeeder::class,
         ]);
         // \App\Models\User::factory(10)->create();
+
     }
 }

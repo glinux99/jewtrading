@@ -102,7 +102,6 @@ class JewsTradingController extends Controller
             'countPhoto', 'countUser', 'message_R', 'count_A',
             'count_V', 'count_T'
         ]));
-        // echo $countPhoto;
     }
     /**
      * Store a newly created resource in storage.
@@ -173,17 +172,17 @@ class JewsTradingController extends Controller
         $validate = Validator($request->all(), [
 
             'marque' => 'required|string',
-            // 'model' => 'required',
-            // 'moteur' => 'required',
-            // 'transmission' => 'required',
-            // 'carburant' => 'required',
-            // 'prix' => 'required',
-            // 'file1' => 'required'
+            'model' => 'required',
+            'moteur' => 'required',
+            'transmission' => 'required',
+            'carburant' => 'required',
+            'prix' => 'required',
+            'file1' => 'required'
         ]);
         if ($validate->fails()) {
             return redirect()->back()->with('error', 'one_thing_not_running');
         }
-        $inputs = ['marque', 'kilometrage', 'annee_fab', 'moteur', 'transmission', 'carburateur', 'emplacement', 'model', 'prix', 'couleur', 'declaration'];
+        $inputs = ['marque', 'kilometrage', 'annee_fab', 'moteur', 'transmission', 'carburateur', 'emplacement', 'model', 'prix', 'couleur', 'declaration', 'numchassis'];
         foreach ($inputs as $input) {
             $produit->$input = request($input);
         }

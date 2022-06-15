@@ -37,16 +37,11 @@ class AgentController extends Controller
         $validate = Validator($request->all(), [
 
             'nom_agent' => 'required|string',
-            // 'prenom_agent'
-            // => 'required|string',
-            // 'num_agent'
-            // => 'required|string',
-            // 'email_agent'
-            // => 'required|string',
-            // 'adresse_agent'
-            // => 'required|string',
-            // 'fonction'
-            // => 'required|string'
+            'prenom_agent' => 'required|string',
+            'num_agent' => 'required|string',
+            'email_agent' => 'required|string',
+            'adresse_agent' => 'required|string',
+            'fonction' => 'required|string'
         ]);
         if ($validate->fails()) {
             session()->flash('one_thing_not_running');
@@ -54,7 +49,7 @@ class AgentController extends Controller
         }
         $agent = new Agent;
         AgentController::saveAgent($agent, $request);
-        return view('admin');
+        return redirect('/admin');
     }
     // Fonction pour enregistrer les agents, un code fluid
     private function saveAgent($agent, $request)
@@ -160,6 +155,5 @@ class AgentController extends Controller
             'countPhoto', 'countUser', 'message_R', 'count_A',
             'count_V', 'count_T'
         ]));
-        // echo $countPhoto;
     }
 }

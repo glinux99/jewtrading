@@ -65,11 +65,11 @@ class GalerieController extends Controller
     {
         $validate = Validator($request->all(), [
             'categories' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
-        //'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         if ($validate->fails()) {
             session()->flash('error', 'one_thing_not_running');
-            return view('admin');
+            return redirect()->back();
         }
         $galerie = new Galerie;
         $galerie->categories = request('categories');
@@ -91,7 +91,7 @@ class GalerieController extends Controller
         $galerie->image = $files;
         $galerie->save();
         session()->flash('error', 'no_error');
-        return view('admin');
+        return GalerieController::admin();
     }
 
     /**
@@ -163,7 +163,7 @@ class GalerieController extends Controller
                 return GalerieController::admin();
             }
         }
-        return redirect('/admin');
+        return GalerieController::admin();
     }
     public function admin()
     {
@@ -185,6 +185,5 @@ class GalerieController extends Controller
             'countPhoto', 'countUser', 'message_R', 'count_A',
             'count_V', 'count_T'
         ]));
-        // echo $countPhoto;
     }
 }
