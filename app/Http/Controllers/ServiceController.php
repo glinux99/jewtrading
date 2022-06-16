@@ -30,11 +30,20 @@ class ServiceController extends Controller
             'titreService' => 'required',
             'descriptionService' => 'required'
         ]);
+        $itreUS = '';
+        $descUS = '';
+        if (request('titreService') == '') {
+            $itreUS = request('titreService');
+            $descUS = request('descriptionService');
+        } else {
+            $itreUS = request('titreServiceUS');
+            $descUS = request('descriptionServiceUS');
+        }
         $service = new Service;
         $service->titreService = request('titreService');
         $service->descriptionService = request('descriptionService');
-        $service->titreServiceUS = request('titreServiceUS');
-        $service->descriptionServiceUS = request('descriptionServiceUS');
+        $service->titreServiceUS = $itreUS;
+        $service->descriptionServiceUS = $descUS;
         $service->admin_id =
             Auth::user()->id;
         $service->save();
@@ -96,11 +105,20 @@ class ServiceController extends Controller
             session()->flash('error', 'one_thing_not_running');
             return redirect()->back();
         }
+        $itreUS = '';
+        $descUS = '';
+        if (request('titreService') == '') {
+            $itreUS = request('titreService');
+            $descUS = request('descriptionService');
+        } else {
+            $itreUS = request('titreServiceUS');
+            $descUS = request('descriptionServiceUS');
+        }
         $service = Service::find(request('id'));
         $service->titreService = request('titreService');
         $service->descriptionService = request('descriptionService');
-        $service->titreServiceUS = request('titreServiceUS');
-        $service->descriptionServiceUS = request('descriptionServiceUS');
+        $service->titreServiceUS = $itreUS;
+        $service->descriptionServiceUS = $descUS;
         $service->save();
         session()->flash('error', 'no_error');
         return ServiceController::index();

@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Agent;
+use App\Models\Email;
 use App\Models\Galerie;
 use App\Models\Produit;
 use App\Models\Service;
 use App\Models\Commande;
-use App\Models\Email;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class JewsTradingController extends Controller
@@ -72,7 +73,7 @@ class JewsTradingController extends Controller
         $produit->admin_id = Auth::user()->id;
         $produit->save();
         session()->flash('error', 'no_error');
-        return view('admin');
+        return JewsTradingController::admin();
     }
     public function countPhoto()
     {
@@ -199,8 +200,14 @@ class JewsTradingController extends Controller
      */
     public function destroy($id)
     {
+        $pic = Produit::findOrfail($id);
         Produit::findOrfail($id)->delete();
+
+        Storage::disk('public')->delete('images/produits/' . $pic->file1);
+        Storage::disk('public')->delete('images/produits/' . $pic->file2);
+        Storage::disk('public')->delete('images/produits/' . $pic->file3);
+        Storage::disk('public')->delete('images/produits/' . $pic->file4);
         session()->flash('error', 'no_error');
-        return view('/admin');
+        return JewsTradingController::admin();
     }
 }

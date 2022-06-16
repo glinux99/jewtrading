@@ -215,5 +215,10 @@ a:hover {
 
 .choice,
 .choice:hover {
-  color: black !important;
+  color: white !important;
+  background-color: transparent !important;
+}
+
+.produitStock {
+  clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
 }

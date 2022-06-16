@@ -149,7 +149,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function produit()
+    public function produit($search = null)
     {
         $apropos = User::find(1)->apropos;
         $missions = User::find(1)->description;
@@ -169,6 +169,18 @@ class HomeController extends Controller
             else if ($prod->file4 != '') $file = $path . $prod->file4;
             array_push($produits, [$prod->marque, $prod->prix, $prod->id, $file]);
         }
+        $produitSearch = null;
+        if ($search != null) {
+            $produitSearch = array();
+            foreach ($search as $prod) {
+                $path = '/storage/images/produits/';
+                if ($prod->file1 != '') $file = $path . $prod->file1;
+                else if ($prod->file2 != '') $file = $path . $prod->file2;
+                else if ($prod->file3 != '') $file = $path . $prod->file3;
+                else if ($prod->file4 != '') $file = $path . $prod->file4;
+                array_push($produitSearch, [$prod->marque, $prod->prix, $prod->id, $file]);
+            }
+        }
         $choice =
             Produit::select('marque', 'model')
             ->distinct()
@@ -182,6 +194,7 @@ class HomeController extends Controller
             'phones' => $phone,
             'produits' => $produits,
             'choice' => $choice,
+            'search' => $produitSearch,
         ]);
     }
     public function apropos()

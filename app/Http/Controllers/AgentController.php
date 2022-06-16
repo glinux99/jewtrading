@@ -59,7 +59,7 @@ class AgentController extends Controller
             $agent->$input = $request->$input;
         }
         if ($request->file1) {
-            Storage::disk('public')->delete('images/agents' . $agent->image);
+            Storage::disk('public')->delete('images/agents/' . $agent->image);
             $file = Str::random(5);
             $ext = $request->file1->getClientOriginalExtension();
             $fileName = $file . '.' . $ext;
@@ -131,7 +131,9 @@ class AgentController extends Controller
      */
     public function destroy($id)
     {
+        $agent = Agent::findOrfail($id);
         Agent::findOrfail($id)->delete();
+        Storage::disk('public')->delete('images/agents/' . $agent->image);
         session()->flash('error', 'no_error');
         return AgentController::admin();
     }

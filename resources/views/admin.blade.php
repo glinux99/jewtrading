@@ -6,7 +6,7 @@
 @if ($read ?? '')
 {{'dsfdfgds'}}
 @endif
-<div class="row my-md-5">
+<div class="row my-md-5 w-100">
     <div class="col-md-11 mx-auto row d-flex justify-content-center dashbord">
         <div class="border-start border-5 border-danger col-md-3 shadow m-3 py-md-3 rounded">
             <h4 class="d-inline  fw-bold text-center">{{__("Service")}} @if ($countServ?? 0){{"s"}}

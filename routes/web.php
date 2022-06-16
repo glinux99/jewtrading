@@ -36,6 +36,7 @@ Route::get('/test', function () {
 });
 
 // Liens.
+Route::get('/search/{search}/{id}', [SelectController::class, 'search'])->name('search');
 Route::get('/selectMarque', [SelectController::class, 'marque']);
 Route::get('/selectModel', [SelectController::class, 'model']);
 Route::get('/selectCarburateur', [SelectController::class, 'carburateur']);

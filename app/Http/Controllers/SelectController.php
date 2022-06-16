@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Select;
+use App\Models\Produit;
 use Illuminate\Http\Request;
 
 class SelectController extends Controller
@@ -42,5 +43,11 @@ class SelectController extends Controller
                 ->get();
         }
         return response()->json($data);
+    }
+    public function search($choice, $id)
+    {
+        $prod = Produit::where($choice, $id)->get();
+        $home = new HomeController;
+        return $home->produit($prod);
     }
 }
