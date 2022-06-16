@@ -23,14 +23,18 @@
     @endphp
     <div class="row w-100">
         <div class="col-md-2 text-white">
-            <div class="card mx-1 px-1 my-1">
+            <div class="card mx-1 px-1 my-1 ">
                 <div class="bg-danger">
                     <h5>{{__("Choix par Model")}}</h5>
                 </div>
                 <div class="text-dark">
                     <ul class="list-unstyled">
                         @foreach ($choice as $model)
-                        <li>{{$model->model}}</li>
+                        <li class="ms-3">
+                            <a href="search/{{$model->model}}" class="nav-link choice m-0 p-0">
+                                {{$model->model}}
+                            </a>
+                        </li>
                         @endforeach
                     </ul>
                 </div>
@@ -42,7 +46,11 @@
                 <div class="text-dark">
                     <ul class="list-unstyled">
                         @foreach ($choice as $marque)
-                        <li>{{$marque->marque}}</li>
+                        <li class="ms-3">
+                            <a href="search/{{$marque->marque}}" class="nav-link choice m-0 p-0">
+                                {{$marque->marque}}
+                            </a>
+                        </li>
                         @endforeach
                     </ul>
                 </div>
