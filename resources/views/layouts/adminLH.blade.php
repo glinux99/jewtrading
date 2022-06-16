@@ -145,7 +145,7 @@
                     @include('layouts.error')
                 </div>
                 <div class="position-relative">
-                    <div class="container-fluid">
+                    <div class="">
                         @yield('body' ?? 'NOT FOUND')
                     </div>
                 </div>

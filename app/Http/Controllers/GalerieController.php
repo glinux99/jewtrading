@@ -65,7 +65,7 @@ class GalerieController extends Controller
     {
         $validate = Validator($request->all(), [
             'categories' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'file1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
         if ($validate->fails()) {
             session()->flash('error', 'one_thing_not_running');

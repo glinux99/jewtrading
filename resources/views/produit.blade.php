@@ -22,20 +22,29 @@
     'assets/imgs/gal20.jpg','assets/imgs/gal21.jpg','assets/imgs/gal22.jpg'];
     @endphp
     <div class="row w-100">
-        <div class="col-md-2">
-            <div class="card mx-1 text-dark px-1 my-1">
-                <div>
+        <div class="col-md-2 text-white">
+            <div class="card mx-1 px-1 my-1">
+                <div class="bg-danger">
                     <h5>{{__("Choix par Model")}}</h5>
                 </div>
-            </div>
-            <div class="card mx-1 text-dark px-1 my-1">
-                <div>
-                    <h5>{{__("Choix par Marque")}}</h5>
+                <div class="text-dark">
+                    <ul class="list-unstyled">
+                        @foreach ($choice as $model)
+                        <li>{{$model->model}}</li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
-            <div class="card mx-1 text-dark px-1 my-1">
-                <div>
-                    <h5>{{__("Choix par prix")}}</h5>
+            <div class="card mx-1 px-1 my-1">
+                <div class="bg-danger">
+                    <h5>{{__("Choix par Marque")}}</h5>
+                </div>
+                <div class="text-dark">
+                    <ul class="list-unstyled">
+                        @foreach ($choice as $marque)
+                        <li>{{$marque->marque}}</li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>

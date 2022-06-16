@@ -169,13 +169,19 @@ class HomeController extends Controller
             else if ($prod->file4 != '') $file = $path . $prod->file4;
             array_push($produits, [$prod->marque, $prod->prix, $prod->id, $file]);
         }
+        $choice =
+            Produit::select('marque', 'model')
+            ->distinct()
+            ->get();
+        //dd($choiceMarque);
         return view('produit', [
             'apropos' => $apropos,
             'missions' => $missions,
             'email' => $email,
             'adresse' => $adresse,
             'phones' => $phone,
-            'produits' => $produits
+            'produits' => $produits,
+            'choice' => $choice,
         ]);
     }
     public function apropos()
