@@ -155,5 +155,7 @@
     @include('layouts.modals')
     @include('layouts.importScript')
 </body>
+<script src="{{asset('assets/vendor/dist/js/bootstrap.bundle.min.js')}}">
+</script>
 
 </html>
