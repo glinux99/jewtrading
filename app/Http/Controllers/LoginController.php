@@ -85,8 +85,22 @@ class LoginController extends Controller
         $user->contact = request('contact');
         $user->adresse = request('adresse');
         $user->emailEntreprise = request('emailEntreprise');
+        $descUS = '';
+        $aproposUS = '';
+        if (strlen(request('missionUS')) < 2) {
+            $descUS = request('missionUS');
+        } else {
+            $descUS = request('mission');
+        }
+        if (strlen(request('aproposUS')) < 2) {
+            $aproposUS = request('missionUS');
+        } else {
+            $aproposUS = request('mission');
+        }
         $user->description = request('mission');
         $user->apropos = request('apropos');
+        $user->aproposUS = $aproposUS;
+        $user->descriptionUS = $descUS;
         $user->password = $psswd;
         $user->save();
         session()->flash('error', 'no_error');

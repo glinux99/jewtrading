@@ -108,7 +108,7 @@
                                 </li>
                             </ul>
                             <div class="d-flex justify-content-end">
-                                <div class="btn-group dropstart">
+                                <div class="btn-group dropstart" style="z-index: 11">
                                     <img src="{{asset('assets/imgs/logojw.png')}}" data-bs-toggle="dropdown" aria-expanded="false" alt="image profile" class="rounded-circle" style="width: 35px; height: 35px">
                                     <ul class="dropdown-menu shadow-lg">
                                         <li>
@@ -141,7 +141,7 @@
                         </div>
                     </nav>
                 </div>
-                <div class="position-absolute col-md-10 classError" style="z-index: 1000">
+                <div class="position-absolute col-md-10 classError" style="z-index: 10">
                     @include('layouts.error')
                 </div>
                 <div class="position-relative">

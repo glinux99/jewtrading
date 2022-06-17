@@ -13,7 +13,7 @@
     <div class="col-md-11 mx-auto my-md-5">
         <div class="w-100 row">
             <div class="col-md-6">
-                <h3 class="text-uppercase fw-bolder">Bienvenu chez <span class="text-danger">Jews Trading</span></h3>
+                <h3 class="text-uppercase fw-bolder">{{ __("Bienvenu chez")}} <span class="text-danger">Jews Trading</span></h3>
                 <h6 class="mb-3">{{__("A propos")}}</h6>
                 <p class="text-muted text-justify">
                     {{ $apropos}}
@@ -30,17 +30,17 @@
                 <img src="{{asset('assets/imgs/aproposcard2.png')}}" alt="" class="card-img-top">
             </div>
             <div class="col-md-6">
-                <h3 class="fw-bolder">Pourquoi choisir jews traiding?</h3>
+                <h3 class="fw-bolder">{{__("Pourquoi choisir ")}}jews traiding?</h3>
                 <p class="text-muted text-justify">
                     {{$missions}}
                 </p>
                 <p>
                 <ul class="list-unstyled">
-                    <li><span class="bi-check-circle-fill mx-1"></span> Rapide et facile</li>
-                    <li><span class="bi-check-circle-fill mx-1"></span>Une inspection Transparente</li>
-                    <li><span class="bi-check-circle-fill mx-1"></span>Offert immédiatement</li>
-                    <li><span class="bi-check-circle-fill mx-1"></span>Formalités administratives sans tracas</li>
-                    <li><span class="bi-check-circle-fill mx-1"></span>Transactions de paiement sécurisées</li>
+                    <li><span class="bi-check-circle-fill mx-1"></span> {{__("Rapide et facile")}}</li>
+                    <li><span class="bi-check-circle-fill mx-1"></span>{{__("Une inspection Transparente")}}</li>
+                    <li><span class="bi-check-circle-fill mx-1"></span>{{__("Offert immédiatement")}}</li>
+                    <li><span class="bi-check-circle-fill mx-1"></span>{{__("Formalités administratives sans tracas")}}</li>
+                    <li><span class="bi-check-circle-fill mx-1"></span>{{__("Transactions de paiement sécurisées")}}</li>
                 </ul>
                 </p>
             </div>
