@@ -61,6 +61,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/desactivate/newslatter/{id}', [ClientController::class, 'desactivate']);
     Route::get('/delete/newslatter/{id}', [ClientController::class, 'destroy']);
     Route::post('/commandeCli/{id}', [CommandeController::class, 'edit']);
+    Route::get('/commande/view/{id}', [CommandeController::class, 'commandUnique']);
     Route::get('/commandes/all', [CommandeController::class, 'commandeview']);
     Route::get('/accepte/commande/{id}', [CommandeController::class, 'show']);
     Route::get('/annule/commande/{id}', [CommandeController::class, 'annuler']);

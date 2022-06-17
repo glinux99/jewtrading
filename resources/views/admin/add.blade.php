@@ -14,13 +14,13 @@
                 <div class="col-md-4">
                     <div class="mb-3 ">
                         <label for="marque " class="form-label">Marque</label>
-                        <select name="marque" id="" class="form-control selectMarque"></select>
+                        <select name="marque" id="" class="form-control selectMarque" required></select>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class=" mb-3">
                         <label for="model" class="form-label">Model</label>
-                        <select class="form-control SelectModel" name="model" id="">
+                        <select class="form-control SelectModel" name="model" id="" required>
                             <option value="">creer un element</option>
                         </select>
                     </div>
@@ -56,7 +56,7 @@
                 <div class="col-md-4">
                     <div class="mb-3 ">
                         <label for="transmission" class="form-label">Transmission</label>
-                        <select class="form-control " name="transmission" id="">
+                        <select class="form-control " name="transmission" id="" required>
                             <option value="Manuelle">Manuelle</option>
                             <option value="Automatique">Automatique</option>
                         </select>
@@ -79,7 +79,7 @@
                 <div class="col-md-4">
                     <div class=" mb-3">
                         <label for="couleur" class="form-label">{{__("Prix")}}</label>
-                        <input type="number" name="prix" id="" class="form-control ">
+                        <input type="number" name="prix" id="" class="form-control " required>
                     </div>
                 </div>
                 <div class="col-md-4">

@@ -8,9 +8,6 @@
         <div class="col-md-6">
             <h5 class="text-dark fw-bolder  py-2">{{__("Nos commandes")}} @if (!count($commandes) ?? 0) <smalll class="text-muted h6">({{__("Pas de commande")}})</smalll>@endif</h5>
         </div>
-        <div class="col-md-6 d-flex justify-content-end align-items-center">
-            <button class="btn btn-danger" role="button" data-bs-toggle="modal" data-bs-target="#newslatter">Envoyer un message</button>
-        </div>
     </div>
     <div class=" mx-1">
         @if (count($commandes) ?? 0)
@@ -35,23 +32,33 @@
                     @foreach ($commandes as $index=> $commande)
                     <tr>
                         <td>{{$index+1}}</td>
-                        <td>{{$commande->nom_cli}}</td>
+                        <td>
+                            <a href="/commande/view/{{$commande->code_prod}}" class="com">
+                                {{$commande->nom_cli}}
+                            </a>
+                        </td>
                         <td class="text-center">
-                            <span class="d-block">
-                                {{ $commande->email_Cli}}
-                            </span>
-                            <sapan class="d-block small">{{$commande->num_cli}}</sapan>
+                            <a href="/commande/view/{{$commande->code_prod}}" class="com">
+                                <span class="d-block">
+                                    {{ $commande->email_Cli}}
+                                </span>
+                                <sapan class="d-block small">{{$commande->num_cli}}</sapan>
+                            </a>
                         </td>
                         <td>
-                            <span class="d-block">
-                                {{$commande->marque}}
-                            </span>
-                            <span class="d-block">
-                                {{$commande->model}}
-                            </span>
+                            <a href="/commande/view/{{$commande->code_prod}}" class="com">
+                                <span class="d-block">
+                                    {{$commande->marque}}
+                                </span>
+                                <span class="d-block">
+                                    {{$commande->model}}
+                                </span>
+                            </a>
                         </td>
                         <td>
-                            {{$commande->prix}} USD
+                            <a href="/commande/view/{{$commande->code_prod}}" class="com">
+                                {{$commande->prix}} USD
+                            </a>
                         </td>
                         <td>
                             @if ($commande->confirme == "0")

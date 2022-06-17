@@ -4,6 +4,7 @@
 <button type="button" id="agentAffModal" role="button" data-bs-toggle="modal" data-bs-target="#employeAlterModal" hidden></button>
 <button type="button" id="modalAff" role="button" data-bs-toggle="modal" data-bs-target="#serviceAlterModal" hidden></button>
 <button type="button" id="agentAffModal" role="button" data-bs-toggle="modal" data-bs-target="#employeAlterModal" hidden></button>
+<button id="produitCom" role="button" data-bs-toggle="modal" data-bs-target="#produitComModal" hidden></button>
 @if ($prod ?? 0)
 <div class="modal fade" id="produitAlterModal" tabindex="-1" aria-labelledby="produitAlterModal" aria-hidden="true">
     <div class="modal-dialog modal-lg  ">
@@ -12,7 +13,7 @@
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modifModzalLabel">Modifier <span class="text-uppercase">{{$produitCurrent->marque}}/{{$produitCurrent->model}}</span></h5>
+                    <h5 class="modal-title" id="modifModzalLabel">{{__("Modifier")}} <span class="text-uppercase">{{$produitCurrent->marque}}/{{$produitCurrent->model}}</span></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -229,165 +230,214 @@
     </div>
 </div>
 @endif
-<!-- Modal pour la suppression -->
-<!-- <div class="modal fade" id="suppModal" tabindex="-1" aria-labelledby="suppModalLabel" aria-hidden="true">
+@if ($prodcommnde ?? 0)
+<div class="modal fade" id="produitComModal" tabindex="-1" aria-labelledby="produitComModal" aria-hidden="true">
     <div class="modal-dialog modal-lg  ">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="suppModalLabel">Modifier un vehicule</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="card ">
-                    <div class="row">
-                        <div class="col-6">
-                            <img src="{{asset('assets/imgs/carIndex.png')}}" alt="" class="img-fluid">
+        <form action="#" method="post">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="AffComlLabel">{{__("Commande du client")}}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card shadow px-3">
+                        <div class="row">
+                            <div class="col-6">
+                                <div id="vehiculeCarousel" class="carousel slide" data-bs-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li data-bs-target="#vehiculeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
+                                        @for ($x=1; $x<4; $x++) @if($produitCurrent->file.$x)
+                                            <li data-bs-target="#vehiculeCarousel" data-bs-slide-to="{{$x}}" aria-label="Second slide"></li>
+                                            @endif
+                                            @endfor
+                                    </ol>
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="carousel-item active">
+                                            @php
+                                            $img1 = '/storage/images/produits/'.$produitCurrent->file1;
+                                            $img2 = '/storage/images/produits/'.$produitCurrent->file2;
+                                            $img3 = '/storage/images/produits/'.$produitCurrent->file3;
+                                            $img4 = '/storage/images/produits/'.$produitCurrent->file4;
+                                            @endphp
+                                            <img src="{{asset($img1)}}" class="w-100 d-block" alt="First slide">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        @if ($produitCurrent->file2)
+                                        <div class="carousel-item">
+                                            <img src="{{asset($img2)}}" class="w-100 d-block" alt="Second slide">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        @endif
+                                        @if ($produitCurrent->file3)
+                                        <div class="carousel-item">
+                                            <img src="{{asset($img3)}}" class="w-100 d-block" alt="Second slide">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        @endif
+                                        @if ($produitCurrent->file4)
+                                        <div class="carousel-item">
+                                            <img src="{{asset($img4)}}" class="w-100 d-block" alt="Second slide">
+                                            <div class="carousel-caption d-none d-md-block">
+                                            </div>
+                                        </div>
+                                        @endif
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#vehiculeCarousel" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#vehiculeCarousel" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-6 my-2">
+                                <div class="row m-2">
+                                    <div class="col-4">
+                                        <label for="" class="form-label">
+                                            {{__("Prix")}}
+                                        </label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="number" name="prix" class="form-control " value="{{$produitCurrent->prix}}" disabled>
+                                    </div>
+                                </div>
+                                <div class="row mx-2">
+                                    <div class="col-4">
+                                        <label for="" class="form-label">
+                                            {{__("Marque")}}
+                                        </label>
+                                    </div>
+                                    <div class=" col-8">
+                                        <input type="text" name="marque" class="form-control " value="{{$produitCurrent->marque}}" disabled>
+                                    </div>
+                                </div>
+                                <div class="row m-2">
+                                    <div class="col-4">
+                                        <label for="" class="form-label">
+                                            {{__("Modele")}}
+                                        </label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="text" name="model" class="form-control " value="{{$produitCurrent->model}}" disabled>
+                                    </div>
+                                </div>
+                                <div class="row m-2">
+                                    <div class="col-4">
+                                        <label for="" class="form-label">
+                                            {{__("Couleur")}}
+                                        </label>
+                                    </div>
+                                    <div class="col-8">
+                                        <input type="color" name="couleur" class="form-control " value="{{$produitCurrent->couleur}}" disabled>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-6 my-2">
-                            <div class="row m-2">
-                                <div class="col-4">
-                                    <label for="" class="form-label">
-                                        {{__("Prix")}}
-                                    </label>
-                                </div>
-                                <div class="col-8">
-                                    5.000usd
-                                </div>
-                            </div>
-                            <div class="row mx-2">
-                                <div class="col-4">
-                                    <label for="" class="form-label">
-                                        {{__("Marque")}}
-                                    </label>
-                                </div>
-                                <div class="col-8">
-                                    Mercedes
-                                </div>
-                            </div>
-                            <div class="row m-2">
-                                <div class="col-4">
-                                    <label for="" class="form-label">
-                                        {{__("Modele")}}
-                                    </label>
-                                </div>
-                                <div class="col-8">
-                                    Coupe
-                                </div>
-                            </div>
-                            <div class="row m-2">
-                                <div class="col-4">
-                                    <label for="" class="form-label">
-                                        {{__("Couleur")}}
-                                    </label>
-                                </div>
-                                <div class="col-8">
-                                    RED
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mx-md-5">
                         <div class="row my-1">
-                            <div class="col-7 row">
+                            <div class="col-6 row">
                                 <div class="col-4">
                                     <label for="" class="form-label">
                                         {{__("Emplacement")}}
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    KOREA
+                                    <input type="text" name="emplencement" class="form-control " value="{{$produitCurrent->emplacement}}" disabled>
                                 </div>
                             </div>
-                            <div class="col-5 row">
+                            <div class="col-6 row">
                                 <div class="col-4">
                                     <label for="" class="form-label">
                                         {{__("Kilometrage")}}
                                     </label>
                                 </div>
-                                <div class="col-8 pe-auto">
-                                    1200
+                                <div class="col-8">
+                                    <input type="number" name="kilometrage" class="form-control " value="{{$produitCurrent->kilometrage}}" disabled>
                                 </div>
                             </div>
                         </div>
                         <div class="row my-1">
-                            <div class="col-7 row">
+                            <div class="col-6 row">
                                 <div class="col-4">
                                     <label for="" class="form-label">
-                                        {{__("Annee Fab")}}
+                                        {{__("Année Fab")}}
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    10992
+                                    <input type="date" name="annee_fab" class="form-control " value="{{$produitCurrent->annee_fab}}" disabled>
                                 </div>
                             </div>
-                            <div class="row col-5">
+                            <div class="row col-6">
                                 <div class="col-4">
                                     <label for="" class="form-label">
                                         {{__("Moteur")}}
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    12cc
+                                    <input type="text" name="moteur" class="form-control " value="{{$produitCurrent->moteur}}">
                                 </div>
                             </div>
                         </div>
                         <div class="row my-1">
-                            <div class="row col-7">
+                            <div class="row col-6">
                                 <div class="col-4">
                                     <label for="" class="form-label">
                                         {{__("Transmission")}}
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    Manuelle
+                                    <select class="form-control " name="transmission" id="" value="{{$produitCurrent->transmission}}">
+                                        <option value="Manuelle">Manuelle</option>
+                                        <option value="Automatique">Automatique</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="row col-5">
+                            <div class="row col-6">
                                 <div class="col-4">
                                     <label for="" class="form-label">
                                         {{__("Carburateur")}}
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    Diesel
+                                    <select class="form-control " name="carburateur" id="" value="{{$produitCurrent->carburateur}}" disabled>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                         <div class="row my-1">
-                            <div class="row col-7">
+                            <div class="row col-6">
                                 <div class="col-4">
                                     <label for="" class="form-label">
                                         {{__("Num Chassis")}}
                                     </label>
                                 </div>
-                                <div class="col-8 d-flex">
-                                    <spna class="me-auto">
-                                        1223434531
-                                    </spna>
+                                <div class="col-8">
+                                    <input type="number" name="numChassis" class="form-control " disabled>
                                 </div>
                             </div>
-                            <div class="row col-5">
+                            <div class="row col-6">
                                 <div class="col-4">
                                     <label for="" class="form-label">
-                                        {{__("Declaration")}}
+                                        {{__("Déclaration")}}
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    N/N
+                                    <input type="text" name="declaration" class="form-control " value="{{$produitCurrent->declaration}}" disabled>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-dark" data-bs-dismiss="modal">{{__("Fermer")}}</button>
-                <button type="button" class="btn btn-danger">{{__("Supprimer")}}</button>
-            </div>
-        </div>
+        </form>
     </div>
-</div> -->
-<!-- Ajouter un service -->
+</div>
+@endif
 <div class="modal fade" id="serviceAddModal" tabindex="-1" aria-labelledby="serviceAddModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg  ">
         <form action="/ajouter/service" method="post">

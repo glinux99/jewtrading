@@ -222,3 +222,11 @@ a:hover {
 .produitStock {
   clip-path: polygon(0 0, 90% 0%, 100% 100%, 0% 100%);
 }
+
+td>a.com,
+td>a.com:hover,
+td>a.com:active,
+td>a.com:focus {
+  color: black !important;
+  background-color: none !important;
+}

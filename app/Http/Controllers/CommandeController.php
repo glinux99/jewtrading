@@ -54,6 +54,16 @@ class CommandeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function commandUnique($id)
+    {
+        $produits = Produit::all();
+        $produitCurrent = Produit::findOrfail($id);
+        session()->flash('produitCom', true);
+        $commande = Commande::join('clients', 'clients.id', 'client_id')
+            ->join('produits', 'code_prod', 'produits.id')
+            ->select('commandes.*', 'commandes.id as cmd_id', 'clients.*', 'produits.*')->get();
+        return view('admin.commande', ['commandes' => $commande, 'prodcommnde' => true, 'produits' => $produits, 'produitCurrent' => $produitCurrent]);
+    }
     public function store(Request $request)
     {
         //

@@ -45,6 +45,7 @@
                 </p>
             </div>
         </div>
+        @if($agents ?? 0)
         <div class="equipe my-5">
             <h2 class="fw-bolder text-uppercase">{{__("Notre équipe")}}</h2>
             <div class="row">
@@ -59,6 +60,7 @@
                 @endforeach
             </div>
         </div>
+        @endif
     </div>
 </div>
 @include('layouts.beforword')

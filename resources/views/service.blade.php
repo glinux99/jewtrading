@@ -17,43 +17,6 @@ $gal=0;
 </div>
 <div class="corp mt-md-5 pt-md-5" style="background: rgb(245, 246, 246);">
     @include('layouts.servicesLayer')
-    <div class="produit bg-white mt-md-5 pt-md-5">
-        <h2 class="text-center fw-bolder py-md-3 display-6">
-            {{__("Nos produits")}}
-        </h2>
-        <div id="galerieProduits" class="carousel slide mb-4" data-bs-ride="carousel">
-            <div class="carousel-inner" role="listbox">
-                @while ($gal<count($galeries)) @php $active='' ; if($gal==0){ $active='active' ; } @endphp <div class="carousel-item {{$active}}">
-                    <div class="row">
-                        @for ($x=0; $x<$z-1;$x++) @php if($gal>count($galeries)-4){
-                            $z= 1+count($galeries)%4;
-                            $gal = count($galeries);
-                            }
-                            $img ='/storage/images/produits/'.$galeries[$i];
-                            @endphp
-                            <div class="col-md-3">
-                                <img src="{{asset($galeries[$i])}}" alt="{{$galeries[$i]}}" class="d-block w-100">
-                            </div>
-                            @php
-                            $i++;
-                            @endphp
-                            @endfor
-                    </div>
-            </div>
-            @php
-            $gal = $gal+4;
-            @endphp
-            @endwhile
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#galerieProduits" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#galerieProduits" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
 </div>
 </div>
 @endsection

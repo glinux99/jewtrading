@@ -58,6 +58,13 @@
     });
 </script>
 @endif
+@if(session('produitCom') ?? 0)
+<script>
+    $(window).ready(function() {
+        $('#produitCom').click();
+    });
+</script>
+@endif
 <script type="text/javascript">
     $('.selectMarque').select2({
         placeholder: 'Seclectionner une marque',

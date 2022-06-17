@@ -9,6 +9,7 @@ use App\Models\Galerie;
 use App\Models\Produit;
 use App\Models\Service;
 use App\Models\Commande;
+use App\Models\Select;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -38,20 +39,20 @@ class JewsTradingController extends Controller
     {
         $validate = Validator($request->all(), [
 
-            'marque' => 'required|string',
-            // 'model' => 'required',
-            // 'moteur' => 'required',
-            // 'transmission' => 'required',
-            // 'carburant' => 'required',
-            // 'prix' => 'required',
-            // 'file1' => 'required'
+            'marque' => 'required',
+            'model' => 'required',
+            'moteur' => 'required',
+            'transmission' => 'required',
+            'carburant' => 'required',
+            'prix' => 'required',
+            'file1' => 'required'
         ]);
         if ($validate->fails()) {
             session()->flash('error', 'one_thing_not_running');
             return redirect()->back();
         }
         $produit = new Produit;
-        $inputs = ['marque', 'kilometrage', 'annee_fab', 'moteur', 'transmission', 'carburateur', 'emplacement', 'model', 'prix', 'couleur', 'declaration'];
+        $inputs = ['marque', 'kilometrage', 'annee_fab', 'moteur', 'transmission', 'carburateur', 'emplacement', 'model', 'prix', 'couleur', 'declaration', 'numchassis'];
         foreach ($inputs as $input) {
             $produit->$input = request($input);
         }
@@ -72,8 +73,16 @@ class JewsTradingController extends Controller
         }
         $produit->admin_id = Auth::user()->id;
         $produit->save();
+        if ((!Select::where('model', request('model'))->first()) || (!Select::where('marque', request('marque'))->first()) || (!Select::where('carburateur', request('carburateur'))->first())) {
+            $model = new Select;
+            $model->model = request('model');
+            $model->marque = request('marque');
+            $model->type = '';
+            $model->carburateur = request('carburateur');
+            $model->save();
+        }
         session()->flash('error', 'no_error');
-        return JewsTradingController::admin();
+        //return JewsTradingController::admin();
     }
     public function countPhoto()
     {
@@ -156,7 +165,7 @@ class JewsTradingController extends Controller
     {
         $produits = Produit::all();
         $produitCurrent = Produit::findOrfail($id);
-        session()->flash('produitAff', true);
+        session()->flash('produitCom', true);
         return view('admin.alter', ['prod' => true, 'affprod' => true, 'produits' => $produits, 'produitCurrent' => $produitCurrent]);
     }
 
@@ -172,7 +181,7 @@ class JewsTradingController extends Controller
         $produit = Produit::findOrfail($id);
         $validate = Validator($request->all(), [
 
-            'marque' => 'required|string',
+            'marque' => 'required',
             'model' => 'required',
             'moteur' => 'required',
             'transmission' => 'required',
