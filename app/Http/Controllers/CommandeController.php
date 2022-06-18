@@ -6,7 +6,9 @@ use App\Models\User;
 use App\Models\Client;
 use App\Models\Produit;
 use App\Models\Commande;
+use App\Mail\CommandeMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CommandeController extends Controller
 {
@@ -80,6 +82,12 @@ class CommandeController extends Controller
         $commande = Commande::findOrfail($id);
         $commande->confirme = "1";
         $commande->save();
+        $client = Client::findOrfail($commande->client_id);
+        $data = [
+            'object' => 'ACCEPTATION DE VOTRE COMMANDE',
+            'motif' => 'accepter'
+        ];
+        Mail::to($client->email_Cli)->send(new CommandeMail($data));
         session()->flash('error', 'no_error');
         return CommandeController::commandeview();
     }
@@ -124,6 +132,12 @@ class CommandeController extends Controller
         $commande = Commande::findOrfail($id);
         $commande->confirme = "2";
         $commande->save();
+        $client = Client::findOrfail($commande->client_id);
+        $data = [
+            'object' => 'ANNULATION DE VOTRE COMMANDE',
+            'motif' => 'annuller'
+        ];
+        Mail::to($client->email_Cli)->send(new CommandeMail($data));
         session()->flash('error', 'no_error');
         return CommandeController::commandeview();
     }

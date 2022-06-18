@@ -20,7 +20,7 @@ class HomeController extends Controller
     {
         $apropos = User::find(1)->apropos;
         $missions = User::find(1)->description;
-        if ((session()->get('lang_code') == 'us')) {
+        if ((session()->get('lang_code') == 'en')) {
             $apropos = User::find(1)->aproposUS;
             $missions = User::find(1)->descriptionUS;
         }
@@ -63,7 +63,7 @@ class HomeController extends Controller
     {
         $apropos = User::find(1)->apropos;
         $missions = User::find(1)->description;
-        if ((session()->get('lang_code') == 'us')) {
+        if ((session()->get('lang_code') == 'en')) {
             $apropos = User::find(1)->aproposUS;
             $missions = User::find(1)->descriptionUS;
         }
@@ -76,7 +76,7 @@ class HomeController extends Controller
     {
         $apropos = User::find(1)->apropos;
         $missions = User::find(1)->description;
-        if ((session()->get('lang_code') == 'us')) {
+        if ((session()->get('lang_code') == 'en')) {
             $apropos = User::find(1)->aproposUS;
             $missions = User::find(1)->descriptionUS;
         }
@@ -122,7 +122,7 @@ class HomeController extends Controller
         }
         $apropos = User::find(1)->apropos;
         $missions = User::find(1)->description;
-        if ((session()->get('lang_code') == 'us')) {
+        if ((session()->get('lang_code') == 'en')) {
             $apropos = User::find(1)->aproposUS;
             $missions = User::find(1)->descriptionUS;
         }
@@ -153,7 +153,7 @@ class HomeController extends Controller
     {
         $apropos = User::find(1)->apropos;
         $missions = User::find(1)->description;
-        if ((session()->get('lang_code') == 'us')) {
+        if ((session()->get('lang_code') == 'en')) {
             $apropos = User::find(1)->aproposUS;
             $missions = User::find(1)->descriptionUS;
         }
@@ -201,7 +201,7 @@ class HomeController extends Controller
     {
         $apropos = User::find(1)->apropos;
         $missions = User::find(1)->description;
-        if ((session()->get('lang_code') == 'us')) {
+        if ((session()->get('lang_code') == 'en')) {
             $apropos = User::find(1)->aproposUS;
             $missions = User::find(1)->descriptionUS;
         }
@@ -220,7 +220,7 @@ class HomeController extends Controller
     {
         $apropos = User::find(1)->apropos;
         $missions = User::find(1)->description;
-        if ((session()->get('lang_code') == 'us')) {
+        if ((session()->get('lang_code') == 'en')) {
             $apropos = User::find(1)->aproposUS;
             $missions = User::find(1)->descriptionUS;
         }

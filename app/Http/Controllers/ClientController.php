@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Newsletter;
 use App\Models\User;
 use App\Models\Agent;
 use App\Models\Email;
@@ -9,13 +10,21 @@ use App\Models\Client;
 use App\Models\Galerie;
 use App\Models\Produit;
 use App\Models\Service;
+use App\Mail\ClientMail;
 use App\Models\Commande;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Mail\ClientMarkdownMail;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
+use \DrewM\MailChimp\MailChimp as MailChimp;
 use App\Http\Controllers\JewsTradingController;
+use Exception;
 
 class ClientController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +32,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $newslatterCli = Client::where('newslatter', '1')->get();
+        $newslatterCli = Client::where('newslatter', '1')
+            ->orWhere('newslatter', '0')->get();
         return view("admin.newslatter", ['newslatterCli' => $newslatterCli]);
     }
 
@@ -42,8 +52,11 @@ class ClientController extends Controller
             $newslatter->adresse_cli = "-";
             $newslatter->newslatter = "1";
             $newslatter->save();
-            session()->flash('error', 'no_error');
-            return ClientController::admin();
+            // if (!Newsletter::isSubscribed(request('newslatter'))) {
+            //     Newsletter::subscribePending(request('newslatter'));
+            // }
+
+            return back();
         }
     }
     public function admin()
@@ -68,9 +81,40 @@ class ClientController extends Controller
         ]));
         // echo $countPhoto;
     }
-    public function sendnewslatter()
+    public function sendnewslatter(Request $request)
     {
-        echo "NewsLatter";
+        $path = '';
+        if (strlen(\request('file')) != '') {
+            $file = Str::random(5);
+            $ext = $request->file->getClientOriginalExtension();
+            $fileName = $file . '.' . $ext;
+            $path = $request->file('file')->storeAs(
+                'images/emails',
+                $fileName,
+                'public'
+            );
+        }
+        $object = "JEW TRADING CARS";
+        if (request('object') != '') {
+            $object = request('object');
+        }
+        $data = [
+            'message' => request('message'),
+            'image' => $path,
+            'object' => $object
+        ];
+        $mail = Client::where('newslatter', 1)->select('email_Cli')->get();
+        $newslatter = array();
+        foreach ($mail as $email) {
+            array_push($newslatter, $email->email_Cli);
+        }
+        Mail::to($newslatter)->send(new ClientMail($data));
+        try {
+            Storage::disk('public')->delete('images/emails/' . $path);
+        } catch (Exception $ex) {
+            return ClientController::index();
+        }
+        return ClientController::index();
     }
     /**
      * Store a newly created resource in storage.
@@ -128,12 +172,39 @@ class ClientController extends Controller
         $desabonne = Client::findOrfail($id);
         $desabonne->newslatter = 0;
         $desabonne->save();
+        // Newsletter::unsubscribe($desabonne->email_Cli);
         session()->flash('error', 'no_error');
         return ClientController::index();
     }
+    public function activate($id)
+    {
+        $desabonne = Client::findOrfail($id);
+        $desabonne->newslatter = 1;
+        $desabonne->save();
+        // Newsletter::subscribeOrUpdate($desabonne->email_Cli);
+        session()->flash('error', 'no_error');
+        return ClientController::index();
+    }
+    public function createCampaign()
+    {
+        $data = [
+            'message' => "Bonjour a vous",
+            'image' => ''
+        ]; // Empty array
+        // Mail::send('welcome', $data, function ($message) {
+        //     $message->to('nurubanque@gmail.com', 'John Doe')->subject('BIENVENU!')
+        //         ->Body('cccooooo');
+        // });
+        // return 'ok';
+        Mail::to('nurubanque@gmail.com')->send(new ClientMail($data));
+        return ClientController::index();
+    }
+
     public function destroy($id)
     {
-        Client::findOrfail($id)->delete();
+        $delete = Client::findOrfail($id);
+        // Newsletter::delete($delete->email_Cli);
+        $delete->delete();
         session()->flash('error', 'no_error');
         return ClientController::index();
     }

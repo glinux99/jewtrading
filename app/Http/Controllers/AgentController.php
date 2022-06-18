@@ -37,11 +37,11 @@ class AgentController extends Controller
         $validate = Validator($request->all(), [
 
             'nom_agent' => 'required|string',
-            'num_agent' => 'required|string',
+            'num_agent' => 'required',
             'email_agent' => 'required|string',
             'adresse_agent' => 'required|string',
             'fonction' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'file1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
         if ($validate->fails()) {
             session()->flash('one_thing_not_running');

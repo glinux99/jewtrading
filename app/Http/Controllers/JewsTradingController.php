@@ -43,7 +43,7 @@ class JewsTradingController extends Controller
             'model' => 'required',
             'moteur' => 'required',
             'transmission' => 'required',
-            'carburant' => 'required',
+            'carburateur' => 'required',
             'prix' => 'required',
             'file1' => 'required'
         ]);
@@ -82,7 +82,7 @@ class JewsTradingController extends Controller
             $model->save();
         }
         session()->flash('error', 'no_error');
-        //return JewsTradingController::admin();
+        return JewsTradingController::admin();
     }
     public function countPhoto()
     {
@@ -165,7 +165,7 @@ class JewsTradingController extends Controller
     {
         $produits = Produit::all();
         $produitCurrent = Produit::findOrfail($id);
-        session()->flash('produitCom', true);
+        session()->flash('produitAff', true);
         return view('admin.alter', ['prod' => true, 'affprod' => true, 'produits' => $produits, 'produitCurrent' => $produitCurrent]);
     }
 
@@ -179,19 +179,6 @@ class JewsTradingController extends Controller
     public function update(Request $request, $id)
     {
         $produit = Produit::findOrfail($id);
-        $validate = Validator($request->all(), [
-
-            'marque' => 'required',
-            'model' => 'required',
-            'moteur' => 'required',
-            'transmission' => 'required',
-            'carburant' => 'required',
-            'prix' => 'required',
-            'file1' => 'required'
-        ]);
-        if ($validate->fails()) {
-            return redirect()->back()->with('error', 'one_thing_not_running');
-        }
         $inputs = ['marque', 'kilometrage', 'annee_fab', 'moteur', 'transmission', 'carburateur', 'emplacement', 'model', 'prix', 'couleur', 'declaration', 'numchassis'];
         foreach ($inputs as $input) {
             $produit->$input = request($input);

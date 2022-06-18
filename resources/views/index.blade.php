@@ -9,10 +9,10 @@ $z=5;
 $gal=0;
 @endphp
 @section('body')
-<div class="bg-danger ">
+<div class="bg-danger indexI ">
     <div class="cool" style="background-image: url('/assets/imgs/carIndex.png'),url('/assets/imgs/bgIndex.png'); background-repeat: no-repeat,no-repeat; background-position: center,center;
     background-size: 50% 70%, cover;
-        height: 100vh; ">
+        min-height: 100vh; ">
         @include('layouts.menuP')
         <div class="container row">
             <div class="col-md-6 ms-md-4">

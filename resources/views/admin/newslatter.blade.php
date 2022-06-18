@@ -33,6 +33,11 @@
                         <td></td>
                         <td>{{ $client->email_Cli}}</td>
                         <td>
+                            @if ($client->newslatter)
+                            <a href="/desactivate/newslatter/{{$client->id}}" class="btn btn-dark">{{__("Désabonné")}}</a>
+                            @else
+                            <a href="/activate/newslatter/{{$client->id}}" class="btn btn-dark">{{__("Abonné")}}</a>
+                            @endif
                             <a href="/delete/newslatter/{{$client->id}}" class="btn btn-danger">{{__("Supprimer")}}</a>
                         </td>
                     </tr>

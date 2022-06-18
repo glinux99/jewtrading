@@ -230,3 +230,7 @@ td>a.com:focus {
   color: black !important;
   background-color: none !important;
 }
+
+.indexI {
+  min-height: fit-content !important;
+}

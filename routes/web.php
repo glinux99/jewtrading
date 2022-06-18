@@ -53,12 +53,18 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/commande/{id}', [CommandeController::class, 'index']);
 Route::get('/detail/produit/{id}', [JewsTradingController::class, 'show']);
 Route::post('/send-message', [MessageController::class, 'contact']);
+Route::post('/newslatter', [ClientController::class, 'create']);
 
+
+//ESSAIE
+Route::get('/sendsend', [ClientController::class, 'createCampaign']);
+
+// ESSAIE
 Route::middleware(['auth'])->group(function () {
     Route::get('/newslatter/all', [ClientController::class, 'index']);
-    Route::post('/newslatter', [ClientController::class, 'create']);
     Route::post('/sendnewslatter', [ClientController::class, 'sendnewslatter']);
     Route::get('/desactivate/newslatter/{id}', [ClientController::class, 'desactivate']);
+    Route::get('/activate/newslatter/{id}', [ClientController::class, 'activate']);
     Route::get('/delete/newslatter/{id}', [ClientController::class, 'destroy']);
     Route::post('/commandeCli/{id}', [CommandeController::class, 'edit']);
     Route::get('/commande/view/{id}', [CommandeController::class, 'commandUnique']);
@@ -91,7 +97,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/ajouterProduit', [JewsTradingController::class, 'create']);
     Route::get('/modifier/produit/{id}', [JewsTradingController::class, 'edit']);
     Route::get('/ajouter/produit', [JewsTradingController::class, 'store']);
-    Route::post('/update/vehicule/{id}', [JewsTradingController::class, 'update']);
+    Route::post('/update/vehicule/{id}', [JewsTradingController::class, 'update'])->name('update.vehicule');
     Route::get('/supprimer-produit/{id}', [JewsTradingController::class, 'destroy']);
     Route::get('/admin', [JewsTradingController::class, 'admin'])->name('admin');
 });

@@ -7,10 +7,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ClientMail extends Mailable
+class CommandeMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $url = '/produits';
     public $data = [];
     /**
      * Create a new message instance.
@@ -29,15 +28,9 @@ class ClientMail extends Mailable
      */
     public function build()
     {
-        $data =  $this->data;
-        if ($data['image']) {
-            return $this->from('interlab21@yahoo.com')
-                ->subject($data['object'])
-                ->view('admin.mail.clientMail')
-                ->attachFromStorage('public/' . $data['image']);
-        }
+        $data = $this->data;
         return $this->from('interlab21@yahoo.com')
-            ->subject("JEW TRADING CARS")
-            ->view('admin.mail.clientMail');
+            ->subject($data['object'])
+            ->view('admin.mail.commande');
     }
 }

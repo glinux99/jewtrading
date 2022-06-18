@@ -84,18 +84,19 @@ class LoginController extends Controller
         $user->lang = request('lang');
         $user->contact = request('contact');
         $user->adresse = request('adresse');
+        $user->partenaires = request('partenaires');
         $user->emailEntreprise = request('emailEntreprise');
-        $descUS = '';
-        $aproposUS = '';
-        if (strlen(request('missionUS')) < 2) {
+        $descUS = request('mission');
+        $aproposUS = request('apropos');
+        if (strlen(request('missionUS')) > 2) {
             $descUS = request('missionUS');
         } else {
             $descUS = request('mission');
         }
-        if (strlen(request('aproposUS')) < 2) {
-            $aproposUS = request('missionUS');
+        if (strlen(request('aproposUS')) > 2) {
+            $aproposUS = request('aproposUS');
         } else {
-            $aproposUS = request('mission');
+            $aproposUS = request('apropos');
         }
         $user->description = request('mission');
         $user->apropos = request('apropos');

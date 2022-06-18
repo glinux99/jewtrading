@@ -8,8 +8,7 @@
 @if ($prod ?? 0)
 <div class="modal fade" id="produitAlterModal" tabindex="-1" aria-labelledby="produitAlterModal" aria-hidden="true">
     <div class="modal-dialog modal-lg  ">
-        <form action="/update/
-        vehicule/{{$produitCurrent->id}}" method="post">
+        <form action="{{route('update.vehicule', [$produitCurrent->id])}}" method="post">
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
@@ -123,7 +122,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" name="emplencement" class="form-control " value="{{$produitCurrent->emplacement}}">
+                                    <input type="text" name="emplacement" class="form-control " value="{{$produitCurrent->emplacement}}">
                                 </div>
                             </div>
                             <div class="col-6 row">
@@ -167,7 +166,8 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <select class="form-control " name="transmission" id="" value="{{$produitCurrent->transmission}}">
+                                    <select class="form-control " name="transmission" id="">
+                                        <option value="{{$produitCurrent->transmission}}">{{$produitCurrent->transmission}}</option>
                                         <option value="Manuelle">Manuelle</option>
                                         <option value="Automatique">Automatique</option>
                                     </select>
@@ -180,19 +180,8 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <select class="form-control " name="carburateur" id="" value="{{$produitCurrent->carburateur}}">
-                                        <option value="OTHER">{{__("Autres")}}</option>
-                                        <option value="DIES">{{__("Diesel")}}</option>
-                                        <option value="ELEC">{{__("Électrique")}}</option>
-                                        <option value="GASO">{{__("Essence")}}</option>
-                                        <option value="NGAS">{{__("Gaz naturel")}}</option>
-                                        <option value="LPG">{{__("GPL")}}</option>
-                                        <option value="HYBD">{{__("Hybride Diesel")}}</option>
-                                        <option value="HYBDP">{{__("Hybride Diesel Plug-in")}}</option>
-                                        <option value="HYBG">{{__("Hybride essence")}}</option>
-                                        <option value="HYBGP">{{__("Hybride essence Plug-in")}}</option>
-                                        <option value="HYDR">{{__("Hydrogène")}}</option>
-                                    </select>
+                                    <input type="text" name="carburateur" id="" class="form-control" value="{{$produitCurrent->carburateur}}">
+
                                 </div>
                             </div>
                         </div>
@@ -204,7 +193,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="number" name="numChassis" class="form-control ">
+                                    <input type="number" name="numchassis" class="form-control " value="{{$produitCurrent->numchassis}}">
                                 </div>
                             </div>
                             <div class="row col-6">
@@ -347,7 +336,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" name="emplencement" class="form-control " value="{{$produitCurrent->emplacement}}" disabled>
+                                    <input type="text" name="emplacement" class="form-control " value="{{$produitCurrent->emplacement}}" disabled>
                                 </div>
                             </div>
                             <div class="col-6 row">
@@ -391,7 +380,8 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <select class="form-control " name="transmission" id="" value="{{$produitCurrent->transmission}}">
+                                    <select class="form-control " name="transmission" id="">
+                                        <option value="{{$produitCurrent->transmission}}">{{$produitCurrent->transmission}}</option>
                                         <option value="Manuelle">Manuelle</option>
                                         <option value="Automatique">Automatique</option>
                                     </select>
@@ -417,7 +407,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="number" name="numChassis" class="form-control " disabled>
+                                    <input type="number" name="numchassis" class="form-control " value="{{$produitCurrent->numchassis}}" disabled>
                                 </div>
                             </div>
                             <div class="row col-6">
@@ -513,7 +503,7 @@
             @csrf
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="serviceAlterModalLabel">Modifier un service</h5>
+                    <h5 class="modal-title" id="serviceAlterModalLabel">{{__("Modifier un service")}}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

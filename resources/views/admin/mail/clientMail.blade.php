@@ -2,15 +2,12 @@
 <html>
 
 <head>
-    <title>Letecode.com </title>
+    <title>JEW TRADING</title>
 </head>
 
 <body>
-    <h1> {{ $contenu['titre'] }} </h1>
-    <p> {{ $contenu['body'] }} </p>
-
-    <p> Merci !</p>
-
+    <h1> {{ $data['object']}}</h1>
+    <p> {{$data['message']}}</p>
 </body>
 
 </html>
