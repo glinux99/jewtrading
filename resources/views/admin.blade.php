@@ -14,24 +14,24 @@
                 @endif</h4><span class="bi-globe me-2 float-end h4"></span>
             <h3 class="text-center mt-3">{{ $countServ ?? '0' }}</h3>
         </div>
-        <div class="border-start border-5 border-danger col-md-3 shadow m-3  py-md-3 rounded">
-            <h5 class="d-inline fw-bold text-center">{{__("Employé")}}@if ($countAgent?? 0)@if($countAgent>1){{"s"}}@endif
+        <div class="border-start border-5 border-danger col-md-3 shadow m-3 py-md-3 rounded">
+            <h4 class="d-inline fw-bold text-center">{{__("Employé")}}@if ($countAgent?? 0)@if($countAgent>1){{"s"}}@endif
 
-                @endif</h5><span class="bi-person-badge me-2 float-end h4">
-                <h3 class="text-center mt-3">{{ $countAgent ?? '0' }}</h3>
+                @endif</h4><span class="bi-person-badge me-2 float-end h4"></span>
+            <h3 class="text-center mt-3">{{ $countAgent ?? '0' }}</h3>
         </div>
-        <div class="border-start border-5 border-danger col-md-3 shadow m-3  py-md-3 rounded">
+        <div class="border-start border-5 border-danger col-md-3 shadow m-3 py-md-3 rounded">
             <h4 class="d-inline fw-bold text-center">{{__("Photo")}}@if ($countPhoto?? 0)@if($countPhoto>1){{"s"}}@endif
 
-                @endif</h4><span class="bi-border-start border-5 border-danger-image me-2">
-                <h3 class="text-center mt-3">{{ $countPhoto ?? '0' }}</h3>
+                @endif</h4><span class="bi-images me-2 float-end h4"></span>
+            <h3 class="text-center mt-3">{{ $countPhoto ?? '0' }}</h3>
         </div>
     </div>
     <div class="col-md-11 mx-auto row d-flex justify-content-center dashbord">
         <div class="border-start border-5 border-danger col-md-3 shadow m-3  py-md-3 rounded">
-            <h5 class="d-inline fw-bold text-center">{{__("Produit")}}@if ($countProd?? 0)@if($countProd>1){{"s"}}@endif
+            <h4 class="d-inline fw-bold text-center">{{__("Produit")}}@if ($countProd?? 0)@if($countProd>1){{"s"}}@endif
 
-                @endif</h5><span class="bi-cart4 me-2 float-end h4"></span>
+                @endif</h4><span class="bi-cart4 me-2 float-end h4"></span>
             <h3 class="text-center mt-3">{{ $countProd ?? '0' }}</h3>
         </div>
         <div class="border-start border-5 border-danger col-md-3 shadow m-3  py-md-3 rounded">
