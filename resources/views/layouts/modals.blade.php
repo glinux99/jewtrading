@@ -368,7 +368,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" name="moteur" class="form-control " value="{{$produitCurrent->moteur}}">
+                                    <input type="text" name="moteur" class="form-control " value="{{$produitCurrent->moteur}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -394,8 +394,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <select class="form-control " name="carburateur" id="" value="{{$produitCurrent->carburateur}}" disabled>
-                                    </select>
+                                    <input type="text" class="form-control " name="carburateur" id="" value="{{$produitCurrent->carburateur}}" disabled>
                                 </div>
                             </div>
                         </div>
