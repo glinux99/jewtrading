@@ -234,3 +234,7 @@ td>a.com:focus {
 .indexI {
   min-height: fit-content !important;
 }
+
+li>a:hover {
+  color: white;
+}

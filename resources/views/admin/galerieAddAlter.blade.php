@@ -73,7 +73,7 @@
                         @php
                         $img = '/storage/images/galeries/'.$galerie;
                         @endphp
-                        <img src="{{asset($img)}}" alt="image de la galerie" class="img-fluid">
+                        <img src="{{asset($img)}}" alt="image de la galerie" class="img-fluid h-100">
                     </div>
                 </a>
             </div>

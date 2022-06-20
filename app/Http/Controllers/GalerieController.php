@@ -160,6 +160,7 @@ class GalerieController extends Controller
                 $gal->save();
                 if (strlen(implode(' ', $tab)) < 1) $gal->delete();
                 Storage::disk('public')->delete('images/galeries/' . $id);
+                Storage::disk('public')->delete('images/produits/' . $id);
                 return GalerieController::admin();
             }
         }

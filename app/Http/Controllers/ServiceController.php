@@ -30,9 +30,13 @@ class ServiceController extends Controller
             'titreService' => 'required',
             'descriptionService' => 'required'
         ]);
+        if ($validate->fails()) {
+            session()->flash('error', 'one_thing_not_running');
+            return redirect()->back()->with('error', 'ewjniker');
+        }
         $itreUS = '';
         $descUS = '';
-        if (request('titreService') == '') {
+        if ((request('titreServiceUS') == '') && (request('descriptionServiceUS') == '')) {
             $itreUS = request('titreService');
             $descUS = request('descriptionService');
         } else {
