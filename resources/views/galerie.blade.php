@@ -43,8 +43,8 @@
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <div class="row">
-                    @for ($x=0; $x<count($galerieShowAll);$x++) <div class="col-md-4">
-                        <img src="{{asset($galerieShowAll[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="d-block w-100">
+                    @for ($x=0; $x<count($galerieShowAll);$x++) <div class="col-md-4 my-2">
+                        <img src="{{asset($galerieShowAll[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="img-fluid h-100">
                 </div>
                 @endfor
             </div>
@@ -52,7 +52,7 @@
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
             <div class="row">
                 @for ($x=0; $x<count($equipes);$x++) <div class="col-md-4">
-                    <img src="{{asset($equipes[$x])}}" alt="{{asset($equipes[$x])}}" class="d-block w-100">
+                    <img src="{{asset($equipes[$x])}}" alt="{{asset($equipes[$x])}}" class="img-fluid h-100">
             </div>
             @endfor
         </div>
@@ -60,7 +60,7 @@
     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
         <div class="row">
             @for ($x=0; $x<count($showClients);$x++) <div class="col-md-4">
-                <img src="{{asset($showClients[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="d-block w-100">
+                <img src="{{asset($showClients[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="img-fluid h-100">
         </div>
         @endfor
     </div>
@@ -68,7 +68,7 @@
 <div class="tab-pane fade" id="pills-produit" role="tabpanel" aria-labelledby="pills-produit-tab">
     <div class="row">
         @for ($x=0; $x<count($produits);$x++) <div class="col-md-4">
-            <img src="{{asset($produits[$x])}}" alt="{{asset($produits[$x])}}" class="d-block w-100">
+            <img src="{{asset($produits[$x])}}" alt="{{asset($produits[$x])}}" class="img-fluid h-100">
     </div>
     @endfor
 </div>
@@ -76,7 +76,7 @@
 <div class="tab-pane fade" id="pills-other" role="tabpanel" aria-labelledby="pills-other-tab">
     <div class="row">
         @for ($x=0; $x<count($autres);$x++) <div class="col-md-4">
-            <img src="{{asset($autres[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="d-block w-100">
+            <img src="{{asset($autres[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="img-fluid h-100">
     </div>
     @endfor
 </div>

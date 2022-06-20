@@ -133,7 +133,7 @@
                         <h6 class="fw-bold p-0 m-0 text-uppercase">
                             {{ __("Email") }}
                         </h6>
-                        <p class="text-muted small">
+                        <p class="text-muted small a-phone">
                             <a href="mailto:{{ $email}}" class="text-muted">{{ $email}}</a>
                         </p>
                     </div>

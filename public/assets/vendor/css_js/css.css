@@ -168,9 +168,9 @@ button.active {
   width: 10rem;
 }
 
-a:hover {
+/* a:hover {
   color: white !important;
-}
+} */
 
 .oginBg-One {
   background: rgba(255, 69, 69, 0.945);

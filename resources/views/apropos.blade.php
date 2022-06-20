@@ -51,7 +51,7 @@
             <div class="row">
                 @foreach ($agents as $agent)
                 <div class="col-md-3 m-2 card position-relative border-0">
-                    <img src="{{asset($agent[2])}}" alt="{{ $agent[2]}}" class="img-fluid ">
+                    <img src="{{asset($agent[2])}}" alt="{{ $agent[2]}}" class="img-fluid h-100">
                     <div class="my-3">
                         <h6 class="text-center fw-bold">{{ $agent[0]}}</h6>
                         <h6 class=" text-center">{{ $agent[1]}}</h6>

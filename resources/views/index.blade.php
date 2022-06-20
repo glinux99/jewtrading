@@ -79,7 +79,7 @@ $gal=0;
                             }
                             @endphp
                             <div class="col-md-3 ">
-                                <img src="{{asset($galeries[$i])}}" alt="{{$galeries[$i]}}" class="d-block w-100">
+                                <img src="{{asset($galeries[$i])}}" alt="{{$galeries[$i]}}" class="img-fluid h-100">
                             </div>
                             @php
                             $i++;
