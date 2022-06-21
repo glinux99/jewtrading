@@ -53,7 +53,7 @@
         </div>
         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
             <div class="row">
-                @for ($x=0; $x<count($equipes);$x++) <div class="col-md-4">
+                @for ($x=0; $x<count($equipes);$x++) <div class="col-md-4 my-2">
                     <img src="{{asset($equipes[$x])}}" alt="{{asset($equipes[$x])}}" class="img-fluid h-100">
             </div>
             @endfor
@@ -61,7 +61,7 @@
     </div>
     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
         <div class="row">
-            @for ($x=0; $x<count($showClients);$x++) <div class="col-md-4">
+            @for ($x=0; $x<count($showClients);$x++) <div class="col-md-4 my-2">
                 <img src="{{asset($showClients[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="img-fluid h-100">
         </div>
         @endfor

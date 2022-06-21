@@ -1,45 +1,58 @@
-<style>
-    select option {
-        padding: 8px;
-    }
+<h1>LightGallery</h1>
+<hr>
+<h2>DEMO</h2>
+<div id="lightgallery">
+    <a href="http://127.0.0.1:8000/storage/images/galeries/5iSbO.jpg">
+        <img src="http://127.0.0.1:8000/storage/images/galeries/5iSbO.jpg" width="500" height="300" /></a>
+    <a href="https://i.imgur.com/lji0z7q.jpg"><img src="https://i.imgur.com/lji0z7q.jpg" width="500" height="300" /></a>
+</div>
+<p><a href="https://sachinchoolur.github.io/lightGallery/docs/">LightGallery</a></p>
+<p>
+<h2>How to use?</h2>
+</p>
+<pre>
+<b>CSS</b>
+https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css
 
-    select {
-        z-index: 1800;
-        position: absolute;
-        background: #fff;
-        height: 33px;
-        overflow: hidden;
-        width: 30%;
-        outline: none;
-    }
-</style>
+<b>JS</b>
 
-<select id="colored_select" size="2" onclick="select_option()">
-    <option value="" selected>Select</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-    <option value="4">Four</option>
-    <option value="5">Five</option>
-    <option value="6">Six</option>
-    <option value="7">Seven</option>
-    <option value="8">Eight</option>
-</select>
+必須最先調用jQuery
+https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js
 
+https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/dist/js/lightgallery.min.js
+
+滑鼠滾輪切換圖片
+
+https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js
+
+插件(縮略圖+全屏)
+
+https://cdnjs.cloudflare.com/ajax/libs/lg-thumbnail/1.1.0/lg-thumbnail.min.js
+
+https://cdnjs.cloudflare.com/ajax/libs/lg-fullscreen/1.1.0/lg-fullscreen.min.js
+</pre>
+<b>JS</b><br>
+<textarea style="width:400px;height:50px">
+$(document).ready(function() {
+  $("#lightgallery").lightGallery();
+});
+</textarea><br>
+<b>HTML</b><br>
+<textarea style="width:500px;height:100px">
+  <div id="lightgallery">
+
+　<a href="https://i.imgur.com/xQ94mYj.jpg">
+　　<img src="https://i.imgur.com/xQ94mYj.jpg" width="500" height="300" />
+　</a>
+
+　<a href="https://i.imgur.com/lji0z7q.jpg">
+　　<img src="https://i.imgur.com/lji0z7q.jpg" width="500" height="300"/>
+　</a>
+
+</div>
+</textarea>
 <script>
-    function select_option() {
-        var selectBox = document.getElementById("colored_select");
-        $size = selectBox.size;
-        $set_size = 4;
-        if ($size == $set_size) {
-            selectBox.size = 2;
-            selectBox.style.overflow = 'hidden';
-        } else {
-            selectBox.size = $set_size;
-            selectBox.style.height = 'auto';
-            selectBox.style.overflow = 'auto';
-        }
-        var selectedOptionTop = selectBox.options[selectBox.selectedIndex].offsetTop;
-        selectBox.scrollTop = selectedOptionTop;
-    }
+    $(document).ready(function() {
+        $("#lightgallery").lightGallery();
+    });
 </script>
