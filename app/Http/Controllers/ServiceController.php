@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class ServiceController extends Controller
 {
@@ -32,7 +33,7 @@ class ServiceController extends Controller
         ]);
         if ($validate->fails()) {
             session()->flash('error', 'one_thing_not_running');
-            return redirect()->back()->with('error', 'ewjniker');
+            return Redirect::back()->with('error', 'ewjniker');
         }
         $itreUS = '';
         $descUS = '';
