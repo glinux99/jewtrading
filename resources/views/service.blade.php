@@ -15,7 +15,7 @@ $gal=0;
     <div class="d-flex align-items-center serviceBg">
     </div>
 </div>
-<div class="corp mt-md-5 pt-md-5" style="background: rgb(245, 246, 246);">
+<div class="corp mt-md-5 pt-md-5 pb-3" style="background: rgb(245, 246, 246);">
     @include('layouts.servicesLayer')
 </div>
 </div>

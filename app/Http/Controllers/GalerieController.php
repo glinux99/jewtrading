@@ -65,7 +65,7 @@ class GalerieController extends Controller
     {
         $validate = Validator($request->all(), [
             'categories' => 'required',
-            'file1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            // 'file1[]' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
         if ($validate->fails()) {
             session()->flash('error', 'one_thing_not_running');
@@ -77,15 +77,30 @@ class GalerieController extends Controller
         else $count = request('count');
         $tab = array();
         for ($i = 1; $i <= $count; $i++) {
-            $file = Str::random(5);
-            $ext = $request->file1->getClientOriginalExtension();
-            $fileName = $file . '.' . $ext;
-            $path = $request->file('file' . $i)->storeAs(
-                'images/galeries',
-                $fileName,
-                'public'
-            );
-            array_push($tab, $fileName);
+            foreach ($request->file('file' . $i) as $file1) {
+                $file = Str::random(5);
+                $ext = $file1->getClientOriginalExtension();
+                $fileName = $file . '.' . $ext;
+                $path = $file1->storeAs(
+                    'images/galeries',
+                    $fileName,
+                    'public'
+                );
+                array_push($tab, $fileName);
+            }
+            // if(){
+
+            // }else{
+            //     $file = Str::random(5);
+            //     $ext = $request->file1->getClientOriginalExtension();
+            //     $fileName = $file . '.' . $ext;
+            //     $path = $request->file('file' . $i)->storeAs(
+            //         'images/galeries',
+            //         $fileName,
+            //         'public'
+            //     );
+            //     array_push($tab, $fileName);
+            // }
         }
         $files = implode(' ', $tab);
         $galerie->image = $files;

@@ -4,7 +4,9 @@
 @endsection
 @section('body')
 <div class="container card my-4 py-4 shadow">
-    <h5 class="text-dark fw-bolder  border-bottom border-2 py-2">{{__("Galerie Photo")}}</h5>
+    <h5 class="text-dark fw-bolder  border-bottom border-2 py-2">{{__("Galerie Photo")}} @if (!$galeries) <span class="text-muted">({{__("Aucun d'image pour l'instant")}})</span>
+
+        @endif</h5>
     <div class=" mx-1">
         <div class="my-2">
             <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGalerie" aria-expanded="false" aria-controls="collapseGalerie">{{__('Ajouter image')}}</button>
@@ -34,7 +36,7 @@
                         </div>
                         <div class="col-md-9 input-add">
                             <div class="d-flex">
-                                <input type="file" name="file1" id="" class="form-control " required>
+                                <input type="file" name="file1[]" id="" class="form-control " required multiple>
                                 <span class="ms-2 bi-plus-circle-fill bi--xl text-dark" onclick="ajouter()"></span>
                             </div>
                             <input type="number" name="count" id="count" hidden>
@@ -51,30 +53,13 @@
         $x=0;
         @endphp
         <div class="row">
-            <!-- @while ($y<count($galeries)) <div class="p-0 m-0 col-md-4">
-                <a href="/delete/{{$galeries[$y]}}" title="{{ __("Doublez cliquer pour supprimer")}}" onclick="return false" ondblclick="location=this.href">
-                    <div class="card p-0 m-1">
-                        @php
-                        $img = '/storage/images/galeries/'.$galeries[$y];
-                        @endphp
-                        <img src="{{asset($img)}}" alt="image de la galerie" class="img-fluid">
-                    </div>
-
-                </a>
-        </div>
-        @php
-        $y++;
-        @endphp
-        @endwhile -->
             @foreach($galeries as $galerie)
-            <div class="p-0 m-0 col-md-4">
+            <div class="col-md-4 my-2">
                 <a href="/delete/{{$galerie}}" title="{{ __('Doublez cliquer pour supprimer')}}" onclick="return false" ondblclick="location=this.href">
-                    <div class="card p-0 m-1">
-                        @php
-                        $img = '/storage/images/galeries/'.$galerie;
-                        @endphp
-                        <img src="{{asset($img)}}" alt="image de la galerie" class="img-fluid h-100">
-                    </div>
+                    @php
+                    $img = '/storage/images/galeries/'.$galerie;
+                    @endphp
+                    <img src="{{asset($img)}}" alt="image de la galerie" class="img-fluid h-100">
                 </a>
             </div>
             @endforeach

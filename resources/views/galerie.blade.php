@@ -44,7 +44,9 @@
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                 <div class="row">
                     @for ($x=0; $x<count($galerieShowAll);$x++) <div class="col-md-4 my-2">
-                        <img src="{{asset($galerieShowAll[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="img-fluid h-100">
+                        <a href="{{asset($galerieShowAll[$x])}}">
+                            <img src="{{asset($galerieShowAll[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="img-fluid h-100 imgal">
+                        </a>
                 </div>
                 @endfor
             </div>

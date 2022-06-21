@@ -22,7 +22,7 @@
     function ajouter() {
         $('.input-add').append('<div class="d-flex">\
             <input type = "file"\
-            class = "form-control my-1 " name ="file' + numFile + '"/>\
+            class = "form-control my-1 " name ="file' + numFile + '[]" multiple/>\
             <span class="ms-2 bi-trash-fill bi--xl text-danger" onclick="deleteP(this)"></span>\
             </div>');
         $('#count').val(numFile);
