@@ -101,8 +101,9 @@
                 <div class="row">
                     <h6>{{__("Ajouter une ou plusieurs images")}}</h6>
                     <div class="col-md-6 input-add">
-                        <input type="file" class="my-1 form-control" name="file1[]" id="file" required />
+                        <input type="file" class="my-1 form-control" name="file1[]" id="file" required multiple />
                     </div>
+                    <input type="number" name="count" id="count" hidden>
                     <div class="col-md-6">
                         <button type="button" class="btn bg-danger" onclick="ajouter()">{{__("ajouter")}} <span class="bi-images"></span><span class="bi-plus"></span></button>
                     </div>

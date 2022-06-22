@@ -49,7 +49,7 @@
 @endif
 @if ($affserv ?? '')
 <div class="container card my-4 py-4 shadow">
-    <h5 class="text-dark fw-bolder  border-bottom border-2 py-2">{{__("Modifier un service")}}</h5>
+    <h5 class="text-dark fw-bolder  border-bottom border-2 py-2">{{__("Service")}} @if(!count($services)) <span class="text-muted">({{__("Aucun service pour l'instant")}})</span>@endif</h5>
     <div>
         <a href="#" class="btn btn-danger" role="button" data-bs-toggle="modal" data-bs-target="#serviceAddModal">{{__("Ajouter un service")}}</a>
     </div>
@@ -87,7 +87,10 @@
 @endif
 @if ($agents ?? '')
 <div class="container card my-4 py-4 shadow">
-    <h5 class="text-dark fw-bolder  border-bottom border-2 py-2">{{__("Modifier un agent")}}</h5>
+    <h5 class="text-dark fw-bolder  border-bottom border-2 py-2">{{__("Agent")}}@if (!count($agents))
+        <span class="text-muted">({{__("Aucun agent enregistré pour l'instant")}})</span>
+        @endif
+    </h5>
     <div>
         <a href="#" class="btn btn-danger" role="button" data-bs-toggle="modal" data-bs-target="#employeAddModal">Ajouter un agent</a>
     </div>

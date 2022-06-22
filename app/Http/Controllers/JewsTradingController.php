@@ -56,20 +56,38 @@ class JewsTradingController extends Controller
         foreach ($inputs as $input) {
             $produit->$input = request($input);
         }
-        $filesInput = ['file1', 'file2', 'file3', 'file4'];
-        foreach ($filesInput as $fileInput) {
-            if (request($fileInput) != '') {
+
+        if (!request('count')) $count = 1;
+        else $count = request('count');
+        $tab = array();
+        $y = 0;
+        for ($i = 1; $i <= $count; $i++) {
+            foreach ($request->file('file' . $i) as $index => $file1) {
                 $file = Str::random(5);
-                $ext = request($fileInput)->getClientOriginalExtension();
+                $ext = $file1->getClientOriginalExtension();
                 $fileName = $file . '.' . $ext;
-                $path = $request->file($fileInput)->storeAs(
+                $path = $file1->storeAs(
                     'images/produits',
                     $fileName,
                     'public'
                 );
-                $produit->$fileInput = $fileName;
-            } else
-                $produit->$fileInput = '';
+                $index++;
+                $fileInput = 'file' . $index;
+                if ($index > 4) {
+                    break;
+                    $i = $count;
+                } else {
+                    $produit->$fileInput = $fileName;
+                }
+                $y++;
+                if ($y >= 3) {
+                    $i = $count + 2;
+                }
+            }
+            $y++;
+            if ($y >= 3) {
+                $i = $count + 2;
+            }
         }
         $produit->admin_id = Auth::user()->id;
         $produit->save();

@@ -68,8 +68,7 @@
                             </button>
                             @elseif($commande->confirme == "1")
                             <button class="btn btn-outline-success" type="button">
-                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                <span class="sr-only">{{__("Checked...")}}</span>
+                                <span class="bi-check2-all"></span><span>{{__("Checked...")}}</span>
                             </button>
                             @else
                             <button class="btn btn-outline-danger" type="button">

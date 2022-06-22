@@ -6,7 +6,10 @@
 <div class="container card my-4 py-4 shadow">
     <div class="row border-bottom border-2">
         <div class="col-md-6">
-            <h5 class="text-dark fw-bolder  py-2">{{__("Clients abonnes à notre Newslatter")}}</h5>
+            <h5 class="text-dark fw-bolder  py-2">{{__("Clients abonnés à notre Newslatter")}} @if (!count($newslatterCli))
+                <span class="text-muted small d-block fw-normal">({{__("*Aucun client abonné à notre Newslatter")}})</span>
+                @endif
+            </h5>
         </div>
         <div class="col-md-6 d-flex justify-content-end align-items-center">
             <button class="btn btn-danger" role="button" data-bs-toggle="modal" data-bs-target="#newslatter">{{__("Envoyer un message")}}</button>
