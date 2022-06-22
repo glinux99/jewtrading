@@ -5,9 +5,9 @@
 @section('body')
 @if($affprod ?? '')
 <div class="container card my-4 py-4 shadow">
-    <h5 class="text-dark fw-bolder  border-bottom border-2 py-2">{{__("Modifier un produit")}}</h5>
+    <h5 class="text-dark fw-bolder  border-bottom border-2 py-2">{{__("Produit")}}@if (!count($produits)) <span class="text-muted">({{__("Aucun produit pour l'instant")}})</span>@endif</h5>
     <div>
-        <a href="/ajouter/produit" class="btn btn-danger">{{__("Ajouter un produit")}}</a>
+        <a href="/ajouter/produit" class="btn btn-danger">{{__("Ajouter un vehicule")}} <span class="bi-truck"></span></a>
     </div>
     @if (count($produits))
     <div class="container mt-4">

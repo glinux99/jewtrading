@@ -67,7 +67,7 @@
                         <img src="{{asset($equipe)}}" alt="{{asset($equipe)}}" class="img-fluid h-100 rounded img-thumbnail">
                         <div class="position-absolute btn-seach"><span class="bi-search bi--4xl"></span></div>
                         @if($equipesC[$index])
-                        <div class="position-absolute bottom-0 footer-gal px-3 py-1 bg-danger mx-3 ms-1">{{$equipesC[$x]}} </div>
+                        <div class="position-absolute bottom-0 footer-gal px-3 py-1 bg-danger mx-3 ms-1">{{$equipesC[$index]}} </div>
                         @endif
                     </div>
                     @endforeach

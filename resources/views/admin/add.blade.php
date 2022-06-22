@@ -85,7 +85,8 @@
                 <div class="col-md-4">
                     <div class=" mb-3">
                         <label for="couleur" class="form-label">{{__("Couleur")}}</label>
-                        <input type="color" name="couleur" class="form-control " id="">
+                        <input type="text" name="couleur" class="form-control " id="">
+                        <small class="form-text text-muted">{{__("Ex. rouge, noire, grise, etc")}}</small>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -100,7 +101,7 @@
                 <div class="row">
                     <h6>{{__("Ajouter une ou plusieurs images")}}</h6>
                     <div class="col-md-6 input-add">
-                        <input type="file" class="my-1 form-control" name="file1" id="file" required />
+                        <input type="file" class="my-1 form-control" name="file1[]" id="file" required />
                     </div>
                     <div class="col-md-6">
                         <button type="button" class="btn bg-danger" onclick="ajouter()">{{__("ajouter")}} <span class="bi-images"></span><span class="bi-plus"></span></button>
