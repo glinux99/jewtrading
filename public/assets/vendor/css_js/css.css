@@ -238,3 +238,31 @@ td>a.com:focus {
 li>a:hover {
   color: white;
 }
+
+.footer-gal {
+  opacity: 0.7;
+  max-height: 5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.btn-seach {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.img-gal:hover {
+  transform: scale(1.09);
+  transition: transform 0.3s ease-in-out;
+}
+
+.btn-seach,
+.footer-gal {
+  visibility: hidden;
+}
+
+.img-gal:hover>.btn-seach,
+.img-gal:hover>.footer-gal {
+  visibility: visible;
+}

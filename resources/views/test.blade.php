@@ -1,58 +1,33 @@
-<h1>LightGallery</h1>
-<hr>
-<h2>DEMO</h2>
-<div id="lightgallery">
-    <a href="http://127.0.0.1:8000/storage/images/galeries/5iSbO.jpg">
-        <img src="http://127.0.0.1:8000/storage/images/galeries/5iSbO.jpg" width="500" height="300" /></a>
-    <a href="https://i.imgur.com/lji0z7q.jpg"><img src="https://i.imgur.com/lji0z7q.jpg" width="500" height="300" /></a>
-</div>
-<p><a href="https://sachinchoolur.github.io/lightGallery/docs/">LightGallery</a></p>
-<p>
-<h2>How to use?</h2>
-</p>
-<pre>
-<b>CSS</b>
-https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<b>JS</b>
+<!DOCTYPE html>
+<html lang="en">
 
-必須最先調用jQuery
-https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js
 
-https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/dist/js/lightgallery.min.js
+@include('layouts.ligthgallery')
 
-滑鼠滾輪切換圖片
+<head>
+    <title>LightGallery</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{asset('assets/vendor/css_js/lightgallery.min.css')}}">
 
-https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js
+</head>
 
-插件(縮略圖+全屏)
+<ul id="lightgallery" class="list-unstyled row">
+    <li class="col-xs-6 col-sm-4 col-md-2 col-lg-2" data-responsive="http://127.0.0.1:8000/storage/images/galeries/5iSbO.jpg" data-src="http://127.0.0.1:8000/storage/images/galeries/5iSbO.jpg" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+        <a href="">
+            <img class="img-responsive" src="http://127.0.0.1:8000/storage/images/galeries/5iSbO.jpg">
+        </a>
+    </li>
+    <li class="col-xs-6 col-sm-4 col-md-2 col-lg-2" data-responsive="http://127.0.0.1:8000/storage/images/galeries/5RZKd.jpeg" data-src="http://127.0.0.1:8000/storage/images/galeries/5RZKd.jpeg" data-sub-html="<h4>Fading Light</h4><p>Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.</p>">
+        <a href="">
+            <img class="img-responsive" src="http://127.0.0.1:8000/storage/images/galeries/5RZKd.jpeg">
+        </a>
+    </li>
+</ul>
 
-https://cdnjs.cloudflare.com/ajax/libs/lg-thumbnail/1.1.0/lg-thumbnail.min.js
-
-https://cdnjs.cloudflare.com/ajax/libs/lg-fullscreen/1.1.0/lg-fullscreen.min.js
-</pre>
-<b>JS</b><br>
-<textarea style="width:400px;height:50px">
-$(document).ready(function() {
-  $("#lightgallery").lightGallery();
-});
-</textarea><br>
-<b>HTML</b><br>
-<textarea style="width:500px;height:100px">
-  <div id="lightgallery">
-
-　<a href="https://i.imgur.com/xQ94mYj.jpg">
-　　<img src="https://i.imgur.com/xQ94mYj.jpg" width="500" height="300" />
-　</a>
-
-　<a href="https://i.imgur.com/lji0z7q.jpg">
-　　<img src="https://i.imgur.com/lji0z7q.jpg" width="500" height="300"/>
-　</a>
-
-</div>
-</textarea>
-<script>
-    $(document).ready(function() {
-        $("#lightgallery").lightGallery();
-    });
-</script>
+</html>

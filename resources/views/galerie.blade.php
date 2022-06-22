@@ -42,46 +42,72 @@
     <div class="col-md-10 mx-auto pb-4">
         <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                <div class="row">
-                    @for ($x=0; $x<count($galerieShowAll);$x++) <div class="col-md-4 my-2">
-                        <a href="{{asset($galerieShowAll[$x])}}">
-                            <img src="{{asset($galerieShowAll[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="img-fluid h-100 imgal">
-                        </a>
+                <div class="row lightgallery w-100 mx-auto">
+                    @foreach ($galerieShowAll as $index=>$galerieAll)<div class="col-md-4 col-lg-4 d-flex justify-content-center  my-2 position-relative img-gal d-flex justify-content-center" data-responsive="{{asset($galerieAll)}}" data-src="{{asset($galerieAll)}}" data-sub-html="<h4>Jew trading Cars</h4><p>{{$galerieShowAllC[$index]}}</p>">
+                        <img class="img-fluid h-100 rounded img-thumbnail" src="{{asset($galerieAll)}}">
+                        <div class="position-absolute btn-seach"><span class="bi-search bi--4xl"></span></div>
+                        @if($galerieShowAllC[$index])
+                        <div class="position-absolute bottom-0 footer-gal py-1 px-4 bg-danger mx-2">{{$galerieShowAllC[$index]}}</div>
+                        @endif
+                    </div>
+                    @endforeach
+                </div>
+                <div class="d-flex">
+                    <div class="mx-auto mt-3">
+                        @if ($galerieShowAll)
+                        {{$galerieShowAll->links()}}
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <div class="row lightgallery">
+                    @foreach ($equipes as $index=>$equipe) <div class="col-md-4 my-2 img-gal position-relative d-flex justify-content-center" data-responsive="{{asset($equipe)}}" data-src="{{asset($equipe)}}" data-sub-html="<h4>{{ __('Jew trading cars')}}</h4>
+                        <p>{{$equipesC[$index]}}</p>">
+                        <img src="{{asset($equipe)}}" alt="{{asset($equipe)}}" class="img-fluid h-100 rounded img-thumbnail">
+                        <div class="position-absolute btn-seach"><span class="bi-search bi--4xl"></span></div>
+                        @if($equipesC[$index])
+                        <div class="position-absolute bottom-0 footer-gal px-3 py-1 bg-danger mx-3 ms-1">{{$equipesC[$x]}} </div>
+                        @endif
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                <div class="row lightgallery">
+                    @for ($x=0; $x<count($showClients);$x++) <div class="col-md-4 my-2 img-gal position-relative d-flex justify-content-center " data-responsive="{{asset($showClients[$x])}}" data-src="{{asset($showClients[$x])}}" data-sub-html="<h4>{{__('Notre galerie d\'images pour nos clients')}}</h4><p>{{$showClientsC[$x]}}</p>">
+                        <img src="{{asset($showClients[$x])}}" alt="image client" class="img-fluid h-100 rounded img-thumbnail">
+                        <div class="position-absolute btn-seach"><span class="bi-search bi--4xl"></span></div>
+                        @if($showClientsC[$x])
+                        <div class="position-absolute bottom-0 footer-gal py-1 px-4 bg-danger mx-2">{{$showClientsC[$x]}}</div>
+                        @endif
                 </div>
                 @endfor
             </div>
         </div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-            <div class="row">
-                @for ($x=0; $x<count($equipes);$x++) <div class="col-md-4 my-2">
-                    <img src="{{asset($equipes[$x])}}" alt="{{asset($equipes[$x])}}" class="img-fluid h-100">
+        <div class="tab-pane fade" id="pills-produit" role="tabpanel" aria-labelledby="pills-produit-tab">
+            <div class="row lightgallery">
+                @for ($x=0; $x<count($produits);$x++) <div class="col-md-4 my-2 img-gal position-relative d-flex justify-content-center" data-responsive="{{asset($produits[$x])}}" data-src="{{asset($produits[$x])}}" data-sub-html="<h4>{{__('Notre banque d\'images pour nos produits')}}</h4><p>{{$showClientsC[$x]}}</p>">
+                    <img src="{{asset($produits[$x])}}" alt="{{asset($produits[$x])}}" class="img-fluid h-100 rounded img-thumbnail">
+                    <div class="position-absolute btn-seach"><span class="bi-search bi--4xl"></span></div>
+                    @if($produitsC[$x])
+                    <div class="position-absolute bottom-0 footer-gal py-1 px-4 bg-danger mx-2">{{$produitsC[$x]}}</div>
+                    @endif
             </div>
             @endfor
         </div>
     </div>
-    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-        <div class="row">
-            @for ($x=0; $x<count($showClients);$x++) <div class="col-md-4 my-2">
-                <img src="{{asset($showClients[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="img-fluid h-100">
+    <div class="tab-pane fade" id="pills-other" role="tabpanel" aria-labelledby="pills-other-tab">
+        <div class="row lightgallery">
+            @for ($x=0; $x<count($autres);$x++) <div class="col-md-4 my-2 img-gal position-relative d-flex justify-content-center" data-responsive="{{asset($autres[$x])}}" data-src="{{asset($autres[$x])}}" data-sub-html="<h4>{{__('Autres images de Jew trading')}}</h4><p>{{$autres[$x]}}</p>">
+                <img src="{{asset($autres[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="img-fluid h-100 rounded img-thumbnail">
+                <div class="position-absolute btn-seach"><span class="bi-search bi--4xl"></span></div>
+                @if($autresC[$x])
+                <div class="position-absolute bottom-0 footer-gal py-1 px-4 bg-danger mx-2">{{$autresC[$x]}}</div>
+                @endif
         </div>
         @endfor
     </div>
-</div>
-<div class="tab-pane fade" id="pills-produit" role="tabpanel" aria-labelledby="pills-produit-tab">
-    <div class="row">
-        @for ($x=0; $x<count($produits);$x++) <div class="col-md-4">
-            <img src="{{asset($produits[$x])}}" alt="{{asset($produits[$x])}}" class="img-fluid h-100">
-    </div>
-    @endfor
-</div>
-</div>
-<div class="tab-pane fade" id="pills-other" role="tabpanel" aria-labelledby="pills-other-tab">
-    <div class="row">
-        @for ($x=0; $x<count($autres);$x++) <div class="col-md-4">
-            <img src="{{asset($autres[$x])}}" alt="{{asset($galerieShowAll[$x])}}" class="img-fluid h-100">
-    </div>
-    @endfor
-</div>
 </div>
 </div>
 </div>

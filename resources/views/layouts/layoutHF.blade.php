@@ -20,7 +20,6 @@
     </div>
     @include('layouts.footer')
     @include('layouts.importScript')
-
 </body>
 
 </html>

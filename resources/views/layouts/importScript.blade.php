@@ -5,6 +5,12 @@
 <script src="{{asset('assets/vendor/dist/DataTables/DataTables-1.12.1/css/dataTables.bootstrap5.min.css')}}"></script>
 <script src="{{asset('assets/vendor/dist/js/bootstrap.bundle.min.js')}}">
 </script>
+@include('layouts.ligthgallery')
+<script>
+    $(document).ready(function() {
+        $('.lightgallery').lightGallery();
+    });
+</script>
 <script src="{{asset('assets/vendor/selected2/dist/js/select2.min.js')}}"></script>
 <script>
     $(document).ready(function() {
@@ -27,6 +33,9 @@
             </div>');
         $('#count').val(numFile);
         numFile++;
+        if (numFile > 2) {
+            $('#commentaire-image').html('{{__("Commentaire sur les images ")}}');
+        } else $('#commentaire-image').html('{{__("Commentaire sur l\'image")}}');
     }
 
     function deleteP(el) {
@@ -34,6 +43,9 @@
         numFile = $('#count').val();
         let val = $('#count').val();
         $('#count').val(val - 1);
+        if (numFile > 2) {
+            $('#commentaire-image').html('{{__("Commentaire sur les images ")}}');
+        } else $('#commentaire-image').html('{{__("Commentaire sur l\'image")}}');
         console.log();
     }
 </script>

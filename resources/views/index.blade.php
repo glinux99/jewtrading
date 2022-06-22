@@ -113,9 +113,6 @@ $gal=0;
             <h2 class="h2">
                 {{__("Nous sommes les meilleurs")}}
             </h2>
-            <p class="text-muted mb-md-4">
-                {{__("Nos services sont (ont) : ")}}
-            </p>
             <ul class="list-unstyled">
                 <li class="border-bottom border-2 p-2">
                     <span class="bi-check-circle-fill bi--xl"></span><span class="ps-md-3 h5">{{__("Rapide et
