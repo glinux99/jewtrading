@@ -71,22 +71,37 @@ $gal=0;
         </div>
         <div id="galerieProduits" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner" role="listbox">
-                @foreach ($galeries as $index=>$galerie)
-                <div class="carousel-item active">
-                    <img src="{{asset($galerie)}}" alt="{{$galerie}}" class="img-fluid h-100">
-                </div>
-                @endforeach
+                @while ($gal<count($galeries)) @php $active='' ; if($gal==0){ $active='active' ; } @endphp <div class="carousel-item {{$active}}">
+                    <div class="row mx-2">
+                        @for ($x=0; $x<$z-1;$x++) @php if($gal>count($galeries)-4){
+                            $z= 1+count($galeries)%4;
+                            $gal = count($galeries);
+                            }
+                            @endphp
+                            <div class="col-3 p-1">
+                                <img src="{{asset($galeries[$i])}}" alt="{{$galeries[$i]}}" class="img-fluid h-100 rounded">
+                            </div>
+                            @php
+                            $i++;
+                            @endphp
+                            @endfor
+                    </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#galerieProduits" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#galerieProduits" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            @php
+            $gal = $gal+4;
+            @endphp
+            @endwhile
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#galerieProduits" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#galerieProduits" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
+</div>
 </div>
 </div>
 <div class="container mx-auto mb-md-4">
@@ -98,6 +113,9 @@ $gal=0;
             <h2 class="h2">
                 {{__("Nous sommes les meilleurs")}}
             </h2>
+            <p class="text-muted mb-md-4">
+                {{__("Nos services sont (ont) : ")}}
+            </p>
             <ul class="list-unstyled">
                 <li class="border-bottom border-2 p-2">
                     <span class="bi-check-circle-fill bi--xl"></span><span class="ps-md-3 h5">{{__("Rapide et

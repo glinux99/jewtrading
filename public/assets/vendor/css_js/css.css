@@ -266,3 +266,12 @@ li>a:hover {
 .img-gal:hover>.footer-gal {
   visibility: visible;
 }
+
+.page-item.active>span.page-link {
+  background-color: #dc3545 !important;
+  border: 1px solid red;
+}
+
+ul.pagination>li.page-item>a.page-link {
+  color: black !important;
+}

@@ -40,9 +40,6 @@
                             {{__("LES GARANTIES")}}
                         </h5>
                         <p>
-                        <h6>
-                            {{__("Nos servies sont (ont)")}}:
-                        </h6>
                         <ul class="list-unstyled">
                             <li class="border-bottom border-2 p-2 h6"> <span class="bi-chevron-right"></span> {{__("Rapide et facile")}}</li>
                             <li class="border-bottom border-2 p-2 h6"> <span class="bi-chevron-right"></span> {{__("Une inspection Transparente")}}</li>
@@ -54,7 +51,7 @@
                     </div>
                     <div class="col-md-4">
                         <h5 class="fw-bold">
-                            {{__("CONTACT US")}}
+                            {{__("CONTACT")}}
                         </h5>
                         <p>
                         <ul class="list-unstyled">

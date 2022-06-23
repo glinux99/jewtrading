@@ -140,7 +140,7 @@
                             </tr>
                             <tr>
                                 <th>{{__("Couleur")}}</th>
-                                <td><input type="color" name="" id="" value="{{$produit->couleur}}" disabled></td>
+                                <td>{{$produit->couleur}}</td>
                             </tr>
                             <tr>
                                 <th>{{__("Num. Chassis")}}</th>
