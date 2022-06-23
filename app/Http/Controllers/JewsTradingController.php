@@ -80,12 +80,12 @@ class JewsTradingController extends Controller
                     $produit->$fileInput = $fileName;
                 }
                 $y++;
-                if ($y >= 3) {
+                if ($y >= 4) {
                     $i = $count + 2;
                 }
             }
             $y++;
-            if ($y >= 3) {
+            if ($y >= 4) {
                 $i = $count + 2;
             }
         }

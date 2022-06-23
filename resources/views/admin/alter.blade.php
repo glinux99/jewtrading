@@ -31,7 +31,7 @@
                         {{$produit->marque}}
                     </td>
                     <td>
-                        <input type="color" name="" id="" value="{{$produit->couleur}}" disabled>
+                        {{$produit->couleur}}
                     </td>
                     <td>
                         {{$produit->prix}}

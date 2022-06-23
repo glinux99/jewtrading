@@ -146,6 +146,7 @@ class HomeController extends Controller
         $adresse = User::find(1)->adresse;
         $phone = explode('/', User::find(1)->contact);
         $galerieShowAll = $this->paginate($galerieShowAll);
+        // $showProduits = array();
         return view('galerie', [
             'apropos' => $apropos,
             'missions' => $missions,

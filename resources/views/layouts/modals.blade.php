@@ -27,7 +27,7 @@
                                             @endif
                                             @endfor
                                     </ol>
-                                    <div class="carousel-inner" role="listbox">
+                                    <div class="carousel-inner " role="listbox">
                                         <div class="carousel-item active">
                                             @php
                                             $img1 = '/storage/images/produits/'.$produitCurrent->file1;
@@ -35,27 +35,27 @@
                                             $img3 = '/storage/images/produits/'.$produitCurrent->file3;
                                             $img4 = '/storage/images/produits/'.$produitCurrent->file4;
                                             @endphp
-                                            <img src="{{asset($img1)}}" class="w-100 d-block" alt="First slide">
+                                            <img src="{{asset($img1)}}" class="img-fluid h-100" alt="First slide">
                                             <div class="carousel-caption d-none d-md-block">
                                             </div>
                                         </div>
                                         @if ($produitCurrent->file2)
                                         <div class="carousel-item">
-                                            <img src="{{asset($img2)}}" class="w-100 d-block" alt="Second slide">
+                                            <img src="{{asset($img2)}}" class="img-fluid h-100" alt="Second slide">
                                             <div class="carousel-caption d-none d-md-block">
                                             </div>
                                         </div>
                                         @endif
                                         @if ($produitCurrent->file3)
                                         <div class="carousel-item">
-                                            <img src="{{asset($img3)}}" class="w-100 d-block" alt="Second slide">
+                                            <img src="{{asset($img3)}}" class="img-fluid h-100" alt="Second slide">
                                             <div class="carousel-caption d-none d-md-block">
                                             </div>
                                         </div>
                                         @endif
                                         @if ($produitCurrent->file4)
                                         <div class="carousel-item">
-                                            <img src="{{asset($img4)}}" class="w-100 d-block" alt="Second slide">
+                                            <img src="{{asset($img4)}}" class="img-fluid h-100" alt="Second slide">
                                             <div class="carousel-caption d-none d-md-block">
                                             </div>
                                         </div>
@@ -249,27 +249,27 @@
                                             $img3 = '/storage/images/produits/'.$produitCurrent->file3;
                                             $img4 = '/storage/images/produits/'.$produitCurrent->file4;
                                             @endphp
-                                            <img src="{{asset($img1)}}" class="w-100 d-block" alt="First slide">
+                                            <img src="{{asset($img1)}}" class="img-fluid h-100" alt="First slide">
                                             <div class="carousel-caption d-none d-md-block">
                                             </div>
                                         </div>
                                         @if ($produitCurrent->file2)
                                         <div class="carousel-item">
-                                            <img src="{{asset($img2)}}" class="w-100 d-block" alt="Second slide">
+                                            <img src="{{asset($img2)}}" class="img-fluid h-100" alt="Second slide">
                                             <div class="carousel-caption d-none d-md-block">
                                             </div>
                                         </div>
                                         @endif
                                         @if ($produitCurrent->file3)
                                         <div class="carousel-item">
-                                            <img src="{{asset($img3)}}" class="w-100 d-block" alt="Second slide">
+                                            <img src="{{asset($img3)}}" class="img-fluid h-100" alt="Second slide">
                                             <div class="carousel-caption d-none d-md-block">
                                             </div>
                                         </div>
                                         @endif
                                         @if ($produitCurrent->file4)
                                         <div class="carousel-item">
-                                            <img src="{{asset($img4)}}" class="w-100 d-block" alt="Second slide">
+                                            <img src="{{asset($img4)}}" class="img-fluid h-100" alt="Second slide">
                                             <div class="carousel-caption d-none d-md-block">
                                             </div>
                                         </div>
@@ -737,7 +737,7 @@
                             @php
                             $img = '/storage/images/agents/'.$agentChange->image;
                             @endphp
-                            <img src="{{asset($img)}}" alt="photo agent" class="rounded d-inline-block img-responsive" style="height: 20rem;background-position:top">
+                            <img src="{{asset($img)}}" alt="photo agent" class="rounded d-inline-block img-responsive img-fluid h-100 " style="height: 20rem;background-position:top">
                         </div>
                     </div>
                 </div>
