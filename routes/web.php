@@ -78,8 +78,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/messages', [MessageController::class, 'index']);
     Route::get('/message/{id}', [MessageController::class, 'message'])->name('message');
     Route::post('envoyer/client/message', [MessageController::class, 'envoyer_message']);
-
-
     Route::post('/params_update', [LoginController::class, 'update']);
     Route::post('/confirmeLog', [LoginController::class, 'confirmeLog']);
     Route::get('/parametre', [LoginController::class, 'create'])->middleware(['password.confirm:confirmPass']);
@@ -108,14 +106,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [JewsTradingController::class, 'admin'])->name('admin');
 });
 
-Route::get('send-mail', function () {
+Route::get('test2', function () {
 
     $contenu = [
-        'title' => 'Mail depuis Letecode.com',
-        'body' => 'Ce mail est pour tester l\'envoi de mail depuis laravel'
+        'title' => 'LE DEVELOPPEUR',
+        'body' => 'Ce mail est pour tester l\'envoi de mail depuis laravel avec jewtrading MAIL'
     ];
 
-    Mail::to('nurubanque@gmail.com')->send(new \App\Mail\ClientMail($contenu));
-
-    dd("Email envoyé avec succès.");
+    Mail::to('genesiskikimba@gmail.com')->send(new \App\Mail\ClientMail($contenu));
+    return view('test');
 });
