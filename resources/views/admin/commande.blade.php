@@ -72,8 +72,8 @@
                             </button>
                             @else
                             <button class="btn btn-outline-danger" type="button">
-                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                <span class="sr-only">{{__("Anuller..")}}</span>
+                                <span class="bi-x-circle-fill text-danger ps-3"></span>
+                                <span class="pe-3">{{__("Anuller..")}}</span>
                             </button>
                             @endif
                         </td>

@@ -68,6 +68,13 @@
                             </a>
                         </li>
                         <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
+                            <a href="/comments/admin" class="nav-link m-0 p-0">
+                                <div class="p-3">
+                                    <span class="bi-chat-dots-fill me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Comments")}}</span> <span class="bi-chevron-left float-end d-none d-md-inline d-lg-inline"></span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="d-flex justify-content-center d-lg-block d-md-block hoverClass">
                             <a href="/parametre" class="nav-link m-0 p-0">
                                 <div class="p-3">
                                     <span class="bi-share me-md-2"></span><span class="d-none d-md-inline d-lg-inline">{{__("Paramètre")}}</span>

@@ -63,5 +63,4 @@
         @endif
     </div>
 </div>
-@include('layouts.beforword')
 @endsection

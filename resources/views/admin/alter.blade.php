@@ -138,4 +138,46 @@
     @endif
 </div>
 @endif
+@if($comment ?? '')
+<div class="container card my-4 py-4 shadow">
+    <h5 class="text-dark fw-bolder  border-bottom border-2 py-2">{{__("Commentaire")}}@if (!count($comments)) <span class="text-muted">({{__("Aucun produit pour l'instant")}})</span>@endif</h5>
+    @if (count($comments))
+    <div class="container mt-4">
+        <table id="dataTable" class="table table-striped table-hover ">
+            <thead>
+                <tr>
+                    <th>{{__("Nom")}}</th>
+                    <th>{{__("Email adresse")}}</th>
+                    <th colspan="2">{{__("Commentaire")}}</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($comments as $comment)
+                <tr>
+                    <td>{{ $comment->nom_cli}}</td>
+                    <td>{{ $comment->adresse_mail}}</td>
+                    <td>{{ $comment->commentaires}}</td>
+                    <td>@if($comment->image)
+                        <img src="{{ asset('storage/images/comments/'.$comment->image)}}" height="80" alt="image du commentaire">
+                        @endif
+                    </td>
+                    <td>
+                        <a href="{{ route('commentaire/remove',[ $comment->id])}}" class="btn btn-danger">{{__("Supprimer")}}</a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <div class="d-flex">
+            <div class="mx-auto mt-3">
+                @if ($comments)
+                {{ $comments->links()}}
+                @endif
+            </div>
+        </div>
+    </div>
+    @endif
+</div>
+@endif
 @endsection

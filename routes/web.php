@@ -54,7 +54,10 @@ Route::get('/commande/{id}', [CommandeController::class, 'index']);
 Route::get('/detail/produit/{id}', [JewsTradingController::class, 'show']);
 Route::post('/send-message', [MessageController::class, 'contact']);
 Route::post('/newslatter', [ClientController::class, 'create']);
-
+Route::get('/commentaires/{id}', [MessageController::class, 'commentaires'])->name('commentaires');
+Route::post('/commentaires/image', [MessageController::class, 'commentaire']);
+Route::get('/comments/admin', [MessageController::class, 'comment_admin']);
+Route::get('comment/admin/remove/{id}', [MessageController::class, 'comment_admin_remove'])->name('commentaire/remove');
 
 //ESSAIE
 Route::get('/sendsend', [ClientController::class, 'createCampaign']);
@@ -73,6 +76,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/annule/commande/{id}', [CommandeController::class, 'annuler']);
     Route::get('/delete/commande/{id}', [CommandeController::class, 'destroy']);
     Route::get('/messages', [MessageController::class, 'index']);
+    Route::get('/message/{id}', [MessageController::class, 'message'])->name('message');
+    Route::post('envoyer/client/message', [MessageController::class, 'envoyer_message']);
+
 
     Route::post('/params_update', [LoginController::class, 'update']);
     Route::post('/confirmeLog', [LoginController::class, 'confirmeLog']);

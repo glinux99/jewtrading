@@ -111,7 +111,7 @@ class CommandeController extends Controller
         $commande->code_prod = $id;
         $commande->confirme = "0";
         $commande->save();
-        session()->flash('error', 'no_error');
+        session()->flash('error', 'client');
         $home = new HomeController;
         return $home->produit();
     }

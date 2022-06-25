@@ -109,7 +109,7 @@
                                         </label>
                                     </div>
                                     <div class="col-8">
-                                        <input type="color" name="couleur" class="form-control " value="{{$produitCurrent->couleur}}">
+                                        <input type="text" name="couleur" class="form-control " value="{{$produitCurrent->couleur}}">
                                     </div>
                                 </div>
                             </div>
@@ -323,7 +323,7 @@
                                         </label>
                                     </div>
                                     <div class="col-8">
-                                        <input type="color" name="couleur" class="form-control " value="{{$produitCurrent->couleur}}" disabled>
+                                        <input type="text" name="couleur" class="form-control " value="{{$produitCurrent->couleur}}" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -380,7 +380,7 @@
                                     </label>
                                 </div>
                                 <div class="col-8">
-                                    <select class="form-control " name="transmission" id="">
+                                    <select class="form-control " name="transmission" id="" disabled>
                                         <option value="{{$produitCurrent->transmission}}">{{$produitCurrent->transmission}}</option>
                                         <option value="Manuelle">Manuelle</option>
                                         <option value="Automatique">Automatique</option>

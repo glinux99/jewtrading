@@ -18,6 +18,7 @@
             @yield('body' ?? 'NOT FOUND')
         </div>
     </div>
+    @include('layouts.beforword')
     @include('layouts.footer')
     @include('layouts.importScript')
 </body>

@@ -33,7 +33,7 @@
         <div class="col-md-10 card shadow-lg mx-auto px-md-5 px-2 pb-4 ">
             <h5 class=" py-3 border-bottom border-1 border-secondary"><span class="bi-info-circle me-2"></span>{{__("Information Supplementaire")}}</h5>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 d-none">
                     <label for="nom" class="form-label">{{__("Langue par défaut")}}</label>
                     <input type="text" class="form-control " name="lang" value="{{ Auth::User()->lang }}">
                 </div>
@@ -42,6 +42,7 @@
                 <div class="col-md-12">
                     <label for="nom" class="form-label">{{__("Numéro de contact")}}</label>
                     <input type="text" class="form-control " name="contact" value="{{ Auth::User()->contact }}">
+                    <small class="text-muted">{{ __("Pour plusieurs numeros, le format est")}}: 0970912428/0890912428</small>
                 </div>
             </div>
             <div class="row">

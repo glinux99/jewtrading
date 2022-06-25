@@ -18,6 +18,7 @@
                 <button class="btn btn-danger">{{__("confirmer")}}</button>
             </div>
         </div>
+
     </div>
 </form>
 @endsection

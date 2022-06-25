@@ -275,3 +275,12 @@ li>a:hover {
 ul.pagination>li.page-item>a.page-link {
   color: black !important;
 }
+
+a:hover {
+  color: white;
+}
+
+.chatLink:hover,
+.chatLink {
+  color: black;
+}

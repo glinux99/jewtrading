@@ -86,7 +86,7 @@
                 <div class="row">
                     @foreach ($produits as $produit )
                     <div class="col-md-4 my-2 position-relative">
-                        <img src="{{asset($produit[3])}}" alt="" class="img-fluid h-100" style="filter: contrast(50%)">
+                        <img src="{{asset($produit[3])}}" alt="" class="img-thumbnail img-fluid h-100 rounded" style="filter: contrast(50%)">
                         <div class="card-img-overlay mx-4">
                             <h4 class="card-title fw-bolder">{{ $produit[0]}}</h4>
                             <h4 class="card-title fw-bolder">{{ $produit[1]}} USD</h4>

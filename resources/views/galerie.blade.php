@@ -87,7 +87,12 @@
         </div>
         <div class="tab-pane fade" id="pills-produit" role="tabpanel" aria-labelledby="pills-produit-tab">
             <div class="row lightgallery">
-                @foreach ($produits as $index=>$galerieAll)<div class="col-md-4 col-lg-4 d-flex justify-content-center  my-2 position-relative img-gal d-flex justify-content-center" data-responsive="{{asset($galerieAll)}}" data-src="{{asset($galerieAll)}}" data-sub-html="<h4>Jew trading Cars</h4><p>{{$produitsC[$index]}}</p>">
+                @foreach ($produits as $index=>$galerieAll)<div class="col-md-4 col-lg-4 d-flex justify-content-center  my-2 position-relative img-gal d-flex justify-content-center" data-responsive="{{asset($galerieAll)}}" data-src="{{asset($galerieAll)}}" data-sub-html="<h4>Jew trading Cars</h4><p>{{$produitsC[$index]}} <p>
+                    @php
+                        $link =substr($galerieAll, 25);
+                    @endphp
+                <a class='btn btn-dark' href='/commentaires/{{$link}}' >{{__('Commentaires')}}</a></p></p>">
+
                     <img class="img-fluid h-100 rounded img-thumbnail" src="{{asset($galerieAll)}}">
                     <div class="position-absolute btn-seach"><span class="bi-search bi--4xl"></span></div>
                     @if($produitsC[$index])
