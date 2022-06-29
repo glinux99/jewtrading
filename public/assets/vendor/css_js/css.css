@@ -280,6 +280,12 @@ a:hover {
   color: white;
 }
 
+.prodV {
+  min-height: 80vh !important;
+  max-height: 80vh !important;
+  width: 100%;
+}
+
 .chatLink:hover,
 .chatLink {
   color: black;

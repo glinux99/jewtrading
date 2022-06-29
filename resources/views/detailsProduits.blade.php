@@ -6,13 +6,6 @@
     <div class="position-absolute d-none d-lg-block d-md-block" style="z-index: 1000; bottom: 85%;">
         <h1 class="fw-bold text-white mx-5">{{__("Details du produits")}}</h1>
     </div>
-    <style>
-        .prodV {
-            min-height: 80vh !important;
-            max-height: 80vh !important;
-            width: 100%;
-        }
-    </style>
     <div class="d-flex align-items-center produitBg d-none d-lg-block d-md-block">
     </div>
     <div class="d-lg-none d-md-none my-2">
