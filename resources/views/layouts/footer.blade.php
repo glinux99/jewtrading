@@ -26,7 +26,7 @@
     <div style="background: #191f23;" class="text-light">
         <div class="container-fluid pt-4">
             <div class="col-md-10 mx-auto py-md-4">
-                <div class="row w-100">
+                <div class="row w-100 mx-auto">
                     <div class="col-md-4 card" style="background: none; border: none">
                         <img src="{{asset('assets/imgs/logojw.png')}}" alt="logo jwtrading" class="card-img-top w-50">
                         <div class="card-body mx-0 px-0">
@@ -126,7 +126,7 @@
                         copyritht&copy;2022
                         <a href="/login">jewtrading</a>
                         | all rigths reserved | Power by
-                        <span>subnet</span>
+                        <span><a href="http://subnetcongo.net">subnet Congo</a></span>
                     </p>
                 </footer>
             </div>
