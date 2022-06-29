@@ -53,6 +53,8 @@ class MessageController extends Controller
             'message' => request('reponse')
         ];
         Mail::to($rep->email)->send(new messageCli($data));
+        $rep->reponse = request('reponse');
+        $rep->save();
         return MessageController::message(request('id'));
     }
     public function comment_admin()

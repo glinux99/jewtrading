@@ -20,6 +20,7 @@ class CreateEmailsTable extends Migration
             $table->string('numero')->nullable();
             $table->string('object')->nullable();
             $table->text('messages');
+            $table->text('reponse')->nullable();
             $table->timestamps();
         });
     }
