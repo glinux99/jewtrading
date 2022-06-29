@@ -9,6 +9,7 @@
         @if((!$message))
         <span class="text-muted">({{__("Aucune discussion pour l'instant")}})</span>
         @endif
+        @if($message)
         <div class="border p-2 my-1">
             <div class="row">
                 <div class="col-md-12 d-flex align-items-center">
@@ -34,6 +35,7 @@
             </div>
             </p>
         </div>
+        @endif
     </div>
     @if(count($clients))
     <div class="col-md-4 border-start border-1">

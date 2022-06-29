@@ -14,6 +14,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JewsTradingController;
 
 class MessageController extends Controller
@@ -33,7 +34,8 @@ class MessageController extends Controller
         }
         $message->save();
         session()->flash('error', 'message');
-        return MessageController::admin();
+        $homeController = new HomeController();
+        return $homeController->contact();
     }
     public function message($id)
     {

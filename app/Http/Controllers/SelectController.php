@@ -18,7 +18,7 @@ class SelectController extends Controller
                 ->where('marque', 'LIKE', "%$search%")
                 ->get();
         }
-        return response()->json($data);
+        return response()->json($data->unique('marque'));
     }
     public function model(Request $request)
     {
@@ -30,7 +30,7 @@ class SelectController extends Controller
                 ->where('model', 'LIKE', "%$search%")
                 ->get();
         }
-        return response()->json($data);
+        return response()->json($data->unique('model'));
     }
     public function carburateur(Request $request)
     {
@@ -42,7 +42,7 @@ class SelectController extends Controller
                 ->where('carburateur', 'LIKE', "%$search%")
                 ->get();
         }
-        return response()->json($data);
+        return response()->json($data->unique('carburateur'));
     }
     public function search($choice, $id)
     {
