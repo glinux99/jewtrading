@@ -27,9 +27,9 @@
                 <form action="{{ url('/envoyer/client/message')}}" method="post">
                     @csrf
                     <div class="input-group">
-                        <input class="form-control" name="" id="" rows="3">
+                        <input class="form-control" name="reponse" id="" rows="3">
                         <input type="text" name="id" value="{{ $message->id}}" hidden>
-                        <button class="btn btn-danger" type="submit" disable>{{__("Repondre")}}</button>
+                        <button class="btn btn-danger" type="submit">{{__("Repondre")}}</button>
                     </div>
                 </form>
             </div>

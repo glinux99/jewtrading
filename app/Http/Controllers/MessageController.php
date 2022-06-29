@@ -8,11 +8,13 @@ use App\Models\Email;
 use App\Models\Galerie;
 use App\Models\Produit;
 use App\Models\Service;
+use App\Mail\messageCli;
 use App\Models\Commande;
 use App\Models\Commentaire;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JewsTradingController;
@@ -45,7 +47,13 @@ class MessageController extends Controller
     }
     public function envoyer_message(Request $request)
     {
-        echo 22;
+        $rep = Email::where('id', request('id'))->first();
+        $data = [
+            'object' => 'JEW TRADING',
+            'message' => request('reponse')
+        ];
+        Mail::to($rep->email)->send(new messageCli($data));
+        return MessageController::message(request('id'));
     }
     public function comment_admin()
     {
