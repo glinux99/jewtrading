@@ -64,9 +64,9 @@ class MessageController extends Controller
         session()->flash('error', 'no_error');
         return MessageController::comment_admin();
     }
-    public function commentaire(Request $request)
+    public function commentaire(Request $request, $id)
     {
-        $imageName = request('id');
+        $imageName = $id;
         $apropos = User::find(1)->apropos;
         $missions = User::find(1)->description;
         if ((session()->get('lang_code') == 'en')) {
@@ -101,6 +101,8 @@ class MessageController extends Controller
     public function commentaires($id)
     {
         $imageName = $id;
+        if ($id != '') session()->put('id_comment', $id);
+        else $imageName = session('id_comment');
         $apropos = User::find(1)->apropos;
         $missions = User::find(1)->description;
         if ((session()->get('lang_code') == 'en')) {

@@ -15,17 +15,17 @@
             <div class="col-md-6">
                 <img src="{{asset($photo)}}" alt="{{$photo}}" class="img-fluid rounded img-thumbnail">
             </div>
+            @php
+            $id =substr($photo, 25);
+            @endphp
             <div class="col-md-6">
                 <p>
                     {{__("Ajouter un commentaire")}}
                 </p>
                 <p class="card">
-                <form action="/commentaires/image" method="post" enctype="multipart/form-data">
+                <form action="{{ route('commentaires.image', [$id])}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        @php
-                        $id =substr($photo, 25);
-                        @endphp
                         <input type="text" name="id" value="{{$id}}" hidden>
                         <label for="" class="form-label">{{__("Nom")}}</label>
                         <input type="text" class="form-control" name="nom_cli" id="" aria-describedby="helpId" placeholder="{{__('votre nom')}}">

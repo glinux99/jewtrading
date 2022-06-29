@@ -1,21 +1,22 @@
 <?php
 
 use App\Models\Service;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\AgentController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\SelectController;
 use App\Http\Controllers\GalerieController;
 use App\Http\Controllers\LocalizController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\CommandeController;
 use App\Http\Controllers\JewsTradingController;
-use App\Http\Controllers\SelectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,13 +56,12 @@ Route::get('/detail/produit/{id}', [JewsTradingController::class, 'show']);
 Route::post('/send-message', [MessageController::class, 'contact']);
 Route::post('/newslatter', [ClientController::class, 'create']);
 Route::get('/commentaires/{id}', [MessageController::class, 'commentaires'])->name('commentaires');
-Route::post('/commentaires/image', [MessageController::class, 'commentaire']);
+Route::post('/commentaires/image/{id}', [MessageController::class, 'commentaire'])->name('commentaires.image');
 Route::get('/comments/admin', [MessageController::class, 'comment_admin']);
 Route::get('comment/admin/remove/{id}', [MessageController::class, 'comment_admin_remove'])->name('commentaire/remove');
 
 //ESSAIE
 Route::get('/sendsend', [ClientController::class, 'createCampaign']);
-
 // ESSAIE
 Route::middleware(['auth'])->group(function () {
     Route::get('/newslatter/all', [ClientController::class, 'index']);
