@@ -3,7 +3,7 @@
 
 MERCI D ETRE LA
 
-@component('mail::button', ['url' => $url, 'color'=])
+@component('mail::button', ['url' => $url])
 Button Text
 @endcomponent
 

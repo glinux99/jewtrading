@@ -33,11 +33,11 @@ class ClientMail extends Mailable
         if ($data['image']) {
             return $this->from('interlab21@yahoo.com')
                 ->subject($data['object'])
-                ->view('admin.mail.clientMail')
+                ->markdown('admin.mail.clientMail')
                 ->attachFromStorage('public/' . $data['image']);
         }
         return $this->from('interlab21@yahoo.com')
             ->subject("JEW TRADING CARS")
-            ->view('admin.mail.clientMail');
+            ->markdown('admin.mail.clientMail');
     }
 }

@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html>
+@component('mail::message')
+# {{ $data['object']}}
 
-<head>
-    <title>JEW TRADING</title>
-</head>
+{{$data['message']}}
 
-<body>
-    <h1> {{ $data['object']}}</h1>
-    <p> {{$data['message']}}</p>
-</body>
-
-</html>
+Merci,<br>
+{{ config('app.name') }}
+@endcomponent

@@ -109,10 +109,11 @@ Route::middleware(['auth'])->group(function () {
 Route::get('test2', function () {
 
     $contenu = [
-        'title' => 'LE DEVELOPPEUR',
-        'body' => 'Ce mail est pour tester l\'envoi de mail depuis laravel avec jewtrading MAIL'
+        'image' => '',
+        'object' => 'LE DEVELOPPEUR',
+        'message' => 'Ce mail est pour tester l\'envoi de mail depuis laravel avec jewtrading MAIL'
     ];
 
-    Mail::to('genesiskikimba@gmail.com')->send(new \App\Mail\ClientMail($contenu));
+    Mail::to('nurubanque@gmail.com')->send(new \App\Mail\ClientMail($contenu));
     return view('test');
 });
