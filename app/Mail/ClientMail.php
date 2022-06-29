@@ -31,10 +31,13 @@ class ClientMail extends Mailable
     {
         $data =  $this->data;
         if ($data['image']) {
-            return $this->from('interlab21@yahoo.com')
+            $mail = $this->from('interlab21@yahoo.com')
                 ->subject($data['object'])
-                ->markdown('admin.mail.clientMail')
-                ->attachFromStorage('public/' . $data['image']);
+                ->markdown('admin.mail.clientMail');
+            foreach ($data['image'] as $image) {
+                $mail->attachFromStorage('public/' . $image);
+            }
+            return $mail;
         }
         return $this->from('interlab21@yahoo.com')
             ->subject("JEW TRADING CARS")

@@ -13,7 +13,7 @@
     <div class="container mt-4">
         <table id="dataTable" class="table table-striped table-hover ">
             <thead>
-                <tr>
+                <tr class="text-center">
                     <th>Model</th>
                     <th>Marque</th>
                     <th>Couleur</th>
@@ -23,7 +23,7 @@
             </thead>
             <tbody>
                 @foreach ($produits as $produit)
-                <tr>
+                <tr class="text-center">
                     <td>
                         {{$produit->model}}
                     </td>
@@ -57,7 +57,7 @@
     <div class="container mt-4">
         <table id="dataTable" class="table table-striped table-hover table-sm  table-responsive">
             <thead>
-                <tr>
+                <tr class="text-center">
                     <th class="col-3">{{__("Titre")}}</th>
                     <th class="col-6">{{__("Description")}}</th>
                     <th class="col-6">{{__("Action")}}</th>
@@ -65,7 +65,7 @@
             </thead>
             <tbody>
                 @foreach ($services as $serv)
-                <tr>
+                <tr class="text-center">
                     <td>
                         {{ $serv->titreService }}
                     </td>
@@ -109,7 +109,7 @@
             </thead>
             <tbody>
                 @foreach ($agents as $agent)
-                <tr>
+                <tr class="text-center">
                     <td>
                         {{ $agent->nom_agent }}
                     </td>
@@ -145,7 +145,7 @@
     <div class="container mt-4">
         <table id="dataTable" class="table table-striped table-hover ">
             <thead>
-                <tr>
+                <tr class="text-center">
                     <th>{{__("Nom")}}</th>
                     <th>{{__("Email adresse")}}</th>
                     <th colspan="2">{{__("Commentaire")}}</th>
@@ -154,7 +154,7 @@
             </thead>
             <tbody>
                 @foreach($comments as $comment)
-                <tr>
+                <tr class="text-center">
                     <td>{{ $comment->nom_cli}}</td>
                     <td>{{ $comment->adresse_mail}}</td>
                     <td>{{ $comment->commentaires}}</td>

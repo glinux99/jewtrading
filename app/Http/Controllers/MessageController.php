@@ -14,21 +14,33 @@ use App\Models\Commentaire;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\HomeController;
+use Illuminate\Database\Eloquent\Collection;
 use App\Http\Controllers\JewsTradingController;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class MessageController extends Controller
 {
     public function index()
     {
         $clients = Email::all();
+        $clients = $this->paginate($clients);
         $discussionCli = Email::latest('created_at')->first();
         return view('admin.messages', ['clients' => $clients, 'message' => $discussionCli]);
     }
     public function contact(Request $request)
     {
+        $validate = Validator($request->all(), [
+            'email' => 'required',
+            'messages' => 'required'
+        ]);
+        if ($validate->fails()) {
+            session()->flash('error', 'one_thing_not_running');
+            return redirect()->back();
+        }
         $message = new Email;
         $Input = ['email', 'numero', 'nom', 'object', 'messages'];
         foreach ($Input as $in) {
@@ -42,8 +54,20 @@ class MessageController extends Controller
     public function message($id)
     {
         $clients = Email::all();
+        $clients = $this->paginate($clients);
         $discussionCli = Email::where('id', $id)->first();
         return view('admin.messages', ['clients' => $clients, 'message' => $discussionCli]);
+    }
+
+    public function paginate($items, $perPage = 5, $page = null, $options = [])
+
+    {
+
+        $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+
+        $items = $items instanceof Collection ? $items : Collection::make($items);
+
+        return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
     }
     public function envoyer_message(Request $request)
     {
@@ -78,6 +102,15 @@ class MessageController extends Controller
     }
     public function commentaire(Request $request, $id)
     {
+        $validate = Validator($request->all(), [
+            'nom_cli' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            // 'comments' => 'min:0|max:100'
+        ]);
+        if ($validate->fails()) {
+            session()->flash('error', 'one_thing_not_running');
+            return redirect()->back();
+        }
         $imageName = $id;
         $apropos = User::find(1)->apropos;
         $missions = User::find(1)->description;

@@ -764,15 +764,15 @@
                     <div class="mb-2">
                         <label for="" class="form-label">Object</label>
                         <input type="text" class="form-control" name="object" id="" aria-describedby="helpId" placeholder="">
-                        <small id="helpId" class="form-text text-muted">Nouveau vehicule Be-forward/Goma</small>
+                        <small id="helpId" class="form-text text-muted">{{__("Nouveau vehicule Be-forward/Goma")}}</small>
                     </div>
                     <div class="mb-2">
                         <label for="" class="form-label">Message</label>
                         <textarea class="form-control" name="message" id="" rows="3"></textarea>
                     </div>
                     <div class="mb-2">
-                        <label for="" class="form-label">Piece Jointe</label>
-                        <input type="file" class="form-control" name="file" id="" placeholder="" aria-describedby="fileHelpId">
+                        <label for="" class="form-label">{{ __("Piece(s) Jointe(s)")}}</label>
+                        <input type="file" class="form-control" name="file[]" id="" placeholder="" aria-describedby="fileHelpId" multiple>
                     </div>
                 </div>
                 <div class="modal-footer">

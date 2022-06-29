@@ -164,7 +164,7 @@
                     </div>
                     <div class="col-6">
                         <label for="" class="form-label"></label>
-                        <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" placeholder="{{__('Email adresse')}}">
+                        <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" placeholder="{{__('Email adresse')}}" required>
                     </div>
                 </div>
                 <div class="mb-2 row">
@@ -179,7 +179,7 @@
                 </div>
                 <div class="mb-2">
                     <label for="" class="form-label"></label>
-                    <textarea class="form-control" name="messages" id=""></textarea>
+                    <textarea class="form-control" name="messages" id="" required></textarea>
                 </div>
                 <div class="d-flex justify-content-center"><button class="btn btn-danger">{{__("Soumettre")}}</button></div>
             </form>

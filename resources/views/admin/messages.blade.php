@@ -11,16 +11,34 @@
         @endif
         @if($message)
         <div class="border p-2 my-1">
-            <div class="row">
-                <div class="col-md-12 d-flex align-items-center">
-                    <span class="bi-person-circle bi--4xl "></span>
-                    <div class="ms-2">
-                        <h6 class="m-0 p-0"><small>{{ $message->nom}}</small></h6>
-                        <h6 class="m-0 p-0"><small><a href="mailto:{{ $message->email}}" class="nav-lien text-dark m-0 p-0">{{ $message->email}}</a></small></h6>
+            <div class="card mb-1 p-2">
+                <div class="row">
+                    <div class="col-md-12 d-flex align-items-center">
+                        <span class="bi-person-circle bi--4xl "></span>
+                        <div class="ms-2">
+                            <h6 class="m-0 p-0"><small>{{ $message->nom}}</small></h6>
+                            <h6 class="m-0 p-0"><small><a href="mailto:{{ $message->email}}" class="nav-lien text-dark m-0 p-0">{{ $message->email}}</a></small></h6>
+                        </div>
                     </div>
                 </div>
+                <p class="p-0 m-0">{{ $message->messages}}</p>
             </div>
-            <p class="p-0 m-0">{{ $message->messages}}</p>
+            @if($message->reponse)
+            <div class="card reponseBg">
+                <div class="border-top border-danger border-5 p-2">
+                    <div class="row">
+                        <div class="col-md-12 d-flex align-items-center">
+                            <span class="bi-person-circle bi--4xl "></span>
+                            <div class="ms-2">
+                                <h6 class="m-0 p-0"><small> JEW TRADING Admin</small></h6>
+                                <h6 class="m-0 p-0 fw-bolder"><small>-{{__("Reponse envoyé par mail")}}</small></h6>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="p-0 m-0">{{ $message->reponse}}</p>
+                </div>
+            </div>
+            @endif
             <p class="p-0 m-0">
             <div class="mb-1">
                 <label for="" class="form-label"></label>
@@ -55,6 +73,15 @@
             </a>
             @endforeach
         </div>
+        @if(count($clients))
+        <div class="d-flex">
+            <div class="mx-auto mt-3">
+                @if ($clients)
+                {{ $clients->links()}}
+                @endif
+            </div>
+        </div>
+        @endif
     </div>
     @endif
 </div>

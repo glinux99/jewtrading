@@ -11,7 +11,7 @@
                 @endif
             </h5>
         </div>
-        <div class="col-md-6 d-flex justify-content-end align-items-center">
+        <div class="col-md-6 d-md-flex d-lg-flex justify-content-end align-items-center">
             <button class="btn btn-danger" role="button" data-bs-toggle="modal" data-bs-target="#newslatter">{{__("Envoyer un message")}}</button>
         </div>
     </div>
@@ -23,10 +23,10 @@
                     <th>
                         #
                     </th>
-                    <th>
+                    <th class="text-center">
                         {{__("E-mail")}}
                     </th>
-                    <th>
+                    <th class="text-center">
                         {{__("Action")}}
                     </th>
                 </thead>
@@ -34,8 +34,8 @@
                     @foreach ($newslatterCli as $client)
                     <tr>
                         <td></td>
-                        <td>{{ $client->email_Cli}}</td>
-                        <td>
+                        <td class="text-center">{{ $client->email_Cli}}</td>
+                        <td class="text-center">
                             @if ($client->newslatter)
                             <a href="/desactivate/newslatter/{{$client->id}}" class="btn btn-dark">{{__("Désabonné")}}</a>
                             @else

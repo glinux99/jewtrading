@@ -290,3 +290,7 @@ a:hover {
 .chatLink {
   color: black;
 }
+
+.reponseBg {
+  background-color: rgb(247, 199, 199) !important;
+}

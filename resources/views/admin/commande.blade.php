@@ -13,7 +13,7 @@
         @if (count($commandes) ?? 0)
         <div class="my-2">
             <table class="table table-hover table-responsive table-striped table-sm">
-                <thead>
+                <thead class="text-center">
                     <th>
                         #
                     </th>
@@ -30,7 +30,7 @@
                 </thead>
                 <tbody class="text-muted">
                     @foreach ($commandes as $index=> $commande)
-                    <tr>
+                    <tr class="text-center">
                         <td>{{$index+1}}</td>
                         <td>
                             <a href="/commande/view/{{$commande->code_prod}}" class="com">

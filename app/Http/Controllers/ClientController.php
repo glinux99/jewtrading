@@ -83,16 +83,28 @@ class ClientController extends Controller
     }
     public function sendnewslatter(Request $request)
     {
+        $validate = Validator($request->all(), [
+            'object' => 'required',
+            'file.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+        if ($validate->fails()) {
+            session()->flash('error', 'one_thing_not_running');
+            return redirect()->back();
+        }
         $path = '';
-        if (strlen(\request('file')) != '') {
-            $file = Str::random(5);
-            $ext = $request->file->getClientOriginalExtension();
-            $fileName = $file . '.' . $ext;
-            $path = $request->file('file')->storeAs(
-                'images/emails',
-                $fileName,
-                'public'
-            );
+        $path_all = array();
+        if (request('file') != '') {
+            foreach (request('file') as $fichier) {
+                $file = Str::random(5);
+                $ext = $fichier->getClientOriginalExtension();
+                $fileName = $file . '.' . $ext;
+                $path = $fichier->storeAs(
+                    'images/emails',
+                    $fileName,
+                    'public'
+                );
+                array_push($path_all, $path);
+            }
         }
         $object = "JEW TRADING CARS";
         if (request('object') != '') {
@@ -100,7 +112,7 @@ class ClientController extends Controller
         }
         $data = [
             'message' => request('message'),
-            'image' => $path,
+            'image' =>  $path_all,
             'object' => $object
         ];
         $mail = Client::where('newslatter', 1)->select('email_Cli')->get();
@@ -110,7 +122,9 @@ class ClientController extends Controller
         }
         Mail::to($newslatter)->send(new ClientMail($data));
         try {
-            Storage::disk('public')->delete('images/emails/' . $path);
+            foreach ($path_all as $path) {
+                Storage::disk('public')->delete('images/emails/' . $path);
+            }
         } catch (Exception $ex) {
             session()->flash('error', 'one_thing_not_running');
             return ClientController::index();

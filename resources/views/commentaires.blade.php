@@ -28,11 +28,11 @@
                     <div class="mb-3">
                         <input type="text" name="id" value="{{$id}}" hidden>
                         <label for="" class="form-label">{{__("Nom")}}</label>
-                        <input type="text" class="form-control" name="nom_cli" id="" aria-describedby="helpId" placeholder="{{__('votre nom')}}">
+                        <input type="text" class="form-control" name="nom_cli" id="" aria-describedby="helpId" placeholder="{{__('votre nom')}}" required>
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">{{__("Adresse E-mail")}}</label>
-                        <input type="text" class="form-control" name="adresse_mail" id="" aria-describedby="helpId" placeholder="{{ __('Votre Email adresse')}}">
+                        <input type="email" class="form-control" name="adresse_mail" id="" aria-describedby="helpId" placeholder="{{ __('Votre Email adresse')}}">
                     </div>
                     <div class="mb-3">
                         <label for="" class="form-label">{{__("Ajouter une image")}}</label>
@@ -40,7 +40,7 @@
                     </div>
                     <div class="mb-2">
                         <label for="" class="form-label"></label>
-                        <textarea class="form-control" name="commentaires" id=""></textarea>
+                        <textarea class="form-control" name="commentaires" id="" required></textarea>
                     </div>
                     <div class="d-flex justify-content-center"><button class="btn btn-danger">{{__("Soumettre")}}</button></div>
                 </form>

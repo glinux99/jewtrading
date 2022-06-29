@@ -69,6 +69,12 @@ $gal=0;
             {{__("Autour d'une galerie photographique en ligne, vous avez une vue générale de Jews trading votre plus
                 grand partenaire dans le domaine d'automobile.")}}
         </div>
+        <style>
+            .indexIm {
+                min-height: 50vh;
+                max-height: 50vh;
+            }
+        </style>
         <div id="galerieProduits" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner" role="listbox">
                 @while ($gal<count($galeries)) @php $active='' ; if($gal==0){ $active='active' ; } @endphp <div class="carousel-item {{$active}}">
@@ -79,7 +85,7 @@ $gal=0;
                             }
                             @endphp
                             <div class="col-3 p-1">
-                                <img src="{{asset($galeries[$i])}}" alt="{{$galeries[$i]}}" class="img-fluid h-100 rounded">
+                                <img src="{{asset($galeries[$i])}}" alt="{{$galeries[$i]}}" class="img-fluid h-100 rounded indexIm">
                             </div>
                             @php
                             $i++;
