@@ -112,9 +112,13 @@ class ClientController extends Controller
         try {
             Storage::disk('public')->delete('images/emails/' . $path);
         } catch (Exception $ex) {
+            session()->flash('error', 'one_thing_not_running');
             return ClientController::index();
         }
-        return ClientController::index();
+        $newslatterCli = Client::where('newslatter', '1')
+            ->orWhere('newslatter', '0')->get();
+        session()->flash('error', 'message');
+        return view("admin.newslatter", ['newslatterCli' => $newslatterCli]);
     }
     /**
      * Store a newly created resource in storage.

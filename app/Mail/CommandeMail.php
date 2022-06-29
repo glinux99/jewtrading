@@ -31,6 +31,6 @@ class CommandeMail extends Mailable
         $data = $this->data;
         return $this->from('interlab21@yahoo.com')
             ->subject($data['object'])
-            ->view('admin.mail.commande');
+            ->markdown('admin.mail.commande');
     }
 }

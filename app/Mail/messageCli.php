@@ -31,6 +31,6 @@ class messageCli extends Mailable
         $data = $this->data;
         return $this->from('interlab21@yahoo.com')
             ->subject($data['object'])
-            ->view('admin.mail.reponse');
+            ->markdown('admin.mail.reponse');
     }
 }
