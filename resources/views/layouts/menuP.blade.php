@@ -1,4 +1,4 @@
- <nav class="navbar navbar-expand-lg bg-danger navbar-dark" id="nav">
+ <nav class="navbar navbar-expand-md bg-danger navbar-dark" id="nav">
      <div class="container-fluid">
          <div class="navbar-brand ">
              <img src="{{ asset('assets/imgs/logojw.png')}}" alt="notre logo" width="40" height="40" class="d-inline-block align-text-top rounded-circle">
