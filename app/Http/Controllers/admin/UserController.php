@@ -7,6 +7,7 @@ use App\Models\Images;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -137,7 +138,11 @@ class UserController extends Controller
                 $imageSave->save();
             }
         }
-        return redirect()->route('admin.staff.index');
+        if ($request->id == Auth::id()) {
+            $image = Images::where('user_id', Auth::id())->first();
+            Session()->put('picprofile', 'storage/' . $image->images);
+            return redirect()->route('profile');
+        } else return redirect()->route('admin.staff.index');
     }
     /**
      * Remove the specified resource from storage.

@@ -62,18 +62,15 @@
                                  @lang('Transactions de paiement sécurisées')
                              </a>
                          </li>
-                         <li class="mb-2">
-                             <a class="opacity-50 hov-opacity-100 text-light" href="{{ route('register')}}">@lang("Devenir un partenaire")</a>
-                         </li>
                      </ul>
                  </div>
-                 <div class="text-center text-md-left mt-4 d-none d-lg-block d-md-block">
+                 <!-- <div class="text-center text-md-left mt-4 d-none d-lg-block d-md-block">
                      <a href="{{ route('register')}}" class="text-white">
                          <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
-                             @lang("Devenir un client")
+                             @lang("Devenir un partenaire")
                          </h4>
                      </a>
-                 </div>
+                 </div> -->
              </div>
              <div class="col-lg-3 col-6 ml-auto col-md-4 mr-0">
                  <div class="text-left mt-4">
@@ -143,7 +140,7 @@
                  <div class="text-center text-md-left opacity-40" current-verison="1.2">
                      © @php
                      echo Date('Y')
-                     @endphp <a href="/administrateur" class="text-white">{{ Config('app.name')}}</a>| @lang("Limited. All Rights Reserved.") <br>
+                     @endphp <a href="{{ route('login')}}" class=" text-white">{{ Config('app.name')}}</a>| @lang("Limited. All Rights Reserved.") <br>
                      @lang("propulse par") <a href="http://subnetcongo.com" target="_blank" rel="noopener noreferrer" class="text-white">
                          subnetCongo
                      </a>

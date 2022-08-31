@@ -7,10 +7,10 @@
             <div class="aiz-titlebar text-left mt-2 mb-3">
                 <div class="row align-items-center">
                     <div class="col-md-6">
-                        <h1 class="h3">@lang("Configuration mon profile")</h1>
+                        <h1 class="h3">@lang("Configuration de mon profile")</h1>
                     </div>
                     <div class="col-md-6 text-md-right">
-                        <a href="{{route('profile')}}" class="btn btn-circle btn-info">
+                        <a href="{{route('profile')}}" class="btn btn-circle btn-danger">
                             <span>@lang("Mon profile")</span>
                         </a>
                     </div>
@@ -28,26 +28,26 @@
                                 </div>
                                 <div class="float-right d-flex">
                                     <p class="mr-2 align-self-center">@lang("Recevoir les notifications")</p>
-                                    <label class="aiz-switch aiz-switch-success mb-0">
+                                    <label class="aiz-switch aiz-switch-danger mb-0">
                                         <input type="checkbox" name="notificable">
                                         <span></span>
                                     </label>
                                 </div>
                             </div>
                             <div class="modal-body">
-                                <input type="text" name="id" id="idIn" hidden>
+                                <input type="text" name="id" id="idIn" value="{{ Auth::id() }}" hidden>
                                 <p class="mt-1">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">@lang('Nom')</label>
-                                            <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="@lang('Nom de l\'agent')">
+                                            <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="@lang('nom')" value="{{ Auth::user()->name ?? 'Jews'}}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">@lang('Adresse E-mail')</label>
-                                            <input type="text" class="form-control" name="email" id="email" autocomplete="new-password" aria-describedby="helpId" placeholder="@lang('adresse email de l\'agent')">
+                                            <input type="text" class="form-control" name="email" id="email" autocomplete="new-password" aria-describedby="helpId" placeholder="@lang('adresse email')" value="{{ Auth::user()->email ?? 'genesiskikimb@gmail.com'}}">
                                         </div>
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">@lang('poste')</label>
-                                            <input type="text" class="form-control" name="poste" id="poste" aria-describedby="helpId" placeholder="@lang('Nom de l\'agent')">
+                                            <input type="text" class="form-control" name="poste" id="poste" aria-describedby="helpId" placeholder="@lang('mon poste')" value="{{ Auth::user()->poste ?? 'admin' }}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -69,13 +69,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">@lang('Numero Tel /Whatsapp')</label>
-                                            <input type="text" class="form-control" name="numero" id="numero" aria-describedby="helpId">
+                                            <input type="text" class="form-control" name="numero" id="numero" aria-describedby="helpId" value="{{ Auth::user()->numero ?? '0970912428'}}">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">@lang('Adresse physique')</label>
-                                            <input type="text" class="form-control" name="adresse" id="adresse" aria-describedby="helpId">
+                                            <input type="text" class="form-control" name="adresse" id="adresse" aria-describedby="helpId" value="{{ Auth::user()->adresse ?? 'Goma'}}">
                                         </div>
                                     </div>
                                 </div>
@@ -97,13 +97,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">@lang('site web')</label>
-                                            <input type="text" class="form-control" name="site" id="site" aria-describedby="helpId">
+                                            <input type="text" class="form-control" name="site" id="site" aria-describedby="helpId" value="www.jewstrading.com">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="">@lang('Lien facebook/Twitter')</label>
-                                            <input type="text" class="form-control" name="liens" id="liens" aria-describedby="helpId">
+                                            <input type="text" class="form-control" name="liens" id="liens" aria-describedby="helpId" value="{{ Auth::user()->facebook ?? ''}}">
                                         </div>
                                     </div>
                                 </div>
@@ -114,7 +114,7 @@
                     <div class="col-12">
                         <div class="btn-toolbar float-right mb-3" role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group" role="group" aria-label="Second group">
-                                <button type="submit" name="button" value="publish" class="btn btn-success action-btn">@lang("Enregistrer")</button>
+                                <button type="submit" name="button" value="publish" class="btn btn-danger action-btn">@lang("Enregistrer")</button>
                             </div>
                         </div>
                     </div>

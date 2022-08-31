@@ -105,20 +105,10 @@
 
 
         <div class="row gutters-10">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="mb-0 fs-14">@lang("Categorie de produits vendus")</h6>
-                    </div>
-                    <div class="card-body">
-                        <canvas id="graph-1" class="w-100" height="500"></canvas>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h6 class="mb-0 fs-14">@lang("Categorie de produits en stock")</h6>
+                        <h6 class="mb-0 fs-14">@lang("Vehicules en stock")</h6>
                     </div>
                     <div class="card-body">
                         <canvas id="graph-2" class="w-100" height="500"></canvas>

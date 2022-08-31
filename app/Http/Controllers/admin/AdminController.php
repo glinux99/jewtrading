@@ -4,16 +4,19 @@ namespace App\Http\Controllers\admin;
 
 use App\Models\Images;
 use App\Models\Produit;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
     public function config()
     {
-        if (Auth::user() && Images::find(Auth::id())) {
-            $img = Images::find(Auth::id())->paginate(1);
+        $image = Images::where('user_id', Auth::id())->first();
+        if (Auth::user() && $image) {
+            $img = 'storage/' . $image->images;
         } else $img = "assets/img/default.png";
         Session()->put('picprofile', $img);
     }
@@ -24,6 +27,7 @@ class AdminController extends Controller
      */
     public function index()
     {
+        AdminController::config();
         $produits = Produit::join('images', 'produit_id', 'produits.id')->groupby('images.produit_id')->distinct()->paginate(10);
         return view('admin.admin', ['produits' => $produits]);
     }
@@ -39,7 +43,8 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $galeries = Images::where('images.galerie', '!=', null)->get();
+        return view('admin.galerie', ['galeries' => $galeries]);
     }
 
     /**
@@ -50,7 +55,24 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->file('images')) {
+            foreach ($request->file('images') as $index => $image) {
+                $imageSave = new Images;
+                $file = Str::random(5);
+                $ext = $image->getClientOriginalExtension();
+                $fileName = $file . '.' . $ext;
+                $path = $image->storeAs(
+                    'images/galerie',
+                    $fileName,
+                    'public'
+                );
+                $imageSave->images = $path;
+                $imageSave->galerie = $request->categorie;
+                $imageSave->description = $request->description;
+                $imageSave->save();
+            }
+        }
+        return redirect()->route('admin.galerie');
     }
 
     /**
@@ -95,6 +117,11 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $image = Images::find($id);
+        if ($image->images != "assets/img/default.png") {
+            Storage::disk('public')->delete($image->images);
+        }
+        Images::find($id)->delete();
+        return redirect()->route('admin.galerie');
     }
 }

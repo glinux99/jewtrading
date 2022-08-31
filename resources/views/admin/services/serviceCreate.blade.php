@@ -9,7 +9,7 @@
                     <h1 class="h3">@lang("Configuration Services")</h1>
                 </div>
                 <div class="col-md-6 text-md-right">
-                    <a href="" class="btn btn-circle btn-info" data-toggle="modal" data-target="#serviceAddModal">
+                    <a href="" class="btn btn-circle btn-danger" data-toggle="modal" data-target="#serviceAddModal">
                         <span>@lang("Ajouter un service")</span>
                     </a>
                 </div>

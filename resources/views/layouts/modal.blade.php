@@ -228,3 +228,77 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="imageGalerie">
+    <div class="modal-dialog modal-md  ">
+        <form action="{{ route('admin.galerie.store')}}" method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageGalerieLabel">{{__("Ajouter une image")}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12 mx-auto">
+                        <div class="row">
+                            <div class="col-2">
+                                <label for="titre" class="form-label">
+                                    {{__("Categorie de l'image")}}
+                                </label>
+                            </div>
+                            <div class="col-10">
+                                <select class="form-control" name="categorie" id="">
+                                    <option value="client">{{__("Client")}}</option>
+                                    <option class="produit">{{__("Produit")}}</option>
+                                    <option class="equipe">{{__("Equipe")}}</option>
+                                    <option value="partenaire">{{__("Partenaire")}}</option>
+                                    <option value="autres">{{__("Autres")}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 my-1">
+                                <label for="titre" class="form-label">
+                                    {{__("Images")}}
+                                </label>
+                            </div>
+                            <div class="col-10 my-1">
+                                <input type="file" name="images[]" id="" class="form-control" multiple>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2 my-1">
+                                <label for="titre" class="form-label">
+                                    {{__("Déscription")}}
+                                </label>
+                            </div>
+                            <div class="col-10 my-1">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark mt-2" data-dismiss="modal">@lang("Annuler")</button>
+                    <button type="submit" class="btn btn-danger">{{__("Enregistrer")}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="delete-modal-galerie" class="modal fade">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title h6">@lang("Confirmation de suppression")</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p class="mt-1">@lang("Voulez-vous vraiment supprimer cette image?")</p>
+                <button type="button" class="btn btn-link mt-2" data-dismiss="modal">@lang("Annuler")</button>
+                <a href="" class="btn btn-primary mt-2 comfirm-link" data-id="">@lang("Supprimer")</a>
+            </div>
+        </div>
+    </div>
+</div>

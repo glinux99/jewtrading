@@ -10,7 +10,7 @@
                     </div>
                     <div class="col-md-6 text-md-right">
 
-                        <a href="{{route('admin.staff.profile')}}" class="btn btn-circle btn-info">
+                        <a href="{{route('admin.staff.profile')}}" class="btn btn-circle btn-danger">
                             <span>@lang('Modifier')</span>
                         </a>
                     </div>
@@ -38,8 +38,8 @@
                                 </style>
                                 <a href="{{ asset(Session('picprofile'))}}">
                                     <img class="avatar border-gray" src="{{ asset(Session('picprofile'))}}" alt="Profile" />
-                                    <h4 class="title text-center">{{ Auth::user()->name }}<br />
-                                        <small>{{ auth()->user()->getRoleNames()->first()}}</small>
+                                    <h4 class="title text-center">{{ Auth::user()->name ?? 'Daniel' }}<br />
+                                        <small>{{ auth()->user()->getRoleNames()->first() ?? ''}}</small>
 
                                     </h4>
                                 </a>

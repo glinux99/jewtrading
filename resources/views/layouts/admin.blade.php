@@ -40,7 +40,7 @@
         <div class="aiz-sidebar-wrap">
             <div class="aiz-sidebar left c-scrollbar bg-danger2">
                 <div class="aiz-side-nav-logo-wrap bg-white opacity-70 ">
-                    <a href="/admin" class="d-block text-left d-flex align-content-center">
+                    <a href="{{ route('admin')}}" class="d-block text-left d-flex align-content-center">
                         <img class="" src="{{asset('assets/img/logojw.png')}}" class="brand-icon" alt="">
                         <h5 class="text-dark text-capitalise fs-15 " style="font-family: Garamond, serif;">@lang("JEWS TRADING")</h5>
                     </a>
@@ -54,7 +54,7 @@
                     </ul>
                     <ul class="aiz-side-nav-list" id="main-menu" data-toggle="aiz-side-menu">
                         <li class="aiz-side-nav-item">
-                            <a href="/admin" class="aiz-side-nav-link">
+                            <a href="{{ route('admin')}}" class="aiz-side-nav-link">
                                 <i class="las la-home aiz-side-nav-icon"></i>
                                 <span class="aiz-side-nav-text">@lang('Tableau de board')</span>
                             </a>
@@ -88,7 +88,7 @@
 
                     <!-- Addon Manager -->
                     <li class="aiz-side-nav-item">
-                        <a href="#" class="aiz-side-nav-link ">
+                        <a href="{{ route('admin.galerie')}}" class="aiz-side-nav-link ">
                             <i class="las la-wrench aiz-side-nav-icon"></i>
                             <span class="aiz-side-nav-text">@lang("Gallerie")</span>
                         </a>
