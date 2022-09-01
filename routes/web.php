@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\Site\ProduitController;
 use App\Http\Controllers\Site\ServiceController;
 use App\Http\Controllers\Site\HomeSiteController;
-use App\Http\Controllers\admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,5 +63,8 @@ Route::any('/register', function () {
 // Test
 Route::get('/test', function () {
     return view('test');
+});
+Route::get('migration', function () {
+    Artisan::call('migrate:refresh --seed');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
