@@ -26,7 +26,7 @@
                         <div class="aiz-card-box border border-light rounded shadow-sm hov-shadow-md mb-2 has-transition bg-white">
                             <div class="position-relative">
                                 <a href="#" class="d-block">
-                                    <img class="img-cover lazyload mx-auto h-210px" src="#" data-src="{{ asset('storage/'.$galerie->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                    <img class="img-fit lazyload mx-auto h-210px" src="#" data-src="{{ asset('storage/'.$galerie->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                                 </a>
                                 <div class="absolute-top-right aiz-p-hov-icon mt-2">
                                     <a href="javascript:void(0)" data-toggle="tooltip" data-title="@lang('Modifier')" data-placement="left" data-id="">

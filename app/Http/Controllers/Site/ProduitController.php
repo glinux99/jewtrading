@@ -41,7 +41,7 @@ class ProduitController extends Controller
     public function store(Request $request)
     {
         $produit = Produit::create($request->except(['_token']));
-        if ($request->file('images') != '') {
+        if ($request->file('images')) {
             foreach ($request->file('images') as $index => $image) {
                 $imageSave = new Images;
                 $file = Str::random(5);

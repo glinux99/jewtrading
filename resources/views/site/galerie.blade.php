@@ -45,8 +45,8 @@
                 <div class="row lightgallery w-100 mx-auto">
                     @foreach ($galeries as $image)
                     <div class="col-md-4 col-lg-4 d-flex justify-content-center  my-2 position-relative img-gal d-flex justify-content-center" data-responsive="{{asset('asset/'.$image->images)}}" data-src="{{asset('asset/'.$image->images)}}" data-sub-html="<h4>Jew trading Cars</h4><p>ppp</p>">
-                        <div class="ratio ratio-16x9">
-                            <img src="{{asset('storage/'.$image->images)}}" class="card-img-top  " loading="lazy" alt="...">
+                        <div class="img-fit lazyload h-xxl-310px h-xl-260px h-340px">
+                            <img src="{{asset('storage/'.$image->images)}}" class="img-fluid img-thumbnail h-100 w-100" loading="lazy" alt="...">
                         </div>
                         <!-- <img class="img-fluid h-100 w-100 rounded img-thumbnail" src="{{asset('storage/'.$image->images)}}" alt="ddd"> -->
                         <div class="position-absolute btn-seach"><span class="bi-search bi--4xl"></span></div>

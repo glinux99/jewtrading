@@ -316,7 +316,7 @@
                                 <div class="aiz-card-box border border-light rounded hov-shadow-md my-2 has-transition">
                                     <div class="">
                                         <a href="{{ route('produit.details',[$produit->produit_id])}}" class="d-block">
-                                            <img class="img-cover lazyload mx-auto h-140px h-md-210px" src="" data-src="{{ asset('storage/'.$produit->images)}}" alt="rien" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                            <img class="img-fit lazyload mx-auto h-140px h-md-210px" src="" data-src="{{ asset('storage/'.$produit->images)}}" alt="rien" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                                         </a>
                                     </div>
                                     <div class="p-md-3 p-2 text-left">

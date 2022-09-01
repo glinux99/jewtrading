@@ -28,11 +28,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin-galerie-delete/{id}', [AdminController::class, 'destroy'])->name('admin.galerie.delete');
     Route::post('/admin-galerie-update', [AdminController::class, 'update'])->name('admin.galerie.update');
     Route::post('/admin-galerie-edit', [AdminController::class, 'edit'])->name('admin.galerie.edit');
-    Route::post('/produit-store', [ProduitController::class, 'store'])->name('produit.store');
     Route::get('/produit-create', [ProduitController::class, 'create'])->name('produit.create');
-    Route::post('/service-store', [ServiceController::class, 'store'])->name('service.store');
     Route::get('/service-create', [ServiceController::class, 'create'])->name('service.create');
-    Route::get('/produit-details/{id}', [ProduitController::class, 'show'])->name('produit.details');
     Route::post('/produit-store', [ProduitController::class, 'store'])->name('produit.store');
     Route::post('/service-store', [ServiceController::class, 'store'])->name('service.store');
     Route::post('/service-update/{id}', [ServiceController::class, 'update'])->name('service.update');
@@ -56,6 +53,7 @@ Route::get('/contact', [HomeSiteController::class, 'contact'])->name('home.conta
 Route::get('/apropos', [HomeSiteController::class, 'apropos'])->name('home.apropos');
 Route::get('/galerie', [HomeSiteController::class, 'galerie'])->name('home.galerie');
 Route::get('/produits', [ProduitController::class, 'index'])->name('produits.all');
+Route::get('/produit-details/{id}', [ProduitController::class, 'show'])->name('produit.details');
 Route::get('/produit-detail/{id}', [ProduitController::class, 'show'])->name('produit.detail');
 Auth::routes();
 Route::any('/register', function () {

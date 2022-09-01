@@ -129,7 +129,7 @@
                         <div class="aiz-card-box border border-light rounded shadow-sm hov-shadow-md mb-2 has-transition bg-white">
                             <div class="position-relative">
                                 <a href="#" class="d-block">
-                                    <img class="img-cover lazyload mx-auto h-210px" src="#" data-src="{{ asset('storage/'.$produit->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
+                                    <img class="img-fit lazyload mx-auto h-210px" src="#" data-src="{{ asset('storage/'.$produit->images)}}" alt="" onerror="this.onerror=null;this.src='https://demo.activeitzone.com/ecommerce/public/assets/img/placeholder.jpg';">
                                 </a>
                             </div>
                             <div class="p-md-3 p-2 text-left">

@@ -66,10 +66,10 @@
                     max-height: 50vh;
                 }
             </style>
-            <div class="swiffy-slider slider-item-show3 slider-item-reveal slider-item-nogap slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-page slider-item-snapstart slider-nav-autoplay slider-nav-autopause slider-nav-animation slider-nav-animation-fadein" data-slider-nav-autoplay-interval="3000">
+            <div class="swiffy-slider slider-item-show6 slider-item-reveal slider-item-nogap slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-page slider-item-snapstart slider-nav-autoplay slider-nav-autopause slider-nav-animation slider-nav-animation-fadein" data-slider-nav-autoplay-interval="3000">
                 <ul class="slider-container">
                     @foreach ($galeries as $image)
-                    <li><img src="{{asset('storage/'.$image->images)}}" style="max-width: 100%;height: 80%;"></li>
+                    <li><img src="{{asset('storage/'.$image->images)}}" class="card-img d-none d-md-block img-thumbnail " loading="lazy" style="height: 80%; object-fit: center;"></li>
                     @endforeach
                 </ul>
             </div>
