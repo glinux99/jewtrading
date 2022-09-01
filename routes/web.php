@@ -67,4 +67,7 @@ Route::get('/test', function () {
 Route::get('migration', function () {
     Artisan::call('migrate:refresh --seed');
 });
+Route::get('links', function () {
+    Artisan::call('storage:link');
+});
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
