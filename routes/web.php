@@ -73,6 +73,6 @@ Route::get('links', function () {
 });
 Route::get('caches', function () {
     Artisan::call('cache:clear');
-    // /Artisan::call('route:clear');
+    Artisan::call('route:clear');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
