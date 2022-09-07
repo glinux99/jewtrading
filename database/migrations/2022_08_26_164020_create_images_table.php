@@ -18,10 +18,10 @@ class CreateImagesTable extends Migration
             $table->string('images');
             $table->string('galerie')->nullable();
             $table->string('description')->nullable();
-            $table->bigInteger('produit_id')->nullable();
-            $table->bigInteger('user_id')->nullable();
-            $table->foreign('produit_id')->references('id')->on('produits')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->unsigned();
+            $table->unsignedBigInteger('produit_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('produit_id')->references('id')->on('produits');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
