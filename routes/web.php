@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\admin\UserController;
@@ -69,5 +70,9 @@ Route::get('migration', function () {
 });
 Route::get('links', function () {
     Artisan::call('storage:link');
+});
+Route::get('caches', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('route:clear');
 });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

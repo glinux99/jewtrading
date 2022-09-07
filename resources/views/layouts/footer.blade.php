@@ -140,7 +140,7 @@
                  <div class="text-center text-md-left opacity-40" current-verison="1.2">
                      © @php
                      echo Date('Y')
-                     @endphp <a href="{{ route('login')}}" class=" text-white">{{ Config('app.name')}}</a>| @lang("Limited. All Rights Reserved.") <br>
+                     @endphp <a href="{{ route('login')}}" class="text-white">{{ Config('app.name')}}</a>| @lang("Limited. All Rights Reserved.") <br>
                      @lang("propulse par") <a href="http://subnetcongo.com" target="_blank" rel="noopener noreferrer" class="text-white">
                          subnetCongo
                      </a>
