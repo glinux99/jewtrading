@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
@@ -61,11 +62,14 @@ class AdminController extends Controller
                 $file = Str::random(5);
                 $ext = $image->getClientOriginalExtension();
                 $fileName = $file . '.' . $ext;
-                $path = $image->storeAs(
-                    'images/galerie',
-                    $fileName,
-                    'public'
-                );
+
+                $path = Image::make($image)->encode('jpg', 65)
+                    ->storeAs(
+                        'images/galerie',
+                        $fileName,
+                        'public'
+                    );
+                dd($path);
                 $imageSave->images = $path;
                 $imageSave->galerie = $request->categorie;
                 $imageSave->description = $request->description;
