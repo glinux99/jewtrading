@@ -61,15 +61,18 @@ class AdminController extends Controller
                 $imageSave = new Images;
                 $file = Str::random(5);
                 $ext = $image->getClientOriginalExtension();
-                $fileName = $file . '.' . $ext;
+                $fileName = $file . '.jpg';
 
                 $path = Image::make($image)->encode('jpg', 65)
-                    ->storeAs(
-                        'images/galerie',
-                        $fileName,
-                        'public'
-                    );
-                dd($path);
+                    ->save(public_path('/storage/images/galerie/' . $fileName));
+
+                // $path = $image->storeAs(
+                //     'images/galerie',
+                //     $fileName,
+                //     'public'
+                // );
+                // dd($path);
+                $path = "images/galerie/" . $fileName;
                 $imageSave->images = $path;
                 $imageSave->galerie = $request->categorie;
                 $imageSave->description = $request->description;
