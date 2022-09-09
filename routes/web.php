@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\admin\UserController;
-use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\adminjews\UserController;
+use App\Http\Controllers\adminjews\AdminController;
 use App\Http\Controllers\Site\ProduitController;
 use App\Http\Controllers\Site\ServiceController;
 use App\Http\Controllers\Site\HomeSiteController;
