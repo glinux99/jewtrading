@@ -13,6 +13,6 @@ class SelectSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Select::factory(500)->create();
+        \App\Models\Select::factory(1000)->create();
     }
 }
