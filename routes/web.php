@@ -3,11 +3,12 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
-use App\Http\Controllers\adminjews\UserController;
-use App\Http\Controllers\adminjews\AdminController;
+use App\Http\Controllers\SelectController;
 use App\Http\Controllers\Site\ProduitController;
 use App\Http\Controllers\Site\ServiceController;
 use App\Http\Controllers\Site\HomeSiteController;
+use App\Http\Controllers\adminjews\UserController;
+use App\Http\Controllers\adminjews\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/admin-update-profile', [UserController::class, 'update'])->name('admin.staff.update.profile');
     Route::get('/admin-profile', [UserController::class, 'profile'])->name('admin.staff.profile');
     Route::get('/admin-profile-me', [UserController::class, 'profile_me'])->name('profile');
+    // select controller
+    Route::get('/search/{search}/{id}', [SelectController::class, 'search'])->name('search');
+    Route::get('/selectMarque', [SelectController::class, 'marque']);
+    Route::get('/selectModel', [SelectController::class, 'model']);
+    Route::get('/selectCarburateur', [SelectController::class, 'carburateur']);
 });
 // Authentificate
 Route::get('/', [HomeSiteController::class, 'index'])->name('index');

@@ -14,17 +14,17 @@
                             <div class="col-md-6">
                                 <div class="mb-3 ">
                                     <label for="marque " class="form-label">Marque</label>
-                                    <input type="text" class="form-control" value="Toyota" name="marque">
-                                    <!-- <select name="marque" id="" class="form-control selectMarque" required></select> -->
+                                    <!-- <input type="text" class="form-control" value="Toyota" name="marque"> -->
+                                    <select name="marque" id="" class="form-control selectMarque" required></select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class=" mb-3">
                                     <label for="model" class="form-label">Model</label>
-                                    <input type="text" class="form-control" value="Toyota" name="model">
-                                    <!-- <select class="form-control SelectModel" name="model" id="" required>
+                                    <!-- <input type="text" class="form-control" value="Toyota" name="model"> -->
+                                    <select class="form-control SelectModel" name="model" id="" required>
                                         <option value="">creer un element</option>
-                                    </select> -->
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -51,14 +51,14 @@
                                     <select class="form-control " name="transmission" id="" required>
                                         <option value="Manuelle">Manuelle</option>
                                         <option value="Automatique">Automatique</option>
+                                        <option value="Semi-manuel">Semi-manuel</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3 ">
                                     <label for="marque " class="form-label">{{__("Carburateur")}}</label>
-                                    <input type="text" name="carburateur" id="" class="form-control">
-                                    <!-- <select name="carburateur" id="" class="form-control selectMarque" required></select> -->
+                                    <select class="form-select SelectCarburateur" name="carburateur" id="" required></select>
                                 </div>
                             </div>
                             <div class="col-md-6">

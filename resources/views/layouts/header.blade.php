@@ -10,15 +10,15 @@
 <link rel="stylesheet" href="{{asset('assets/vendor/css_js/css.css')}}">
 <link rel="stylesheet" href="{{asset('assets/vendor/css_js/lightgallery.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets/vendor/icons/font/bootstrap-icons.css')}}">
-<link href="{{asset('assets/vendor/selected2/dist/css/select2.min.css')}}" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
 <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.5.3/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
 <!-- CSS Files -->
 <link rel="stylesheet" href="{{asset('assets/vendor/css_js/lightgallery.min.css')}}">
 <link rel="stylesheet" href="{{ asset('assets/css/vendors.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/aiz-core.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
 <link rel="stylesheet" href="{{ asset('assets/css/custom-style.css')}}">
 <link href="{{asset('assets/vendor/selected2/dist/css/select2.min.css')}}" rel="stylesheet" />
-<link rel="stylesheet" href="{{ asset('assets/css/aiz-core.css')}}">
 <script>
     var AIZ = AIZ || {};
     AIZ.local = {

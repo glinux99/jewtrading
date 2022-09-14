@@ -1,6 +1,7 @@
       <script src="{{ asset('assets/js/jquery.min.js')}}"></script>
       <script src="{{asset('assets/js/vendors.js')}}"></script>
       <script src="{{asset('assets/js/aiz-core.js')}}"></script>
+      <script src="{{asset('assets/vendor/selected2/dist/js/select2.min.js')}}"></script>
       <script src="{{asset('assets/vendor/dist/js/bootstrap.bundle.min.js')}}"></script>
       @include('layouts.light')
       <script script type="text/javascript">
@@ -286,6 +287,69 @@
                       $("#main-menu").removeClass('d-none');
                       $("#search-menu").html('')
                   }
+              }
+          });
+      </script>
+      <!-- Ajouter un vehicule sscript -->
+      <script type="text/javascript">
+          $('.selectMarque').select2({
+              placeholder: 'Seclectionner une marque',
+              tags: true,
+              ajax: {
+                  url: '/selectMarque',
+                  dataType: 'json',
+                  delay: 100,
+                  processResults: function(data) {
+                      return {
+                          results: $.map(data, function(item) {
+                              return {
+                                  text: item.marque,
+                                  id: item.marque
+                              }
+                          })
+                      };
+                  },
+                  cache: true
+              }
+          });
+          $('.SelectModel').select2({
+              placeholder: 'Seclectionner un model',
+              tags: true,
+              ajax: {
+                  url: '/selectModel',
+                  dataType: 'json',
+                  delay: 100,
+                  processResults: function(data) {
+                      return {
+                          results: $.map(data, function(item) {
+                              return {
+                                  text: item.model,
+                                  id: item.model,
+                              }
+                          }),
+                      };
+                  },
+                  cache: true
+              }
+          });
+          $('.SelectCarburateur').select2({
+              placeholder: 'type de carburateur',
+              tags: true,
+              ajax: {
+                  url: '/selectCarburateur',
+                  dataType: 'json',
+                  delay: 100,
+                  processResults: function(data) {
+                      return {
+                          results: $.map(data, function(item) {
+                              return {
+                                  text: item.carburateur,
+                                  id: item.carburateur,
+                              }
+                          }),
+                      };
+                  },
+                  cache: true
               }
           });
       </script>
