@@ -17,6 +17,7 @@
 
     <!-- CSS Files -->
     @include('layouts.header')
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
     <style>
         body {
             font-size: 12px;
