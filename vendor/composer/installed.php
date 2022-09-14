@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'e1edb7cd575a61aee13052fe080e82aef0335c99',
+    'reference' => 'ea5b71cb60df8a45116db659ac13beb694b025a1',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -445,7 +445,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'e1edb7cd575a61aee13052fe080e82aef0335c99',
+      'reference' => 'ea5b71cb60df8a45116db659ac13beb694b025a1',
     ),
     'laravel/sail' => 
     array (
@@ -615,6 +615,15 @@
       array (
       ),
       'reference' => '3d81e4309d2a927abbe66df935f4bb60082805ad',
+    ),
+    'pelmered/fake-car' => 
+    array (
+      'pretty_version' => '1.7',
+      'version' => '1.7.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1fcca25418feefeb0d3d6a2c275f098726cb0301',
     ),
     'phar-io/manifest' => 
     array (

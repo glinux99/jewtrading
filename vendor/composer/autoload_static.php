@@ -144,6 +144,7 @@ class ComposerStaticInit2b9954f3af31a356f9fbf116ab6bca9b
         'F' => 
         array (
             'Fruitcake\\Cors\\' => 15,
+            'Faker\\Provider\\' => 15,
             'Faker\\' => 6,
             'Facade\\Ignition\\' => 16,
             'Facade\\IgnitionContracts\\' => 25,
@@ -443,6 +444,10 @@ class ComposerStaticInit2b9954f3af31a356f9fbf116ab6bca9b
         array (
             0 => __DIR__ . '/..' . '/fruitcake/laravel-cors/src',
         ),
+        'Faker\\Provider\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pelmered/fake-car/src',
+        ),
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fakerphp/faker/src/Faker',
@@ -541,8 +546,8 @@ class ComposerStaticInit2b9954f3af31a356f9fbf116ab6bca9b
         'App\\Http\\Controllers\\Site\\HomeSiteController' => __DIR__ . '/../..' . '/app/Http/Controllers/Site/HomeSiteController.php',
         'App\\Http\\Controllers\\Site\\ProduitController' => __DIR__ . '/../..' . '/app/Http/Controllers/Site/ProduitController.php',
         'App\\Http\\Controllers\\Site\\ServiceController' => __DIR__ . '/../..' . '/app/Http/Controllers/Site/ServiceController.php',
-        'App\\Http\\Controllers\\admin\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/admin/AdminController.php',
-        'App\\Http\\Controllers\\admin\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/admin/UserController.php',
+        'App\\Http\\Controllers\\adminjews\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/adminjews/AdminController.php',
+        'App\\Http\\Controllers\\adminjews\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/adminjews/UserController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -555,6 +560,7 @@ class ComposerStaticInit2b9954f3af31a356f9fbf116ab6bca9b
         'App\\Models\\Images' => __DIR__ . '/../..' . '/app/Models/Images.php',
         'App\\Models\\Message' => __DIR__ . '/../..' . '/app/Models/Message.php',
         'App\\Models\\Produit' => __DIR__ . '/../..' . '/app/Models/Produit.php',
+        'App\\Models\\Select' => __DIR__ . '/../..' . '/app/Models/Select.php',
         'App\\Models\\Service' => __DIR__ . '/../..' . '/app/Models/Service.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -670,6 +676,7 @@ class ComposerStaticInit2b9954f3af31a356f9fbf116ab6bca9b
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+        'Database\\Factories\\SelectFactory' => __DIR__ . '/../..' . '/database/factories/SelectFactory.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'Database\\Seeders\\PermissionSeed' => __DIR__ . '/../..' . '/database/seeders/PermissionSeed.php',
@@ -1064,9 +1071,11 @@ class ComposerStaticInit2b9954f3af31a356f9fbf116ab6bca9b
         'Faker\\Provider\\Barcode' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/Barcode.php',
         'Faker\\Provider\\Base' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/Base.php',
         'Faker\\Provider\\Biased' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/Biased.php',
+        'Faker\\Provider\\CarData' => __DIR__ . '/..' . '/pelmered/fake-car/src/CarData.php',
         'Faker\\Provider\\Color' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/Color.php',
         'Faker\\Provider\\Company' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/Company.php',
         'Faker\\Provider\\DateTime' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/DateTime.php',
+        'Faker\\Provider\\Fakecar' => __DIR__ . '/..' . '/pelmered/fake-car/src/Fakecar.php',
         'Faker\\Provider\\File' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/File.php',
         'Faker\\Provider\\HtmlLorem' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/HtmlLorem.php',
         'Faker\\Provider\\Image' => __DIR__ . '/..' . '/fakerphp/faker/src/Faker/Provider/Image.php',

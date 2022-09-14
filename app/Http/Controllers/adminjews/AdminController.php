@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\adminjews;
 
 use App\Models\Images;
 use App\Models\Produit;
