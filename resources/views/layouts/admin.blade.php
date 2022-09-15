@@ -76,7 +76,7 @@
                                 </li>
                         </li>
                         <li class="aiz-side-nav-item">
-                            <a href="{{('commades')}}" class="aiz-side-nav-link ">
+                            <a href="{{ route('commande.index')}}" class="aiz-side-nav-link ">
                                 <span class="aiz-side-nav-text">@lang("Demandes de produits")</span>
                             </a>
                         </li>
@@ -331,6 +331,7 @@
 
     </div><!-- .aiz-main-wrapper -->
     @include('layouts.script')
+    @include('layouts.alert-script')
 </body>
 
 </html>

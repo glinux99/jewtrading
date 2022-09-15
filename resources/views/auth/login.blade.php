@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('contenu')
-<div class="h-100 bg-cover bg-center py-5 d-flex align-items-center" style="background-image: url('/assets/img/bg-african.jpg')">
+<div class="h-100 bg-cover bg-center py-5 d-flex align-items-center" style="background-image: url('/assets/img/bgjews.png')">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-xl-4 mx-auto">
@@ -8,7 +8,7 @@
                     <div class="card-body">
                         <div class="mb-4 text-center">
                             <img src="{{asset('assets/img/logojw.png')}}" class="mw-100 mb-2" height="100">
-                            <p class="fs-18 text-primary mb-0 text-uppercase fw-700">@lang("Connection")</p>
+                            <p class="fs-18 text-danger mb-0 text-uppercase fw-700"> {{ Config('app.name')}} @lang("Login")</p>
                             <p class="my-2 opacity-60">@lang("Connectez-vous avec votre propre compte")</p>
                         </div>
                         <form class="pad-hor" method="POST" role="form" action="{{route('login')}}">
@@ -26,8 +26,8 @@
     right: 18px;
     cursor: pointer;"></div>
                             </div>
-                            <div class="row mb-2">
-                                <div class="col-sm-6">
+                            <div class="d-flex my-3">
+                                <div class="">
                                     <div class="text-left">
                                         <label class="aiz-checkbox">
                                             <input type="checkbox" name="remember" id="remember">
@@ -36,7 +36,7 @@
                                         </label>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="ms-3">
                                     <div class="text-right opacity-100">
                                         <a href="password/reset.html" class="text-reset text-lowercase">@lang("Mot de passe oublie?")</a>
                                     </div>
@@ -46,9 +46,6 @@
                                 @lang("Se connecter")
                             </button>
                         </form>
-                        <div class="mt-4 text-center">
-                            <a href="{{route('register')}}"> @lang("Vous n'avez pas de compte? creer votre compte")</a>
-                        </div>
                         <div class="mt-4">
                             <p class="m-0 p-0 text-center">
                                 @lang("Propulse par SubnetCongo")

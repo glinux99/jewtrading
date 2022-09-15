@@ -4,6 +4,17 @@
       <script src="{{asset('assets/vendor/selected2/dist/js/select2.min.js')}}"></script>
       <script src="{{asset('assets/vendor/dist/js/bootstrap.bundle.min.js')}}"></script>
       @include('layouts.light')
+      <script>
+          $(".toggle-password").on('click', function() {
+              $(this).toggleClass("la-eye la-eye-slash");
+              var input = $($(this).attr("data-name"));
+              if (input.attr("type") == "password") {
+                  input.attr("type", "text");
+              } else {
+                  input.attr("type", "password");
+              }
+          });
+      </script>
       <script script type="text/javascript">
           AIZ.plugins.chart('#pie-1', {
               type: 'doughnut',

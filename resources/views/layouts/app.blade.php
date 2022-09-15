@@ -15,7 +15,6 @@
             @yield('contenu' ?? 'NOT FOUND')
         </div>
     </div>
-    @include('layouts.footer')
     @include('layouts.script')
 </body>
 <!-- END ADMIN SCRIPT -->

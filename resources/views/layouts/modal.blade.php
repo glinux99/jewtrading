@@ -302,3 +302,61 @@
         </div>
     </div>
 </div>
+<!-- Commande modal -->
+<div id="commande-client" class="modal fade">
+    <div class="modal-dialog modal-md modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title h6">@lang("Confirmation de la commande")</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            </div>
+            <form action="{{ route('commande.store')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                <input name="produit_id" value="{{ $produit->produit_id ?? '' }}" hidden>
+                <div class="modal-body">
+                    <div class="p-3">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@lang("Noms")</label>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="mb-3">
+                                    <input type="text" name="name" class="form-control" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@lang("Email")</label>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="mb-3">
+                                    <input type="text" name="email" class="form-control" value="{{ Auth::user()->email ?? ''}}" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@lang("Telephone")</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control mb-3" name="numero" placeholder="{{ Auth::user()->numero ?? ''}}" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>@lang("Adresse")</label>
+                            </div>
+                            <div class="col-md-10">
+                                <textarea class="form-control mb-3" placeholder="@lang('Votre adresse')" rows="2" name="adresse"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group text-right">
+                            <button type="submit" class="btn btn-sm btn-danger">@lang("Enregistrer")</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

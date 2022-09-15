@@ -15,8 +15,10 @@
             @yield('contenu' ?? 'NOT FOUND')
         </div>
     </div>
+    @include('layouts.modal')
     @include('layouts.footer')
     @include('layouts.script')
+    @include('layouts.alert-script')
 </body>
 <!-- END ADMIN SCRIPT -->
 <script>

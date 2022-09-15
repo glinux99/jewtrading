@@ -1,108 +1,265 @@
 @extends('layouts.admin')
 @section('content')
-<div class="container card my-4 py-4 shadow">
-    <div class="row border-bottom border-2">
-        <div class="col-md-6">
-            <h5 class="text-dark fw-bolder  py-2">{{__("Nos commandes")}} @if (!count($commandes) ?? 0) <smalll class="text-muted h6">({{__("Pas de commande")}})</smalll>@endif</h5>
+<div class="aiz-main-content">
+    <div class="px-15px px-lg-25px">
+
+        <div class="aiz-titlebar text-left mt-2 mb-3">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="h3">@lang("Les commandes")</h1>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <a href="{{ route('produits.all')}}" class="btn btn-danger">
+                        <span>@lang("Nos produits")</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header row gutters-5">
+                <div class="col text-center text-md-left">
+                    <h5 class="mb-md-0 h6">@lang("Les commandes de produits")</h5>
+                </div>
+            </div>
+            <div class="card-body">
+                @if (!$commandes->count())
+                <p class="text-center">@lang("Aucune commande pour l'instant")</p>
+                @else
+                <table class="table  mb-0">
+                    <thead>
+                        <th>
+                            #
+                        </th>
+                        <th>{{__("Nom")}}</th>
+                        <th>
+                            {{__("E-mail")}}
+                        </th>
+                        <th>{{__("Marque/Model")}}</th>
+                        <th>{{__("Prix")}}</th>
+                        <th>
+                            {{__("Status")}}
+                        </th>
+                        <th>{{__("Action")}}</th>
+                    </thead>
+                    <tbody class="text-muted">
+                        @foreach ($commandes as $index=> $commande)
+                        <tr class="text-center">
+                            <td>{{$index+1}}</td>
+                            <td>
+                                <a href="/commande/view/{{$commande->code_prod}}" class="com">
+                                    {{$commande->name}}
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a href="/commande/view/{{$commande->code_prod}}" class="com">
+                                    <span class="d-block">
+                                        {{ $commande->email}}
+                                    </span>
+                                    <sapan class="d-block small">{{$commande->numero}}</sapan>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/commande/view/{{$commande->code_prod}}" class="com">
+                                    <span class="d-block">
+                                        {{$commande->marque}}
+                                    </span>
+                                    <span class="d-block">
+                                        {{$commande->model}}
+                                    </span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/commande/view/{{$commande->code_prod}}" class="com">
+                                    {{$commande->prix}} USD
+                                </a>
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-danger" type="button">
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    <span class="">{{__("En entente...")}}</span>
+                                </button>
+                            </td>
+                            <td>
+                                <a href="{{ route('commande.accepte', [$commande->cmd_id])}}" class="btn btn-soft-danger">
+                                    <span class="bi-cart-check-fill"></span>
+                                    <span class="small">{{__("Accepter")}}</span>
+                                </a>
+                                <a href="{{ route('commande.annuler', [$commande->cmd_id])}}" class="btn btn-dark ">
+                                    <span class="bi-cart-x-fill"></span>
+                                    <span class="small">{{__("Annuler")}}</span>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                @endif
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header row gutters-5">
+                <div class="col text-center text-md-left">
+                    <h5 class="mb-md-0 h6">@lang("Liste de commande de produits accepte")</h5>
+                </div>
+            </div>
+            <div class="card-body">
+                @if (!$commandesaccepte->count())
+                <p class="text-center">@lang("Aucune commande de produit deja accepte pour l'instant")</p>
+                @else
+                <table class="table  mb-0">
+                    <thead>
+                        <th>
+                            #
+                        </th>
+                        <th>{{__("Nom")}}</th>
+                        <th>
+                            {{__("E-mail")}}
+                        </th>
+                        <th>{{__("Marque/Model")}}</th>
+                        <th>{{__("Prix")}}</th>
+                        <th>
+                            {{__("Status")}}
+                        </th>
+                        <th>{{__("Action")}}</th>
+                    </thead>
+                    <tbody class="text-muted">
+                        @foreach ($commandesaccepte as $index=> $commande)
+                        <tr class="text-center">
+                            <td>{{$index+1}}</td>
+                            <td>
+                                <a href="/commande/view/{{$commande->code_prod}}" class="com">
+                                    {{$commande->name}}
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a href="/commande/view/{{$commande->code_prod}}" class="com">
+                                    <span class="d-block">
+                                        {{ $commande->email}}
+                                    </span>
+                                    <sapan class="d-block small">{{$commande->numero}}</sapan>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/commande/view/{{$commande->code_prod}}" class="com">
+                                    <span class="d-block">
+                                        {{$commande->marque}}
+                                    </span>
+                                    <span class="d-block">
+                                        {{$commande->model}}
+                                    </span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/commande/view/{{$commande->code_prod}}" class="com">
+                                    {{$commande->prix}} USD
+                                </a>
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-danger" type="button">
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    <span class="">{{__("En entente...")}}</span>
+                                </button>
+                            </td>
+                            <td>
+                                <a href="{{ route('commande.accepte', [$commande->cmd_id])}}" class="btn btn-soft-danger">
+                                    <span class="bi-cart-check-fill"></span>
+                                    <span class="small">{{__("Accepter")}}</span>
+                                </a>
+                                <a href="{{ route('commande.annuler', [$commande->cmd_id])}}" class="btn btn-dark ">
+                                    <span class="bi-cart-x-fill"></span>
+                                    <span class="small">{{__("Annuler")}}</span>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                @endif
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header row gutters-5">
+                <div class="col text-center text-md-left">
+                    <h5 class="mb-md-0 h6">@lang("Liste de commandes de produits annule")</h5>
+                </div>
+            </div>
+            <div class="card-body">
+                @if (!$commandesannuler->count())
+                <p class="text-center">@lang("Aucune commande de produit deja annuller pour l'instant")</p>
+                @else
+                <table class="table  mb-0">
+                    <thead>
+                        <th>
+                            #
+                        </th>
+                        <th>{{__("Nom")}}</th>
+                        <th>
+                            {{__("E-mail")}}
+                        </th>
+                        <th>{{__("Marque/Model")}}</th>
+                        <th>{{__("Prix")}}</th>
+                        <th>
+                            {{__("Status")}}
+                        </th>
+                        <th>{{__("Action")}}</th>
+                    </thead>
+                    <tbody class="text-muted">
+                        @foreach ($commandesannuler as $index=> $commande)
+                        <tr class="text-center">
+                            <td>{{$index+1}}</td>
+                            <td>
+                                <a href="/commande/view/{{$commande->code_prod}}" class="com">
+                                    {{$commande->name}}
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a href="/commande/view/{{$commande->code_prod}}" class="com">
+                                    <span class="d-block">
+                                        {{ $commande->email}}
+                                    </span>
+                                    <sapan class="d-block small">{{$commande->numero}}</sapan>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/commande/view/{{$commande->code_prod}}" class="com">
+                                    <span class="d-block">
+                                        {{$commande->marque}}
+                                    </span>
+                                    <span class="d-block">
+                                        {{$commande->model}}
+                                    </span>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/commande/view/{{$commande->code_prod}}" class="com">
+                                    {{$commande->prix}} USD
+                                </a>
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-danger" type="button">
+                                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                    <span class="">{{__("En entente...")}}</span>
+                                </button>
+                            </td>
+                            <td>
+                                <a href="{{ route('commande.accepte', [$commande->cmd_id])}}" class="btn btn-soft-danger">
+                                    <span class="bi-cart-check-fill"></span>
+                                    <span class="small">{{__("Accepter")}}</span>
+                                </a>
+                                <a href="{{ route('commande.delete', [$commande->cmd_id])}}" class=" btn btn-dark ">
+                                    <span class=" bi-cart-x-fill"></span>
+                                    <span class="small">{{__("Supprimer")}}</span>
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                @endif
+            </div>
         </div>
     </div>
-    <div class=" mx-1">
-        @if (count($commandes) ?? 0)
-        <div class="my-2">
-            <table class="table table-hover table-responsive table-striped table-sm">
-                <thead class="text-center">
-                    <th>
-                        #
-                    </th>
-                    <th>{{__("Nom")}}</th>
-                    <th>
-                        {{__("E-mail")}}
-                    </th>
-                    <th>{{__("Marque/Model")}}</th>
-                    <th>{{__("Prix")}}</th>
-                    <th>
-                        {{__("Status")}}
-                    </th>
-                    <th>{{__("Action")}}</th>
-                </thead>
-                <tbody class="text-muted">
-                    @foreach ($commandes as $index=> $commande)
-                    <tr class="text-center">
-                        <td>{{$index+1}}</td>
-                        <td>
-                            <a href="/commande/view/{{$commande->code_prod}}" class="com">
-                                {{$commande->nom_cli}}
-                            </a>
-                        </td>
-                        <td class="text-center">
-                            <a href="/commande/view/{{$commande->code_prod}}" class="com">
-                                <span class="d-block">
-                                    {{ $commande->email_Cli}}
-                                </span>
-                                <sapan class="d-block small">{{$commande->num_cli}}</sapan>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="/commande/view/{{$commande->code_prod}}" class="com">
-                                <span class="d-block">
-                                    {{$commande->marque}}
-                                </span>
-                                <span class="d-block">
-                                    {{$commande->model}}
-                                </span>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="/commande/view/{{$commande->code_prod}}" class="com">
-                                {{$commande->prix}} USD
-                            </a>
-                        </td>
-                        <td>
-                            @if ($commande->confirme == "0")
-                            <button class="btn btn-outline-warning" type="button">
-                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                <span class="sr-only">{{__("En entente...")}}</span>
-                            </button>
-                            @elseif($commande->confirme == "1")
-                            <button class="btn btn-outline-success" type="button">
-                                <span class="bi-check2-all"></span><span>{{__("Checked...")}}</span>
-                            </button>
-                            @else
-                            <button class="btn btn-outline-danger" type="button">
-                                <span class="bi-x-circle-fill text-danger ps-3"></span>
-                                <span class="pe-3">{{__("Anuller..")}}</span>
-                            </button>
-                            @endif
-                        </td>
-                        <td>
-                            @if ($commande->confirme!="1")
-                            <a href="/accepte/commande/{{$commande->cmd_id}}" class="btn btn-success">
-                                <span class="bi-cart-check-fill"></span>
-                                <span class="small">{{__("Accepter")}}</span>
-                            </a>
-                            @if ($commande->confirme!="2")
-                            <a href="/annule/commande/{{$commande->cmd_id}}" class="btn btn-danger ">
-                                <span class="bi-cart-x-fill"></span>
-                                <span class="small">{{__("Annuler")}}</span>
-                            </a>
-                            @endif
-                            @else
-                            <a href="/annule/commande/{{$commande->cmd_id}}" class="btn btn-danger ">
-                                <span class="bi-cart-x-fill"></span>
-                                <span class="small">{{__("Annuler")}}</span>
-                            </a>
-                            <a href="/delete/commande/{{$commande->cmd_id}}" class="btn btn-dark ">
-                                <span class="bi-cart-x-fill"></span>
-                                <span class="small">{{__("Supprimer")}}</span>
-                            </a>
-                            @endif
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-        @endif
-    </div>
-</div>
+</div><!-- .aiz-main-content -->
+
 @endsection

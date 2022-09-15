@@ -9,6 +9,7 @@ use App\Http\Controllers\Site\ServiceController;
 use App\Http\Controllers\Site\HomeSiteController;
 use App\Http\Controllers\adminjews\UserController;
 use App\Http\Controllers\adminjews\AdminController;
+use App\Http\Controllers\adminjews\CommandeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,8 +54,16 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/selectMarque', [SelectController::class, 'marque']);
     Route::get('/selectModel', [SelectController::class, 'model']);
     Route::get('/selectCarburateur', [SelectController::class, 'carburateur']);
+    // Commande controller
+    Route::get('/admin-commandes', [CommandeController::class, 'index'])->name('commande.index');
+    Route::get('/admin-commandes', [CommandeController::class, 'index'])->name('commande.index');
+    Route::get('/admin-commande/{id}', [CommandeController::class, 'show'])->name('commande.show');
+    Route::get('/admin-commande-accepte/{id}', [CommandeController::class, 'accepte'])->name('commande.accepte');
+    Route::get('/admin-commande-annuler/{id}', [CommandeController::class, 'annuler'])->name('commande.annuler');
+    Route::get('/admin-commande/delete/{id}', [CommandeController::class, 'destroy'])->name('commande.delete');
 });
-// Authentificate
+// unauthentificate
+Route::post('/client-commande/store', [CommandeController::class, 'store'])->name('commande.store');
 Route::get('/', [HomeSiteController::class, 'index'])->name('index');
 Route::get('/services', [HomeSiteController::class, 'service'])->name('home.services');
 Route::get('/contact', [HomeSiteController::class, 'contact'])->name('home.contact');

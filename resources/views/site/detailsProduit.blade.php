@@ -142,7 +142,7 @@
                             <div class="h3 me-5 fs-30 fw-700 text-danger">{{ $produit->prix}} $</div>
 
                             <div class="">
-                                <button type="button" class="btn btn-primary buy-now fw-600" onclick="buyNow()">
+                                <button type="button" class="btn btn-danger buy-now fw-600" data-toggle="modal" data-target="#commande-client">
                                     <i class="la la-shopping-cart"></i> @lang("Commandez")
                                 </button>
                             </div>

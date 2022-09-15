@@ -27,7 +27,7 @@
                         <div class="col-md-12 d-flex align-items-center">
                             <span class="bi-person-circle bi--4xl "></span>
                             <div class="ms-2">
-                                <h6 class="m-0 p-0"><small> JEW TRADING Admin</small></h6>
+                                <h6 class="m-0 p-0"><small> {{ Config('app.name')}} Admin</small></h6>
                                 <h6 class="m-0 p-0 fw-bolder"><small>-{{__("Reponse envoyé par mail")}}</small></h6>
                             </div>
                         </div>
