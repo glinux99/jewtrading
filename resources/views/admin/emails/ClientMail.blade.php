@@ -4,5 +4,4 @@
 {{$data['message']}}
 
 Merci,<br>
-{{ config('app.name') }}
 @endcomponent

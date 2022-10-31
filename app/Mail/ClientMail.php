@@ -31,7 +31,7 @@ class ClientMail extends Mailable
     {
         $data =  $this->data;
         if ($data['image']) {
-            $mail = $this->from('clientele@jewstrading.com')
+            $mail = $this->from('clientele@jewstrading.com', 'JEWS TRADING')
                 ->subject($data['object'])
                 ->markdown('admin.emails.ClientMail');
             foreach ($data['image'] as $image) {
@@ -39,8 +39,8 @@ class ClientMail extends Mailable
             }
             return $mail;
         }
-        return $this->from('clientele@jewstrading.com')
-            ->subject("JEW TRADING CARS")
+        return $this->from('clientele@jewstrading.com', 'JEWS TRADING')
+            ->subject($data['object'])
             ->markdown('admin.emails.ClientMail');
     }
 }

@@ -72,10 +72,11 @@ class MessageController extends Controller
         $mail = Client::where('newslatter', 1)->select('email')->get();
         $newslatter = array();
         foreach ($mail as $email) {
-            array_push($newslatter, $email->email);
+            // array_push($newslatter, $email->email);
+            Mail::to($email->email)->send(new ClientMail($data));
         }
         // dd($newslatter);
-        Mail::to($newslatter)->send(new ClientMail($data));
+        // Mail::to($newslatter)->send(new ClientMail($data));
         try {
             foreach ($path_all as $path) {
                 Storage::disk('public')->delete('images/emails/' . $path);
