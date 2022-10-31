@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('contenu')
 <div class="h-100 bg-cover bg-center py-5 d-flex align-items-center" style="background-image: url('/assets/img/bgjews.png')">
-    <div class="container">
+    <div class="container py-2">
         <div class="row">
             <div class="col-lg-6 col-xl-4 mx-auto">
                 <div class="card text-left login-color">
