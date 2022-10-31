@@ -48,7 +48,7 @@
                         </form>
                         <div class="mt-4">
                             <p class="m-0 p-0 text-center">
-                                @lang("Propulse par SubnetCongo")
+                                @lang("Propulsé par") <a href="https://subnetcongo.net" class="text-danger">SubnetCongo</a>
                             </p>
                         </div>
                     </div>
