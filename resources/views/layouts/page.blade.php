@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="linux99">
+    <meta name="description" content="{{ Config('app.name')}} E-commerce est un site E-commerce qui vend et vous livre vos vehicules dans le plus bref delai. Passer vos commandes chez nous" />
+    <meta name="keywords" content="Jews trading, cars, e-commerce, ventes, voitures, produits e-commerce, jewstrading.com, e-commerce jewstrading, goma, vente voiture goma, jewstrading rdc , cars goma, goma cars, ventes en lignes vehicule">
+
     @include('layouts.header')
     <title>@yield('title' ?? 'Acceuil')</title>
 </head>
