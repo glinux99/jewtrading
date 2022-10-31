@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use PhpParser\Node\Stmt\Return_;
 
 class ProduitController extends Controller
 {
@@ -84,7 +85,13 @@ class ProduitController extends Controller
      */
     public function edit($id)
     {
-        //
+        $produit = Produit::findOrfail($id)
+            ->join('images', 'produit_id', 'produits.id')
+            ->groupBy('produits.id')
+            ->first();
+        $images = Images::where('produit_id', $id)->get();
+        // dd($produit->marque);
+        return view('admin.produit.produitalter', ['produit_get' => $produit, 'images' => $images]);
     }
 
     /**
@@ -96,7 +103,26 @@ class ProduitController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $produit = Produit::find($id)->update($request->except('_token', 'images'));
+        $produit = Produit::find($id);
+        if ($request->file('images')) {
+            foreach ($request->file('images') as $index => $image) {
+                $imageSave = new Images;
+                $file = Str::random(5);
+                $ext = $image->getClientOriginalExtension();
+                $fileName = $file . '.' . $ext;
+                $path = $image->storeAs(
+                    'images/produits',
+                    $fileName,
+                    'public'
+                );
+                $imageSave->images = $path;
+                $imageSave->produit_id = $produit->id;
+                $imageSave->save();
+            }
+        }
+        Session()->put('alert-session', 'produit-update');
+        return redirect()->back();
     }
 
     /**
@@ -105,6 +131,15 @@ class ProduitController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function image_delete($image)
+    {
+        $image = Images::where('images', 'images/produits/' . $image)->first();
+
+        $image->delete();
+        Storage::disk('public')->delete($image->images);
+        Session()->put('alert-session', 'image-delete');
+        return redirect()->back();
+    }
     public function destroy($id)
     {
         //

@@ -10,6 +10,7 @@ use App\Http\Controllers\Site\HomeSiteController;
 use App\Http\Controllers\adminjews\UserController;
 use App\Http\Controllers\adminjews\AdminController;
 use App\Http\Controllers\adminjews\CommandeController;
+use App\Http\Controllers\Site\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +34,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/admin-galerie-update', [AdminController::class, 'update'])->name('admin.galerie.update');
     Route::post('/admin-galerie-edit', [AdminController::class, 'edit'])->name('admin.galerie.edit');
     Route::get('/produit-create', [ProduitController::class, 'create'])->name('produit.create');
+    Route::get('/produit-edit/{id}', [ProduitController::class, 'edit'])->name('admin.produit.edit');
+    Route::get('/admin-image-delete/images/produits/{id}', [ProduitController::class, 'image_delete'])->name('admin.image.delete');
     Route::get('/service-create', [ServiceController::class, 'create'])->name('service.create');
     Route::post('/produit-store', [ProduitController::class, 'store'])->name('produit.store');
     Route::post('/service-store', [ServiceController::class, 'store'])->name('service.store');
+    Route::post('/produit-update/{id}', [ProduitController::class, 'update'])->name('admin.produit.update');
     Route::post('/service-update/{id}', [ServiceController::class, 'update'])->name('service.update');
     Route::post('/service-edit', [ServiceController::class, 'edit'])->name('service.edit');
     Route::get('/service-delete/{id}', [ServiceController::class, 'destroy'])->name('service.delete');
@@ -61,6 +65,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin-commande-accepte/{id}', [CommandeController::class, 'accepte'])->name('commande.accepte');
     Route::get('/admin-commande-annuler/{id}', [CommandeController::class, 'annuler'])->name('commande.annuler');
     Route::get('/admin-commande/delete/{id}', [CommandeController::class, 'destroy'])->name('commande.delete');
+    // Create newslatter and message Controller
+    Route::get('/admin-newslatter', [MessageController::class, 'newslatter'])->name('admin.newslatter');
 });
 // unauthentificate
 Route::post('/client-commande/store', [CommandeController::class, 'store'])->name('commande.store');
@@ -71,7 +77,6 @@ Route::get('/apropos', [HomeSiteController::class, 'apropos'])->name('home.aprop
 Route::get('/galerie', [HomeSiteController::class, 'galerie'])->name('home.galerie');
 Route::get('/produits', [ProduitController::class, 'index'])->name('produits.all');
 Route::get('/produit-details/{id}', [ProduitController::class, 'show'])->name('produit.details');
-Route::get('/produit-detail/{id}', [ProduitController::class, 'show'])->name('produit.detail');
 Auth::routes();
 Route::any('/register', function () {
     return  view('auth.login');

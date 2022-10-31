@@ -23,6 +23,17 @@
                                 <span class="absolute-bottom-left fs-11 text-white fw-600 px-2 lh-1-8" style="background-color: #455a64">
                                     @lang("En vente")
                                 </span>
+                                <div class="absolute-top-right aiz-p-hov-icon">
+                                    <a href="javascript:void(0)" data-toggle="tooltip" data-title="@lang('plus de details')" data-placement="left" class="infoproduit" data-id="{{ $produit->produit_id}}">
+                                        <i class="la la-info-circle"></i>
+                                    </a>
+                                    <a href="{{ route('admin.produit.edit',[$produit->produit_id])}}" data-toggle="tooltip" data-title="@lang('Modifier')" data-placement="left">
+                                        <i class="las la-edit"></i>
+                                    </a>
+                                    <a href="javascript:void(0)" onclick="" data-toggle="modal" data-target="#delete-modal" data-href="#" data-title="@lang('supprimer')" data-placement="left" class="confirm-alert">
+                                        <i class="las la-trash"></i>
+                                    </a>
+                                </div>
                             </div>
                             <div class="p-md-3 p-2 text-left">
                                 <div class="fs-15">

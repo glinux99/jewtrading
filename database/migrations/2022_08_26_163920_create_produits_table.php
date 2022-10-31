@@ -18,12 +18,12 @@ class CreateProduitsTable extends Migration
             $table->string('marque', 60);
             $table->string('kilometrage', 60)->nullable()->default('000000');
             $table->date('annee_fab')->nullable();
-            $table->string('moteur', 30);
-            $table->string('transmission', 30);
-            $table->string('carburateur', 30);
+            $table->string('moteur', 30)->nullable();
+            $table->string('transmission', 30)->nullable();
+            $table->string('carburateur', 30)->nullable();
             $table->string('emplacement')->nullable()->default("Japon");
-            $table->string('model', 30);
-            $table->double('prix', 20, 3);
+            $table->string('model', 30)->nullable();
+            $table->double('prix', 20, 3)->nullable();
             $table->string('couleur', 10)->nullable();
             $table->string('numchassis')->nullable()->default('N/N');
             $table->string('declaration')->nullable()->default('N/D');

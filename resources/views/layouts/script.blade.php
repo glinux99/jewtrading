@@ -14,6 +14,10 @@
                   input.attr("type", "password");
               }
           });
+          $('.image-delete').dblclick(function() {
+              var link = $(this).attr('data-link');
+              location.href = "/admin-image-delete/" + link;
+          });
       </script>
       <script script type="text/javascript">
           AIZ.plugins.chart('#pie-1', {

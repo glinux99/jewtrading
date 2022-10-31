@@ -139,8 +139,8 @@ class UserController extends Controller
             }
         }
         if ($request->id == Auth::id()) {
-            $image = Images::where('user_id', Auth::id())->first();
-            Session()->put('picprofile', 'storage/' . $image->images);
+            $admin = new  AdminController;
+            $admin->config();
             return redirect()->route('profile');
         } else return redirect()->route('admin.staff.index');
     }

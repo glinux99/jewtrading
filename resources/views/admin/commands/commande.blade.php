@@ -243,7 +243,7 @@
                                 </button>
                             </td>
                             <td>
-                                <a href="{{ route('commande.accepte', [$commande->cmd_id])}}" class="btn btn-soft-danger">
+                                <a href="{{ route('commande.accepte', [$commande->cmd_id])}}" class="btn btn-soft-danger px-1">
                                     <span class="bi-cart-check-fill"></span>
                                     <span class="small">{{__("Accepter")}}</span>
                                 </a>

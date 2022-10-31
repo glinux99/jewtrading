@@ -32,6 +32,9 @@
             case "commande-delete":
                 AIZ.plugins.notify('danger', "La commande a ete supprime avec success!!!");
                 break;
+            case "image-delete":
+                AIZ.plugins.notify('danger', "L'image a ete supprime avec success!!!");
+                break;
 
 
         }

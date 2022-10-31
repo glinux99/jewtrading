@@ -26,7 +26,7 @@
                 <div class="col-md-12">
                     <div class="card card-user">
                         <div class="image">
-                            <img class="w-100" src="https://t3.ftcdn.net/jpg/03/98/71/44/360_F_398714419_zsvtZUViipWgjjHDaUsAtMpV03YPB9J1.jpg" alt=" ..." />
+                            <img class="w-100" src="https://t3.ftcdn.net/jpg/03/98/71/44/360_F_398714419_zsvtZUViipWgjjHDaUsAtMpV03YPB9J1.jpg" alt="image network link" />
                         </div>
                         <div class="content">
                             <div class="author">
@@ -38,7 +38,7 @@
                                 </style>
                                 <a href="{{ asset(Session('picprofile'))}}">
                                     <img class="avatar border-gray" src="{{ asset(Session('picprofile'))}}" alt="Profile" />
-                                    <h4 class="title text-center">{{ Auth::user()->name ?? 'Daniel' }}<br />
+                                    <h4 class="title text-center justify-content-center">{{ Auth::user()->name ?? 'Daniel' }}<br />
                                         <small>{{ auth()->user()->getRoleNames()->first() ?? ''}}</small>
 
                                     </h4>
