@@ -10,9 +10,10 @@
                          <span style="color: rgb(242, 243, 248); font-family: 'Open Sans', sans-serif; background-color: rgb(17, 23, 35);">@lang('jews trading E-commerce System')</span>
                      </div>
                      <div class="d-inline-block d-md-block mb-4">
-                         <form class="form-inline" method="POST" action="#">
+                         <form class="form-inline" method="POST" action="/create-newslatter">
                              @csrf
                              <div class="form-group mb-0">
+                                 <input type="text" name="newslatterAuth" value="1" hidden>
                                  <input type="email" class="form-control" placeholder="@lang('votre adresse email')" name="email" required>
                                  <button type="submit" class="btn text-white btn-danger ml-">
                                      @lang('s\'abonner')

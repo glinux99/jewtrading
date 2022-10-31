@@ -1,16 +1,18 @@
 <?php
 
+use App\Mail\ClientMail;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\SelectController;
+use App\Http\Controllers\Site\MessageController;
 use App\Http\Controllers\Site\ProduitController;
 use App\Http\Controllers\Site\ServiceController;
 use App\Http\Controllers\Site\HomeSiteController;
 use App\Http\Controllers\adminjews\UserController;
 use App\Http\Controllers\adminjews\AdminController;
 use App\Http\Controllers\adminjews\CommandeController;
-use App\Http\Controllers\Site\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +69,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin-commande/delete/{id}', [CommandeController::class, 'destroy'])->name('commande.delete');
     // Create newslatter and message Controller
     Route::get('/admin-newslatter', [MessageController::class, 'newslatter'])->name('admin.newslatter');
+    Route::post('/admin-sendnewslatter', [MessageController::class, 'sendnewslatter'])->name('admin.sendnewslatter');
 });
 // unauthentificate
 Route::post('/client-commande/store', [CommandeController::class, 'store'])->name('commande.store');
@@ -77,6 +80,7 @@ Route::get('/apropos', [HomeSiteController::class, 'apropos'])->name('home.aprop
 Route::get('/galerie', [HomeSiteController::class, 'galerie'])->name('home.galerie');
 Route::get('/produits', [ProduitController::class, 'index'])->name('produits.all');
 Route::get('/produit-details/{id}', [ProduitController::class, 'show'])->name('produit.details');
+Route::post('/create-newslatter', [MessageController::class, 'newslatterCreate'])->name('newslatterCreate');
 Auth::routes();
 Route::any('/register', function () {
     return  view('auth.login');
@@ -84,6 +88,14 @@ Route::any('/register', function () {
 // Test
 Route::get('/test', function () {
     return view('test');
+});
+Route::get('/mail', function () {
+    $data = [
+        'message' => request('message'),
+        'image' =>  null,
+        'object' => 'ooook'
+    ];
+    Mail::to('genesiskikimba@gmail.com')->send(new ClientMail($data));
 });
 Route::get('migration', function () {
     Artisan::call('migrate:refresh --seed');

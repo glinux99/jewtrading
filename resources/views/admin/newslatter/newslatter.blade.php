@@ -9,7 +9,7 @@
                     <h1 class="h3">@lang("Newslatter Service")</h1>
                 </div>
                 <div class="col-md-6 text-md-right">
-                    <a href="" class="btn btn-circle btn-danger" data-toggle="modal" data-target="#serviceAddModal">
+                    <a href="" class="btn btn-circle btn-danger" data-toggle="modal" data-target="#newslatter">
                         <span>@lang("Envoyer un message aux abonnes")</span>
                     </a>
                 </div>
@@ -20,7 +20,7 @@
                 <div class="px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
                     <div class="d-flex mb-3 align-items-baseline border-bottom">
                         <h3 class="h5 fw-700 mb-0">
-                            <span class="border-bottom border-danger border-width-2 pb-3 d-inline-block">@lang("Services")</span>
+                            <span class="border-bottom border-danger border-width-2 pb-3 d-inline-block">@lang("Newslatter")</span>
                         </h3>
                     </div>
                     @if ($newslatterCli->count() ?? 0)
