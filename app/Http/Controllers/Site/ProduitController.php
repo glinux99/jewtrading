@@ -111,11 +111,12 @@ class ProduitController extends Controller
                 $file = Str::random(5);
                 $ext = $image->getClientOriginalExtension();
                 $fileName = $file . '.' . $ext;
-                $path = $image->storeAs(
-                    'images/produits',
-                    $fileName,
-                    'public'
-                );
+                // $path = $image->storeAs(
+                //     'images/produits',
+                //     $fileName,
+                //     'public'
+                // );
+                $path = $image->save(public_path('images/produits/' . $fileName), 60);
                 $imageSave->images = $path;
                 $imageSave->produit_id = $produit->id;
                 $imageSave->save();
