@@ -61,7 +61,7 @@ class AdminController extends Controller
                 $imageSave = new Images;
                 $file = Str::random(5);
                 $ext = $image->getClientOriginalExtension();
-                $fileName = $file . '.jpg';
+                $fileName = $file . '.png';
 
                 // $path = Image::make($image)->encode('jpg', 65)
                 //     ->save(public_path('/storage/images/galerie/' . $fileName));
@@ -72,7 +72,7 @@ class AdminController extends Controller
                 //     'public'
                 // );
                 // dd($path);
-                $resize_image = Image::make($image)->resize(300, 300)->encode('jpg');
+                $resize_image = Image::make($image)->resize(300, 300)->encode('png');
                 $resize_image->save(public_path('/storage/images/galerie/') . $fileName, 100);
                 // $team->profile_picture = $path;
 
