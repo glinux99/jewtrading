@@ -66,14 +66,14 @@ class AdminController extends Controller
                 // $path = Image::make($image)->encode('jpg', 65)
                 //     ->save(public_path('/storage/images/galerie/' . $fileName));
 
-                // $path = $image->storeAs(
-                //     'images/galerie',
-                //     $fileName,
-                //     'public'
-                // );
+                $path = $image->storeAs(
+                    'images/galerie',
+                    $fileName,
+                    'public'
+                );
                 // dd($path);
-                $resize_image = Image::make($image)->resize(300, 300)->encode('png');
-                $resize_image->save(public_path('/storage/images/galerie/') . $fileName, 100);
+                // $resize_image = Image::make($image)->resize(300, 300)->encode('png');
+                // $resize_image->save(public_path('/storage/images/galerie/') . $fileName, 100);
                 // $team->profile_picture = $path;
 
 
